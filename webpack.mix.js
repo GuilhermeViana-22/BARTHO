@@ -12,10 +12,12 @@ const mix = require('laravel-mix');
  */
 
 mix
+
+
+
     .sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/site/bootstrap.css')
 
 
-    .scripts('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'public/site/bootstrap.js')
+.scripts('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'public/site/bootstrap.js')
     .scripts('node_modules/jquery/dist/jquery.js', 'public/site/jquery.js')
     .scripts('node_modules/sweetalert2/dist/sweetalert2.all.js', 'public/site/js/sweetalert2.all.js')
-

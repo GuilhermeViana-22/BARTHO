@@ -22,13 +22,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Doações</a>
+                    <a class="nav-link" href="/adote">Doações</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Depoimentos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contato</a>
+                    <a class="nav-link" href="/contato">Contato</a>
                 </li>
                 <li class="nav-item">
                     <button type="button" class="btn btn-warning">Doe</button>
