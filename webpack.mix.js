@@ -16,6 +16,7 @@ mix
 
 
     .sass('node_modules/bootstrap/scss/bootstrap.scss', 'public/site/bootstrap.css')
+    .css('resources/css/banner.css', 'public/site/banner.css')
 
 
 .scripts('node_modules/bootstrap/dist/js/bootstrap.bundle.js', 'public/site/bootstrap.js')
