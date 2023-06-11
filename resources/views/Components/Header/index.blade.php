@@ -22,7 +22,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Doações</a>
+                    <a class="nav-link" href="{{ route('adote.index') }}">Doações</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Depoimentos</a>
