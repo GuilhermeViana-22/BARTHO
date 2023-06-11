@@ -22,10 +22,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link" href="{{ route('adote.index') }}">Adote</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('Ajudar.index') }}">Como Ajudar</a>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Depoimentos</a>

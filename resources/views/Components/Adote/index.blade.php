@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
 @include('Components.Header.index')
+
 <section class="adote">
     <div class="container text-center titulos ">
         <div class="card  text-center description">
@@ -137,3 +138,4 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 @include('Components.Footer.index')
+

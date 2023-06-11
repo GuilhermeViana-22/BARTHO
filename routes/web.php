@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdoteController;
 use App\Http\Controllers\ContatoController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\AjudarController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 
 Route::get('/adote', [AdoteController::class, 'index'])->name('adote.index');
