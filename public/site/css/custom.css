@@ -144,3 +144,50 @@ p {
 .botao-adote:hover {
     background-color: #FFD129;
 }
+
+
+/*tab Ajudar inicia aqui*/
+
+.comoajudar {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    /* Ajuste a altura conforme necessário */
+}
+
+.container_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c_ajudar_white {
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+}
+
+.c_ajudar_dark {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    background-color: #F1F1F1;
+}
+
+.ajudar_description {
+    border-style: none;
+    border: 50px;
+    margin-top: 35px;
+    margin-right: 45px;
+}
+
+.ajuda_img_container {
+    margin: 25px;
+}
+
+.ajuda_img {
+    width: 350px;
+    height: 350px;
+}
