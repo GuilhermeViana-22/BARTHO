@@ -1,5 +1,5 @@
 .navbar {
-  color: #000000;
+    color: #000000;
 }
 
 .container-fluid {
@@ -25,7 +25,6 @@
 
 .navbar-nav {
     width: 100%;
-
     display: flex;
     justify-content: flex-end;
 }
@@ -34,21 +33,161 @@
     margin-left: 10px;
 }
 
+
 /*Inicio do css do banner*/
-.banner{
-    height: calc(100vh - 70px);
+
+.banner {
+    height: calc(65vh - 70px);
     width: 100%;
     background-color: #FFD129;
 }
+
+.container_banner {
+    align-items: center;
+    /* ou a altura desejada */
+}
+
+.banner_description {
+    margin-top: 60px;
+    background-color: #FFD129;
+    border-style: none;
+    ;
+}
+
+.Banner_img {
+    display: flex;
+    margin-top: 118px;
+}
+
+
 /*Fim do css do banner*/
 
+
 /*Inicio do css do footer*/
+
 .footer {
     bottom: 0;
     height: 200px;
     width: 100%;
     background-color: #f5f5f5;
 }
+
+
 /*Fim do css do footer*/
 
 
+/*inicio do css dentro do banner*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description_banner,
+.col-8 {
+    flex: 1;
+}
+
+
+/*Fim do css dentro do banner*/
+
+
+/*inicio do css adote*/
+
+.adote_description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.container_Adote_Descriptions {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-color: #f5f5f5;
+}
+
+.description,
+.card-header {
+    border-color: #fff;
+    background-color: #fff;
+    color: #323540;
+}
+
+h5,
+p {
+    font-family: "Barlow", Sans-serif;
+    color: #000000;
+    font-weight: bold;
+}
+
+.titulos {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.animais {
+    margin-bottom: 100px;
+    margin-left: 50px;
+    background-color: #cfcfd5;
+    border: none;
+}
+
+.botao-adote {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #6C5142;
+    transition: background-color 0.3s ease;
+}
+
+.botao-adote:hover {
+    background-color: #FFD129;
+}
+
+
+/*tab Ajudar inicia aqui*/
+
+.comoajudar {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    /* Ajuste a altura conforme necessário */
+}
+
+.container_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c_ajudar_white {
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+}
+
+.c_ajudar_dark {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    background-color: #F1F1F1;
+}
+
+.ajudar_description {
+    border-style: none;
+    border: 50px;
+    margin-top: 35px;
+    margin-right: 45px;
+}
+
+.ajuda_img_container {
+    margin: 25px;
+}
+
+.ajuda_img {
+    width: 350px;
+    height: 350px;
+}

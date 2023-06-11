@@ -1,0 +1,11 @@
+* {
+    background-color: #262626 !important;
+}
+
+.description_banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}

@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdoteController extends Controller
+class contatoController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +13,7 @@ class AdoteController extends Controller
      */
     public function index()
     {
-        return view('Components.Adote.index');
+        return view('Components.Contato.index');
     }
 
     /**
