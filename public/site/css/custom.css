@@ -1,7 +1,27 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.master-container{
+    /*max-width: 70%;*/
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#logo-header{
+    width: 150px;
+}
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+    padding: 5px;
+}
+.text-content{
+    color: #ffffff;
+}
 .navbar {
     color: #000000;
 }
-
 .container-fluid {
     display: flex;
     justify-content: space-between;
@@ -35,32 +55,65 @@
 
 
 /*Inicio do css do banner*/
-
 .banner {
-    height: calc(65vh - 70px);
-    width: 100%;
-    background-color: #FFD129;
-}
-
-.container_banner {
-    align-items: center;
-    /* ou a altura desejada */
-}
-
-.banner_description {
-    margin-top: 60px;
-    background-color: #FFD129;
-    border-style: none;
-    ;
-}
-
-.Banner_img {
     display: flex;
-    margin-top: 118px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-image: url('/img/banner-bartho.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: calc(90vh - 70px);
 }
 
-
+.card-banner{
+    margin-top: 130px;
+    padding: 100px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.card-title{
+    text-align: left;
+}
+#subtittle{
+    color: #88726c;
+}
+.btn-more-information{
+    color: #ffffff;
+    background-color: #654737;
+    padding: 10px;
+    width: 200px;
+}
+.btn-more-information:hover{
+    background-color: #4b3121;
+}
 /*Fim do css do banner*/
+
+/*Inicio do css do sobre*/
+.sobre{
+ margin-top: 100px; margin-bottom: 100px;
+}
+.content-wrapper{
+    text-align: left;
+   /*// filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));*/
+}
+/*Fim do css do sobre*/
+
+
+
+/*Inicio do css do qrcode*/
+.qrcode{
+   background-color: #6C5142;
+    color: #ffffff !important;
+}
+
+.content-wrapper{
+    text-align: left;
+    /*// filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));*/
+}
+/*Fim do css do qrcode*/
+
+
 
 
 /*Inicio do css do footer*/
@@ -72,25 +125,8 @@
     background-color: #f5f5f5;
 }
 
-
 /*Fim do css do footer*/
 
-
-/*inicio do css dentro do banner*/
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.description_banner,
-.col-8 {
-    flex: 1;
-}
-
-
-/*Fim do css dentro do banner*/
 
 
 /*inicio do css adote*/
@@ -118,7 +154,7 @@
 
 h5,
 p {
-    font-family: "Barlow", Sans-serif;
+
     color: #000000;
     font-weight: bold;
 }
@@ -136,7 +172,7 @@ p {
 }
 
 .botao-adote {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
     background-color: #6C5142;
     transition: background-color 0.3s ease;
 }
@@ -190,4 +226,19 @@ p {
 .ajuda_img {
     width: 350px;
     height: 350px;
+}
+.footer {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+.image-container{
+    background-color: #e9c250;
+}
+#background-footer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    background-color: #e9c250;
 }

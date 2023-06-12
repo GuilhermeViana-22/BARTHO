@@ -1,30 +1,13 @@
 <section class="banner">
-
-
-    <div class="container text-center d-flex justify-content-between container_banner">
-
-
-        <div class="row ">
-            <div class="col-4">
-
-                <div class="card text-center banner_description">
-                    <div class="card-body ">
-
-                        <h1 class="card-title " style=" color:#fff;">Juntos, protegemos aqueles que não podem se proteger sozinhos.</h1>
-                        <p class="card-text" style="color:#767676; ">Um lugar onde nossos bichinhos recebem muito amor e carinho.</p>
-                        <button type="button" class="btn btn-secondary" style="background-color:#6C5142;">Secondary</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-8 Banner_img">
-                <img src="{{ asset('img/york_chaire_1.png') }}" class="rounded float-end" style="width: 750px; " alt="...">
-            </div>
-        </div>
-
-
-
-
-
-    </div>
-
+   <div class="card-banner">
+       <div class="row">
+           <div class="col-md-6">
+               <div class="card-body">
+                   <h1 class="card-title"><strong>Juntos, protegemos aqueles que não podem se proteger sozinhos</strong></h1>
+                   <p class="card-text"><strong id="subtittle">Um lugar onde nossos bichinhos recebem muito amor e carinho</strong></p>
+                   <button type="button" class="btn btn-more-information">Saiba mais</button>
+               </div>
+           </div>
+       </div>
+   </div>
 </section>

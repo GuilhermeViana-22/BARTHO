@@ -28,12 +28,14 @@
 </head>
 
 <body class="antialiased">
-    @include('Components.Header.index')
-    @include('Components.Banner.index')
-    @include('Components.Footer.index')
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+@include('Components.Header.index')
+@include('Components.Banner.index')
+    <main class="master-container">
+        @include('Components.Sobre.index')
+    </main>
+@include('Components.Footer.index')
 </body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>
-
 </html>
