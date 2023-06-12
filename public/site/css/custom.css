@@ -2,6 +2,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
 .master-container{
     /*max-width: 70%;*/
     margin-left: auto;
@@ -59,11 +65,23 @@ h1,h2,h3,h4,h5,h6{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-image: url('/img/banner-bartho.jpg');
+    height: calc(90vh - 70px);
+    animation: carousel 10s infinite;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    height: calc(90vh - 70px);
+}
+
+@keyframes carousel {
+    0% {
+        background-image: url('/img/banner-bartho.jpg');
+    }
+    50% {
+        background-image: url('/img/banner-bartho.jpg');
+    }
+    100% {
+        background-image: url('/img/banner-bartho.jpg');
+    }
 }
 
 .card-banner{

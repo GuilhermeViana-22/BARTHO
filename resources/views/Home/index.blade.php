@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="{{ asset('img/nova-logo.png') }}">
     <title>BARTHÔ</title>
 
 
@@ -16,15 +16,6 @@
     <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('banner.css') }}">
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
 </head>
 
 <body class="antialiased">
