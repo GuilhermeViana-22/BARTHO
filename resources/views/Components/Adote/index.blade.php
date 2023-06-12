@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
 @include('Components.Header.index')
-
 <section class="adote">
     <div class="container text-center titulos ">
         <div class="card  text-center description">
