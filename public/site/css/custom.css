@@ -1,33 +1,43 @@
-*{
+* {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
+
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
 }
-.master-container{
+
+.master-container {
     /*max-width: 70%;*/
     margin-left: auto;
     margin-right: auto;
     display: block;
 }
 
-#logo-header{
+#logo-header {
     width: 150px;
 }
-h1,h2,h3,h4,h5,h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     text-align: center;
     padding: 5px;
 }
-.text-content{
+
+.text-content {
     color: #ffffff;
 }
+
 .navbar {
     color: #000000;
 }
+
 .container-fluid {
     display: flex;
     justify-content: space-between;
@@ -61,6 +71,7 @@ h1,h2,h3,h4,h5,h6{
 
 
 /*Inicio do css do banner*/
+
 .banner {
     display: flex;
     flex-direction: row;
@@ -84,54 +95,111 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-.card-banner{
+.card-banner {
     margin-top: 130px;
     padding: 100px;
     font-weight: bold;
     color: #ffffff;
 }
-.card-title{
+
+.card-title-banner {
     text-align: left;
 }
-#subtittle{
+
+#subtittle {
     color: #88726c;
 }
-.btn-more-information{
+
+.btn-more-information {
     color: #ffffff;
     background-color: #654737;
     padding: 10px;
     width: 200px;
 }
-.btn-more-information:hover{
+
+.btn-more-information:hover {
     background-color: #4b3121;
 }
+
+
 /*Fim do css do banner*/
 
+
 /*Inicio do css do sobre*/
-.sobre{
- margin-top: 100px; margin-bottom: 100px;
-}
-.content-wrapper{
-    text-align: left;
-   /*// filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));*/
-}
-/*Fim do css do sobre*/
 
-
-
-/*Inicio do css do qrcode*/
-.qrcode{
-   background-color: #6C5142;
-    color: #ffffff !important;
-    padding: 10rem;
+.sobre {
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
-.content-wrapper{
+.content-wrapper {
     text-align: left;
     /*// filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));*/
 }
+
+
+/*Fim do css do sobre*/
+
+
+/*Inicio do css do qrcode*/
+
+.qrcode {
+    background-color: #6C5142;
+    color: #ffffff !important;
+}
+
+.qrcode-content {
+    padding-left: 10rem;
+    padding-top: 10rem;
+    padding-right: 10rem;
+}
+
+.content-wrapper {
+    text-align: left;
+    /*// filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));*/
+}
+
+.qrcode-img {
+    width: 400px;
+    height: 400px;
+}
+
+
 /*Fim do css do qrcode*/
 
+.doacoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+}
+
+.doacoes-content {
+    border-radius: 0;
+    background-color: #f3f3f3;
+    margin-top: 100px;
+    height: 80%;
+    text-align: center;
+    align-items: center;
+    border: 3px solid #868585;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-style: solid;
+}
+
+.doacoes-icon {
+    margin-top: 20px;
+    border-radius: 1000px;
+    border: 50px;
+    width: 200px;
+    height: 200px;
+    border-color: #ED9F2A;
+    background-color: #E9C250;
+    display: flex;
+    align-items: center;
+}
 
 
 /*inicio do css adote*/
@@ -159,7 +227,6 @@ h1,h2,h3,h4,h5,h6{
 
 h5,
 p {
-
     color: #000000;
     font-weight: bold;
 }
@@ -172,12 +239,12 @@ p {
 .animais {
     margin-bottom: 100px;
     margin-left: 50px;
+    height: 85%;
     background-color: #cfcfd5;
     border: none;
 }
 
 .botao-adote {
-
     background-color: #6C5142;
     transition: background-color 0.3s ease;
 }
@@ -232,6 +299,51 @@ p {
     width: 350px;
     height: 350px;
 }
+
+
+/*inicio do css contato*/
+
+.container-contato {
+    margin: 100px;
+    border: 3px solid #868585;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-style: solid;
+}
+
+.card-contato {
+    border-style: none;
+}
+
+.list-contao {
+    align-items: flex-start;
+}
+
+.item-contato {
+    margin-right: 10px;
+    padding-bottom: 20px;
+    border-style: none;
+}
+
+.link-contato {
+    color: #000000;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 10px;
+}
+
+.card-body-content {
+    margin-top: 50px;
+}
+
+.img-logo {
+    width: 300px;
+    height: 300px;
+}
+
+
+/*fim do css cotato*/
+
 .footer {
     background-image: url('/img/footer.jpg');
     background-repeat: repeat;
@@ -244,4 +356,16 @@ p {
     margin-right: auto;
     padding: 10rem;
     width: 50%;
+}
+
+@keyframes carousel {
+    0% {
+        background-image: url('/img/banner-bartho.jpg');
+    }
+    50% {
+        background-image: url('/img/banner-bartho.jpg');
+    }
+    100% {
+        background-image: url('/img/banner-bartho.jpg');
+    }
 }
