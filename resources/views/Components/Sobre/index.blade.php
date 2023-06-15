@@ -1,7 +1,7 @@
 <section class="sobre">
     <div class="row">
         <div class="col-md-6">
-            <img  src="{{ asset('img/nova-logo.png') }}" alt="Imagem" class="img-fluid">
+            <img src="{{ asset('img/nova-logo.png') }}" alt="Imagem" class="img-fluid ">
         </div>
         <div class="col-md-6 content-wrapper">
             <h1><strong>Sobre nós</strong></h1>
@@ -25,4 +25,3 @@
     </div>
 </section>
 @include('Components.Sobre.qrcode')
-

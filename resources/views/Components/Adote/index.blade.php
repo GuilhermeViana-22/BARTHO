@@ -23,7 +23,7 @@
                         <ion-icon name="star-outline" style="font-size: 45px; color: #dca821;"></ion-icon>
                     </span>
                     <div class="card description">
-                        <div class="card-body">
+                        <div class="card-body ">
 
                             <h5 class="card-title text-warning ">Proteger saídas e rotas de fuga</h5>
                             <p class="card-text text-body-tertiary">Apartamentos e casas precisam ter redes de proteção em todas as janelas, vitrôs, basculantes, sacadas e portões para impedir o acesso do cachorro de rua . Lembre-se que isso precisa ser feito antes da chegada do cachorrinho.</p>
@@ -60,7 +60,7 @@
                         <ion-icon name="home-outline" style="font-size: 45px; color: #dca821;"></ion-icon>
                     </span>
                     <div class="card description">
-                        <div class="card-body">
+                        <div class="card-body ">
 
                             <h5 class="card-title text-warning">Morar em São Paulo</h5>
                             <p class="card-text text-body-tertiary">É preciso morar na cidade de São Paulo, no ABC (Santo André, São Bernardo e São Caetano) ou arredores.</p>
@@ -137,4 +137,3 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 @include('Components.Footer.index')
-
