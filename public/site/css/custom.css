@@ -1,5 +1,6 @@
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif !important;
+    overflow-x: hidden;
 }
 
 body {
@@ -7,19 +8,22 @@ body {
     padding: 0;
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
+    background-color: #fcfcfc;
 }
 
-.master-container {
-    /*max-width: 70%;*/
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
+/*.master-container {*/
+/*    max-width: 70%;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    display: block;*/
+/*}*/
 
-#logo-header {
-    width: 150px;
-}
+/*apenas para ajuste*/
 
+
+.navbar{
+    padding: 10px;
+}
 h1,
 h2,
 h3,
@@ -30,18 +34,43 @@ h6 {
     padding: 5px;
 }
 
+section {
+    padding: 100px;
+}
+
 .text-content {
     color: #ffffff;
 }
 
 .navbar {
     color: #000000;
+    padding: 10px;
+}
+.navbar-brand{
+    color: #654737;
+}
+.navbar-brand:hover{
+    color: #654737;
+}
+.nav-link{
+    color: #654737;
+}
+.nav-link:hover{
+    color: #ffc107;
+}
+.navbar-toggler{
+    background-color: #ffc107;
+}
+
+.navbar-collapse{
+    padding: 10px;
 }
 
 .container-fluid {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
 }
 
 .navbar-brand {
@@ -96,7 +125,6 @@ h6 {
 }
 
 .card-banner {
-    margin-top: 130px;
     padding: 100px;
     font-weight: bold;
     color: #ffffff;
@@ -122,85 +150,40 @@ h6 {
 }
 
 
+
 /*Fim do css do banner*/
 
 
 /*Inicio do css do sobre*/
+#logo_sobre{
+    max-width: 300px;
+}
 
 .sobre {
     margin-top: 100px;
     margin-bottom: 100px;
 }
-
-.content-wrapper {
-    text-align: left;
-    /*// filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));*/
-}
-
-
 /*Fim do css do sobre*/
 
 
 /*Inicio do css do qrcode*/
 
 .qrcode {
+
     background-color: #6C5142;
     color: #ffffff !important;
 }
 
-.qrcode-content {
-    padding-left: 10rem;
-    padding-top: 10rem;
-    padding-right: 10rem;
-}
-
-.content-wrapper {
-    text-align: left;
-    /*// filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));*/
-}
-
-.qrcode-img {
-    width: 400px;
-    height: 400px;
-}
-
-
 /*Fim do css do qrcode*/
-
+.card-doacoes {
+    height: 300px;
+}
 .doacoes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 100px;
-}
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+    margin-top: 30px;
+    padding: 20px;
 
-.doacoes-content {
-    border-radius: 0;
-    background-color: #f3f3f3;
-    margin-top: 100px;
-    height: 80%;
-    text-align: center;
-    align-items: center;
-    border: 3px solid #868585;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    border-style: solid;
 }
-
-.doacoes-icon {
-    margin-top: 20px;
-    border-radius: 1000px;
-    border: 50px;
-    width: 200px;
-    height: 200px;
-    border-color: #ED9F2A;
-    background-color: #E9C250;
-    display: flex;
-    align-items: center;
-}
-
 
 /*inicio do css adote*/
 
@@ -358,14 +341,99 @@ p {
     width: 50%;
 }
 
-@keyframes carousel {
-    0% {
-        background-image: url('/img/banner-bartho.jpg');
+
+/*=======================================*/
+
+@media (max-width: 990px)
+{
+
+}
+
+@media (max-width: 860px)
+{
+
+}
+
+
+/* grendess */
+@media (min-width: 601px) and (max-width: 700px)
+{
+    .banner{
+        display: none;
     }
-    50% {
-        background-image: url('/img/banner-bartho.jpg');
+    .card-banner{
+        display: none;
     }
-    100% {
-        background-image: url('/img/banner-bartho.jpg');
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    section {
+        padding: 10px;
+    }
+}
+
+/* tables */
+@media (min-width: 401px) and (max-width: 600px)
+{
+    .banner{
+        display: none;
+    }
+    .card-banner {
+        display: none;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50vh;
+    }
+    section {
+        padding: 30px;
+    }
+}
+
+/* medios */
+@media (min-width: 301px) and (max-width: 400px)
+{
+    .banner{
+        display: none;
+    }
+    .card-banner{
+        display: none;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 40vh;
+    }
+    section {
+        padding: 15px;
+    }
+}
+/* muito pequenos */
+@media (min-width: 50px) and (max-width: 300px)
+{
+    .banner{
+        display: none;
+    }
+    .card-banner{
+        display: none;
+    }
+
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30vh;
+    }
+    section {
+        padding: 10px;
     }
 }
