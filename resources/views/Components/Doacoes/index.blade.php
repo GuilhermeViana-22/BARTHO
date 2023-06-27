@@ -1,3 +1,5 @@
+
+
 <section class="doacoes">
     <div class="row justify-content-center text-center align-items-stretch">
         <div class="col-md-4">
@@ -14,9 +16,14 @@
         </div>
         <div class="col-md-4">
             <div class="card doacoes">
-                <h5><i class="fas fa-paw"></i>Cirurgias</h5>
+                <h5><i class='fas fa-hand-holding-heart'></i>Cirurgias</h5>
                 <p>Com suas doações, podemos cobrir os custos das cirurgias essenciais para nossos animais. Cada contribuição que recebemos nos permite oferecer-lhes acesso a procedimentos cirúrgicos realizados por profissionais qualificados e experientes. As doações possibilitam que eles recebam os cuidados médicos necessários para superar.</p>
             </div>
         </div>
     </div>
+    <section class="agradecimentos">
+        <article class="bubbles"></article>
+        <h4><strong>EM NOME DOS NOSSOS ANIMAIS, MUITO OBRIGADO!</strong></h4>
+    </section>
 </section>
+

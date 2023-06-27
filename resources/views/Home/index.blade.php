@@ -8,6 +8,7 @@
     <title>BARTHÔ</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
     <!-- Styles -->
@@ -29,5 +30,5 @@
 <!-- CDN do jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>
-
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </html>

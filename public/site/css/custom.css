@@ -285,36 +285,33 @@ p {
 
 
 /*inicio do css contato*/
-
-.container-contato {
-    margin: 100px;
-    border: 3px solid #868585;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    border-style: solid;
+.list-group-item  {
+    background-color: #e9cc66;
+}
+.item-contato{
+    background-color: #e9cc66;
 }
 
-.card-contato {
-    border-style: none;
+.custom-icon {
+    font-size: 24px;
+    margin-right: 5px; /* Ajuste a margem conforme necessário */
+    color: #60361e; /* Defina a cor desejada para o ícone */
+    /* Adicione outros estilos personalizados aqui, se necessário */
 }
+.link-contato{
+    display: inline-flex;
+    align-items: center;
+     color: #60361e; /* Defina a cor desejada para o ícone */
+     text-decoration: none;
+     font-weight: bold;
+    overflow-wrap: break-word;
 
-.list-contao {
-    align-items: flex-start;
-}
-
-.item-contato {
-    margin-right: 10px;
-    padding-bottom: 20px;
-    border-style: none;
-}
-
-.link-contato {
-    color: #000000;
-    font-size: 20px;
+ }
+.link-contato:hover{
+    color: #ffffff; /* Defina a cor desejada para o ícone */
     text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 10px;
+    font-weight: bold;
 }
-
 .card-body-content {
     margin-top: 50px;
 }
@@ -326,22 +323,29 @@ p {
 
 
 /*fim do css cotato*/
-
+.bubbles-header{
+    margin-top: -70px;
+}
+.bubbles{
+    background-image: url('/img/bubbles.svg');
+    opacity: 0.1;
+    padding: 50px;
+}
 .footer {
-    background-image: url('/img/footer.jpg');
-    background-repeat: repeat;
-    height: 740px;
+    background-color: #e9cc66;
 }
 
-#background-footer {
+.logo_footer{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 10rem;
-    width: 50%;
 }
-
-
+.footer-dark .copyright {
+    text-align:center;
+}
+.finally{
+    background-color: #e9cc66;
+}
 /*=======================================*/
 
 @media (max-width: 990px)

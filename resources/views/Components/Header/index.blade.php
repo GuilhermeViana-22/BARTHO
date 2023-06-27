@@ -11,7 +11,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home.index') }}">Ações</a>
+                    <a class="nav-link" href="{{ route('acoes.index') }}">Ações</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home.index') }}">Seja um voluntário</a>
