@@ -40,8 +40,6 @@
                 </ul>
             </div>
         </div>
-
-
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
             <img id="logo_footer" src="{{ asset('img/logo_Bartho_Grupo_protecao_animal.svg') }}" alt="Imagem" class="img-fluid">
         </div>
@@ -65,6 +63,5 @@
     </div>
 </section>
 <article class="finally">
-    <p class="copyright" style="text-align: center">Todos os direitos reservados © BARTHÔ Grupo de proteção animal <span
-            id="ano"></span></p>
+    <p class="copyright" style="text-align: center">Todos os direitos reservados © BARTHÔ Grupo de proteção animal <span id="ano"></span></p>
 </article>
