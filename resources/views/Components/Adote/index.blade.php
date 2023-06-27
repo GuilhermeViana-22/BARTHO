@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
 @include('Components.Header.index')
+@include('Components.Banner.index')
 <section class="adote">
     <div class="container text-center titulos ">
         <div class="card  text-center description">
@@ -48,9 +49,6 @@
 
     </div>
     <div class="container text-center container_Adote_Descriptions">
-
-
-
         <div class="row justify-content-md-center">
 
             <div class="row">
@@ -83,55 +81,39 @@
             </div>
         </div>
     </div>
-    <div class="container text-center titulos ">
-        <div class="card text-center description">
-            <div class="card-header">
-                <h4 class="card-title text-warning"> Cachorro disponiveis para a adoção</h4>
 
+    <div class="row justify-content-center text-center align-items-stretch">
+        <h5>Animais para adção</h5>
+        <div class="col-md-4">
+            <div class="card doacoes">
+                <div class="card-header">
+                    <h5>🐾 Conheça Nino! 🐾</h5>
+                    <img src="{{ asset('img/qrcode-area.png') }}" alt="Imagem" class="img-fluid ">
+                </div>
+                <p>Doçura irresistível: Nino é uma verdadeira bolinha de carinho! Com seu olhar meigo e sua personalidade afetuosa, ele está sempre pronto para encher sua vida de amor e ternura.
+                    Companheirismo garantido: Nino é o parceiro perfeito para todas as aventuras da vida. Seja em caminhadas no parque, sessões de brincadeiras ou momentos de relaxamento no sofá, ele estará ao seu lado, pronto para compartilhar momentos preciosos.</p>
             </div>
         </div>
-    </div>
-    <div class="container text-center container_Adote_animais">
-
-
-
-        <div class="row">
-            <div class="col">
-                <div class="card animais" style="width: 18rem;">
-                    <img src="{{ asset('img/dogi_3.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title  ">Caramelo 1</h5>
-                        <p class="card-text text-body-tertiary">Esse aqui 'e o caramelo, resgatado de maus cuidados e hoje esta feliz em procura uma casa nova</p>
-                        <button type="button" class="btn btn-lg botao-adote">Adote</button>
-
-                    </div>
+        <div class="col-md-4">
+            <div class="card doacoes">
+                <div class="card-header">
+                    <h5>🐾 Conheça Nino! 🐾</h5>
+                    <img src="{{ asset('img/qrcode-area.png') }}" alt="Imagem" class="img-fluid ">
                 </div>
-            </div>
-            <div class="col">
-                <div class="card animais" style="width: 18rem;">
-                    <img src="{{ asset('img/dogi_2.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title  ">Nome do animalzinho 2</h5>
-                        <p class="card-text text-body-tertiary">Descricao do animalzinho</p>
-                        <button type="button" class="btn btn-lg botao-adote ">Adote</button>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card animais" style="width: 18rem;">
-                    <img src="{{ asset('img/dogi_1.jpeg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title  ">Nome do animalzinho 3</h5>
-                        <p class="card-text text-body-tertiary">Descricao do animalzinho</p>
-                        <button type="button" class="btn btn-lg botao-adote">Adote</button>
-
-                    </div>
-                </div>
+                <p>Doçura irresistível: Nino é uma verdadeira bolinha de carinho! Com seu olhar meigo e sua personalidade afetuosa, ele está sempre pronto para encher sua vida de amor e ternura.
+                    Companheirismo garantido: Nino é o parceiro perfeito para todas as aventuras da vida. Seja em caminhadas no parque, sessões de brincadeiras ou momentos de relaxamento no sofá, ele estará ao seu lado, pronto para compartilhar momentos preciosos.</p>
             </div>
         </div>
-
-
+        <div class="col-md-4">
+            <div class="card doacoes">
+                <div class="card-header">
+                    <h5>🐾 Conheça Nino! 🐾</h5>
+                    <img src="{{ asset('img/qrcode-area.png') }}" alt="Imagem" class="img-fluid ">
+                </div>
+                <p>Doçura irresistível: Nino é uma verdadeira bolinha de carinho! Com seu olhar meigo e sua personalidade afetuosa, ele está sempre pronto para encher sua vida de amor e ternura.
+                    Companheirismo garantido: Nino é o parceiro perfeito para todas as aventuras da vida. Seja em caminhadas no parque, sessões de brincadeiras ou momentos de relaxamento no sofá, ele estará ao seu lado, pronto para compartilhar momentos preciosos.</p>
+            </div>
+        </div>
     </div>
 </section>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

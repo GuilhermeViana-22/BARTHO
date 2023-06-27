@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
 @include('Components.Header.index')
+@include('Components.Banner.index')
 <div class="container">
     <div class="card text-center container-contato">
         <div class="card-header">
@@ -45,11 +46,7 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
 </div>
 @include('Components.Footer.index')
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
