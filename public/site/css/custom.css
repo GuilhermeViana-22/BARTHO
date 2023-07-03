@@ -11,19 +11,31 @@ body {
     background-color: #fcfcfc;
 }
 
+
 /*.master-container {*/
+
+
 /*    max-width: 70%;*/
+
+
 /*    margin-left: auto;*/
+
+
 /*    margin-right: auto;*/
+
+
 /*    display: block;*/
+
+
 /*}*/
+
 
 /*apenas para ajuste*/
 
-
-.navbar{
+.navbar {
     padding: 10px;
 }
+
 h1,
 h2,
 h3,
@@ -46,23 +58,28 @@ section {
     color: #000000;
     padding: 10px;
 }
-.navbar-brand{
+
+.navbar-brand {
     color: #654737;
 }
-.navbar-brand:hover{
+
+.navbar-brand:hover {
     color: #654737;
 }
-.nav-link{
+
+.nav-link {
     color: #654737;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: #ffc107;
 }
-.navbar-toggler{
+
+.navbar-toggler {
     background-color: #ffc107;
 }
 
-.navbar-collapse{
+.navbar-collapse {
     padding: 10px;
 }
 
@@ -150,12 +167,12 @@ section {
 }
 
 
-
 /*Fim do css do banner*/
 
 
 /*Inicio do css do sobre*/
-#logo_sobre{
+
+#logo_sobre {
     max-width: 300px;
 }
 
@@ -163,27 +180,45 @@ section {
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+
 /*Fim do css do sobre*/
 
 
 /*Inicio do css do qrcode*/
 
 .qrcode {
-
     background-color: #6C5142;
     color: #ffffff !important;
 }
 
+
 /*Fim do css do qrcode*/
+
 .card-doacoes {
     height: 300px;
 }
+
 .doacoes {
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
     margin-top: 30px;
+    border-bottom: 100px;
     padding: 20px;
-
 }
+
+.cad-doacoes {
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+    margin-top: 30px;
+    border-bottom: 100px;
+    padding: 20px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
 
 /*inicio do css adote*/
 
@@ -191,20 +226,20 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .container_Adote_Descriptions {
     margin-top: 30px;
     margin-bottom: 30px;
-    border-color: #f5f5f5;
+    border-style: none;
 }
 
 .description,
 .card-header {
-    border-color: #fff;
-    background-color: #fff;
+    border-style: none;
+    background-color: #fcfcfc;
     color: #323540;
 }
 
@@ -229,6 +264,7 @@ p {
 
 .botao-adote {
     background-color: #6C5142;
+    color: #F1F1F1;
     transition: background-color 0.3s ease;
 }
 
@@ -285,33 +321,41 @@ p {
 
 
 /*inicio do css contato*/
-.list-group-item  {
+
+.list-group-item {
     background-color: #e9cc66;
 }
-.item-contato{
+
+.item-contato {
     background-color: #e9cc66;
 }
 
 .custom-icon {
     font-size: 24px;
-    margin-right: 5px; /* Ajuste a margem conforme necessário */
-    color: #60361e; /* Defina a cor desejada para o ícone */
+    margin-right: 5px;
+    /* Ajuste a margem conforme necessário */
+    color: #60361e;
+    /* Defina a cor desejada para o ícone */
     /* Adicione outros estilos personalizados aqui, se necessário */
 }
-.link-contato{
+
+.link-contato {
     display: inline-flex;
     align-items: center;
-     color: #60361e; /* Defina a cor desejada para o ícone */
-     text-decoration: none;
-     font-weight: bold;
+    color: #60361e;
+    /* Defina a cor desejada para o ícone */
+    text-decoration: none;
+    font-weight: bold;
     overflow-wrap: break-word;
+}
 
- }
-.link-contato:hover{
-    color: #ffffff; /* Defina a cor desejada para o ícone */
+.link-contato:hover {
+    color: #ffffff;
+    /* Defina a cor desejada para o ícone */
     text-decoration: none;
     font-weight: bold;
 }
+
 .card-body-content {
     margin-top: 50px;
 }
@@ -321,51 +365,66 @@ p {
     height: 300px;
 }
 
+.receba-novidades-content {
+    background-color: #e9cc66;
+    border: none;
+    color: #000000;
+}
+
+.card-receba-novidades {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
 
 /*fim do css cotato*/
-.bubbles-header{
+
+.bubbles-header {
     margin-top: -70px;
 }
-.bubbles{
+
+.bubbles {
     background-image: url('/img/bubbles.svg');
     opacity: 0.1;
     padding: 50px;
 }
+
 .footer {
     background-color: #e9cc66;
 }
 
-.logo_footer{
+.logo_footer {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
 .footer-dark .copyright {
-    text-align:center;
+    text-align: center;
 }
-.finally{
+
+.finally {
     background-color: #e9cc66;
 }
+
+
 /*=======================================*/
 
-@media (max-width: 990px)
-{
+@media (max-width: 990px) {}
 
-}
-
-@media (max-width: 860px)
-{
-
-}
+@media (max-width: 860px) {}
 
 
 /* grendess */
-@media (min-width: 601px) and (max-width: 700px)
-{
-    .banner{
+
+@media (min-width: 601px) and (max-width: 700px) {
+    .banner {
         display: none;
     }
-    .card-banner{
+    .card-banner {
         display: none;
     }
     /*logo centralizada*/
@@ -379,10 +438,11 @@ p {
     }
 }
 
+
 /* tables */
-@media (min-width: 401px) and (max-width: 600px)
-{
-    .banner{
+
+@media (min-width: 401px) and (max-width: 600px) {
+    .banner {
         display: none;
     }
     .card-banner {
@@ -400,13 +460,14 @@ p {
     }
 }
 
+
 /* medios */
-@media (min-width: 301px) and (max-width: 400px)
-{
-    .banner{
+
+@media (min-width: 301px) and (max-width: 400px) {
+    .banner {
         display: none;
     }
-    .card-banner{
+    .card-banner {
         display: none;
     }
     /*logo centralizada*/
@@ -420,16 +481,17 @@ p {
         padding: 15px;
     }
 }
-/* muito pequenos */
-@media (min-width: 50px) and (max-width: 300px)
-{
-    .banner{
-        display: none;
-    }
-    .card-banner{
-        display: none;
-    }
 
+
+/* muito pequenos */
+
+@media (min-width: 50px) and (max-width: 300px) {
+    .banner {
+        display: none;
+    }
+    .card-banner {
+        display: none;
+    }
     /*logo centralizada*/
     #logo_sobre {
         display: block;

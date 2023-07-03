@@ -7,7 +7,7 @@
         <div class="container text-center justify-content-between">
             <div class="row container_row">
                 <div class="col ajuda_img_container">
-                    <img src="{{ asset('img/dogi_1.jpeg') }}" class="rounded float-start ajuda_img" alt="...">
+                    <img src="{{ asset('img/pacoca.jpg') }}" class="rounded float-start ajuda_img" alt="...">
                 </div>
                 <div class="col">
                     <div class="card ajudar_description">
@@ -38,7 +38,7 @@
 
 
                 <div class="col ajuda_img_container">
-                    <img src="{{ asset('img/dogi_1.jpeg') }}" class="rounded float-start ajuda_img" alt="...">
+                    <img src="{{ asset('img/dandara.jpg') }}" class="rounded float-start ajuda_img" alt="...">
                 </div>
 
 
@@ -49,7 +49,7 @@
         <div class="container text-center justify-content-between">
             <div class="row container_row">
                 <div class="col ajuda_img_container">
-                    <img src="{{ asset('img/dogi_1.jpeg') }}" class="rounded float-start ajuda_img" alt="...">
+                    <img src="{{ asset('img/domitila.jpg') }}" class="rounded float-start ajuda_img" alt="...">
                 </div>
                 <div class="col">
                     <div class="card ajudar_description">
@@ -80,7 +80,7 @@
 
 
                 <div class="col ajuda_img_container">
-                    <img src="{{ asset('img/dogi_1.jpeg') }}" class="rounded float-start ajuda_img" alt="...">
+                    <img src="{{ asset('img/duque.jpg') }}" class="rounded float-start ajuda_img" alt="...">
                 </div>
 
 

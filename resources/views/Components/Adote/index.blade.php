@@ -11,12 +11,8 @@
                 <p class="card-text">Para garantir a segurança e conforto dos resgatinhos, seguimos todas as regras e políticas de adoção responsável. Confira informações essenciais para adotar na Bartho.</p>
             </div>
         </div>
-    </div>
-
-
+    </div
     <div class="container text-center container_Adote_Descriptions">
-
-
         <div class="row justify-content-md-center ">
             <div class="row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -25,10 +21,8 @@
                     </span>
                     <div class="card description">
                         <div class="card-body ">
-
                             <h5 class="card-title text-warning ">Proteger saídas e rotas de fuga</h5>
                             <p class="card-text text-body-tertiary">Apartamentos e casas precisam ter redes de proteção em todas as janelas, vitrôs, basculantes, sacadas e portões para impedir o acesso do cachorro de rua . Lembre-se que isso precisa ser feito antes da chegada do cachorrinho.</p>
-
                         </div>
                     </div>
                 </div>

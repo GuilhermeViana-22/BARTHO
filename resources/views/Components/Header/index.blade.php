@@ -20,22 +20,19 @@
                     <a class="nav-link" href="{{ route('home.index') }}">Seja um doador</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="{{ route('adote.index') }}">Adote</a>
+                    <a class="nav-link" href="{{ route('adote.index') }}">Adote</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('Ajudar.index') }}">Como Ajudar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"href="{{ route('home.index') }}">Depoimentos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contato.index') }}">Contato</a>
+                    <a class="nav-link" href="{{ route('home.index') }}">Depoimentos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn btn-warning" href="{{ route('home.index') }}">DOE</a>
                 </li>
                 <li class="nav-item">
-                  .
+                    .
                 </li>
             </ul>
         </div>
