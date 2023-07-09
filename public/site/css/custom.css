@@ -126,8 +126,7 @@ section {
 .outras_formas_de_ajudar{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    height: calc(90vh - 70px);
+    height: 60vh;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
