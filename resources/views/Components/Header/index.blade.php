@@ -25,15 +25,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('Ajudar.index') }}">Como Ajudar</a>
                 </li>
+                <!---
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home.index') }}">Depoimentos</a>
-                </li>
+                    <a class="nav-link" href=" #route('home.index') ">Depoimentos</a>
+                </li> --->
                 <li class="nav-item">
                     <a class="nav-link btn btn-warning" href="{{ route('doe.index') }}">DOE</a>
                 </li>
-                <li class="nav-item">
-                    .
-                </li>
+
             </ul>
         </div>
     </div>

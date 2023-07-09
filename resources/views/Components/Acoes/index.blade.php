@@ -16,10 +16,5 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
 @include('Components.Footer.index')
+<script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>

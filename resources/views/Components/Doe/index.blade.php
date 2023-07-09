@@ -51,13 +51,27 @@
     </div>
 
     <br>
+    <div class="container">
+        <div class="row">
+            <div class="outras_formas_de_ajudar">
+                <div class="col-sm-6">
+                    .
+                </div>
+                <div class="col-sm-6">
+                    <h5 class="card-text outras_formas_de_ajudar_title">Outras formas de ajudar</h5>
+                <p class="outras_formas_de_ajudar_text">     Ajudar é uma atitude nobre que pode transformar vidas e fazer a diferença em diversos aspectos, especialmente quando se trata de organizações não governamentais (ONGs) dedicadas ao bem-estar animal. Existem várias formas de contribuir e apoiar essas instituições, como através de doações, participação em eventos e compartilhamento de conteúdo em páginas do Facebook e Instagram.
+                </p>
+                    <br>
+                    <br>
+                    <br>
+                    <p  class="outras_formas_de_ajudar_text">EM NOME DOS NOSSOS ANIMAIS, MUITO OBRIGADO!</p>
+                </div>
 
 
-    <article class="outros">
-        <div class="position-relative">
-            <img id="outras_formas_de_ajudar" src="{{ asset('img/outras_formas_de_ajudar.png') }}" alt="Imagem" class="img-fluid">
+           </div>
         </div>
-    </article>
+    </div>
 </section>
 
 @include('Components.Footer.index')
+<script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>

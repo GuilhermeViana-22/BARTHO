@@ -47,8 +47,6 @@ h5,
 h6 {
     text-align: center;
     padding: 10px;
-    font-family: 'Knewave', cursive !important;
-
 }
 
 section {
@@ -83,6 +81,8 @@ section {
 .navbar-toggler {
     background-color: #ffc107;
 }
+
+
 
 .navbar-collapse {
     padding: 10px;
@@ -122,6 +122,28 @@ section {
 
 
 /*Inicio do css do banner*/
+
+.outras_formas_de_ajudar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: calc(90vh - 70px);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 25px;
+    background-image: url('/img/outras_formas_de_ajudar.png');
+}
+
+.outras_formas_de_ajudar_title{
+    color: #fff;
+    margin-top: 100px;
+    font-size: 28pt;
+}
+.outras_formas_de_ajudar_text{
+    color: #fff;
+    font-size: 16pt;
+}
 
 .banner-doe{
     display: flex;
@@ -215,8 +237,18 @@ section {
 
 /*Fim do css do qrcode*/
 
-.card-doacoes {
-    height: 300px;
+.card-doar {
+    height:  30vh;
+    padding: 5px;
+}
+.fa-paw{
+    background-color: #e9cc66;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    margin-top: 10px;
 }
 
 .doacoes {
@@ -235,7 +267,6 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
     margin-bottom: 100px;
 }
 
