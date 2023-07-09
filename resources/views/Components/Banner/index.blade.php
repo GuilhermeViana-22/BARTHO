@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
 <section class="banner">
     <div class="card-banner">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 card-body">

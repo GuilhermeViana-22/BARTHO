@@ -167,7 +167,7 @@ section {
 
 
 .banner {
-    display: flex;
+    display: block;
     flex-direction: row;
     justify-content: space-between;
     height: calc(90vh - 70px);
@@ -196,6 +196,7 @@ section {
     padding: 100px;
     font-weight: bold;
     color: #ffffff;
+    display: block;
 }
 
 .card-title-banner {
@@ -506,19 +507,62 @@ p {
 
 /*=========== END DOE======================*/
 
-@media (max-width: 990px) {}
+@media (max-width: 990px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30vh;
+    }
+    section {
+        padding: 10px;
+    }
+}
 
-@media (max-width: 860px) {}
+@media (max-width: 860px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30vh;
+    }
+    section {
+        padding: 10px;
+    }
+}
 
 
 /* grendess */
 
 @media (min-width: 601px) and (max-width: 700px) {
     .banner {
-        display: none;
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
     }
     .card-banner {
-        display: none;
+        display: none !important;
     }
     /*logo centralizada*/
     #logo_sobre {
@@ -536,10 +580,13 @@ p {
 
 @media (min-width: 401px) and (max-width: 600px) {
     .banner {
-        display: none;
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
     }
     .card-banner {
-        display: none;
+        display: none !important;
     }
     /*logo centralizada*/
     #logo_sobre {
@@ -558,10 +605,13 @@ p {
 
 @media (min-width: 301px) and (max-width: 400px) {
     .banner {
-        display: none;
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
     }
     .card-banner {
-        display: none;
+        display: none !important;
     }
     /*logo centralizada*/
     #logo_sobre {
@@ -580,10 +630,13 @@ p {
 
 @media (min-width: 50px) and (max-width: 300px) {
     .banner {
-        display: none;
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
     }
     .card-banner {
-        display: none;
+        display: none !important;
     }
     /*logo centralizada*/
     #logo_sobre {

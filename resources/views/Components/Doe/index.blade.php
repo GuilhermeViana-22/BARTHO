@@ -2,12 +2,11 @@
 <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
 @include('Components.Header.index')
 @include('Components.Banner.doe')
-
 <section class="doe ">
     <h1 style="font-family: 'Knewave', cursive;">Doação única</h1>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="card  card-doe">
                     <div class="card-body">
                         <h5 class="card-title">💠 𝘗𝘐𝘟</h5>
@@ -19,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="card card-doe">
                     <div class="card-body">
                         <h5 class="card-title">Banco: Itaú</h5>
@@ -36,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="card  card-doe">
                     <div class="card-body">
                         <h6 class="card-subtitle mb-2 text-muted">🟢 𝘗𝘐𝘊𝘗𝘈𝘠</h6>

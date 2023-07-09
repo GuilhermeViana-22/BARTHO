@@ -77,13 +77,9 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col ajuda_img_container">
                     <img src="{{ asset('img/duque.jpg') }}" class="rounded float-start ajuda_img" alt="...">
                 </div>
-
-
             </div>
         </div>
     </div>
