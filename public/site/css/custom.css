@@ -3,17 +3,21 @@
     overflow-x: hidden;
 }
 
+
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    font-family: 'Knewave', cursive;
-    background-color: #fcfcfc;
 }
 
 #titile{
     max-width: 20vh;
 }
+
+.nav .nav-item{
+    overflow-y: hidden !important;
+}
+
+
 
 /*.master-container {*/
 
@@ -82,7 +86,13 @@ section {
     background-color: #ffc107;
 }
 
-
+.meu-hr {
+    border: none;
+    height: 2px;
+    background: rgb(255,208,43);
+    background: rgb(255,208,43);
+    background: linear-gradient(90deg, rgba(255,208,43,1) 0%, rgba(233,204,102,1) 22%, rgba(255,255,255,1) 80%);
+}
 
 .navbar-collapse {
     padding: 10px;
@@ -136,7 +146,7 @@ section {
 
 .outras_formas_de_ajudar_title{
     color: #fff;
-    margin-top: 100px;
+    margin-top: 30px;
     font-size: 28pt;
 }
 .outras_formas_de_ajudar_text{
@@ -251,10 +261,9 @@ section {
 }
 
 .doacoes {
+    margin-top: 10px;
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
-    margin-top: 30px;
-    border-bottom: 100px;
-    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .cad-doacoes {
@@ -276,12 +285,10 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
     margin-bottom: 100px;
 }
 
 .container_Adote_Descriptions {
-    margin-top: 30px;
     margin-bottom: 30px;
     border-style: none;
 }
@@ -301,7 +308,6 @@ p {
 }
 
 .titulos {
-    margin-top: 100px;
     margin-bottom: 100px;
 }
 
@@ -494,6 +500,9 @@ p {
     width: 100%;
     background-color: #654737;
 }
+
+
+
 
 /*=========== END DOE======================*/
 
