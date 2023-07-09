@@ -1,5 +1,5 @@
 * {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
@@ -7,10 +7,13 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Knewave', cursive;
     background-color: #fcfcfc;
 }
 
+#titile{
+    max-width: 20vh;
+}
 
 /*.master-container {*/
 
@@ -43,7 +46,9 @@ h4,
 h5,
 h6 {
     text-align: center;
-    padding: 5px;
+    padding: 10px;
+    font-family: 'Knewave', cursive !important;
+
 }
 
 section {
@@ -118,12 +123,24 @@ section {
 
 /*Inicio do css do banner*/
 
+.banner-doe{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: calc(90vh - 70px);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url('/img/vidas.png');
+}
+
+
 .banner {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: calc(90vh - 70px);
-    animation: carousel 10s infinite;
+    animation: carousel 20s infinite;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -131,13 +148,16 @@ section {
 
 @keyframes carousel {
     0% {
-        background-image: url('/img/banner-bartho.jpg');
+        background-image: url('/img/capa.png');
     }
-    50% {
-        background-image: url('/img/banner-bartho.jpg');
+    10% {
+        background-image: url('/img/capa.png');
+    }
+    20% {
+        background-image: url('/img/capa.png');
     }
     100% {
-        background-image: url('/img/banner-bartho.jpg');
+        background-image: url('/img/capa.png');
     }
 }
 
@@ -247,6 +267,7 @@ h5,
 p {
     color: #000000;
     font-weight: bold;
+    text-align: center;
 }
 
 .titulos {
@@ -410,8 +431,41 @@ p {
     background-color: #e9cc66;
 }
 
+/*============ DOE ===========================*/
+.card-doe {
+    background-color: #efefef;
+    padding: 10px;
+    margin-top: 10px;
+    height: 450px;
+    border: none;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+    margin-bottom: 20px;
 
-/*=======================================*/
+}
+
+#qrcode_doa{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
+#qrcode_picpay{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px;
+}
+
+.outros{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #654737;
+}
+
+/*=========== END DOE======================*/
 
 @media (max-width: 990px) {}
 

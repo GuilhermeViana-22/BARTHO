@@ -70,8 +70,6 @@
                                 </label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
                             </div>
-
-
                             <button type="submit" class="btn btn-more-information">Enviar</button>
                         </form>
                     </div>
@@ -82,5 +80,5 @@
     </div>
 </section>
 <article class="finally">
-    <p class="copyright" style="text-align: center">Todos os direitos reservados © BARTHÔ Grupo de proteção animal <span id="ano"></span></p>
+    <p class="copyright" style="text-align: center">Todos os direitos reservados © BARTHÔ Grupo de Proteção Animal <span id="ano"></span></p>
 </article>
