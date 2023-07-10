@@ -14,10 +14,7 @@
                     <a class="nav-link" href="{{ route('acoes.index') }}">Ações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home.index') }}">Seja um voluntário</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home.index') }}">Seja um doador</a>
+                    <a class="nav-link" href="https://docs.google.com/forms/d/1Qd18bITpQgkbBltzOSA07BU8hp72fcDtHBfX9HgJ67w/edit">Seja um voluntário</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('adote.index') }}">Adote</a>

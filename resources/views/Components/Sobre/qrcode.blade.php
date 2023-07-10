@@ -1,12 +1,15 @@
 
 <section class="qrcode">
-    <h3><strong>Doação QR Code</strong></h3>
+
     <div class="row" style="margin-top: 30px">
-        <div class="col-md-6 col-sm-6 col-xs-6">
+
+        <div class="col-md-6 col-sm-6 col-xs-6 p-4">
             <!-- Conteúdo da segunda coluna aqui -->
-            <img id="logo_sobre" src="{{ asset('img/QRCODE.jpg') }}" alt="Imagem" class="img-fluid ">
+            <img id="logo_sobre" src="{{ asset('img/QRCODE.jpg') }}" alt="Imagem" class="img-fluid">
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="col-md-6 col-sm-6 col-xs-6 p-4">
+            <h3><strong>Doação QR Code</strong></h3>
+            <br>
             <h4 class="text-content">Transparência e direcionamento de verba para salvar vidas</h4>
             <p class="text-content">Na ONG Bartho, valorizamos a confiança e transparência em cada doação recebida. Por
                 isso, estamos sempre em busca de formas inovadoras para que você, nosso doador, saiba exatamente como

@@ -251,7 +251,7 @@ section {
     height:  30vh;
     padding: 5px;
 }
-.fa-paw{
+#fa-paw{
     background-color: #e9cc66;
     padding: 10px;
     display: block;
@@ -259,6 +259,11 @@ section {
     margin-right: auto;
     border-radius: 100%;
     margin-top: 10px;
+}
+
+.fa-paw{
+
+    padding: 10px;;
 }
 
 .doacoes {
@@ -502,11 +507,29 @@ p {
     background-color: #654737;
 }
 
+.assinatura{
+    background-color: #efefef;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3))
 
+}
 
+.fa-donate{
+    background-color: #e9cc66;
+    padding: 20px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+
+}
 
 /*=========== END DOE======================*/
 
+#footer-svg{
+    display: block;
+}
 @media (max-width: 990px) {
     .banner {
         display: none !important;
@@ -526,6 +549,10 @@ p {
     }
     section {
         padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
     }
 }
 
@@ -548,6 +575,10 @@ p {
     }
     section {
         padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
     }
 }
 
@@ -572,6 +603,14 @@ p {
     }
     section {
         padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+
+    #footer-svg{
+        display: none !important;
     }
 }
 
@@ -598,6 +637,13 @@ p {
     section {
         padding: 30px;
     }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+    #footer-svg{
+        display: none !important;
+    }
 }
 
 
@@ -623,6 +669,14 @@ p {
     section {
         padding: 15px;
     }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+    #footer-svg{
+        display: none !important;
+    }
+
 }
 
 
@@ -647,5 +701,13 @@ p {
     }
     section {
         padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+
+    #footer-svg{
+        display: none !important;
     }
 }

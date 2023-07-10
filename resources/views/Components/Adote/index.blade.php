@@ -195,7 +195,7 @@
                                 <div class="card-header">
                                     <h5>🐾 Conheça a Dandara! 🐾</h5>
                                     <figure>
-                                        <img src="{{ asset('img/dandara/dandara_03.jpeg') }}" alt="Imagem" class="img-fluid">
+                                        <img src="{{ asset('img/dandara/dandara.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
                                             <button type="button" class="btn btn-secondary"
                                                     style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
