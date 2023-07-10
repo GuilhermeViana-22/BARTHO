@@ -1,11 +1,108 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#titile{
+    max-width: 20vh;
+}
+
+.nav .nav-item{
+    overflow-y: hidden !important;
+}
+
+
+
+/*.master-container {*/
+
+
+/*    max-width: 70%;*/
+
+
+/*    margin-left: auto;*/
+
+
+/*    margin-right: auto;*/
+
+
+/*    display: block;*/
+
+
+/*}*/
+
+
+/*apenas para ajuste*/
+
 .navbar {
-  color: #000000;
+    padding: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center;
+    padding: 10px;
+}
+
+section {
+    padding: 100px;
+}
+
+.text-content {
+    color: #ffffff;
+}
+
+.navbar {
+    color: #000000;
+    padding: 10px;
+}
+
+.navbar-brand {
+    color: #654737;
+}
+
+.navbar-brand:hover {
+    color: #654737;
+}
+
+.nav-link {
+    color: #654737;
+}
+
+.nav-link:hover {
+    color: #ffc107;
+}
+
+.navbar-toggler {
+    background-color: #ffc107;
+}
+
+.meu-hr {
+    border: none;
+    height: 2px;
+    background: rgb(255,208,43);
+    background: rgb(255,208,43);
+    background: linear-gradient(90deg, rgba(255,208,43,1) 0%, rgba(233,204,102,1) 22%, rgba(255,255,255,1) 80%);
+}
+
+.navbar-collapse {
+    padding: 10px;
 }
 
 .container-fluid {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
 }
 
 .navbar-brand {
@@ -25,7 +122,6 @@
 
 .navbar-nav {
     width: 100%;
-
     display: flex;
     justify-content: flex-end;
 }
@@ -34,21 +130,584 @@
     margin-left: 10px;
 }
 
+
 /*Inicio do css do banner*/
-.banner{
-    height: calc(100vh - 70px);
-    width: 100%;
-    background-color: #FFD129;
+
+.outras_formas_de_ajudar{
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 25px;
+    background-image: url('/img/outras_formas_de_ajudar.png');
 }
+
+.outras_formas_de_ajudar_title{
+    color: #fff;
+    margin-top: 30px;
+    font-size: 28pt;
+}
+.outras_formas_de_ajudar_text{
+    color: #fff;
+    font-size: 16pt;
+}
+
+.banner-doe{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: calc(90vh - 70px);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url('/img/vidas.png');
+}
+
+
+.banner {
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+    height: calc(90vh - 70px);
+    animation: carousel 20s infinite;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+@keyframes carousel {
+    0% {
+        background-image: url('/img/capa.png');
+    }
+    10% {
+        background-image: url('/img/capa.png');
+    }
+    20% {
+        background-image: url('/img/capa.png');
+    }
+    100% {
+        background-image: url('/img/capa.png');
+    }
+}
+
+.card-banner {
+    padding: 100px;
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+}
+
+.card-title-banner {
+    text-align: left;
+}
+
+#subtittle {
+    color: #88726c;
+}
+
+.btn-more-information {
+    color: #ffffff;
+    background-color: #654737;
+    padding: 10px;
+    width: 200px;
+}
+
+.btn-more-information:hover {
+    background-color: #4b3121;
+}
+
+
 /*Fim do css do banner*/
 
-/*Inicio do css do footer*/
-.footer {
-    bottom: 0;
-    height: 200px;
-    width: 100%;
-    background-color: #f5f5f5;
+
+/*Inicio do css do sobre*/
+
+#logo_sobre {
+    max-width: 300px;
 }
-/*Fim do css do footer*/
+
+.sobre {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
 
 
+/*Fim do css do sobre*/
+
+
+/*Inicio do css do qrcode*/
+
+.qrcode {
+    background-color: #6C5142;
+    color: #ffffff !important;
+}
+
+
+/*Fim do css do qrcode*/
+
+.card-doar {
+    height:  30vh;
+    padding: 5px;
+}
+#fa-paw{
+    background-color: #e9cc66;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    margin-top: 10px;
+}
+
+.fa-paw{
+
+    padding: 10px;;
+}
+
+.doacoes {
+    margin-top: 10px;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+    margin-bottom: 20px;
+}
+
+.cad-doacoes {
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+    margin-top: 30px;
+    border-bottom: 100px;
+    padding: 20px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+
+/*inicio do css adote*/
+
+.adote_description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.container_Adote_Descriptions {
+    margin-bottom: 30px;
+    border-style: none;
+}
+
+.description,
+.card-header {
+    border-style: none;
+    background-color: #fcfcfc;
+    color: #323540;
+}
+
+h5,
+p {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.titulos {
+    margin-bottom: 100px;
+}
+
+.animais {
+    margin-bottom: 100px;
+    margin-left: 50px;
+    height: 85%;
+    background-color: #cfcfd5;
+    border: none;
+}
+
+.botao-adote {
+    background-color: #6C5142;
+    color: #F1F1F1;
+    transition: background-color 0.3s ease;
+}
+
+.botao-adote:hover {
+    background-color: #FFD129;
+}
+
+
+/*tab Ajudar inicia aqui*/
+
+.comoajudar {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    /* Ajuste a altura conforme necessário */
+}
+
+.container_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c_ajudar_white {
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+}
+
+.c_ajudar_dark {
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    background-color: #F1F1F1;
+}
+
+.ajudar_description {
+    border-style: none;
+    border: 50px;
+    margin-top: 35px;
+    margin-right: 45px;
+}
+
+.ajuda_img_container {
+    margin: 25px;
+}
+
+.ajuda_img {
+    width: 350px;
+    height: 350px;
+}
+
+
+/*inicio do css contato*/
+
+.list-group-item {
+    background-color: #e9cc66;
+}
+
+.item-contato {
+    background-color: #e9cc66;
+}
+
+.custom-icon {
+    font-size: 24px;
+    margin-right: 5px;
+    /* Ajuste a margem conforme necessário */
+    color: #60361e;
+    /* Defina a cor desejada para o ícone */
+    /* Adicione outros estilos personalizados aqui, se necessário */
+}
+
+.link-contato {
+    display: inline-flex;
+    align-items: center;
+    color: #60361e;
+    /* Defina a cor desejada para o ícone */
+    text-decoration: none;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+.link-contato:hover {
+    color: #ffffff;
+    /* Defina a cor desejada para o ícone */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card-body-content {
+    margin-top: 50px;
+}
+
+.img-logo {
+    width: 300px;
+    height: 300px;
+}
+
+.receba-novidades-content {
+    background-color: #e9cc66;
+    border: none;
+    color: #000000;
+}
+
+.card-receba-novidades {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+
+/*fim do css cotato*/
+
+.bubbles-header {
+    margin-top: -70px;
+}
+
+.bubbles {
+    background-image: url('/img/bubbles.svg');
+    opacity: 0.1;
+    padding: 50px;
+}
+
+.footer {
+    background-color: #e9cc66;
+}
+
+.logo_footer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-dark .copyright {
+    text-align: center;
+}
+
+.finally {
+    background-color: #e9cc66;
+}
+
+/*============ DOE ===========================*/
+.card-doe {
+    background-color: #efefef;
+    padding: 10px;
+    margin-top: 10px;
+    height: 450px;
+    border: none;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+    margin-bottom: 20px;
+
+}
+
+#qrcode_doa{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
+#qrcode_picpay{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px;
+}
+
+.outros{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: #654737;
+}
+
+.assinatura{
+    background-color: #efefef;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3))
+
+}
+
+.fa-donate{
+    background-color: #e9cc66;
+    padding: 20px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+
+}
+
+/*=========== END DOE======================*/
+
+#footer-svg{
+    display: block;
+}
+@media (max-width: 990px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30vh;
+    }
+    section {
+        padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+}
+
+@media (max-width: 860px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30vh;
+    }
+    section {
+        padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+}
+
+
+/* grendess */
+
+@media (min-width: 601px) and (max-width: 700px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    section {
+        padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+
+    #footer-svg{
+        display: none !important;
+    }
+}
+
+
+/* tables */
+
+@media (min-width: 401px) and (max-width: 600px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50vh;
+    }
+    section {
+        padding: 30px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+    #footer-svg{
+        display: none !important;
+    }
+}
+
+
+/* medios */
+
+@media (min-width: 301px) and (max-width: 400px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 40vh;
+    }
+    section {
+        padding: 15px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+    #footer-svg{
+        display: none !important;
+    }
+
+}
+
+
+/* muito pequenos */
+
+@media (min-width: 50px) and (max-width: 300px) {
+    .banner {
+        display: none !important;
+    }
+    .banner-doe{
+        display: none !important;
+    }
+    .card-banner {
+        display: none !important;
+    }
+    /*logo centralizada*/
+    #logo_sobre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 30vh;
+    }
+    section {
+        padding: 10px;
+    }
+    .outras_formas_de_ajudar{
+        display: none !important;
+        background-image: none !important;
+    }
+
+    #footer-svg{
+        display: none !important;
+    }
+}

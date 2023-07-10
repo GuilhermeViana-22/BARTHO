@@ -1,37 +1,33 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">BARTHÔ</a>
+        <a class="navbar-brand" href="{{ route('home.index') }}">   <img id="titile" src="{{ asset('img/titile.jpg') }}" alt="Imagem" class="img-fluid"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
+        <div class="collapse navbar-collapse " id="navbarColor01">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Inicio
-                        <span class="visually-hidden">(current)</span>
+                    <a class="nav-link active" href="{{ route('home.index') }}" style=" color: #FFD129;">Inicio
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sobre nós</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('acoes.index') }}">Ações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Doações</a>
+                    <a class="nav-link" href="https://docs.google.com/forms/d/1Qd18bITpQgkbBltzOSA07BU8hp72fcDtHBfX9HgJ67w/edit">Seja um voluntário</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Depoimentos</a>
+                    <a class="nav-link" href="{{ route('adote.index') }}">Adote</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contato</a>
+                    <a class="nav-link" href="{{ route('Ajudar.index') }}">Como Ajudar</a>
                 </li>
+                <!---
                 <li class="nav-item">
-                    <button type="button" class="btn btn-warning">Doe</button>
+                    <a class="nav-link" href=" #route('home.index') ">Depoimentos</a>
+                </li> --->
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning" href="{{ route('doe.index') }}">DOE</a>
                 </li>
 
             </ul>
