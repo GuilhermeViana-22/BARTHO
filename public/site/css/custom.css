@@ -3,20 +3,18 @@
     overflow-x: hidden;
 }
 
-
 body {
     margin: 0;
     padding: 0;
 }
 
-#titile{
+#titile {
     max-width: 20vh;
 }
 
-.nav .nav-item{
+.nav .nav-item {
     overflow-y: hidden !important;
 }
-
 
 
 /*.master-container {*/
@@ -89,9 +87,9 @@ section {
 .meu-hr {
     border: none;
     height: 2px;
-    background: rgb(255,208,43);
-    background: rgb(255,208,43);
-    background: linear-gradient(90deg, rgba(255,208,43,1) 0%, rgba(233,204,102,1) 22%, rgba(255,255,255,1) 80%);
+    background: rgb(255, 208, 43);
+    background: rgb(255, 208, 43);
+    background: linear-gradient(90deg, rgba(255, 208, 43, 1) 0%, rgba(233, 204, 102, 1) 22%, rgba(255, 255, 255, 1) 80%);
 }
 
 .navbar-collapse {
@@ -133,7 +131,7 @@ section {
 
 /*Inicio do css do banner*/
 
-.outras_formas_de_ajudar{
+.outras_formas_de_ajudar {
     display: flex;
     flex-direction: row;
     height: 60vh;
@@ -144,17 +142,18 @@ section {
     background-image: url('/img/outras_formas_de_ajudar.png');
 }
 
-.outras_formas_de_ajudar_title{
+.outras_formas_de_ajudar_title {
     color: #fff;
     margin-top: 30px;
     font-size: 28pt;
 }
-.outras_formas_de_ajudar_text{
+
+.outras_formas_de_ajudar_text {
     color: #fff;
     font-size: 16pt;
 }
 
-.banner-doe{
+.banner-doe {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -164,7 +163,6 @@ section {
     background-size: cover;
     background-image: url('/img/vidas.png');
 }
-
 
 .banner {
     display: block;
@@ -248,10 +246,11 @@ section {
 /*Fim do css do qrcode*/
 
 .card-doar {
-    height:  30vh;
+    height: 30vh;
     padding: 5px;
 }
-#fa-paw{
+
+#fa-paw {
     background-color: #e9cc66;
     padding: 10px;
     display: block;
@@ -261,9 +260,9 @@ section {
     margin-top: 10px;
 }
 
-.fa-paw{
-
-    padding: 10px;;
+.fa-paw {
+    padding: 10px;
+    ;
 }
 
 .doacoes {
@@ -287,15 +286,14 @@ section {
 
 /*inicio do css adote*/
 
-.adote_description {
+.adote_description {}
+
+.container_Adote_Descriptions {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: auto;
     margin-bottom: 100px;
-}
-
-.container_Adote_Descriptions {
-    margin-bottom: 30px;
     border-style: none;
 }
 
@@ -473,7 +471,9 @@ p {
     background-color: #e9cc66;
 }
 
+
 /*============ DOE ===========================*/
+
 .card-doe {
     background-color: #efefef;
     padding: 10px;
@@ -482,24 +482,23 @@ p {
     border: none;
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
     margin-bottom: 20px;
-
 }
 
-#qrcode_doa{
+#qrcode_doa {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 200px;
 }
 
-#qrcode_picpay{
+#qrcode_picpay {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 220px;
 }
 
-.outros{
+.outros {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -507,34 +506,34 @@ p {
     background-color: #654737;
 }
 
-.assinatura{
+.assinatura {
     background-color: #efefef;
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3))
-
 }
 
-.fa-donate{
+.fa-donate {
     background-color: #e9cc66;
     padding: 20px;
     border-radius: 100%;
     margin-bottom: 10px;
-
 }
+
 
 /*=========== END DOE======================*/
 
-#footer-svg{
+#footer-svg {
     display: block;
 }
+
 @media (max-width: 990px) {
     .banner {
         display: none !important;
     }
-    .banner-doe{
+    .banner-doe {
         display: none !important;
     }
     .card-banner {
@@ -547,12 +546,15 @@ p {
         margin-right: auto;
         max-width: 30vh;
     }
-    section {
-        padding: 10px;
-    }
-    .outras_formas_de_ajudar{
+    .outras_formas_de_ajudar {
         display: none !important;
         background-image: none !important;
+    }
+    .adote_description {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 100px;
     }
 }
 
@@ -560,7 +562,7 @@ p {
     .banner {
         display: none !important;
     }
-    .banner-doe{
+    .banner-doe {
         display: none !important;
     }
     .card-banner {
@@ -576,7 +578,7 @@ p {
     section {
         padding: 10px;
     }
-    .outras_formas_de_ajudar{
+    .outras_formas_de_ajudar {
         display: none !important;
         background-image: none !important;
     }
@@ -589,7 +591,7 @@ p {
     .banner {
         display: none !important;
     }
-    .banner-doe{
+    .banner-doe {
         display: none !important;
     }
     .card-banner {
@@ -604,12 +606,11 @@ p {
     section {
         padding: 10px;
     }
-    .outras_formas_de_ajudar{
+    .outras_formas_de_ajudar {
         display: none !important;
         background-image: none !important;
     }
-
-    #footer-svg{
+    #footer-svg {
         display: none !important;
     }
 }
@@ -621,7 +622,7 @@ p {
     .banner {
         display: none !important;
     }
-    .banner-doe{
+    .banner-doe {
         display: none !important;
     }
     .card-banner {
@@ -637,11 +638,11 @@ p {
     section {
         padding: 30px;
     }
-    .outras_formas_de_ajudar{
+    .outras_formas_de_ajudar {
         display: none !important;
         background-image: none !important;
     }
-    #footer-svg{
+    #footer-svg {
         display: none !important;
     }
 }
@@ -653,7 +654,7 @@ p {
     .banner {
         display: none !important;
     }
-    .banner-doe{
+    .banner-doe {
         display: none !important;
     }
     .card-banner {
@@ -669,14 +670,13 @@ p {
     section {
         padding: 15px;
     }
-    .outras_formas_de_ajudar{
+    .outras_formas_de_ajudar {
         display: none !important;
         background-image: none !important;
     }
-    #footer-svg{
+    #footer-svg {
         display: none !important;
     }
-
 }
 
 
@@ -686,7 +686,7 @@ p {
     .banner {
         display: none !important;
     }
-    .banner-doe{
+    .banner-doe {
         display: none !important;
     }
     .card-banner {
@@ -702,12 +702,11 @@ p {
     section {
         padding: 10px;
     }
-    .outras_formas_de_ajudar{
+    .outras_formas_de_ajudar {
         display: none !important;
         background-image: none !important;
     }
-
-    #footer-svg{
+    #footer-svg {
         display: none !important;
     }
 }

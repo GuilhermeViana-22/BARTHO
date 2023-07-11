@@ -28,9 +28,9 @@
     <div class="container text-center container_Adote_Descriptions">
         <div class="row justify-content-md-center">
             <div class="col-sm-6 mb-3 mb-sm-0">
-                    <span class="elemento-icon">
-                        <ion-icon name="star-outline" style="font-size: 45px; color: #dca821;"></ion-icon>
-                    </span>
+                <span class="elemento-icon">
+                    <ion-icon name="star-outline" style="font-size: 45px; color: #dca821;"></ion-icon>
+                </span>
                 <div class="card description">
                     <div class="card-body ">
                         <h5 class="card-title text-warning ">Proteger saídas e rotas de fuga</h5>
@@ -40,10 +40,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                    <span class="elemento-icon">
-                        <ion-icon name="wallet-outline" style="font-size: 45px; color: #dca821;"></ion-icon>
-                    </span>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <span class="elemento-icon">
+                    <ion-icon name="wallet-outline" style="font-size: 45px; color: #dca821;"></ion-icon>
+                </span>
                 <div class="card description">
                     <div class="card-body">
                         <h5 class="card-title text-warning">Ter condições financeiras</h5>
@@ -54,10 +54,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container text-center container_Adote_Descriptions">
-        <div class="row justify-content-md-center">
+
             <div class="row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <span class="elemento-icon">
@@ -73,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 mb-3 mb-sm-0">
                     <span class="elemento-icon">
                         <ion-icon name="document-text-outline" style="font-size: 45px; color: #dca821;"></ion-icon>
                     </span>
@@ -95,16 +92,14 @@
     <div class="container">
         <h5 class="card-title text-warning">Animais para doação</h5>
         <p class="lead">
-            <small>     Alterne entre os conteúdos e escolha um de nossos bichinhos</small>
+            <small> Alterne entre os conteúdos e escolha um de nossos bichinhos</small>
         </p>
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a href="#info" role="tab" data-toggle="tab"
-                   class="nav-link active"> Cães </a>
+                <a href="#info" role="tab" data-toggle="tab" class="nav-link active"> Cães </a>
             </li>
             <li class="nav-item">
-                <a href="#ratings" role="tab" data-toggle="tab"
-                   class="nav-link"> Gatos </a>
+                <a href="#ratings" role="tab" data-toggle="tab" class="nav-link"> Gatos </a>
             </li>
         </ul>
         <div class="tab-content">
@@ -119,8 +114,7 @@
                                     <figure>
                                         <img src="{{ asset('img/urso/urso_02.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary"
-                                                    style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -134,8 +128,7 @@
                                     <figure>
                                         <img src="{{ asset('img/luke/luke_01.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary"
-                                                    style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -149,8 +142,7 @@
                                     <figure>
                                         <img src="{{ asset('img/pacoca/03.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary"
-                                                    style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -164,8 +156,7 @@
                                     <figure>
                                         <img src="{{ asset('img/nazare/nazare_02.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary"
-                                                    style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -180,8 +171,7 @@
                                     <figure>
                                         <img src="{{ asset('img/duque/duque.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary"
-                                                    style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -197,8 +187,7 @@
                                     <figure>
                                         <img src="{{ asset('img/dandara/dandara.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary"
-                                                    style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;">Quero Adotar
                                             </button>
                                         </figcaption>
                                     </figure>

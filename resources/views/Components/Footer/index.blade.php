@@ -27,12 +27,7 @@
                             <ion-icon name="logo-instagram" class="custom-icon ion-icon"></ion-icon>
                             @barthoprotecaoanimal</a>
                     </li>
-                    <li class="list-group-item item-contato">
-                        <a class="link-contato" href="https://api.whatsapp.com/send?phone=5511939009007">
-                            <ion-icon name="logo-whatsapp" class="custom-icon ion-icon"></ion-icon>
-                            +55 11 939009007
-                        </a>
-                    </li>
+
                     <li class="list-group-item item-contato">
                         <a class="link-contato" href="mailto:barthoprotecaoanimal@gmail.com">
                             <ion-icon name="mail-outline" class="custom-icon ion-icon"></ion-icon>

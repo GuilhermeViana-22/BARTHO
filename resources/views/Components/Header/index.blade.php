@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home.index') }}">   <img id="titile" src="{{ asset('img/titile.jpg') }}" alt="Imagem" class="img-fluid"></a>
+        <a class="navbar-brand" href="{{ route('home.index') }}"> <img id="titile" src="{{ asset('img/titile.jpg') }}" alt="Imagem" class="img-fluid"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,11 +10,12 @@
                     <a class="nav-link active" href="{{ route('home.index') }}" style=" color: #FFD129;">Inicio
                     </a>
                 </li>
+                <!---
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('acoes.index') }}">Ações</a>
-                </li>
+                </li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="https://docs.google.com/forms/d/1Qd18bITpQgkbBltzOSA07BU8hp72fcDtHBfX9HgJ67w/edit">Seja um voluntário</a>
+                    <a class="nav-link" href="https://docs.google.com/forms/d/1Qd18bITpQgkbBltzOSA07BU8hp72fcDtHBfX9HgJ67w/edit" target="_blank">Seja um voluntário</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('adote.index') }}">Adote</a>
