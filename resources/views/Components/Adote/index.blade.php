@@ -17,8 +17,8 @@
 </style>
 <section class="adote">
     <div class="container text-center titulos ">
-        <div class="card  text-center description">
-            <div class="card-header">
+        <div class="card  text-center description  ">
+            <div class="card-header ">
                 <h4 class="card-title text-warning">Tudo o que você precisa saber para adotar</h4>
                 <p class="card-text">Para garantir a segurança e conforto dos resgatinhos, seguimos todas as regras e
                     políticas de adoção responsável. Confira informações essenciais para adotar na Bartho.</p>

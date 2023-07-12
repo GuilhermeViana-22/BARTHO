@@ -286,8 +286,6 @@ section {
 
 /*inicio do css adote*/
 
-.adote_description {}
-
 .container_Adote_Descriptions {
     display: flex;
     justify-content: center;
@@ -300,8 +298,8 @@ section {
 .description,
 .card-header {
     border-style: none;
-    background-color: #fcfcfc;
-    color: #323540;
+    background-color: white;
+    color: none;
 }
 
 h5,
@@ -341,7 +339,6 @@ p {
     padding: 0;
     align-items: center;
     justify-content: center;
-    /* Ajuste a altura conforme necessário */
 }
 
 .container_row {
@@ -559,6 +556,36 @@ p {
 }
 
 @media (max-width: 860px) {
+    .container_row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .c_ajudar_white {
+        height: auto;
+        width: 100%;
+        background-color: #fff;
+    }
+    .c_ajudar_dark {
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: 100%;
+        background-color: #F1F1F1;
+    }
+    .ajudar_description {
+        border-style: none;
+        border: 50px;
+        margin-top: 35px;
+        margin-right: 45px;
+    }
+    .ajuda_img_container {
+        margin: 25px;
+    }
+    .ajuda_img {
+        width: 450px;
+        height: 450px;
+    }
     .banner {
         display: none !important;
     }
