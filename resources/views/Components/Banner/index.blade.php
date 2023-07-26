@@ -1,12 +1,19 @@
 <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
-<section class="banner">
-    <div class="card-banner">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 card-body">
-            <h1 class="card-title card-title-banner"><strong>Juntos, protegemos aqueles que não podem se proteger sozinhos</strong></h1>
-            <p class="card-text"><strong id="subtittle">Um lugar onde nossos bichinhos recebem muito amor e carinho</strong></p>
-            <a href="{{ route('Ajudar.index') }}" style="text-decoration: none;"><button type="button" class="btn btn-more-information">Saiba mais</button></a>
+<div class="index">
+    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 card-body text-banner">
+        <div class="card-banner">
+            <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 card-body">
+                <h1 class="text-banner-1"><strong>JUNTOS, TRANSFORMAMOS VIDAS DESTES <span class="text-banner-1-style">QUE NÃO PODEM SE PROTEGER SOZINHOS</span></strong></h1>
+                <h1 class="text-banner-2"><strong id="subtittle">Eles merecem uma vida com amor e dignidade</strong></h1><br><br>
+                <a href="{{ route('Ajudar.index') }}"><button type="button" class="btn btn-more-information text-banner-button"><i class="fas fa-paw"> Saiba mais  </i></button></a>
+            </div>
         </div>
     </div>
-</section>
+    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 card-body">
+        <section class="banner"></section>
+    </div>
+</div>
+{{--adicionado via css conteudo renderizado no css--}}
+
 <script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>
