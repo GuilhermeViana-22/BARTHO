@@ -1,10 +1,9 @@
+
 <section class="qrcode">
-
-    <div class="row" style="margin-top: 30px">
-
+    <div class="row">
         <div class="col">
-            <div class="card  card-doe animate__animated animate__fadeInDown">
-                <div class="card-body">
+            <div class="card  card-doe animate__animated animate__fadeInDown" style="margin-left: 20px;margin-right: 20px;">
+                <div class="card-body" >
                     <h5 class="card-title"><svg style="width: 30px; height: 30px;" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                             <defs />
                             <g fill="#4BB8A9" fill-rule="evenodd">
@@ -12,32 +11,26 @@
                                 <path d="M22.758 200.753l58.024-58.024h31.787c13.84 0 27.384 5.605 37.172 15.394l76.694 76.693c7.178 7.179 16.596 10.768 26.033 10.768 9.417 0 18.854-3.59 26.014-10.75l76.989-76.99c9.787-9.787 23.331-15.393 37.171-15.393h37.654l58.3 58.302c30.343 30.344 30.343 79.523 0 109.867l-58.3 58.303H392.64c-13.84 0-27.384-5.605-37.171-15.394l-76.97-76.99c-13.914-13.894-38.172-13.894-52.066.02l-76.694 76.674c-9.788 9.788-23.332 15.413-37.172 15.413H80.782L22.758 310.62c-30.344-30.345-30.344-79.524 0-109.868" />
                             </g>
                         </svg> 𝘗𝘐𝘟</h5>
-                    <p class="card-text">Chave PIX:</p>
-                    <p class="card-text">barthoprotecaoanimal@gmail.com</p>
+                    <p class="card-text text-content">Chave PIX:</p>
+                    <p class="card-text text-content">barthoprotecaoanimal@gmail.com</p>
                     <!-- Conteúdo da segunda coluna aqui -->
-                    <p class="card-text">QR code</p>
+                    <p class="card-text text-content">QR code</p>
                     <!-- Conteúdo da segunda coluna aqui -->
-                    <img id="logo_sobre" src="{{ asset('img/QRCODE.jpg') }}" style="width: 200px; height: 200px;" alt="Imagem" class="img-fluid mx-auto d-block">
+                    <img id="logo_sobre" src="{{ asset('img/QRCODE.jpg') }}" loading="lazy" style="width: 200px; height: 200px;" alt="Imagem" class="img-fluid mx-auto d-block">
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 p-4">
+        <div class="col-md-6 col-sm-6 col-xs-6 p-4 descript">
             <h3><strong>Doação QR Code</strong></h3>
             <br>
-            <h4 class="text-content">Transparência e direcionamento de verba para salvar vidas</h4>
-            <p class="text-content">Na ONG Bartho, valorizamos a confiança e transparência em cada doação recebida. Por
-                isso, estamos sempre em busca de formas inovadoras para que você, nosso doador, saiba exatamente como
-                seu dinheiro está sendo utilizado em prol dos animais.</p>
-            <p class="text-content">Agora, com o uso do QR Code, ficou ainda mais fácil acompanhar o destino da sua
-                contribuição. Ao escanear o código, você será direcionado para uma página exclusiva, onde poderá ver
-                detalhadamente para qual animal específico o seu dinheiro foi enviado.</p>
-            <p class="text-content">Acreditamos que é fundamental compartilhar com você cada passo da jornada de resgate
-                e reabilitação desses bichinhos. Queremos que você se sinta parte integrante dessa história de
-                superação, amor e compaixão.</p>
+            <p  class="text-content">No Grupo Barthô, os recursos são <strong>INTEGRALMENTE destinados para SALVAR VIDAS</strong>. Somos um grupo de pessoas <strong>100% VOLUNTÁRIAS</strong>, e temos registrado em nosso Estatuto que nenhum voluntário recebe qualquer remuneração.</p>
+            <p  class="text-content">Através destes QR Codes ou Links, você pode ajudar em todas as nossas jornadas de resgate, acolhimento, tratamento veterinário, alimentação e demais necessidades que nossos animais resgatados possuem.</p>
+            <p  class="text-content">Ajude a transformar a vida destes que tanto já sofreram com os flagelos da crueldade humana.</p>
+
         </div>
-        <div class="col">
+        <div class="col pix">
             <!-- Conteúdo da segunda coluna aqui -->
-            <div class="card  card-doe animate__animated animate__fadeInDown">
+            <div class="card  card-doe animate__animated animate__fadeInDown" style="margin-left: 20px;margin-right: 20px;">
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted"><svg style="width: 40px; height: 40px;" viewBox=" 0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -48,10 +41,10 @@
                                 <rect width="12" height="12" x="143" y="45" fill="#4db94b" rx="2"></rect>
                             </g>
                         </svg> 𝘗𝘐𝘊𝘗𝘈𝘠</h6>
-                    <p class="card-text">Chave PIX:</p>
-                    <p class="card-text">@barthoprotoecaoanimal</p>
-                    <p class="card-text">QR code</p>
-                    <img id="logo_sobre" src="{{ asset('img/QRCODE.jpg') }}" style="width: 200px; height: 200px;" alt="Imagem" class="img-fluid mx-auto d-block">
+                    <p class="card-text text-content">Chave PIX:</p>
+                    <p class="card-text text-content">@barthoprotoecaoanimal</p>
+                    <p class="card-text text-content">QR code</p>
+                    <img id="logo_sobre" src="{{ asset('img/QRCODE.jpg') }}" loading="lazy" style="width: 200px; height: 200px;" alt="Imagem" class="img-fluid mx-auto d-block">
                 </div>
             </div>
         </div>
@@ -63,3 +56,4 @@
 </svg>
 <script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>
 <script src="https://kit.fontawesome.com/55136953e0.js" crossorigin="anonymous"></script>
+
