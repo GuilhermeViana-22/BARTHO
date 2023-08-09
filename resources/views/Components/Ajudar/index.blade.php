@@ -10,7 +10,7 @@
             <div class="row no-gutters justify-content-end justify-content-md-around align-items-start  timeline-nodes">
                 <div class="col-10 col-md-5 order-3 order-md-1 timeline-content" data-anime="right">
                     <h2 class="card-title text-warning-title ">Adote um cachorro</h2>
-                    <p class="card-text text-body-tertiary " style="margin-top: 35px;">Muitos animais aguardam uma segunda chance e um lar cheio de amor. Não compre, adote.</p>
+                    <p class="card-text text-body-tertiary " style="margin-top: 35px;">Muitos animais aguardam uma segunda chance e um lar cheio de amor. Não compre,  .</p>
                     <!-- HTML -->
                     <a href="{{ route('adote.index') }}" class="btn btn-more-information-link mb-3"><i class="fas fa-paw"> Quero Adotar</i></a>
 

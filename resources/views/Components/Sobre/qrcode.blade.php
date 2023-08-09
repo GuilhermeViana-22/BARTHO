@@ -1,4 +1,6 @@
 
+<style>
+</style>
 <section class="qrcode">
     <div class="row">
         <div class="col">
@@ -12,7 +14,9 @@
                             </g>
                         </svg> 𝘗𝘐𝘟</h5>
                     <p class="card-text text-content">Chave PIX:</p>
-                    <p class="card-text text-content">barthoprotecaoanimal@gmail.com</p>
+                    <p class="card-text text-content"  onclick="copyTextToClipboard('barthoprotecaoanimal@gmail.com')">barthoprotecaoanimal@gmail.com <i class="fas fa-copy copy-icon"></i></p>
+
+
                     <!-- Conteúdo da segunda coluna aqui -->
                     <p class="card-text text-content">QR code</p>
                     <!-- Conteúdo da segunda coluna aqui -->
@@ -42,7 +46,9 @@
                             </g>
                         </svg> 𝘗𝘐𝘊𝘗𝘈𝘠</h6>
                     <p class="card-text text-content">Chave PIX:</p>
-                    <p class="card-text text-content">@barthoprotoecaoanimal</p>
+                    <p class="card-text text-content"  onclick="copyTextToClipboard('@barthoprotoecaoanimal')">@barthoprotoecaoanimal <i class="fas fa-copy copy-icon"></i></p>
+
+
                     <p class="card-text text-content">QR code</p>
                     <img id="logo_sobre" src="{{ asset('img/QRCODE.jpg') }}" loading="lazy" style="width: 200px; height: 200px;" alt="Imagem" class="img-fluid mx-auto d-block">
                 </div>
@@ -51,9 +57,31 @@
     </div>
 
 </section>
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#6C5142" fill-opacity="1" d="M0,320L34.3,288C68.6,256,137,192,206,181.3C274.3,171,343,213,411,192C480,171,549,85,617,53.3C685.7,21,754,43,823,64C891.4,85,960,107,1029,101.3C1097.1,96,1166,64,1234,48C1302.9,32,1371,32,1406,32L1440,32L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path>
 </svg>
+
+<script>
+    function copyTextToClipboard(text) {
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = text;
+        document.body.appendChild(tempTextArea);
+
+        tempTextArea.select();
+        document.execCommand("copy");
+
+        document.body.removeChild(tempTextArea);
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Chave copiada!',
+            text: text,
+            timer: 2000
+        });
+    }
+</script>
 <script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>
 <script src="https://kit.fontawesome.com/55136953e0.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
 
