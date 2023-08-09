@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ajudarController extends Controller
+class AjudarController extends Controller
 {
     public function index()
     {
