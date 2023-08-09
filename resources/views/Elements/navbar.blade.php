@@ -34,7 +34,7 @@
             </li>
             <hr>
             <li class="nav-item alinhamento">
-                <a class="nav-link alinhamento" href="{{ route('Ajudar.index') }}">Como ajudar</a>
+                <a class="nav-link alinhamento" href="{{ route('ajudar.index') }}">Como ajudar</a>
             </li>
             <hr>
             <li class="nav-item">
