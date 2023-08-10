@@ -3,6 +3,9 @@
     margin: 0 auto;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-seri;
 }
+body{
+    overflow-x: hidden;
+}
 
 .index {
     display: flex;
@@ -13,7 +16,9 @@
 }
 
 
-
+#btn-saiba-mais{
+    padding: 13px;
+}
 .img-container {
     position: relative;
     display: inline-block;
@@ -62,6 +67,7 @@
 .nav-item,
 .nav-link {
     color: #654737 !important;
+    white-space: nowrap;
     /* Cor de fundo quando selecionado */
 }
 
@@ -100,8 +106,9 @@
 }
 
 #titile {
-    max-width: 30%;
+    max-width: 18%;
     padding: 10px;
+    padding-left: 41px;
 }
 
 .adotar-animais {
@@ -249,7 +256,12 @@ a {
     /* Cor do texto (branco) */
     margin: 10px;
 }
-
+.conteudo-sobre-doacoes{
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 150px;
+    overflow-y:  visible;
+}
 .fa-donate {
     background-color: #e9cc66;
     padding: 20px;
@@ -717,11 +729,18 @@ a {
         margin-right: -26px;
     }
 
+
+
 }
 
 @media (min-width: 701px) and (max-width: 860px) {
+    .index {
+        height: calc(100vh - 20vh);
+    }
+
     .alinhamento {
         width: 100%;
+        white-space: break-spaces;
     }
     .alinhamento>a {
         margin-left: 10px;
@@ -734,8 +753,7 @@ a {
         width: 100%;
     }
     #titile {
-        width: 650px;
-        height: 50px;
+        max-width: 75%;
     }
     .text-banner {
         text-align: center;
@@ -744,6 +762,12 @@ a {
     }
     .banner-doe {
         display: none;
+    }
+    #logo_principal {
+        max-width: 56%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .outras_formas_de_ajudar {
         display: none;
