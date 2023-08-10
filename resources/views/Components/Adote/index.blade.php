@@ -119,9 +119,9 @@
                                 <div class="card-header">
                                     <h5 class="title-adotar">🐾 Conheça o Urso! 🐾</h5>
                                     <figure>
-                                        <img src="{{ asset('img/urso/urso_02.jpeg') }}" alt="Imagem" class="img-fluid">
+                                        <img src="{{ asset('img/urso/urso_02.jpeg') }}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -133,9 +133,9 @@
                                 <div class="card-header">
                                     <h5 class="title-adotar">🐾 Conheça o Luke! 🐾</h5>
                                     <figure>
-                                        <img src="{{ asset('img/luke/luke_01.jpeg') }}" alt="Imagem" class="img-fluid">
+                                        <img src="{{ asset('img/luke/luke_01.jpeg') }}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
                                             </button>
                                         </figcaption>
                                     </figure>

@@ -29,7 +29,7 @@
                 <br>
                 <b class="mt-4">CNPJ: 40.074.637/0001-47</b>
                 <br>
-                <b class="mt-4">atendimento@bartho.org.br</b>
+                <b><a href="mailto:atendimento@bartho.org.br" style="color: #6e4735 !important">atendimento@bartho.org.br</a>.</b>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
@@ -40,30 +40,30 @@
                 <h3>Reportagens Mega-Resgate</h3>
                 <ul class="list-group list-group-flush list-contao">
                     <li class="list-group-item item-contato">
-                        <a class="link-contato" href="http://r7.com/DnVy">
-                            <i class="fas fa-arrow-right"> Reportagem no R7 - FALA BRASIL</i>
+                        <a class="link-contato" href="http://r7.com/DnVy" target="_blank">
+                          <b> <i class="fa fa-arrow-circle-right" style="padding-right: 20px"></i>   Reportagem no R7 - FALA BRASIL</b>
                         </a>
                     </li>
                     <li class="list-group-item item-contato">
-                        <a class="link-contato" href="•	https://g1.globo.com/sp/mogi-das-cruzes-suzano/noticia/2020/08/31/mais-de-80-animais-em-situacao-de-maus-tratos-sao-resgatados-em-itaquaquecetuba-diz-policia.ghtml">
-                            <i class="fas fa-arrow-right"> Reportagem no G1</i>
+                        <a class="link-contato" href="•	https://g1.globo.com/sp/mogi-das-cruzes-suzano/noticia/2020/08/31/mais-de-80-animais-em-situacao-de-maus-tratos-sao-resgatados-em-itaquaquecetuba-diz-policia.ghtml" target="_blank">
 
+                            <b> <i class="fa fa-arrow-circle-right" style="padding-right: 20px"></i>  Reportagem no G1</b>
                         </a>
                     </li>
                 </ul>
 
                 <div class="card receba-novidades-content">
                     <div class="card-body card-receba-novidades">
-                        <form class="card-body-content">
+                        <form class="card-body-content" id="cadastroForm">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">
-                                    <h5 class="card-title ">Cadastre-se e receba novidades</h5>
-                                    <p lass="link-contato" style="text-align: center">Coloque aqui o seu melhor e-mail e não se preocupe, pois não vamos enviar nenhum spam. 🤎💛</p>
+                                    <h5 class="card-title">Cadastre-se e receba novidades</h5>
+                                    <p class="link-contato" style="text-align: center">Coloque aqui o seu melhor e-mail e não se preocupe, pois não vamos enviar nenhum spam. 🤎💛</p>
                                 </label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" required>
                             </div>
-                            <div class="text-center"> <!-- Utilize a classe text-center para centralizar o conteúdo -->
-                                <button type="submit" class="btn btn-more-information mx-auto"><i class="fas fa-paw">  Enviar</i> </button>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-more-information mx-auto"><i class="fas fa-paw">  Enviar</i></button>
                             </div>
                         </form>
                     </div>
@@ -76,3 +76,27 @@
 <article class="finally">
     <p class="copyright" style="text-align: center">Todos os direitos reservados © BARTHÔ Grupo de Proteção Animal <span id="ano"></span></p>
 </article>
+<script>
+    // Função para exibir o SweetAlert de sucesso
+    function exibirMensagemDeSucesso() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Email enviado com sucesso!',
+            text: 'Muito obrigado 😃! Seu email foi enviado com sucesso.',
+            confirmButtonText: 'Fechar'
+        });
+    }
+
+    // Função para lidar com o envio do formulário
+    function handleSubmit(event) {
+        event.preventDefault(); // Evitar o envio tradicional do formulário
+
+        // Aqui você pode adicionar código para enviar o formulário para o servidor
+        // Por enquanto, vamos apenas exibir o SweetAlert de sucesso
+        exibirMensagemDeSucesso();
+    }
+
+    // Adicionar evento de submit ao formulário
+    const cadastroForm = document.getElementById('cadastroForm');
+    cadastroForm.addEventListener('submit', handleSubmit);
+</script>
