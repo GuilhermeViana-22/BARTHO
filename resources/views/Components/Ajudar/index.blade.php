@@ -53,7 +53,17 @@
         </div>
     </div>
     @include('Components.Footer.index')
+    <script>
+        // Função para rolar a página automaticamente
+        function scrollPage() {
+            if (window.innerWidth < 700) {
+                window.scrollBy(0, 300); // Role 300px para baixo
+            }
+        }
 
+        // Chame a função quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', scrollPage);
+    </script>
     <script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>
     <script type="text/javascript" src="{{asset('site/js/main.js')}}"></script>
 @endsection
