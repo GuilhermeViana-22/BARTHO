@@ -36,7 +36,7 @@
                         <h3 class="card-title text-warning-title">Proteger saídas e rotas de fuga</h3>
                         <p class="card-text text-body-tertiary">Apartamentos e casas precisam ter redes de proteção
                             em
-                            todas as janelas, vidros, sacadas e portões para impedir que o animal fuja para rua . Lembre-se que isso precisa ser feito antes da chegada do cachorrinho.</p>
+                            todas as janelas, vidros, sacadas e portões para impedir que o animal fuja para rua. Lembre-se que isso precisa ser feito antes da chegada do cachorrinho.</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <div class="card-body">
                         <h3 class="card-title text-warning-title">Ter condições financeiras</h3>
                         <p class="card-text text-body-tertiary">Este ponto é de extrema importância para garantir a
-                            qualidade de vida do cachorrinho: é preciso ter condições financeiras para arcar com
+                            qualidade de vida do cachorrinho é preciso ter condições financeiras para arcar com
                             ração
                             de boa qualidade, vacinas e consultas regulares com veterinário.</p>
 
@@ -267,7 +267,7 @@
                                             </button>
                                         </figcaption>
                                     </figure>
-                
+
                                 </div>
                             </div>
                         </div>

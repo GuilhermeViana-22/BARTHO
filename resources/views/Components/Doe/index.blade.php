@@ -121,7 +121,11 @@
             <img src="{{ asset('img/nova-logo.png') }}" alt="Imagem" class="img-fluid" width="100" height="100"
                  style="display: block; margin-left: auto; margin-right: auto; margin-top: 5vh">
             <h5 class="card-title">DOAÇÕES MENSAIS - BARTHÔ</h5>
+            <br>
+            <br>
             <p class="card-title"> Ajude nossos animais mensalmente, através da opção que considerar melhor! 💛🤎</p>
+            <br>
+            <br>
             @include('Components.hr')
             <div class="row">
 

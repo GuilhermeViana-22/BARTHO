@@ -4,7 +4,7 @@
 <section class="sobre mt-4 mb-4">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-            <img id="logo_sobre" src="{{ asset('img/nova-logo.png') }}" alt="Imagem" loading="lazy" class="img-fluid ">
+            <img id="logo_principal" src="{{ asset('img/nova-logo.png') }}" alt="Imagem" loading="lazy" class="img-fluid ">
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 text-right">
             <h2><strong>Sobre nós</strong></h2>
@@ -40,22 +40,28 @@
         <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 mb-4">
             <div class="card card-doar">
                 <i id="fa-paw" class="fas fa-paw"></i>
+                <br>
                 <h5>Alimentos</h5>
-                <p class="conteudo">Com suas doações, somos capazes de garantir que todos os nossos animais recebam refeições nutritivas e balanceadas diariamente. Além disso, as rações doadas também são comumente destinadas a animais que vivem em situação de rua, ou em comunidades carentes .</p>
+                <br>
+                <p class="conteudo-sobre-doacoes">Com suas doações, somos capazes de garantir que todos os nossos animais recebam refeições nutritivas e balanceadas diariamente. Além disso, as rações doadas também são comumente destinadas a animais que vivem em situação de rua, ou em comunidades carentes.</p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 mb-4">
             <div class="card  card-doar">
                 <i id="fa-paw" class="fas fa-paw"></i>
+                <br>
                 <h5>Medicamentos</h5>
-                <p class="conteudo">Com suas doações, podemos adquirir os medicamentos vitais para o tratamento de doenças, infecções e outras condições de saúde que nossos animais possam enfrentar. Cada contribuição que recebemos nos permite oferecer-lhes os cuidados médicos necessários, fornecendo medicamentos de qualidade e com as dosagens corretas.</p>
+                <br>
+                <p class="conteudo-sobre-doacoes">Com suas doações, podemos adquirir os medicamentos vitais para o tratamento de doenças, infecções e outras condições de saúde que nossos animais possam enfrentar. Cada contribuição que recebemos nos permite oferecer-lhes os cuidados médicos necessários, fornecendo medicamentos de qualidade e com as dosagens corretas.</p>
             </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 mb-4">
             <div class="card card-doar">
                 <i id="fa-paw" class="fas fa-paw"></i>
+                <br>
                 <h5>Cirurgias</h5>
-                <p class="conteudo">Com suas doações, podemos cobrir os custos das cirurgias essenciais para nossos animais. Cada contribuição que recebemos nos permite oferecer-lhes acesso a procedimentos cirúrgicos realizados por profissionais qualificados e experientes. As doações possibilitam que eles recebam os cuidados médicos necessários para superar os desafios de saúde e terem uma chance maior de recuperação.</p>
+                <br>
+                <p class="conteudo-sobre-doacoes">Com suas doações, podemos cobrir os custos das cirurgias essenciais para nossos animais. Cada contribuição que recebemos nos permite oferecer-lhes acesso a procedimentos cirúrgicos realizados por profissionais qualificados e experientes. As doações possibilitam que eles recebam os cuidados médicos necessários para superar os desafios de saúde e terem uma chance maior de recuperação.</p>
             </div>
         </div>
     </div>
