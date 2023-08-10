@@ -93,6 +93,7 @@
         </div>
     </div>
 
+
     @include('Components.hr')
     <div class="container">
         <h3 class="card-title text-warning-title">Animais para doação</h3>
@@ -166,9 +167,11 @@
                                             </button>
                                         </figcaption>
                                     </figure>
+
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="col-md-12 col-lg-4" data-anime="right">
                             <div class="card doacoes">
@@ -181,11 +184,13 @@
                                             </button>
                                         </figcaption>
                                     </figure>
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-12 col-lg-4" data-anime="right">
+
 
                             <div class="card doacoes">
                                 <div class="card-header">
@@ -197,12 +202,14 @@
                                             </button>
                                         </figcaption>
                                     </figure>
+
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="tab-pane" role="tabpanel" id="ratings">
                 <div class="container">
@@ -260,11 +267,13 @@
                                             </button>
                                         </figcaption>
                                     </figure>
+                
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-lg-4" data-anime="right">
+
+                       <div class="col-md-12 col-lg-4" data-anime="right">
                             <div class="card doacoes">
                                 <div class="card-header">
                                     <h5 class="title-adotar">🐾 Conheça o Lázara! 🐾</h5>
@@ -275,15 +284,19 @@
                                             </button>
                                         </figcaption>
                                     </figure>
+
                                 </div>
                             </div>
                         </div>
+
+
 
 
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 <!-- se remover esse script aqui o tab nao fucniona mais , o boostrap depende deste script entao por favor manter-->

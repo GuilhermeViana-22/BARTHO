@@ -7,29 +7,29 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
             <div class="content">
                 <h3>Conheça o Barthô</h3>
-                <p class="link-contato">Grupo de Proteção Animal fundado em São Caetano do Sul/SP que, desde 2016, atua na Grande São Paulo e Interior realizando resgates, salvamentos, tratamentos veterinários e acolhimento através de Lares Temporários, até que sejam adotados. Realizamos Feiras de Adoção Presenciais e Entrevistas Oi e para Adoções, em um trabalho 100% Voluntário que já resgatou mais de 1400 animais.
-                </p>
-                <h5 class="card-title link-contato">Sinta-se à vontade para contatar o BARTHÔ a qualquer momento</h5>
-                <ul class="list-group list-group-flush list-contao">
-                    <li class="list-group-item item-contato">
-                        <a class="link-contato" href="https://www.facebook.com/barthoprotecaoanimal">
-                            <ion-icon name="logo-facebook" class="custom-icon ion-icon"></ion-icon>
-                            Barthô - Grupo de Proteção Animal
-                        </a>
-                    </li>
-                    <li class="list-group-item item-contato">
-                        <a class="link-contato" href="https://api.whatsapp.com/send?phone=5511939009007">
-                            <ion-icon name="logo-instagram" class="custom-icon ion-icon"></ion-icon>
-                            @barthoprotecaoanimal</a>
-                    </li>
+                <p class="link-contato">Grupo de Proteção Animal fundado em São Caetano do Sul/SP que, desde 2016, atua na Grande São Paulo e Interior realizando resgates, salvamentos, tratamentos veterinários e acolhimento através de Lares Temporários, até que sejam adotados. Realizamos Feiras de Adoção Presenciais e Entrevistas Oi e para Adoções, em um trabalho 100% Voluntário que já resgatou mais de 1400 animais.</p>
+                <h5 class="card-title link-contato">Siga-nos nas redes sociais</h5>
+                <div class="redes-sociais">
+                    <a class="btn  mx-2" href="https://www.facebook.com/barthoprotecaoanimal" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
 
-                    <li class="list-group-item item-contato">
-                        <a class="link-contato" href="mailto:barthoprotecaoanimal@gmail.com">
-                            <ion-icon name="mail-outline" class="custom-icon ion-icon"></ion-icon>
-                            barthoprotecaoanimal@gmail.com
-                        </a>
-                    </li>
-                </ul>
+                    <a class="btn mx-2" href="https://www.instagram.com/p/Ctzw9NMv6Kb" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a class="btn mx-2" href="https://www.linkedin.com/company/barthoprotecaoanimal" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+          <hr>
+            <div class="text-center p-4">
+                <b  class="mt-4">Barthô - Grupo de Proteção Animal</b>
+                <br>
+                <b class="mt-4">CNPJ: 40.074.637/0001-47</b>
+                <br>
+                <b class="mt-4">atendimento@bartho.org.br</b>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
