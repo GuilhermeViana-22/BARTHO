@@ -1,11 +1,9 @@
 
-<style>
-</style>
 <section class="qrcode">
     <div class="row">
-        <div class="col">
+        <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 mb-4">
             <div class="card  card-doe animate__animated animate__fadeInDown" style="margin-left: 20px;margin-right: 20px;">
-                <div class="card-body" >
+                <div class="card-body">
                     <h5 class="card-title"><svg style="width: 30px; height: 30px;" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                             <defs />
                             <g fill="#4BB8A9" fill-rule="evenodd">
@@ -24,15 +22,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-6 p-4 descript">
+        <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 mb-4 descript">
             <h3><strong>Doação QR Code</strong></h3>
             <br>
-            <p  class="text-content">No Grupo Barthô, os recursos são <strong>INTEGRALMENTE destinados para SALVAR VIDAS</strong>. Somos um grupo de pessoas <strong>100% VOLUNTÁRIAS</strong>, e temos registrado em nosso Estatuto que nenhum voluntário recebe qualquer remuneração.</p>
-            <p  class="text-content">Através destes QR Codes ou Links, você pode ajudar em todas as nossas jornadas de resgate, acolhimento, tratamento veterinário, alimentação e demais necessidades que nossos animais resgatados possuem.</p>
-            <p  class="text-content">Ajude a transformar a vida destes que tanto já sofreram com os flagelos da crueldade humana.</p>
+            <p class="text-content">No Grupo Barthô, os recursos são <strong>INTEGRALMENTE destinados para SALVAR VIDAS</strong>. Somos um grupo de pessoas <strong>100% VOLUNTÁRIAS</strong>, e temos registrado em nosso Estatuto que nenhum voluntário recebe qualquer remuneração.</p>
+            <p class="text-content">Através destes QR Codes ou Links, você pode ajudar em todas as nossas jornadas de resgate, acolhimento, tratamento veterinário, alimentação e demais necessidades que nossos animais resgatados possuem.</p>
+            <p class="text-content">Ajude a transformar a vida destes que tanto já sofreram com os flagelos da crueldade humana.</p>
 
         </div>
-        <div class="col pix">
+        <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 mb-4 pix">
             <!-- Conteúdo da segunda coluna aqui -->
             <div class="card  card-doe animate__animated animate__fadeInDown" style="margin-left: 20px;margin-right: 20px;">
                 <div class="card-body">
@@ -82,6 +80,10 @@
     }
 </script>
 <script type="text/javascript" src="{{asset('site/bootstrap.js')}}"></script>
+
+<script src="https://kit.fontawesome.com/55136953e0.js" crossorigin="anonymous"></script>
+
 <script src="https://kit.fontawesome.com/55136953e0.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
 
