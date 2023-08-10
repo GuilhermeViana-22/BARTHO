@@ -7,7 +7,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        <div  class="menu-container2">
+        <div class="menu-container2">
             <!-- Logo -->
             <a class="navbar-brand" href="{{ route('home.index') }}">
                 <img id="titile" src="{{ asset('img/titile.jpg') }}" alt="Imagem" class="img-fluid">
@@ -16,7 +16,7 @@
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Adicione a classe text-left ao elemento ul -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav justify-content-end">
             <li class="nav-item alinhamento">
                 <a class="nav-link active alinhamento" href="{{ route('home.index') }}" style="color: #FFD129;">Início</a>
             </li>
@@ -38,7 +38,7 @@
             </li>
             <hr>
             <li class="nav-item">
-                <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('doe.index') }}" style="color: #fff !important;"><strong>  🤎  DOE  🤎 </strong></a>
+                <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('doe.index') }}" style="color: #fff !important;"><strong> 🤎 DOE 🤎 </strong></a>
             </li>
         </ul>
     </div>
