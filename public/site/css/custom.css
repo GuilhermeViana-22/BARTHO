@@ -41,8 +41,8 @@ body{
 
 .fa-arrow-right{
     color: #654737 !important; /* Cor de fundo quando selecionado */
-
 }
+
 
 .fa-arrow-right:hover {
     color: #3b1b0c !important;
@@ -159,6 +159,11 @@ a {
     color: #000000 !important;
 }
 
+b:hover{
+    color: #563829 !important;
+
+}
+
 .navbar-toggler {
     margin-left: 10px;
 }
@@ -241,6 +246,9 @@ a {
 
 .qrcode {
     background-color: #6c5142;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
     /* Cor marrom em hexadecimal */
 }
 
@@ -347,8 +355,13 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform .2s; /* Animation */
 }
 
+
+.card-doe:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
 #qrcode_doa {
     display: block;
     margin-left: auto;
@@ -441,6 +454,8 @@ a {
     width: 100%;
     background-color: #e9cc66;
     border-radius: 25px;
+    /* Adicione a propriedade background-image com loading="lazy" */
+    background-image: url('/img/capadesk.png') loading="lazy";
 }
 
 @keyframes carousel {
@@ -460,7 +475,6 @@ a {
         background-image: url('/img/capadesk.png');
     }
 }
-
 
 /* Estilos para alinhar à esquerda */
 
@@ -848,6 +862,30 @@ a {
         width: 60px;
         height: 60px;
     }
+
+    .qrcode .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Duas colunas no layout mobile */
+        grid-template-areas:
+            "col2 col2"
+            "col3 col1"; /* Definindo as áreas para a ordem desejada */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        width: 100%; /* Ajustando a largura das colunas no layout mobile */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.descript {
+        grid-area: col2; /* Área da segunda coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.pix {
+        grid-area: col3; /* Área da terceira coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        grid-area: col1; /* Área da primeira coluna */
+    }
 }
 
 
@@ -950,6 +988,8 @@ a {
         width: 100%;
         padding: 1px;
     }
+
+
 }
 
 
@@ -1059,6 +1099,30 @@ a {
     }
     .link-contato {
         text-align: center !important;
+    }
+
+    .qrcode .row {
+        display: grid;
+        grid-template-areas:
+            "col2"
+            "col3"
+            "col1"; /* Definindo as áreas para a ordem desejada */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        width: 100%; /* Ajustando a largura das colunas no layout mobile */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.descript {
+        grid-area: col2; /* Área da segunda coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.pix {
+        grid-area: col3; /* Área da terceira coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        grid-area: col1; /* Área da primeira coluna */
     }
 }
 

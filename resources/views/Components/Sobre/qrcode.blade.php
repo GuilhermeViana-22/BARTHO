@@ -1,4 +1,3 @@
-
 <section class="qrcode">
     <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-12 col-lg-4 mb-4">
@@ -53,7 +52,6 @@
             </div>
         </div>
     </div>
-
 </section>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

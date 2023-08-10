@@ -24,15 +24,5 @@ window.addEventListener('scroll', function(){
 date = new Date();
 year = date.getFullYear();
 document.getElementById("ano").innerHTML = year;
-document.getElementById("idade").innerHTML = (year - 1998);
 
 
-/// adicionando o script do botao
-const btnMobile = document.getElementById('btnMobile');
-
-btnMobile.addEventListener('click', toggleMenu);
-
-function toggleMenu(){
-    const nav = document.getElementById('nav');
-    nav.classList.toggle('active');
-}
