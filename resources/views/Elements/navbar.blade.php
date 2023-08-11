@@ -10,7 +10,7 @@
         <div class="menu-container2">
             <!-- Logo -->
             <a class="navbar-brand" href="{{ route('home.index') }}">
-                <img id="titile" src="{{ asset('img/titile.jpg') }}" alt="Imagem" class="img-fluid">
+                <img id="titile" src="{{ asset('img/titile.jpg') }}" alt="Imagem" class="img-fluid" style="max-width: 100px; margin-left: 50px">
             </a>
         </div>
     </div>
