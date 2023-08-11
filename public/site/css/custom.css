@@ -15,6 +15,9 @@ body{
     height: calc(100vh - 10vh);
 }
 
+#titile{
+    max-width: 20%;
+}
 
 #btn-saiba-mais{
     padding: 13px;
@@ -106,7 +109,6 @@ body{
 }
 
 #titile {
-    max-width: 18%;
     padding: 10px;
     padding-left: 41px;
 }
@@ -186,7 +188,6 @@ h3,
 h4,
 h5,
 h6,
-.outras_formas_de_ajudar_text,
 .outras_formas_de_ajudar_text,
 .card-title,
 .text-content {
@@ -714,7 +715,9 @@ a {
     transform: translate3d(0, 0, 0);
 }
 
-
+.receba-novidades-content{
+    display: none;
+}
 @media (min-width: 1401px) and (max-width: 1700px) {
     .collapse {
         margin-left: -150px;
@@ -738,12 +741,145 @@ a {
 
 
 @media (min-width: 860px) and (max-width: 1060px) {
-    .collapse {
-        margin-left: -663px;
-        margin-right: -26px;
+    .index {
+        height: calc(100vh - 20vh);
     }
 
+    .alinhamento {
+        width: 100%;
+        white-space: break-spaces;
+    }
+    .alinhamento>a {
+        margin-left: 10px;
+    }
+    .banner,
+    .banner-box {
+        display: none;
+    }
+    .menu-container2 {
+        width: 100%;
+    }
+    #titile {
+        max-width: 75%;
+    }
+    .text-banner {
+        text-align: center;
+        align-items: center;
+        margin-left: 80px;
+    }
+    .banner-doe {
+        display: none;
+    }
+    #logo_principal {
+        max-width: 56%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25%;
+    }
+    .outras_formas_de_ajudar {
+        display: none;
+    }
+    /*time line css */
+    .timeline-nodes:nth-child(odd) h3,
+    .timeline-nodes:nth-child(odd) p {
+        text-align: left
+    }
+    .timeline-nodes:nth-child(even) {
+        flex-direction: row;
+    }
+    .timeline::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 4%;
+        width: 0;
+        border-left: 2px dashed #262626;
+        height: 100%;
+        z-index: 1;
+        transform: translateX(-50%);
+    }
+    .timeline h3 {
+        font-size: 1.7rem;
+    }
+    .timeline p {
+        font-size: 14px;
+    }
+    .timeline-image {
+        position: absolute;
+        left: 0%;
+        top: 60px;
+        /*transform: translateX(-50%;);*/
+    }
+    .timeline-nodes:nth-child(odd) .timeline-content::after {
+        content: "";
+        position: absolute;
+        top: 5%;
+        left: auto;
+        right: 100%;
+        width: 0;
+        border-left: 0;
+        border-right: 10px solid #262626;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+    .timeline-nodes:nth-child(even) .timeline-content::after {
+        content: "";
+        position: absolute;
+        top: 5%;
+        right: 100%;
+        width: 0;
+        border-right: 10px solid #262626;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+    .timeline-nodes:nth-child(even) .timeline-date {
+        text-align: center;
+    }
+    .timeline-image::before {
+        width: 65px;
+        height: 65px;
+    }
+    .timeline::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 3%;
+    }
+    .timeline-image {
+        position: absolute;
+        left: -5%;
+    }
+    .timeline-image::before {
+        width: 60px;
+        height: 60px;
+    }
 
+    .qrcode .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Duas colunas no layout mobile */
+        grid-template-areas:
+            "col2 col2"
+            "col3 col1"; /* Definindo as áreas para a ordem desejada */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        width: 100%; /* Ajustando a largura das colunas no layout mobile */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.descript {
+        grid-area: col2; /* Área da segunda coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.pix {
+        grid-area: col3; /* Área da terceira coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        grid-area: col1; /* Área da primeira coluna */
+    }
 
 }
 
@@ -782,6 +918,7 @@ a {
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 25%;
     }
     .outras_formas_de_ajudar {
         display: none;
@@ -937,6 +1074,29 @@ a {
         width: 60px;
         height: 60px;
     }
+    .qrcode .row {
+        display: grid;
+        grid-template-areas:
+            "col2"
+            "col3"
+            "col1"; /* Definindo as áreas para a ordem desejada */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        width: 100%; /* Ajustando a largura das colunas no layout mobile */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.descript {
+        grid-area: col2; /* Área da segunda coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.pix {
+        grid-area: col3; /* Área da terceira coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        grid-area: col1; /* Área da primeira coluna */
+    }
 }
 
 
@@ -954,6 +1114,16 @@ a {
         margin-left: auto;
         margin-right: auto;
         text-align: center !important;
+    }
+
+    .structure-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+    #titile {
+        max-width: 49%;
     }
     .banner {
         display: none;
@@ -988,7 +1158,33 @@ a {
         width: 100%;
         padding: 1px;
     }
+    .qrcode .row {
+        display: grid;
+        grid-template-areas:
+            "col2"
+            "col3"
+            "col1"; /* Definindo as áreas para a ordem desejada */
+        padding: 10px;
+    }
 
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        width: 100%; /* Ajustando a largura das colunas no layout mobile */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.descript {
+        grid-area: col2; /* Área da segunda coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.pix {
+        grid-area: col3; /* Área da terceira coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        grid-area: col1; /* Área da primeira coluna */
+    }
+    .footer{
+        padding: 10px;
+    }
 
 }
 
@@ -1012,16 +1208,12 @@ a {
         text-align: center !important;
     }
     .structure-navbar {
-        width: 100%;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        justify-items: flex-start;
+        align-items: center;
+        padding: 10px;
     }
-    #titile {
-        max-width: 60%;
-        float: right;
-    }
+
     .banner {
         display: none;
     }
@@ -1107,6 +1299,7 @@ a {
             "col2"
             "col3"
             "col1"; /* Definindo as áreas para a ordem desejada */
+        padding: 10px;
     }
 
     .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
@@ -1123,6 +1316,9 @@ a {
 
     .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
         grid-area: col1; /* Área da primeira coluna */
+    }
+    .footer{
+        padding: 10px;
     }
 }
 
@@ -1147,8 +1343,6 @@ a {
     }
     #titile {
         max-width: 40%;
-        margin-left: 2px;
-        margin-bottom: 10px;
     }
     .banner {
         display: none;
@@ -1192,5 +1386,32 @@ a {
         background-color: #e9cc66 !important;
         width: 100%;
         padding: 1px
+    }
+    .qrcode .row {
+        display: grid;
+        grid-template-areas:
+            "col2"
+            "col3"
+            "col1"; /* Definindo as áreas para a ordem desejada */
+        padding: 10px;
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        width: 100%; /* Ajustando a largura das colunas no layout mobile */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.descript {
+        grid-area: col2; /* Área da segunda coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4.pix {
+        grid-area: col3; /* Área da terceira coluna */
+    }
+
+    .col-xs-12.col-sm-4.col-md-12.col-lg-4.mb-4 {
+        grid-area: col1; /* Área da primeira coluna */
+    }
+    .footer{
+        padding: 10px;
     }
 }
