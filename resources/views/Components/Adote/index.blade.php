@@ -149,7 +149,10 @@
                                     <figure>
                                         <img src="{{ asset('img/pacoca/03.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank"  style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -163,7 +166,10 @@
                                     <figure>
                                         <img src="{{ asset('img/nazare/nazare_02.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1"  target="_blank"style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -180,7 +186,10 @@
                                     <figure>
                                         <img src="{{ asset('img/duque/duque.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -198,7 +207,10 @@
                                     <figure>
                                         <img src="{{ asset('img/dandara/dandara.jpeg') }}" alt="Imagem" class="img-fluid">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -221,7 +233,10 @@
                                     <figure>
                                         <img src="{{ asset('img/gatos/gato_01.jpeg') }}" alt="Imagem" class="adotar-animais">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -231,11 +246,14 @@
                         <div class="col-md-12 col-lg-4" data-anime="right">
                             <div class="card doacoes">
                                 <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o bethoven ! 🐾</h5>
+                                    <h5 class="title-adotar">🐾 Conheça o Bethoven! 🐾</h5>
                                     <figure>
                                         <img src="{{ asset('img/gatos/gato_03.jpeg') }}" alt="Imagem" class="adotar-animais">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -249,7 +267,10 @@
                                     <figure>
                                         <img src="{{ asset('img/gatos/gato_04.jpeg') }}" alt="Imagem" class="adotar-animais">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -259,11 +280,14 @@
                         <div class="col-md-12 col-lg-4" data-anime="right">
                             <div class="card doacoes">
                                 <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o mooroe! 🐾</h5>
+                                    <h5 class="title-adotar">🐾 Conheça o Mooroe! 🐾</h5>
                                     <figure>
                                         <img src="{{ asset('img/gatos/gato_05.jpeg') }}" alt="Imagem" class="adotar-animais">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
@@ -280,7 +304,10 @@
                                     <figure>
                                         <img src="{{ asset('img/gatos/gato_06.jpg') }}" alt="Imagem" class="adotar-animais">
                                         <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;"><i class="fas fa-paw"> Quero Adotar</i>
+                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                    <i class="fas fa-paw"></i> Quero Adotar
+                                                </a>
                                             </button>
                                         </figcaption>
                                     </figure>
