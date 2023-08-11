@@ -10,7 +10,7 @@
             <h2><strong>Sobre nós</strong></h2>
             <div class="col-10">
                 <p>O BARTHÔ é um Grupo de Proteção Animal situado no Brasil, mais especificamente na cidade de São Caetano
-                    do Sul, no estado de São Paulo. O BARTHÔ atua há 4 anos em ações de resgate, tratamento e adoção de
+                    do Sul, no estado de São Paulo. O BARTHÔ atua há 6 anos em ações de resgate, tratamento e adoção de
                     animais abandonados ou vítimas de maus-tratos.</p>
 
                 <p>O BARTHÔ resgata, acolhe e custeia tratamentos com a ajuda de doações de pessoas sensibilizadas pelos
