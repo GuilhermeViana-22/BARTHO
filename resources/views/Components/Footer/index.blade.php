@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
             <div class="content">
                 <h3>Conheça o Barthô</h3>
-                <p class="link-contato">Grupo de Proteção Animal fundado em São Caetano do Sul/SP que, desde 2016, atua na Grande São Paulo e Interior realizando resgates, salvamentos, tratamentos veterinários e acolhimento através de Lares Temporários, até que sejam adotados. Realizamos Feiras de Adoção Presenciais e Entrevistas e para Adoções, em um trabalho 100% Voluntário que já resgatou mais de <b>1400</b> animais.</p>
+                <p class="link-contato">Grupo de Proteção Animal fundado em São Caetano do Sul/SP que, desde 2016, atua na Grande São Paulo e Interior realizando resgates, salvamentos, tratamentos veterinários e acolhimento através de Lares Temporários, até que sejam adotados. Realizamos Feiras de Adoção Presenciais e Entrevistas para Adoções, em um trabalho 100% Voluntário que já resgatou mais de <b>1400</b> animais.</p>
                 <h5 class="card-title link-contato">Siga-nos nas redes sociais</h5>
                 <div class="redes-sociais">
                     <a class="btn  mx-2" href="https://www.facebook.com/barthoprotecaoanimal" target="_blank">
