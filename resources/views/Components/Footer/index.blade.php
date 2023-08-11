@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="list-group-item item-contato">
-                        <a class="link-contato" href="•	https://g1.globo.com/sp/mogi-das-cruzes-suzano/noticia/2020/08/31/mais-de-80-animais-em-situacao-de-maus-tratos-sao-resgatados-em-itaquaquecetuba-diz-policia.ghtml" target="_blank">
+                        <a class="link-contato" href="https://g1.globo.com/sp/mogi-das-cruzes-suzano/noticia/2020/08/31/mais-de-80-animais-em-situacao-de-maus-tratos-sao-resgatados-em-itaquaquecetuba-diz-policia.ghtml" target="_blank">
 
                             <b> <i class="fa fa-arrow-circle-right" style="padding-right: 20px"></i>  Reportagem no G1</b>
                         </a>
