@@ -10,9 +10,17 @@
         </div>
         <div class="col-md-6 login-form">
             <form action="{{ route('login') }}" method="POST">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger" role="alert">
+                        <i class="fa fa-times" aria-hidden="true"></i> {{$error}}
+                    </div>
+                    @endforeach
+                @endif
+
                 @csrf
                 <div class="form-group mt-3">
-                    <input type="email" class="form-control" name="email" placeholder="E-mail">
+                    <input type="email" value="{{old('email')}}" class="form-control" name="email" placeholder="E-mail">
                 </div>
                 <div class="form-group mt-3">
                     <input type="text" class="form-control" name="password" placeholder="Senha">
