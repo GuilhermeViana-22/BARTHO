@@ -40,6 +40,10 @@
             <li class="nav-item">
                 <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('doe.index') }}" style="color: #fff !important;"><strong> 🤎 DOE 🤎 </strong></a>
             </li>
+            <hr>
+            <li class="nav-item">
+                <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('login') }}" style="color: #fff !important;"><strong> LOGIN </strong></a>
+            </li>
         </ul>
     </div>
 </nav>
