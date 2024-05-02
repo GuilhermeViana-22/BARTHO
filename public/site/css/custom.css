@@ -1400,3 +1400,123 @@ a {
         padding: 10px;
     }
 }
+
+/* ESTILOS PARA A NAVBAR DASHBOARD */
+#arearestrita .navbar {
+    padding: 10px;
+}
+
+#arearestrita .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+#arearestrita .navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#arearestrita .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos para o conteúdo */
+#arearestrita .content {
+    padding: 20px;
+}
+
+/* Estilos para a barra lateral */
+#arearestrita .sidebar {
+    background-color: #262626;
+    width: 250px;
+    height: 100vh; /* Ocupa toda a altura da tela */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Adiciona barra de rolagem vertical, se necessário */
+}
+
+#arearestrita .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#arearestrita .sidebar ul a{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid #888;
+    padding: 10px;
+    align-items: start;
+}
+
+#arearestrita .sidebar ul a:hover{
+    background-color: #434242;
+}
+
+#arearestrita .sidebar ul a i{
+    margin-left: 10px;
+    color: white;
+}
+
+#arearestrita .sidebar ul a li{
+    color: #fff !important;
+    text-decoration: none;
+    text-align: left;
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* Estilos para o conteúdo principal */
+#arearestrita .main-content {
+    margin-left: 250px; /* Ajusta a margem para deixar espaço para a barra lateral */
+    padding: 20px;
+}
+
+#arearestrita .logo {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-bottom: 1px solid #e9cc66;
+}
+
+#arearestrita .logo h2{
+    color: #e9cc66;
+}
+
+/* Estilos para tornar o layout responsivo */
+@media screen and (max-width: 768px) {
+    #arearestrita .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #arearestrita .main-content {
+        margin-left: 0; /* Reseta a margem para que o conteúdo principal ocupe toda a largura */
+    }
+
+    #arearestrita .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #arearestrita .logo {
+        display: none;
+    }
+
+    #arearestrita .sidebar ul a i{
+        display: none;
+    }
+
+    #arearestrita .sidebar ul a li{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

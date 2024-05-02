@@ -41,9 +41,18 @@
                 <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('doe.index') }}" style="color: #fff !important;"><strong> 🤎 DOE 🤎 </strong></a>
             </li>
             <hr>
-            <li class="nav-item">
-                <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('login') }}" style="color: #fff !important;"><strong> LOGIN </strong></a>
-            </li>
+
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('arearestrita') }}" style="color: #fff !important;"><strong> AREA RESTRITA </strong></a>
+                </li>
+            @endauth
+
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('login') }}" style="color: #fff !important;"><strong> LOGIN </strong></a>
+                </li>
+            @endguest
         </ul>
     </div>
 </nav>
