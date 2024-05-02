@@ -14,7 +14,8 @@ class AnimaisRequest extends FormRequest
     public function rules()
     {
         return [
-            'tipo_id' => 'required|integer'
+            'tipo_id' => 'required|integer',
+            'page' => 'nullable|int'
         ];
     }
 }
