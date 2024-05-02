@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\SobreController;
 use App\Http\Controllers\AjudarController;
+use App\Http\Controllers\AreaRestrita\AnimaisController;
 use App\Http\Controllers\AreaRestrita\AreaRestritaController;
+use App\Http\Controllers\AreaRestrita\UsuariosController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/acoes', [AcoesController::class, 'index'])->name('acoes.index');
@@ -26,5 +28,19 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
     Route::get('/', [AreaRestritaController::class, 'index']);
 
 
+   // Grupo de rotas para animais
+    Route::prefix('animais')->name('.animais')->group(function () {
+        // Rota para a lista de animais
+        Route::get('/', [AnimaisController::class, 'index']);
 
+        // Rotas adicionais para animais...
+    });
+
+    // Grupo de rotas para usuários
+    Route::prefix('usuarios')->name('.usuarios')->group(function () {
+        // Rota para a lista de usuários
+        Route::get('/', [UsuariosController::class, 'index']);
+
+        // Rotas adicionais para usuários...
+    });
 });
