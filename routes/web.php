@@ -34,6 +34,13 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::get('/', [AnimaisController::class, 'index']);
 
         // Rotas adicionais para animais...
+        Route::get('/incluir', [AnimaisController::class, 'incluir'])->name('.incluir');
+        Route::post('/salvar', [AnimaisController::class, 'salvar'])->name('.salvar');
+
+        Route::get('/alterar', [AnimaisController::class, 'alterar'])->name('.alterar');
+        Route::post('/salvaralteracao', [AnimaisController::class, 'salvarAlteracao'])->name('.salvaralteracao');
+
+        Route::get('/excluir', [AnimaisController::class, 'excluir'])->name('.excluir');
     });
 
     // Grupo de rotas para usuários

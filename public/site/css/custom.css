@@ -1520,3 +1520,31 @@ a {
         margin-right: auto;
     }
 }
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.page-header p{
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.page-header button{
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.table-footer{
+    display: flex;
+    flex-direction: row;
+}
+
+.table-footer .resultados {
+    margin-right: auto;
+    margin-left: 0
+}

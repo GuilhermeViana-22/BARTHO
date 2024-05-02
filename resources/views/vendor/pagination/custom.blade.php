@@ -3,7 +3,7 @@
         <div>
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
-                <span style="padding: 10px 18px; border: 1px solid black; border-radius: 100%; margin-right: 10px;  background-color: rgb(196, 196, 196)" class="pagination-disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+                <span style="padding: 10px 18px; border: 1px solid black; border-radius: 100%; margin-right: 10px; background-color: #e9cc66" class="pagination-disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                     <span class="pagination-arrow">&lsaquo;</span>
                 </span>
             @else
@@ -23,7 +23,7 @@
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <span style="padding: 5px; border: 1px solid black; border-radius: 10%; background-color: rgb(196, 196, 196)" class="pagination-current">{{ $page }}</span>
+                            <span style="padding: 5px; border: 1px solid black; border-radius: 10%;  background-color: #e9cc66" class="pagination-current">{{ $page }}</span>
                         @else
                             <a style="padding: 5px; border: 1px solid black; border-radius: 10%;" href="{{ $url }}" class="pagination-link">{{ $page }}</a>
                         @endif
@@ -37,7 +37,7 @@
             @if ($paginator->hasMorePages())
                 <a style="padding: 10px 18px; border: 1px solid black; border-radius: 100%; margin-left: 10px;" href="{{ $paginator->nextPageUrl() }}" rel="next" class="pagination-link" aria-label="@lang('pagination.next')">&rsaquo;</a>
             @else
-                <span style="padding: 10px 18px; border: 1px solid black; border-radius: 100%; margin-left: 10px;  background-color: rgb(196, 196, 196)" class="pagination-disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                <span style="padding: 10px 18px; border: 1px solid black; border-radius: 100%; margin-left: 10px; background-color: #e9cc66" class="pagination-disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                     <span class="pagination-arrow">&rsaquo;</span>
                 </span>
             @endif

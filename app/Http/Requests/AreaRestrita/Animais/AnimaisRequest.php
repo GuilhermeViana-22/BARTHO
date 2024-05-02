@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\AreaRestrita;
+namespace App\Http\Requests\AreaRestrita\Animais;
 
 use Illuminate\Foundation\Http\FormRequest;
 
