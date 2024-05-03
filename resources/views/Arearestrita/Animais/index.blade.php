@@ -5,7 +5,7 @@
 <div class="page-header">
     <p>Resultados da pesquisa / {{$tipo->tipo}} </p>
 
-    <button type="button" class="btn btn-success" onclick="irPara('{{route('arearestrita.animais.incluir', ['tipo_id' => request()->get('tipo_id')])}}')">
+    <button type="button" class="btn btn-success btn-new" onclick="irPara('{{route('arearestrita.animais.incluir', ['tipo_id' => request()->get('tipo_id')])}}')">
         Incluir
     </button>
 </div>
@@ -27,11 +27,9 @@
                 <td> {{$animal->nome}} </td>
                 <td> {{$animal->adotado ? "SIM" : "NÃO"}} </td>
                 <td>
-
-                    <button type="button" class="btn btn-primary" onclick="irPara('{{route('arearestrita.animais.visualizar', ['id' => $animal->id])}}')">Visualizar</button>
-                    <button type="button" class="btn btn-primary">Alterar</button>
-                    <button type="button" class="btn btn-danger" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.animais.excluir', ['id' => $animal->id])}}')">Excluir</button>
-
+                    <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.animais.visualizar', ['id' => $animal->id])}}')">Visualizar</button>
+                    <button type="button" class="btn btn-primary btn-edit">Alterar</button>
+                    <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.animais.excluir', ['id' => $animal->id])}}')">Excluir</button>
                 </td>
             </tr>
         @endforeach

@@ -11,7 +11,7 @@
     <div class="navbar">
         <ul>
             <li><a href="{{route('home.index')}}">Site</a></li>
-            <li><a class="nav-link btn btn-warning-doe btn-doe-principal" href="{{ route('deslogar') }}" style="color: #fff !important; padding: 5px;"><strong> DESLOGAR </strong></a></li>
+            <li><a class="nav-link btn btn-warning-doe btn-doe-principal btn-exit" href="{{ route('deslogar') }}" style="color: #fff !important; padding: 5px;"><strong> DESLOGAR </strong></a></li>
         </ul>
     </div>
 

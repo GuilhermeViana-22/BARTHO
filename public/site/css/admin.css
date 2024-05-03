@@ -187,6 +187,10 @@ a {
 
 }
 
+/**
+    PAGINA EM GERAL
+ */
+
 .page-header {
     display: flex;
     flex-direction: row;
@@ -220,6 +224,11 @@ a {
     margin-right: auto;
     margin-left: 0
 }
+
+
+/**
+    FORM PANEL
+ */
 
 .form-panel {
     position: relative;
@@ -277,4 +286,62 @@ a {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     border-left: 0;
+}
+
+/**
+    BOTÕES ESPECIAIS
+ */
+
+.btn-eye::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f06e";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.btn-edit::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f044";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.btn-trash::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f1f8";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.btn-check::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.btn-new::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f067";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.btn-exit::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f011";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
 }

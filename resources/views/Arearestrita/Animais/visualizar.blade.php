@@ -33,7 +33,6 @@
                     <span><i class="fa fa-eye" aria-hidden="true"></i></span>
                     <input type="text" class="form-control file-input" placeholder="Clique aqui para ver o arquivo" onclick="irParaOutraGuia('{{Animal::imagem_url($animal->id, $animal->imagem)}}')">
                 </div>
-
             </div>
 
             <div class="col col-sm-6 mb-3">
@@ -52,8 +51,8 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
-
-
+                <button type="button" class="btn btn-primary btn-edit">Alterar</button>
+                <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.animais.excluir', ['id' => $animal->id])}}')">Excluir</button>
             </div>
         </div>
     </div>
