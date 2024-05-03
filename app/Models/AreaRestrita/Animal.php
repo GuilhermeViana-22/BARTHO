@@ -11,6 +11,15 @@ class Animal extends Model
 
     protected $table = 'animais';
 
+    protected $fillable = [
+        'nome',
+        'tipo_id',
+        'adotado',
+        'decricao'
+    ];
+
+    public const STORAGE_PATH = "arearestrita/animais/";
+
     public function tipo()
     {
         return $this->belongsTo(TipoAnimal::class);

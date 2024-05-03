@@ -5,7 +5,7 @@
 <div class="page-header">
     <p>Resultados da pesquisa / {{$tipo->tipo}} </p>
 
-    <button type="button" class="btn btn-success" onclick="irPara('{{route('arearestrita.animais.incluir')}}')">
+    <button type="button" class="btn btn-success" onclick="irPara('{{route('arearestrita.animais.incluir', ['tipo_id' => request()->get('tipo_id')])}}')">
         Incluir
     </button>
 </div>
@@ -30,7 +30,7 @@
 
                     <button type="button" class="btn btn-primary">Visualizar</button>
                     <button type="button" class="btn btn-primary">Alterar</button>
-                    <button type="button" class="btn btn-danger" onclick="confirmar('Deseja deletar esse registro?', '{{route('arearestrita.animais.excluir', ['id' => $animal->id])}}')">Excluir</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.animais.excluir', ['id' => $animal->id])}}')">Excluir</button>
 
                 </td>
             </tr>

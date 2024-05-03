@@ -45,7 +45,7 @@ function irPara(rota){
     }, 500);
 }
 
-function confirmar(texto, url)
+function confirmarIrPara(texto, url)
 {
     Swal.fire({
         title: "Você tem certeza?",
@@ -61,4 +61,24 @@ function confirmar(texto, url)
             irPara(url);
         }
       });
+}
+
+function formAjax(form)
+{
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        $('#salvar_animal_form').submit();
+    }, 500);
 }
