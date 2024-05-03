@@ -143,6 +143,8 @@ a {
 
 #arearestrita .logo h2{
     color: #e9cc66;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 /* Estilos para tornar o layout responsivo */

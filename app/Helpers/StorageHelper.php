@@ -18,7 +18,7 @@ Class StorageHelper
         $img_ = uniqid('img_').'.'.$file->getClientOriginalExtension();;
 
         // Salvar a imagem na pasta específica
-        $deu_certo = $file->storeAs($local, $img_);
+        $deu_certo = $file->storeAs('public/'.$local, $img_);
 
         if(!$deu_certo){
             throw new \Exception("Erro ao salvar o animal");

@@ -12,7 +12,6 @@ use App\Models\AreaRestrita\Animal;
 use App\Models\AreaRestrita\TipoAnimal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class AnimaisController extends Controller
 {
