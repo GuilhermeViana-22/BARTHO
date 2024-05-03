@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AreaRestrita;
 
+use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\Animais\AnimaisRequest;
 use App\Http\Requests\AreaRestrita\Animais\ExcluirRequest;
@@ -35,11 +36,6 @@ class AnimaisController extends Controller
 
     }
 
-    public function deletar()
-    {
-
-    }
-
     public function excluir(ExcluirRequest $request )
     {
         $animal = Animal::findOrFail($request->get('id'));
@@ -47,11 +43,10 @@ class AnimaisController extends Controller
         try {
             $animal->deleteOrFail();
         } catch(\Throwable $e ){
-            return back()->with('message_error', "Houve um erro ao tentar deletar o animal...");
+            return Retorno::deVoltaErro("Houve um erro ao tentar deletar o animal...");
         }
 
-        return back()->with('message_success', "Animal deletado com sucesso!");
-
+        return Retorno::deVoltaSucesso("Animal excluído com sucesso!");
     }
 
     public function alterar()
