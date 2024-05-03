@@ -45,6 +45,26 @@ function irPara(rota){
     }, 500);
 }
 
+function irParaOutraGuia(rota){
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        window.open(rota, '_blank');
+        Swal.close();
+    }, 500);
+}
+
 function confirmarIrPara(texto, url)
 {
     Swal.fire({

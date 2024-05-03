@@ -32,6 +32,7 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
     Route::prefix('animais')->name('.animais')->group(function () {
         // Rota para a lista de animais
         Route::get('/', [AnimaisController::class, 'index']);
+        Route::get('/visualizar/{id}', [AnimaisController::class, 'visualizar'])->name('.visualizar');
 
         // Rotas adicionais para animais...
         Route::get('/incluir', [AnimaisController::class, 'incluir'])->name('.incluir');

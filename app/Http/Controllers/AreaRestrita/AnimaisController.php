@@ -26,9 +26,12 @@ class AnimaisController extends Controller
         return view('Arearestrita.Animais.index', ['animais' => $animais, 'tipo' => $tipo]);
     }
 
-    public function visualizar(Request $request)
+    public function visualizar(Request $request, $id)
     {
+        $tipos_animais = TipoAnimal::all();
+        $animal = Animal::findOrFail($id);
 
+        return view('Arearestrita.Animais.visualizar', compact('tipos_animais', 'animal'));
     }
 
     public function incluir(Request $request)
@@ -53,15 +56,21 @@ class AnimaisController extends Controller
             return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
         }
 
-        /// adiciona a imagem
-        $animal->imagem = StorageHelper::salvar($request->file('imagem'), Animal::STORAGE_PATH.$animal->id );
+        try {
+            /// adiciona a imagem
+            $animal->imagem = StorageHelper::salvar($request->file('imagem'), Animal::STORAGE_PATH.$animal->id );
+
+        } catch (\Throwable $e ){
+            DB::rollBack();
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações da imagem.");
+        }
 
         try {
             $animal->save();
 
         } catch (\Throwable $e ){
             DB::rollBack();
-            return Retorno::deVoltaErro("Houve um erro ao tentar deletar o animal...");
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
         }
 
         DB::commit();

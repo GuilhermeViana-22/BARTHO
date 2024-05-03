@@ -28,7 +28,7 @@
                 <td> {{$animal->adotado ? "SIM" : "NÃO"}} </td>
                 <td>
 
-                    <button type="button" class="btn btn-primary">Visualizar</button>
+                    <button type="button" class="btn btn-primary" onclick="irPara('{{route('arearestrita.animais.visualizar', ['id' => $animal->id])}}')">Visualizar</button>
                     <button type="button" class="btn btn-primary">Alterar</button>
                     <button type="button" class="btn btn-danger" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.animais.excluir', ['id' => $animal->id])}}')">Excluir</button>
 

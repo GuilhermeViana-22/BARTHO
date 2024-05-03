@@ -15,10 +15,15 @@ class Animal extends Model
         'nome',
         'tipo_id',
         'adotado',
-        'decricao'
+        'descricao'
     ];
 
     public const STORAGE_PATH = "arearestrita/animais/";
+
+    public static function imagem_url( $id, $file )
+    {
+        return asset('storage/'. self::STORAGE_PATH . $id . "/" . $file );
+    }
 
     public function tipo()
     {
