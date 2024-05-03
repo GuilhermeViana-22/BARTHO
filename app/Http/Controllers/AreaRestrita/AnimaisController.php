@@ -11,21 +11,58 @@ use App\Http\Requests\AreaRestrita\Animais\SalvarAlteracaoRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarRequest;
 use App\Models\AreaRestrita\Animal;
 use App\Models\AreaRestrita\TipoAnimal;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class AnimaisController extends Controller
 {
+    CONST SESSION_INDEX = "SESSION_INDEX_ANIMAIS";
 
+    /**
+     * Método que mostra todos os animais
+     *
+     * @param AnimaisRequest $request
+     * @return Application|Factory|View
+     */
     public function index( AnimaisRequest $request )
     {
-        $animais = Animal::where('tipo_id', $request->get('tipo_id'))->paginate();
-
         $tipo = TipoAnimal::findOrFail( $request->get('tipo_id') );
 
-        return view('Arearestrita.Animais.index', ['animais' => $animais, 'tipo' => $tipo]);
+        /// tipos animais
+        $tipos_animais = TipoAnimal::all();
+        $session = Session::get(self::SESSION_INDEX);
+
+        /// faz a busca
+        $animais = Animal::query();
+        $animais->where('tipo_id', $request->get('tipo_id'));
+
+        /// faz o filtro
+        if(!empty($session['nome'])){
+            $animais->where('nome', 'LIKE', '%'.$session['nome'].'%');
+        }
+
+        /// faz o filtro
+        if(!empty($session['adotado'])){
+            $animais->where('adotado', ($session['adotado'] === "on" ? true : false));
+        }
+
+        $animais = $animais->paginate();
+
+        return view('Arearestrita.Animais.index', compact('animais', 'tipo', 'tipos_animais', 'session'));
     }
 
+    /**
+     * Método para visualização de um animal
+     *
+     * @param Request $request
+     * @param $id
+     * @return Application|Factory|View
+     */
     public function visualizar(Request $request, $id)
     {
         $tipos_animais = TipoAnimal::all();
@@ -34,6 +71,12 @@ class AnimaisController extends Controller
         return view('Arearestrita.Animais.visualizar', compact('tipos_animais', 'animal'));
     }
 
+    /**
+     * Método para inclusão de um novo animal
+     *
+     * @param Request $request
+     * @return Application|Factory|View
+     */
     public function incluir(Request $request)
     {
         $tipos_animais = TipoAnimal::all();
@@ -41,6 +84,12 @@ class AnimaisController extends Controller
         return view('Arearestrita.Animais.incluir', compact('tipos_animais'));
     }
 
+    /**
+     * Método que realiza o salvamento de um novo animal
+     *
+     * @param SalvarRequest $request
+     * @return RedirectResponse
+     */
     public function salvar(SalvarRequest $request)
     {
         $animal = new Animal();
@@ -78,6 +127,12 @@ class AnimaisController extends Controller
         return Retorno::deVoltaSucesso("Animal incluído com sucesso!");
     }
 
+    /**
+     * Método que realiza a exclusão de um animal
+     *
+     * @param ExcluirRequest $request
+     * @return RedirectResponse
+     */
     public function excluir(ExcluirRequest $request )
     {
         $animal = Animal::findOrFail($request->get('id'));
@@ -85,12 +140,19 @@ class AnimaisController extends Controller
         try {
             $animal->deleteOrFail();
         } catch(\Throwable $e ){
-            return Retorno::deVoltaErro("Houve um erro ao tentar deletar o animal...");
+            return Retorno::deVoltaErro("Houve um erro ao tentar excluir as informações.");
         }
 
         return Retorno::deVoltaSucesso("Animal excluído com sucesso!");
     }
 
+    /**
+     * Método que mostra a tela de alteração de um animal
+     *
+     * @param Request $request
+     * @param $id
+     * @return Application|Factory|View
+     */
     public function alterar(Request $request, $id)
     {
         $animal = Animal::findOrFail($id);
@@ -99,6 +161,12 @@ class AnimaisController extends Controller
         return view('Arearestrita.Animais.alterar', compact('tipos_animais', 'animal'));
     }
 
+    /**
+     * Método que realiza o salvamento dos dados alterados de um animal
+     *
+     * @param SalvarAlteracaoRequest $request
+     * @return RedirectResponse
+     */
     public function salvarAlteracao(SalvarAlteracaoRequest $request)
     {
         $animal = Animal::findOrFail($request->get('id'));

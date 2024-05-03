@@ -19,12 +19,12 @@
 
         <div class="form-panel">
             <div class="form-body row">
-                <div class="col col-sm-6 mb-3">
+                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do animal" value="{{old('nome')}}">
                 </div>
 
-                <div class="col col-sm-6 mb-3">
+                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                     <label for="tipo_id" class="form-label">Espécie do animal</label>
 
                     <select class="form-select" id="tipo_id" name="tipo_id" aria-label="Default select example">
@@ -35,19 +35,19 @@
                     </select>
                 </div>
 
-                <div class="col col-sm-6 mb-3">
+                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                     <label for="imagem" class="form-label">Foto do animal</label>
                     <input class="form-control" type="file" name="imagem" id="imagem">
                 </div>
 
-                <div class="col col-sm-6 mb-3">
+                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                     <div class="form-check form-switch">
                         <input class="form-check-input" @if(old('adotado')) checked @endif type="checkbox" role="switch" id="adotado" name="adotado">
                         <label class="form-check-label" for="adotado">Adotado?</label>
                     </div>
                 </div>
 
-                <div class="col col-sm-12">
+                <div class="col col-12 col-sm-12">
                     <label for="descricao" class="form-label">Descrição</label>
                     <textarea class="form-control" id="descricao" name="descricao" rows="3">{{old('descricao')}}</textarea>
                 </div>

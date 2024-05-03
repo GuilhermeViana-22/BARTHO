@@ -14,6 +14,11 @@ Class Retorno
         return redirect($to)->with('message_success', $message);
     }
 
+    public static function deVolta()
+    {
+        return back();
+    }
+
     public static function deVoltaSucesso( string $message)
     {
         return back()->with('message_success', $message);

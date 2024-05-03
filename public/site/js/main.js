@@ -103,6 +103,10 @@ function formAjax(form)
     }, 500);
 }
 
+/**
+ * Helper para o fileinput customizado que eu criei
+ * @param e
+ */
 function changeFile(e)
 {
     let parentElement = $(e).parent();
@@ -120,4 +124,68 @@ function changeFile(e)
     allspans.each(function(){
         $(this).hide();
     })
+}
+
+/**
+ * Método que realiza a busca no filtro da session passada
+ */
+function buscarFiltro(form, url_)
+{
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        var formData = $(form).serialize();
+
+        $.post({
+            url: url_,
+            data: formData,
+            success: function(){
+                location.reload();
+            }
+        });
+
+    }, 500);
+}
+
+/**
+ * Método que limpa a session e o filtro
+ */
+function limparFiltro(form, url_)
+{
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        var formData = $(form).serialize();
+
+        $.post({
+            url: url_,
+            data: formData,
+            success: function(){
+                location.reload();
+            }
+        });
+
+    }, 500);
 }
