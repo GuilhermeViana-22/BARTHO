@@ -28,7 +28,12 @@
 
             <div class="col col-sm-6 mb-3">
                 <label for="imagem" disabled class="form-label">Foto do animal</label>
-                <input type="text" class="form-control file-input" placeholder="Clique aqui para ver o arquivo" onclick="irParaOutraGuia('{{Animal::imagem_url($animal->id, $animal->imagem)}}')">
+
+                <div class="input-group-file">
+                    <span><i class="fa fa-eye" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control file-input" placeholder="Clique aqui para ver o arquivo" onclick="irParaOutraGuia('{{Animal::imagem_url($animal->id, $animal->imagem)}}')">
+                </div>
+
             </div>
 
             <div class="col col-sm-6 mb-3">
