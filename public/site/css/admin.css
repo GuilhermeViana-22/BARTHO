@@ -240,21 +240,25 @@ a {
 }
 
 .form-panel .form-content {
+    position: relative;
     padding: 0 10px 0 10px;
 }
 
 .form-panel .form-header {
+    position: relative;
     border-bottom: 2px solid #e9cc66;
     border-collapse: collapse;
     padding: 15px 0 5px;
 }
 
 .form-panel .form-body {
+    position: relative;
     border-collapse: collapse;
     padding: 15px;
 }
 
 .form-panel .form-footer {
+    position: relative;
     border-top: 2px solid #e9cc66;
     border-collapse: collapse;
     padding: 15px 0 5px;
@@ -288,6 +292,17 @@ a {
     border-left: 0;
 }
 
+.form-panel .input-group-file .input-change-file{
+    background-color: #ed4242;
+    height: 40px;
+    padding: 7px 15px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    cursor: pointer;
+}
+
 /**
     BOTÕES ESPECIAIS
  */
@@ -319,7 +334,7 @@ a {
     font-weight: 900;
 }
 
-.btn-check::before {
+.btn-ok::before {
     font-family: "Font Awesome 5 Free";
     content: "\f00c";
     display: inline-block;

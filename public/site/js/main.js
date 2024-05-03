@@ -99,6 +99,25 @@ function formAjax(form)
 
     // Redireciona para a rota após 2 segundos
     setTimeout(() => {
-        $('#salvar_animal_form').submit();
+        $(form).submit();
     }, 500);
+}
+
+function changeFile(e)
+{
+    let parentElement = $(e).parent();
+    let allspans = parentElement.find('span');
+    let changeInputElement = parentElement.find('.change-input');
+    let fileInputElement = parentElement.find('.file-input');
+
+    /// mostra o input vazio e habilita ele
+    changeInputElement.show();
+    changeInputElement.prop('disabled', false);
+
+    /// esconde o resto
+    fileInputElement.hide();
+    $(e).hide();
+    allspans.each(function(){
+        $(this).hide();
+    })
 }

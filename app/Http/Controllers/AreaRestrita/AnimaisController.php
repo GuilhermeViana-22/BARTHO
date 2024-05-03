@@ -7,6 +7,7 @@ use App\Helpers\StorageHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\Animais\AnimaisRequest;
 use App\Http\Requests\AreaRestrita\Animais\ExcluirRequest;
+use App\Http\Requests\AreaRestrita\Animais\SalvarAlteracaoRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarRequest;
 use App\Models\AreaRestrita\Animal;
 use App\Models\AreaRestrita\TipoAnimal;
@@ -90,12 +91,42 @@ class AnimaisController extends Controller
         return Retorno::deVoltaSucesso("Animal excluído com sucesso!");
     }
 
-    public function alterar(Request $request)
+    public function alterar(Request $request, $id)
     {
+        $animal = Animal::findOrFail($id);
+        $tipos_animais = TipoAnimal::all();
 
+        return view('Arearestrita.Animais.alterar', compact('tipos_animais', 'animal'));
     }
 
-    public function salvarAlteracao(Request $request){
+    public function salvarAlteracao(SalvarAlteracaoRequest $request)
+    {
+        $animal = Animal::findOrFail($request->get('id'));
+        $animal->fill( $request->all() );
 
+        DB::beginTransaction();
+
+        if($request->exists('imagem') && !empty($request->file('imagem'))) {
+            try {
+                /// adiciona a imagem
+                $animal->imagem = StorageHelper::salvar($request->file('imagem'), Animal::STORAGE_PATH.$animal->id );
+
+            } catch (\Throwable $e ){
+                DB::rollBack();
+                return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações da imagem.");
+            }
+        }
+
+        try {
+            $animal->save();
+
+        } catch (\Throwable $e ){
+            DB::rollBack();
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
+        }
+
+        DB::commit();
+
+        return Retorno::deVoltaSucesso("Animal incluído com sucesso!");
     }
 }
