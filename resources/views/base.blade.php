@@ -16,10 +16,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="{{ asset('site/font-awesome-4.7.0/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('site/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
+    @hasSection('css')
+        @yield('css')
+    @else
+        <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
+    @endif
+
     <link rel="stylesheet" href="{{ asset('site/css/Toast.css') }}">
 </head>
 <body>
@@ -30,10 +35,10 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="{{asset('site/bootstrap.js')}}"></script>
 <script src="{{asset('site/js/main.js')}}"></script>
 <script src="{{asset('site/js/sweetalert2.all.js')}}"></script>
 <script src="{{asset('site/js/Toast.js')}}"></script>
+<script src="{{asset('site/bootstrap.js')}}"></script>
 
 
 @if (Session::has('message_success'))

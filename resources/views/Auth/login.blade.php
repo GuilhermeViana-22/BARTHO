@@ -23,7 +23,7 @@
                     <input type="email" value="{{old('email')}}" class="form-control" name="email" placeholder="E-mail">
                 </div>
                 <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="password" placeholder="Senha">
+                    <input type="password" class="form-control" name="password" placeholder="Senha">
                 </div>
                 <div class="form-group mt-3">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Logar</button>

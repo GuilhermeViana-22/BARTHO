@@ -1,0 +1,246 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-seri;
+}
+html, body{
+    overflow-x: hidden !important;
+}
+
+.fa-copy{
+    margin-left: 10px;
+}
+
+.fa-arrow-right{
+    color: #654737 !important; /* Cor de fundo quando selecionado */
+}
+
+
+.fa-arrow-right:hover {
+    color: #3b1b0c !important;
+    /* Cor de fundo quando selecionado */
+}
+
+.link-contato {
+    color: #654737 !important;
+    /* Cor de fundo quando selecionado */
+}
+
+.link-contato:hover {
+    color: #3b1b0c !important;
+    /* Cor de fundo quando selecionado */
+}
+
+a {
+    text-decoration: none;
+    text-align: left !important;
+}
+
+.fa-donate {
+    background-color: #e9cc66;
+    padding: 20px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-warning-doe {
+    background-color: #e9cc66;
+}
+
+.btn-warning-doe:hover {
+    background-color: #6c5142;
+    /* Cor marrom em hexadecimal */
+}
+
+.fa-donate {
+    background-color: #e9cc66;
+    padding: 20px;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+/* ESTILOS PARA A NAVBAR DASHBOARD */
+#arearestrita .navbar {
+    padding: 10px;
+    background-color: #fff !important;
+    border-bottom: rgba(233, 204, 102, 0.57) 2px solid;
+}
+
+#arearestrita .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+}
+
+#arearestrita .navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#arearestrita .navbar ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Estilos para o conteúdo */
+#arearestrita .content {
+    padding: 20px;
+}
+
+/* Estilos para a barra lateral */
+#arearestrita .sidebar {
+    background-color: #262626;
+    width: 250px;
+    height: 100vh; /* Ocupa toda a altura da tela */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Adiciona barra de rolagem vertical, se necessário */
+}
+
+#arearestrita .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#arearestrita .sidebar ul a{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid #888;
+    padding: 10px;
+    align-items: start;
+}
+
+#arearestrita .sidebar ul a:hover{
+    background-color: #434242;
+}
+
+#arearestrita .sidebar ul a i{
+    margin-left: 10px;
+    color: white;
+}
+
+#arearestrita .sidebar ul a li{
+    color: #fff !important;
+    text-decoration: none;
+    text-align: left;
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* Estilos para o conteúdo principal */
+#arearestrita .main-content {
+    margin-left: 250px; /* Ajusta a margem para deixar espaço para a barra lateral */
+    padding: 20px;
+}
+
+#arearestrita .logo {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-bottom: 1px solid #e9cc66;
+}
+
+#arearestrita .logo h2{
+    color: #e9cc66;
+}
+
+/* Estilos para tornar o layout responsivo */
+@media screen and (max-width: 768px) {
+    #arearestrita .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    #arearestrita .main-content {
+        margin-left: 0; /* Reseta a margem para que o conteúdo principal ocupe toda a largura */
+    }
+
+    #arearestrita .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #arearestrita .logo {
+        display: none;
+    }
+
+    #arearestrita .sidebar ul a i{
+        display: none;
+    }
+
+    #arearestrita .sidebar ul a li{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px 0 20px 0;
+
+    width: 98%;
+}
+
+.page-header p{
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.page-header h4{
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.page-header button{
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.table-footer{
+    display: flex;
+    flex-direction: row;
+}
+
+.table-footer .resultados {
+    margin-right: auto;
+    margin-left: 0
+}
+
+.form-panel {
+    position: relative;
+    width: 98%;
+    border: 1px solid #e9cc66;
+    border-radius: 5px;
+    border-collapse: collapse;
+    padding: 0;
+}
+
+.form-panel .form-content {
+    padding: 0 10px 0 10px;
+}
+
+.form-panel .form-header {
+    border-bottom: 1px solid #e9cc66;
+    border-collapse: collapse;
+    padding: 15px 0 5px;
+}
+
+.form-panel .form-body {
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+.form-panel .form-footer {
+    border-top: 1px solid #e9cc66;
+    border-collapse: collapse;
+    padding: 15px 0 5px;
+}

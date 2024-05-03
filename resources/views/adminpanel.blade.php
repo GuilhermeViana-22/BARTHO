@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('site/css/admin.css') }}">
+@endsection
+
 @section('conteudo')
 
 <section id="arearestrita">

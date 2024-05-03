@@ -28,7 +28,9 @@ class AnimaisController extends Controller
 
     public function incluir()
     {
+        $tipos_animais = TipoAnimal::all();
 
+        return view('Arearestrita.Animais.incluir', compact('tipos_animais'));
     }
 
     public function salvar()
