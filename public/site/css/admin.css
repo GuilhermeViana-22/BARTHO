@@ -61,7 +61,7 @@ a {
 
 /* ESTILOS PARA A NAVBAR DASHBOARD */
 #arearestrita .navbar {
-    padding: 10px;
+    padding: 10px 0 30px;
     background-color: #fff !important;
     border-bottom: rgba(233, 204, 102, 0.57) 2px solid;
 }
@@ -243,4 +243,5 @@ a {
     border-top: 1px solid #e9cc66;
     border-collapse: collapse;
     padding: 15px 0 5px;
+    background-color: #e9cc66;
 }

@@ -18,11 +18,7 @@
         @csrf
 
         <div class="form-panel">
-            <div class="form-header">
-                <div class="form-content">
-                    <p>dsadasasdasdas</p>
-                </div>
-            </div>
+
             <div class="form-body">
                 <p>dsadasasdasdas</p>
                 <p>dsadasasdasdas</p>
