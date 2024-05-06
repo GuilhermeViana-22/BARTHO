@@ -82,5 +82,7 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::post('/salvaralteracao', [UsuariosController::class, 'salvarAlteracao'])->name('.salvaralteracao');
 
         Route::get('/excluir', [UsuariosController::class, 'excluir'])->name('.excluir');
+        Route::get('/ativar', [UsuariosController::class, 'ativar'])->name('.ativar');
+
     });
 });

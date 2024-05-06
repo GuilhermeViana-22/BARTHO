@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AreaRestrita;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\Usuarios\AlterarRequest;
+use App\Http\Requests\AreaRestrita\Usuarios\AtivarRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\ExcluirRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\IncluirRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\SalvarAlteracaoRequest;
@@ -13,9 +14,6 @@ use App\Http\Requests\AreaRestrita\Usuarios\VisualizarRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class UsuariosController extends Controller
@@ -47,12 +45,17 @@ class UsuariosController extends Controller
             $usuarios->where('email', 'LIKE','%'.$session['email'].'%');
         }
 
+        /// faz o filtro
+        if(!empty($session['ativo'])){
+            $usuarios->where('ativo', ($session['ativo'] === "on" ? true : false));
+        }
+
         $usuarios = $usuarios->paginate();
 
         return view('Arearestrita.Usuarios.index', compact('usuarios','session'));
     }
 
-    public function visualizar( VisualizarRequest $request )
+    public function visualizar( VisualizarRequest $request, int $id )
     {
 
     }
@@ -67,12 +70,17 @@ class UsuariosController extends Controller
 
     }
 
-    public function excluir( ExcluirRequest $request )
+    public function excluir( ExcluirRequest $request, int $id )
     {
 
     }
 
-    public function alterar( AlterarRequest $request )
+    public function ativar( AtivarRequest $request, int $id )
+    {
+
+    }
+
+    public function alterar( AlterarRequest $request, int $id )
     {
 
     }

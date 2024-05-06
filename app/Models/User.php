@@ -20,8 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
-        'imagem'
+        'password'
     ];
 
     /**
@@ -42,4 +41,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public const STORAGE_PATH = "arearestrita/usuarios/";
 }

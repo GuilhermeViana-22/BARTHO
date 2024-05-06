@@ -27,6 +27,16 @@
                     <label for="nome" class="form-label">E-mail</label>
                     <input type="text" class="form-control" id="email" name="email" placeholder="E-mail do usuário" value="{{$session['email'] ?? null}}">
                 </div>
+
+                <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
+                    <label for="ativo" class="form-label">Ativo?</label>
+
+                    <select class="form-select" id="ativo" name="ativo">
+                        <option @if(empty($session['ativo'])) selected @endif value="">Selecione uma opção</option>
+                        <option @if( !empty($session['ativo']) && $session['ativo'] === "on") selected @endif value="on">Sim</option>
+                        <option @if( !empty($session['ativo']) && $session['ativo'] === "off") selected @endif value="off">Não</option>
+                    </select>
+                </div>
             </form>
         </div>
         <div class="form-footer">
@@ -44,6 +54,7 @@
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">E-mail</th>
+            <th scope="col">Ativo?</th>
             <th scope="col">Opções</th>
         </tr>
         </thead>
@@ -54,10 +65,14 @@
                 <td scope="row"> {{$usuario->id}} </td>
                 <td> {{$usuario->name}} </td>
                 <td> <span class="badge badge-primary">{{$usuario->email}}</span> </td>
+                <td> <span class="badge badge-{{$usuario->ativo ? 'success' : 'danger'}}"> {{$usuario->ativo ? "SIM" : "NÃO"}} </span> </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.usuarios.visualizar', ['id' => $usuario->id])}}')">Visualizar</button>
                     <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.usuarios.alterar', ['id' => $usuario->id])}}')">Alterar</button>
-                    <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja deletar esse usuário?', '{{route('arearestrita.usuarios.excluir', ['id' => $usuario->id])}}')">Excluir</button>
+                    <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja inativar esse usuário?', '{{route('arearestrita.usuarios.excluir', ['id' => $usuario->id])}}')">Inativar</button>
+                    @if(!$usuario->ativo)
+                        <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Deseja reativar esse usuário?', '{{route('arearestrita.usuarios.ativar', ['id' => $usuario->id])}}')">Ativar</button>
+                    @endif
                 </td>
             </tr>
         @endforeach
