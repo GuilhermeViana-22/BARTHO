@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AreaRestritaController extends Controller
 {
-
     public function index()
     {
-        return view('Arearestrita.index');
+        $usuario = Auth::user();
+
+        return view('Arearestrita.index', compact('usuario'));
     }
 
     public function deslogar()
