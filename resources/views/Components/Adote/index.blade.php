@@ -154,7 +154,6 @@
 
                     </div>
                 </div>
-
             </div>
             <div class="tab-pane" role="tabpanel" id="ratings">
                 <div class="container">
