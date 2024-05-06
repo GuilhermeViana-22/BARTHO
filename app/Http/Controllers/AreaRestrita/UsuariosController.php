@@ -148,10 +148,49 @@ class UsuariosController extends Controller
 
     public function alterar( AlterarRequest $request, int $id )
     {
+        try {
+            $usuario = User::findOrFail($id);
+        } catch(\Throwable $e ){
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
 
+        return view('Arearestrita.Usuarios.alterar', compact('usuario'));
     }
 
     public function salvarAlteracao( SalvarAlteracaoRequest $request ){
 
+        try {
+            $usuario = User::findOrFail($request->get('id'));
+        } catch(\Throwable $e ){
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
+
+        $usuario->fill($request->validated());
+        $usuario->ativo = ($request->get('ativo') === "on" ? true : false);
+
+        DB::beginTransaction();
+
+        /// se tiver a imagem do usuário
+        if($request->exists('imagem') && !empty($request->file('imagem'))) {
+            try {
+                /// adiciona a imagem
+                $usuario->imagem = StorageHelper::salvar($request->file('imagem'), User::STORAGE_PATH . $usuario->id);
+
+            } catch (\Throwable $e) {
+                DB::rollBack();
+                return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações da imagem.");
+            }
+        }
+
+        try {
+            $usuario->save();
+
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
+        }
+
+        DB::commit();
+        return Retorno::deVoltaSucesso("Alterações realizadas com sucesso!");
     }
 }

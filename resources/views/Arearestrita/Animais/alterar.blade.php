@@ -45,7 +45,8 @@
                     <div class="input-group-file">
                         <span><i class="fa fa-eye" aria-hidden="true"></i></span>
                         <input type="text" class="form-control file-input " placeholder="Clique aqui para ver o arquivo" onclick="irParaOutraGuia('{{Animal::imagem_url($animal->id, $animal->imagem)}}')">
-                        <span class="input-change-file" onclick="changeFile(this)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                        <span id="fa-trash-file-input-1" class="input-change-file" onclick="changeFile(this)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+                        @if(empty($animal->imagem)) <script> document.addEventListener('DOMContentLoaded', () => $('#fa-trash-file-input-1').click()); </script> @endif
 
                         <input class="form-control change-input" type="file" name="imagem" id="imagem" disabled style="display: none">
                     </div>

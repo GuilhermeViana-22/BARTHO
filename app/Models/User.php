@@ -43,4 +43,9 @@ class User extends Authenticatable
     ];
 
     public const STORAGE_PATH = "arearestrita/usuarios/";
+
+    public static function imagem_url( $id, $file )
+    {
+        return asset('storage/'. self::STORAGE_PATH . $id . "/" . $file );
+    }
 }
