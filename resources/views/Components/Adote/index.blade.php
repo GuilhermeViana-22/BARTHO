@@ -114,111 +114,44 @@
             <div class="tab-pane active" role="tabpanel" id="info">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Urso! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/urso/urso_02.jpeg') }}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
+
+                        @foreach( $cachorros as $cachorro )
+                            @if($cachorro->adotado)
+                                <div class="col-md-12 col-lg-4" data-anime="right">
+                                    <div class="card doacoes">
+                                        <div class="card-header">
+                                            <h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5>
+                                            <figure>
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
+                                                <figcaption>
+                                                    <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
+                                                    </button>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Luke! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/luke/luke_01.jpeg') }}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
+                            @else
+                                <div class="col-md-12 col-lg-4" data-anime="right">
+                                    <div class="card doacoes">
+                                        <div class="card-header">
+                                            <h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5>
+                                            <figure>
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" alt="Imagem" class="img-fluid">
+                                                <figcaption>
+                                                    <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                        <a href="#" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                            <i class="fas fa-paw"></i> Quero Adotar
+                                                        </a>
+                                                    </button>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça a Paçoca! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/pacoca/03.jpeg') }}" alt="Imagem" class="img-fluid">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank"  style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça a Nazaré! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/nazare/nazare_02.jpeg') }}" alt="Imagem" class="img-fluid">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1"  target="_blank"style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
+                            @endif
+                        @endforeach
 
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Duque! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/duque/duque.jpeg') }}" alt="Imagem" class="img-fluid">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-
-
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça a Dandara! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/dandara/dandara.jpeg') }}" alt="Imagem" class="img-fluid">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
-
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 
@@ -226,104 +159,48 @@
             <div class="tab-pane" role="tabpanel" id="ratings">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Gigante! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/gatos/gato_01.jpeg') }}" alt="Imagem" class="adotar-animais">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
+
+                        @foreach( $gatos as $gato )
+                            @if($gato->adotado)
+                                <div class="col-md-12 col-lg-4" data-anime="right">
+                                    <div class="card doacoes">
+                                        <div class="card-header">
+                                            <h5 class="title-adotar">🐾 Conheça o(a) {{$gato->nome}}! 🐾</h5>
+                                            <figure>
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
+                                                <figcaption>
+                                                    <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
+                                                    </button>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Bethoven! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/gatos/gato_03.jpeg') }}" alt="Imagem" class="adotar-animais">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
+                            @else
+                                <div class="col-md-12 col-lg-4" data-anime="right">
+                                    <div class="card doacoes">
+                                        <div class="card-header">
+                                            <h5 class="title-adotar">🐾 Conheça (o)a {{$gato->nome}}! 🐾</h5>
+                                            <figure>
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid">
+                                                <figcaption>
+                                                    <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                        <a href="#" target="_blank" style="color: #fff !important; text-decoration: none;">
+                                                            <i class="fas fa-paw"></i> Quero Adotar
+                                                        </a>
+                                                    </button>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Bernardo! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/gatos/gato_04.jpeg') }}" alt="Imagem" class="adotar-animais">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Mooroe! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/gatos/gato_05.jpeg') }}" alt="Imagem" class="adotar-animais">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                       <div class="col-md-12 col-lg-4" data-anime="right">
-                            <div class="card doacoes">
-                                <div class="card-header">
-                                    <h5 class="title-adotar">🐾 Conheça o Lázara! 🐾</h5>
-                                    <figure>
-                                        <img src="{{ asset('img/gatos/gato_06.jpg') }}" alt="Imagem" class="adotar-animais">
-                                        <figcaption>
-                                            <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
-                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4jGV5KnMMXp4x0lojyA1Vjsl0XFR1y1l5-6o9elZLaU2-ow/viewform?pli=1" target="_blank" style="color: #fff !important; text-decoration: none;">
-                                                    <i class="fas fa-paw"></i> Quero Adotar
-                                                </a>
-                                            </button>
-                                        </figcaption>
-                                    </figure>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
+                            @endif
+                        @endforeach
                     </div>
                 </div>
+
             </div>
         </div>
-
     </div>
 </section>
 <!-- se remover esse script aqui o tab nao fucniona mais , o boostrap depende deste script entao por favor manter-->
