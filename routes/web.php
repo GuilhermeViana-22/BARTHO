@@ -72,5 +72,15 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::get('/', [UsuariosController::class, 'index']);
 
         // Rotas adicionais para usuários...
+        Route::get('/visualizar/{id}', [UsuariosController::class, 'visualizar'])->name('.visualizar');
+
+        // Rotas adicionais para animais...
+        Route::get('/incluir', [UsuariosController::class, 'incluir'])->name('.incluir');
+        Route::post('/salvar', [UsuariosController::class, 'salvar'])->name('.salvar');
+
+        Route::get('/alterar/{id}', [UsuariosController::class, 'alterar'])->name('.alterar');
+        Route::post('/salvaralteracao', [UsuariosController::class, 'salvarAlteracao'])->name('.salvaralteracao');
+
+        Route::get('/excluir', [UsuariosController::class, 'excluir'])->name('.excluir');
     });
 });

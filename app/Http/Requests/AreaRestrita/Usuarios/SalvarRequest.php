@@ -4,7 +4,7 @@ namespace App\Http\Requests\AreaRestrita\Usuarios;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class IncluirRequest extends FormRequest
+class SalvarRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.

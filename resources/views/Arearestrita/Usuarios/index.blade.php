@@ -19,8 +19,8 @@
                 <input type="hidden" name="session_name" value="{{UsuariosController::SESSION_INDEX}}">
 
                 <div class="col col-12 col-lg-4 col-md-6 col-sm-12 mb-3">
-                    <label for="nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do usuário" value="{{$session['nome'] ?? null}}">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome do usuário" value="{{$session['name'] ?? null}}">
                 </div>
 
                 <div class="col col-12 col-lg-4 col-md-6 col-sm-12 mb-3">
@@ -52,7 +52,7 @@
         @foreach ($usuarios as $usuario)
             <tr>
                 <td scope="row"> {{$usuario->id}} </td>
-                <td> {{$usuario->nome}} </td>
+                <td> {{$usuario->name}} </td>
                 <td> <span class="badge badge-primary">{{$usuario->email}}</span> </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.usuarios.visualizar', ['id' => $usuario->id])}}')">Visualizar</button>
