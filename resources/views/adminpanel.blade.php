@@ -29,8 +29,8 @@
         </div>
         <ul>
             <a href="{{route('arearestrita')}}"> <i class="fa fa-area-chart" aria-hidden="true"></i> <li>Dashboard</li></a>
-            <a href="{{route('arearestrita.animais', ['tipo_id' => 1])}}"> <i class="fa fa-heart-o" aria-hidden="true"></i> <li>Cachorros</li></a>
-            <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fa fa-heart-o" aria-hidden="true"></i> <li>Gatos</li></a>
+            <a href="{{route('arearestrita.animais', ['tipo_id' => 1])}}"> <i class="fas fa-dog" aria-hidden="true"></i> <li>Cachorros</li></a>
+            <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <li>Gatos</li></a>
             <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <li>Usuários</li></a>
         </ul>
     </div>
