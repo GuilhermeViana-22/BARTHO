@@ -102,25 +102,25 @@
         </p>
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item">
-                <a href="#info" role="tab" data-toggle="tab" class="nav-link active"> <i class="fas fa-dog">Cães</i>
+                <a href="#info" role="tab" data-toggle="tab" class="nav-link @if(request()->has('pag_cachorro') || (!request()->has('pag_cachorro') && !request()->has('pag_gato'))) active @endif"> <i class="fas fa-dog">Cães</i>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#ratings" role="tab" data-toggle="tab" class="nav-link"> <i class="fas fa-cat"> Gatos</i>
+                <a href="#ratings" role="tab" data-toggle="tab" class="nav-link @if(request()->has('pag_gato')) active @endif"> <i class="fas fa-cat"> Gatos</i>
                 </a>
             </li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" role="tabpanel" id="info">
-                <div class="container">
+            <div class="tab-pane @if(request()->has('pag_cachorro') || (!request()->has('pag_cachorro') && !request()->has('pag_gato'))) active @endif" role="tabpanel" id="info">
+                <div class="container" style="padding: 30px">
                     <div class="row">
 
                         @foreach( $cachorros as $cachorro )
                             @if($cachorro->adotado)
                                 <div class="col-md-12 col-lg-4" data-anime="right">
                                     <div class="card doacoes">
-                                        <div class="card-header">
-                                            <h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5>
+                                        <div class="card-body">
+                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5></div>
                                             <figure>
                                                 <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" alt="Imagem" class="img-fluid" style="height: 400px; width: 400px; background-color: #1a202c; opacity: 0.5">
                                                 <figcaption>
@@ -134,8 +134,8 @@
                             @else
                                 <div class="col-md-12 col-lg-4" data-anime="right">
                                     <div class="card doacoes">
-                                        <div class="card-header">
-                                            <h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5>
+                                        <div class="card-body">
+                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5></div>
                                             <figure>
                                                 <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" style="height: 400px; width: 400px;" alt="Imagem" class="img-fluid">
                                                 <figcaption>
@@ -154,19 +154,23 @@
 
                     </div>
                 </div>
+
+                <div style="width: 100%; display: flex; justify-content: center; align-content: center; align-items: center">
+                    {{ $cachorros->links('vendor.pagination.custom') }}
+                </div>
             </div>
-            <div class="tab-pane" role="tabpanel" id="ratings">
-                <div class="container">
+            <div class="tab-pane @if(request()->has('pag_gato')) active @endif" role="tabpanel" id="ratings">
+                <div class="container" style="padding: 30px">
                     <div class="row">
 
                         @foreach( $gatos as $gato )
                             @if($gato->adotado)
                                 <div class="col-md-12 col-lg-4" data-anime="right">
                                     <div class="card doacoes">
-                                        <div class="card-header">
-                                            <h5 class="title-adotar">🐾 Conheça o(a) {{$gato->nome}}! 🐾</h5>
+                                        <div class="card-body">
+                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$gato->nome}}! 🐾</h5></div>
                                             <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid" style="height: 400px; width: 400px; background-color: #1a202c; opacity: 0.5">
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid" style="min-height: 400px; min-width: 400px; background-color: #1a202c; opacity: 0.5">
                                                 <figcaption>
                                                     <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
                                                     </button>
@@ -178,8 +182,8 @@
                             @else
                                 <div class="col-md-12 col-lg-4" data-anime="right">
                                     <div class="card doacoes">
-                                        <div class="card-header">
-                                            <h5 class="title-adotar">🐾 Conheça (o)a {{$gato->nome}}! 🐾</h5>
+                                        <div class="card-body">
+                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça (o)a {{$gato->nome}}! 🐾</h5></div>
                                             <figure>
                                                 <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" style="height: 400px; width: 400px;" alt="Imagem" class="img-fluid">
                                                 <figcaption>
@@ -198,6 +202,9 @@
                     </div>
                 </div>
 
+                <div style="width: 100%; display: flex; justify-content: center; align-content: center; align-items: center">
+                    {{ $gatos->links('vendor.pagination.custom') }}
+                </div>
             </div>
         </div>
     </div>
