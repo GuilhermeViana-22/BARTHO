@@ -61,12 +61,17 @@ class AnimaisController extends Controller
      *
      * @param Request $request
      * @param $id
-     * @return Application|Factory|View
+     * @return Application|Factory|View|RedirectResponse
      */
     public function visualizar(Request $request, $id)
     {
         $tipos_animais = TipoAnimal::all();
-        $animal = Animal::findOrFail($id);
+
+        try {
+            $animal = Animal::findOrFail($id);
+        } catch(\Throwable $e ){
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
 
         return view('Arearestrita.Animais.visualizar', compact('tipos_animais', 'animal'));
     }
@@ -135,7 +140,11 @@ class AnimaisController extends Controller
      */
     public function excluir(ExcluirRequest $request )
     {
-        $animal = Animal::findOrFail($request->get('id'));
+        try {
+            $animal = Animal::findOrFail($request->get('id'));
+        } catch(\Throwable $e ){
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
 
         try {
             $animal->deleteOrFail();
@@ -151,11 +160,16 @@ class AnimaisController extends Controller
      *
      * @param Request $request
      * @param $id
-     * @return Application|Factory|View
+     * @return Application|Factory|View|RedirectResponse
      */
     public function alterar(Request $request, $id)
     {
-        $animal = Animal::findOrFail($id);
+        try {
+            $animal = Animal::findOrFail($id);
+        } catch(\Throwable $e ){
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
+
         $tipos_animais = TipoAnimal::all();
 
         return view('Arearestrita.Animais.alterar', compact('tipos_animais', 'animal'));
@@ -169,7 +183,12 @@ class AnimaisController extends Controller
      */
     public function salvarAlteracao(SalvarAlteracaoRequest $request)
     {
-        $animal = Animal::findOrFail($request->get('id'));
+        try {
+            $animal = Animal::findOrFail($request->get('id'));
+        } catch(\Throwable $e ){
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
+
         $animal->fill( $request->all() );
 
         DB::beginTransaction();
@@ -178,19 +197,12 @@ class AnimaisController extends Controller
             try {
                 /// adiciona a imagem
                 $animal->imagem = StorageHelper::salvar($request->file('imagem'), Animal::STORAGE_PATH.$animal->id );
+                $animal->save();
 
             } catch (\Throwable $e ){
                 DB::rollBack();
                 return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações da imagem.");
             }
-        }
-
-        try {
-            $animal->save();
-
-        } catch (\Throwable $e ){
-            DB::rollBack();
-            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
         }
 
         DB::commit();

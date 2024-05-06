@@ -74,7 +74,6 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         // Rotas adicionais para usuários...
         Route::get('/visualizar/{id}', [UsuariosController::class, 'visualizar'])->name('.visualizar');
 
-        // Rotas adicionais para animais...
         Route::get('/incluir', [UsuariosController::class, 'incluir'])->name('.incluir');
         Route::post('/salvar', [UsuariosController::class, 'salvar'])->name('.salvar');
 

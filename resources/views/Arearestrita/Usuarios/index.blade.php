@@ -69,9 +69,10 @@
                 <td>
                     <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.usuarios.visualizar', ['id' => $usuario->id])}}')">Visualizar</button>
                     <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.usuarios.alterar', ['id' => $usuario->id])}}')">Alterar</button>
-                    <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja inativar esse usuário?', '{{route('arearestrita.usuarios.excluir', ['id' => $usuario->id])}}')">Inativar</button>
                     @if(!$usuario->ativo)
                         <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Deseja reativar esse usuário?', '{{route('arearestrita.usuarios.ativar', ['id' => $usuario->id])}}')">Ativar</button>
+                    @else
+                        <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja inativar esse usuário?', '{{route('arearestrita.usuarios.excluir', ['id' => $usuario->id])}}')">Inativar</button>
                     @endif
                 </td>
             </tr>

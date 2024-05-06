@@ -28,4 +28,9 @@ Class Retorno
     {
         return back()->with('message_error', $message);
     }
+
+    public static function deVoltaFindOrFail( string $message)
+    {
+        return back()->with('message_error', $message);
+    }
 }

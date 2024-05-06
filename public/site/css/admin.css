@@ -89,7 +89,7 @@ a {
 
 /* Estilos para a barra lateral */
 #arearestrita .sidebar {
-    background-color: #262626;
+    background-color: #212529;
     width: 250px;
     height: 100vh; /* Ocupa toda a altura da tela */
     position: fixed;
@@ -113,7 +113,7 @@ a {
 }
 
 #arearestrita .sidebar ul a:hover{
-    background-color: #434242;
+    background-color: #33383e;
 }
 
 #arearestrita .sidebar ul a i{
