@@ -83,7 +83,7 @@
 
     <div class="table-footer">
         <p class="resultados">Total de resultados: {{ $usuarios->total() }} </p>
-        {{ $usuarios->links('vendor.pagination.custom') }}
+        <div style="margin-right: 30px;">{{ $usuarios->links('vendor.pagination.custom') }}</div>
     </div>
 
 @endsection

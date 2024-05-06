@@ -72,7 +72,7 @@
 
     <div class="table-footer">
         <p class="resultados">Total de resultados: {{ $animais->total() }} </p>
-        {{ $animais->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}
+        <div style="margin-right: 30px;">{{ $animais->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}</div>
     </div>
 
 @endsection
