@@ -122,7 +122,7 @@
                                         <div class="card-header">
                                             <h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5>
                                             <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" alt="Imagem" class="img-fluid" style="height: 400px; width: 400px; background-color: #1a202c; opacity: 0.5">
                                                 <figcaption>
                                                     <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
                                                     </button>
@@ -137,7 +137,7 @@
                                         <div class="card-header">
                                             <h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5>
                                             <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" alt="Imagem" class="img-fluid">
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" style="height: 400px; width: 400px;" alt="Imagem" class="img-fluid">
                                                 <figcaption>
                                                     <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
                                                         <a href="#" target="_blank" style="color: #fff !important; text-decoration: none;">
@@ -166,7 +166,7 @@
                                         <div class="card-header">
                                             <h5 class="title-adotar">🐾 Conheça o(a) {{$gato->nome}}! 🐾</h5>
                                             <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid" style="background-color: #1a202c; opacity: 0.5">
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid" style="height: 400px; width: 400px; background-color: #1a202c; opacity: 0.5">
                                                 <figcaption>
                                                     <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
                                                     </button>
@@ -181,7 +181,7 @@
                                         <div class="card-header">
                                             <h5 class="title-adotar">🐾 Conheça (o)a {{$gato->nome}}! 🐾</h5>
                                             <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid">
+                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" style="height: 400px; width: 400px;" alt="Imagem" class="img-fluid">
                                                 <figcaption>
                                                     <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
                                                         <a href="#" target="_blank" style="color: #fff !important; text-decoration: none;">
