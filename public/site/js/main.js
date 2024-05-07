@@ -26,3 +26,166 @@ year = date.getFullYear();
 document.getElementById("ano").innerHTML = year;
 
 
+function irPara(rota){
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        window.location.href = rota;
+    }, 500);
+}
+
+function irParaOutraGuia(rota){
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        window.open(rota, '_blank');
+        Swal.close();
+    }, 500);
+}
+
+function confirmarIrPara(texto, url)
+{
+    Swal.fire({
+        title: "Você tem certeza?",
+        text: texto ?? "Essa ação é ireversivel.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Não, cancelar",
+        confirmButtonText: "Sim"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            irPara(url);
+        }
+      });
+}
+
+function formAjax(form)
+{
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        $(form).submit();
+    }, 500);
+}
+
+/**
+ * Helper para o fileinput customizado que eu criei
+ * @param e
+ */
+function changeFile(e)
+{
+    let parentElement = $(e).parent();
+    let allspans = parentElement.find('span');
+    let changeInputElement = parentElement.find('.change-input');
+    let fileInputElement = parentElement.find('.file-input');
+
+    /// mostra o input vazio e habilita ele
+    changeInputElement.show();
+    changeInputElement.prop('disabled', false);
+
+    /// esconde o resto
+    fileInputElement.hide();
+    $(e).hide();
+    allspans.each(function(){
+        $(this).hide();
+    })
+}
+
+/**
+ * Método que realiza a busca no filtro da session passada
+ */
+function buscarFiltro(form, url_)
+{
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        var formData = $(form).serialize();
+
+        $.post({
+            url: url_,
+            data: formData,
+            success: function(){
+                location.reload();
+            }
+        });
+
+    }, 500);
+}
+
+/**
+ * Método que limpa a session e o filtro
+ */
+function limparFiltro(form, url_)
+{
+    // Exibe um SweetAlert indicando que está carregando
+    Swal.fire({
+        title: 'Carregando...',
+        html: 'Por favor, aguarde...',
+        allowOutsideClick: false,
+        showCloseButton: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    // Redireciona para a rota após 2 segundos
+    setTimeout(() => {
+        var formData = $(form).serialize();
+
+        $.post({
+            url: url_,
+            data: formData,
+            success: function(){
+                location.reload();
+            }
+        });
+
+    }, 500);
+}
