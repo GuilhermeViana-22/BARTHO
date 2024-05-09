@@ -46,6 +46,10 @@ class User extends Authenticatable
 
     public static function imagem_url( $id, $file )
     {
+        if(empty($file)){
+            return null;
+        }
+
         return asset('storage/'. self::STORAGE_PATH . $id . "/" . $file );
     }
 }

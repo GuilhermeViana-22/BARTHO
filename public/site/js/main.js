@@ -1,3 +1,5 @@
+let modalWrap = null;
+
 //animação dos itens
 const target = document.querySelectorAll('[data-anime]');
 const animationClass = 'animate';
@@ -25,6 +27,84 @@ date = new Date();
 year = date.getFullYear();
 document.getElementById("ano").innerHTML = year;
 
+/**
+ * Função para criar uma string aleatória
+ * @param length
+ * @returns {string}
+ */
+function radomString(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        counter += 1;
+    }
+    return result;
+}
+
+/**
+ * Função para carregar uma página em janela modal
+ * @param url
+ * @param title
+ * @param tamanho
+ * @param id
+ * @param callback
+ */
+function showModal(url, title, tamanho = 'modal-lg', id= null, callback = function () {}) {
+    Swal.fire({
+        title: 'Aguarde!', html: 'Abrindo janela...', didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    if (modalWrap !== null) {
+        modalWrap.remove();
+    }
+
+    if (id == null) {
+        id = radomString(10)
+    }
+
+    modalWrap = document.createElement('div');
+    modalWrap.innerHTML = `
+    <div class="modal fade" tabindex="-1" id="` + id + `" data-bs-backdrop="static">
+        <div class="modal-dialog ` + tamanho + `">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                <h5 class="modal-title">${title}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal_corpo">
+                <div class="text-center">
+
+                    <div class="lds-dual-ring"></div>
+                    <h4>Carregando, aguarde...</h4>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  `;
+
+    $("#modal_area").append(modalWrap);
+
+    $("#modal_corpo").load(url, function (body, message, xhr) {
+        if (xhr.status === 200) {
+            let modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
+
+            modalWrap.querySelector('.modal').addEventListener('shown.bs.modal', function (event) {
+                Swal.close();
+            })
+
+            modal.show();
+
+        } else {
+            ajaxErro(xhr);
+        }
+    });
+}
 
 function irPara(rota){
     // Exibe um SweetAlert indicando que está carregando
@@ -188,4 +268,55 @@ function limparFiltro(form, url_)
         });
 
     }, 500);
+}
+
+/**
+ * Função para criação de URLs
+ * @param action
+ * @returns {string}
+ */
+function obterUrl(action = "") {
+    return BASE_URL + action
+}
+
+/**
+ * Tratamento e exibição de erros do ajax
+ * @param data
+ * @param callback
+ */
+function ajaxErro(data, callback = function(){}) {
+    if (data.status === 0) {
+        Swal.fire('Erro de rede', "Verifique sua conexão com a internet e tente novamente.", 'error').then((r) => r.value ? callback() : null)
+    } else if (data.status === 400) {
+        Swal.fire('Atenção!', data.responseText, 'error').then((r) => r.value ? callback() : null)
+    } else if (data.status === 401) {
+        Swal.fire('Não autorizado', data.responseText, 'error').then((r) => r.value ? callback() : null)
+    } else if (data.status === 403) {
+        Swal.fire('Acesso não permitido', 'Você não pode efetuar essa ação.', 'error').then((r) => r.value ? callback() : null)
+    } else if (data.status === 404) {
+        Swal.fire('Item não localizado', 'Este item não foi localizado.', 'error').then((r) => r.value ? callback() : null)
+    } else if (data.status === 409) {
+        Swal.fire('Conflito', data.responseText, 'error').then((r) => r.value ? callback() : null)
+    } else if (data.status === 410) {
+        Swal.fire('Sessão expirada', 'Sua sessão está expirada, faça login novamente para acessar o conteúdo.', 'error').then(() => {
+            irPara(obterUrl())
+        });
+    } else if (data.status === 419) {
+        Swal.fire('Página expirada', 'Essa página está expirada, atualize e tente novamente.', 'error').then((r) => r.value ? callback() : null)
+    } else if (data.status === 422) {
+        erroValidacao(JSON.parse(data.responseText), callback);
+    } else if (data.status === 500) {
+        Swal.fire('Erro interno', 'Ocorreu um erro interno ao processar sua solicitação, tente novamente mais tarde.', 'error').then((r) => r.value ? callback() : null)
+    } else {
+        Swal.fire('Erro [' + data.status + ']', data.responseText, 'error').then((r) => r.value ? callback() : null)
+    }
+}
+
+/**
+ * Função para exibição de erros de formulário
+ * @param erros
+ * @param callback
+ */
+function erroValidacao(erros, callback = function(){}) {
+    Swal.fire('Alguns campos estão inválidos', 'Corrija os erros e tente novamente.', 'error').then((r) => r.value ? callback() : null)
 }

@@ -27,12 +27,9 @@
             </div>
 
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
-                <label for="imagem" disabled class="form-label">Foto do animal</label>
-
-                <div class="input-group-file">
-                    <span><i class="fa fa-eye" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control file-input" placeholder="Clique aqui para ver o arquivo" onclick="irParaOutraGuia('{{Animal::imagem_url($animal->id, $animal->imagem)}}')">
-                </div>
+                <label for="imagem" class="form-label">Foto do animal</label>
+                <br>
+                <input class="form-control" type="file" name="imagem" id="imagem" disabled value="{{Animal::imagem_url($animal->id, $animal->imagem)}}">
             </div>
 
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
@@ -54,4 +51,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#imagem').FileUpload();
+    </script>
 @endsection

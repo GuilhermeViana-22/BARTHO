@@ -24,7 +24,7 @@
     <!-- Barra lateral -->
     <div class="sidebar">
         <div class="logo">
-            <h2>BARTHO</h2>
+            <h2>BARTHÔ</h2>
             <img src="{{asset('img/ativo2.png')}}" height="55px" alt="logo da ONG">
         </div>
         <ul>

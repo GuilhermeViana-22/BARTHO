@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('site/font-awesome-4.7.0/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('site/font-awesome-4.7.0/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/fileinput.min.cs') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/fileinput-rtl.min.css') }}">
 
     <!-- Styles -->
     @hasSection('css')
@@ -26,19 +28,29 @@
     @endif
 
     <link rel="stylesheet" href="{{ asset('site/css/Toast.css') }}">
+
+    <script>
+        const BASE_URL = "<?php echo e(route('home.index')); ?>";
+    </script>
 </head>
 <body>
+
 <div class="content">
     @yield('conteudo')
 </div>
+
+<div id="modal_area"></div>
+
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="{{asset('site/js/main.js')}}"></script>
-<script src="{{asset('site/js/sweetalert2.all.js')}}"></script>
-<script src="{{asset('site/js/Toast.js')}}"></script>
 <script src="{{asset('site/bootstrap.js')}}"></script>
+<script src="{{asset('site/js/sweetalert2.all.js')}}"></script>
+<script src="{{asset('site/js/fileinput.js')}}"></script>
+<script src="{{asset('site/js/fileupload.js')}}"></script>
+{{--<script src="{{asset('site/js/Toast.js')}}"></script>--}}
 
 
 @if (Session::has('message_success'))
@@ -60,6 +72,8 @@
         });
     </script>
 @endif
+
+@yield('js')
 
 </body>
 </html>
