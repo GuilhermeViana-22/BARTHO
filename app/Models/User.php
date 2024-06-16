@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\AreaRestrita\Permissao;
+use App\Models\AreaRestrita\UserPermissao;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,6 +44,18 @@ class User extends Authenticatable
     ];
 
     public const STORAGE_PATH = "arearestrita/usuarios/";
+
+    public function permissoes()
+    {
+        return $this->hasManyThrough(
+            Permissao::class,
+            UserPermissao::class,
+            'user_id',
+            'id',
+            'id',
+            'permissao_id'
+        );
+    }
 
     public static function imagem_url( $id, $file )
     {

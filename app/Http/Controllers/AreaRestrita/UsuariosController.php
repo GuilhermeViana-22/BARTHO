@@ -17,6 +17,7 @@ use App\Http\Requests\AreaRestrita\Usuarios\VisualizarRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -33,7 +34,6 @@ class UsuariosController extends Controller
      */
     public function index( UsuariosRequest $request )
     {
-
         $session = Session::get(self::SESSION_INDEX);
 
         /// faz a busca
