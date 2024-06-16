@@ -21,11 +21,7 @@ class ModulosTableSeeder extends Seeder
 
         /// todas as restantes
         Modulo::create([
-            'nome' => 'Cachorros',
-        ]);
-
-        Modulo::create([
-            'nome' => 'Gatos',
+            'nome' => 'Animais',
         ]);
 
         Modulo::create([

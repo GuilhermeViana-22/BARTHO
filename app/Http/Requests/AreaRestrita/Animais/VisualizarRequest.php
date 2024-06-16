@@ -4,7 +4,7 @@ namespace App\Http\Requests\AreaRestrita\Animais;
 
 use App\Http\Requests\AppRequest;
 
-class AnimaisRequest extends AppRequest
+class VisualizarRequest extends AppRequest
 {
     public $permissoes = [
         'animais.visualizar',
@@ -18,9 +18,6 @@ class AnimaisRequest extends AppRequest
      */
     public function rules()
     {
-        return [
-            'tipo_id' => 'required|integer',
-            'page' => 'nullable|int'
-        ];
+        return [];
     }
 }

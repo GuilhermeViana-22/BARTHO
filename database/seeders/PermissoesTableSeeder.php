@@ -26,36 +26,20 @@ class PermissoesTableSeeder extends Seeder
         ]);
 
         /**
-         * CACHORROS
+         * ANIMAIS
          */
 
         /// a restante cria as permissões do projeto
         Permissao::create([
             'nome' => 'Visualizar',
-            'path' => 'cachorros.visualizar',
+            'path' => 'animais.visualizar',
             'modulo_id' => 2
         ]);
 
         Permissao::create([
             'nome' => 'Gerenciar',
-            'path' => 'cachorros.gerenciar',
+            'path' => 'animais.gerenciar',
             'modulo_id' => 2
-        ]);
-
-        /**
-         * GATOS
-         */
-
-        Permissao::create([
-            'nome' => 'Visualizar',
-            'path' => 'gatos.visualizar',
-            'modulo_id' => 3
-        ]);
-
-        Permissao::create([
-            'nome' => 'Gerenciar',
-            'path' => 'gatos.gerenciar',
-            'modulo_id' => 3
         ]);
 
         /**
@@ -65,13 +49,13 @@ class PermissoesTableSeeder extends Seeder
         Permissao::create([
             'nome' => 'Visualizar',
             'path' => 'usuarios.visualizar',
-            'modulo_id' => 4
+            'modulo_id' => 3
         ]);
 
         Permissao::create([
             'nome' => 'Gerenciar',
             'path' => 'usuarios.gerenciar',
-            'modulo_id' => 4
+            'modulo_id' => 3
         ]);
 
 
@@ -82,13 +66,13 @@ class PermissoesTableSeeder extends Seeder
         Permissao::create([
             'nome' => 'Visualizar',
             'path' => 'permissoes.visualizar',
-            'modulo_id' => 5
+            'modulo_id' => 4
         ]);
 
         Permissao::create([
             'nome' => 'Gerenciar',
             'path' => 'permissoes.gerenciar',
-            'modulo_id' => 5
+            'modulo_id' => 4
         ]);
     }
 }
