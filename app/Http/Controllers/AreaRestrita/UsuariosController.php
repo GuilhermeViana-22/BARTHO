@@ -143,7 +143,7 @@ class UsuariosController extends Controller
             return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
         }
 
-        return Retorno::deVoltaSucesso("Usuário inativado com sucesso!");
+        return Retorno::deVoltaSucesso("Usuário ativado com sucesso!");
     }
 
     public function alterar( AlterarRequest $request, int $id )
@@ -166,7 +166,7 @@ class UsuariosController extends Controller
         }
 
         $usuario->fill($request->validated());
-        $usuario->ativo = ($request->get('ativo') === "on" ? true : false);
+        $usuario->ativo = ($request->get('ativo') === "on" || $usuario->id == 1 ? true : false);
 
         DB::beginTransaction();
 
