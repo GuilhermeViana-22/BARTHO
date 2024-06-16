@@ -30,11 +30,8 @@
         <ul>
             <a href="{{route('arearestrita')}}"> <i class="fa fa-area-chart" aria-hidden="true"></i> <li>Dashboard</li></a>
 
-            @permissao('cachorros.visualizar,cachorros.gerenciar')
+            @permissao('animais.visualizar,animais.gerenciar')
             <a href="{{route('arearestrita.animais', ['tipo_id' => 1])}}"> <i class="fas fa-dog" aria-hidden="true"></i> <li>Cachorros</li></a>
-            @endpermissao
-
-            @permissao('gatos.visualizar,gatos.gerenciar')
             <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <li>Gatos</li></a>
             @endpermissao
 
