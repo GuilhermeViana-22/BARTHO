@@ -28,16 +28,35 @@
             <img src="{{asset('img/ativo2.png')}}" height="55px" alt="logo da ONG">
         </div>
         <ul>
-            <a href="{{route('arearestrita')}}"> <i class="fa fa-area-chart" aria-hidden="true"></i> <li>Dashboard</li></a>
+            <a href="{{route('arearestrita')}}"> <i class="fa fa-area-chart" aria-hidden="true"></i> <span>Dashboard</span></a>
 
             @permissao('animais.visualizar,animais.gerenciar')
-            <a href="{{route('arearestrita.animais', ['tipo_id' => 1])}}"> <i class="fas fa-dog" aria-hidden="true"></i> <li>Cachorros</li></a>
-            <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <li>Gatos</li></a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Cadastro</span></a>
+                <ul class="dropdown-menu">
+                    <a href="{{route('arearestrita.animais', ['tipo_id' => 1])}}"> <i class="fas fa-dog" aria-hidden="true"></i> <span>Cachorros</span></a>
+                    <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <span>Gatos</span></a>
+                </ul>
+            </li>
+            @endpermissao
+
+            @permissao('adocao.visualizar,adocao.gerenciar')
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Adoção</span></a>
+                <ul class="dropdown-menu">
+                    <a href="{{route('arearestrita.animais', ['tipo_id' => 1])}}"> <i class="fas fa-dog" aria-hidden="true"></i> <span>Cachorros</span></a>
+                    <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <span>Gatos</span></a>
+                </ul>
+            </li>
             @endpermissao
 
             @permissao('usuarios.visualizar,usuarios.gerenciar,permissoes.gerenciar')
-            <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <li>Usuários</li></a>
+            <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Usuários</span></a>
             @endpermissao
+
+
+
+
         </ul>
     </div>
 
