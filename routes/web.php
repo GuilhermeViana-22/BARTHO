@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcoesController;
 use App\Http\Controllers\AdoteController;
+use App\Http\Controllers\AreaRestrita\AdocoesController;
 use App\Http\Controllers\DoeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
@@ -66,6 +67,16 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::get('/excluir', [AnimaisController::class, 'excluir'])->name('.excluir');
     });
 
+    // Grupo de rotas para as adoções
+    Route::prefix('adocoes')->name('.adocoes')->group(function () {
+
+        // Rota para a lista de adoções
+        Route::get('/', [AdocoesController::class, 'index']);
+
+
+
+    });
+
     // Grupo de rotas para usuários
     Route::prefix('usuarios')->name('.usuarios')->group(function () {
         // Rota para a lista de usuários
@@ -83,5 +94,8 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::get('/excluir', [UsuariosController::class, 'excluir'])->name('.excluir');
         Route::get('/ativar', [UsuariosController::class, 'ativar'])->name('.ativar');
 
+        // permissões
+        Route::get('/configurarpermissoesmodal/{id}', [UsuariosController::class, 'configurarPermissoesModal'])->name('.configurarpermissoesmodal');
+        Route::post('/salvarpermissoes', [UsuariosController::class, 'salvarPermissoes'])->name('.salvarpermissoes');
     });
 });

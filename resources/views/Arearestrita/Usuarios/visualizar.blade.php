@@ -16,12 +16,9 @@
             </div>
 
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
-                <label for="imagem" disabled class="form-label">Foto do usuário</label>
-
-                <div class="input-group-file">
-                    <span><i class="fa fa-eye" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control file-input" placeholder="Clique aqui para ver o arquivo" onclick="irParaOutraGuia('{{User::imagem_url($usuario->id, $usuario->imagem)}}')">
-                </div>
+                <label for="imagem" class="form-label">Foto do usuário</label>
+                <br>
+                <input class="form-control" type="file" name="imagem" id="imagem" readonly value="{{User::imagem_url($usuario->id, $usuario->imagem)}}">
             </div>
 
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
@@ -33,13 +30,21 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
+                @permissao('usuarios.gerenciar')
                 <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.usuarios.alterar', ['id' => $usuario->id])}}')">Alterar</button>
                 @if(!$usuario->ativo)
                     <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Deseja reativar esse usuário?', '{{route('arearestrita.usuarios.ativar', ['id' => $usuario->id])}}')">Ativar</button>
                 @else
                     <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja inativar esse usuário?', '{{route('arearestrita.usuarios.excluir', ['id' => $usuario->id])}}')">Inativar</button>
                 @endif
+                @endpermissao
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#imagem').FileUpload();
+    </script>
 @endsection

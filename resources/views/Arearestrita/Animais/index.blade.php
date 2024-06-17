@@ -6,9 +6,11 @@
     <div class="page-header">
         <p>Resultados da pesquisa / {{$tipo->tipo}} </p>
 
+        @permissao('animais.gerenciar')
         <button type="button" class="btn btn-success btn-new" onclick="irPara('{{route('arearestrita.animais.incluir', ['tipo_id' => request()->get('tipo_id')])}}')">
             Incluir
         </button>
+        @endpermissao
     </div>
 
     <div class="form-panel">
@@ -61,8 +63,11 @@
                 <td> <span class="badge badge-{{$animal->adotado ? 'success' : 'danger'}}"> {{$animal->adotado ? "SIM" : "NÃO"}} </span> </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.animais.visualizar', ['id' => $animal->id])}}')">Visualizar</button>
+
+                    @permissao('animais.gerenciar')
                     <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.animais.alterar', ['id' => $animal->id])}}')">Alterar</button>
                     <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.animais.excluir', ['id' => $animal->id])}}')">Excluir</button>
+                    @endpermissao
                 </td>
             </tr>
         @endforeach

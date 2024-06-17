@@ -2,10 +2,14 @@
 
 namespace App\Http\Requests\AreaRestrita\Animais;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\AppRequest;
 
-class ExcluirRequest extends FormRequest
+class ExcluirRequest extends AppRequest
 {
+    public $permissoes = [
+        'animais.gerenciar'
+    ];
+
     /**
      * Get the validation rules that apply to the request.
      *

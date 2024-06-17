@@ -129,18 +129,20 @@
                 </div>
             </div>
 
-            <div class="card-footer bg-warning text-start">
-                <button type="button" class="btn btn-success" onclick="formAjax('#salvar_animal_form')">Salvar</button>
+            <div class="form-footer">
+                <div class="form-content">
+                    @permissao('animais.gerenciar')
+                    <button type="button" class="btn btn-success" onclick="formAjax('#salvar_animal_form')">Salvar</button>
+                    @endpermissao
+                </div>
             </div>
         </form>
     </div>
 </div>
-
-
 @endsection
 
-
-<script>
+@section('js')
+    <script>
     function previewImage(event, previewId) {
         var reader = new FileReader();
         var imageField = document.getElementById(previewId);
@@ -153,4 +155,7 @@
 
         reader.readAsDataURL(event.target.files[0]);
     }
-</script>
+    
+    $('#imagem').FileUpload();
+    </script>
+@endsection

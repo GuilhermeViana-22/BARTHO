@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\AreaRestrita\Permissao;
+use App\Models\AreaRestrita\UserPermissao;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @property array $permissoes_lista
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -44,8 +48,46 @@ class User extends Authenticatable
 
     public const STORAGE_PATH = "arearestrita/usuarios/";
 
+    public function permissoes()
+    {
+        return $this->hasManyThrough(
+            Permissao::class,
+            UserPermissao::class,
+            'user_id',
+            'id',
+            'id',
+            'permissao_id'
+        );
+    }
+
+    public function users_permissoes()
+    {
+        return $this->belongsToMany(Permissao::class, 'users_permissoes', 'user_id', 'permissao_id');
+    }
+
+    /**
+     * Método que retorna todas as permissões em lista do usuário
+     *
+     * @return array
+     */
+    public function getPermissoesListaAttribute(): array
+    {
+        $permissoes = $this->permissoes;
+        $permissao_lista = [];
+
+        foreach ($permissoes as $permissao) {
+            array_push($permissao_lista, $permissao->path);
+        }
+
+        return $permissao_lista;
+    }
+
     public static function imagem_url( $id, $file )
     {
+        if(empty($file)){
+            return null;
+        }
+
         return asset('storage/'. self::STORAGE_PATH . $id . "/" . $file );
     }
 }

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\AreaRestrita;
 use App\Helpers\Retorno;
 use App\Helpers\StorageHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AreaRestrita\Animais\AlterarRequest;
 use App\Http\Requests\AreaRestrita\Animais\AnimaisRequest;
 use App\Http\Requests\AreaRestrita\Animais\ExcluirRequest;
+use App\Http\Requests\AreaRestrita\Animais\IncluirRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarAlteracaoRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarRequest;
+use App\Http\Requests\AreaRestrita\Animais\VisualizarRequest;
 use App\Models\AreaRestrita\Animal;
 use App\Models\AreaRestrita\TipoAnimal;
 use Illuminate\Contracts\Foundation\Application;
@@ -63,7 +66,7 @@ class AnimaisController extends Controller
      * @param $id
      * @return Application|Factory|View|RedirectResponse
      */
-    public function visualizar(Request $request, $id)
+    public function visualizar(VisualizarRequest $request, $id)
     {
         $tipos_animais = TipoAnimal::all();
 
@@ -82,7 +85,7 @@ class AnimaisController extends Controller
      * @param Request $request
      * @return Application|Factory|View
      */
-    public function incluir(Request $request)
+    public function incluir(IncluirRequest $request)
     {
         $tipos_animais = TipoAnimal::all();
 
@@ -172,7 +175,7 @@ class AnimaisController extends Controller
      * @param $id
      * @return Application|Factory|View|RedirectResponse
      */
-    public function alterar(Request $request, $id)
+    public function alterar(AlterarRequest $request, $id)
     {
         try {
             $animal = Animal::findOrFail($id);
