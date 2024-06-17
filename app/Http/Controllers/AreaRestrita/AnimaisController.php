@@ -95,42 +95,52 @@ class AnimaisController extends Controller
      * @param SalvarRequest $request
      * @return RedirectResponse
      */
-    public function salvar(SalvarRequest $request)
+    public function salvar(Request $request)
     {
+        // Transform the 'adotado' value from 'on' to 1, and ensure it's 0 if not set
+        $requestData = $request->all();
+        $requestData['adotado'] = isset($requestData['adotado']) ? 1 : 0;
+
+        // Create a new Animal instance and fill it with request data
         $animal = new Animal();
-        $animal->fill( $request->all() );
+        $animal->fill($requestData);
 
         DB::beginTransaction();
 
         try {
+            // Save animal data first
             $animal->save();
-
-        } catch (\Throwable $e ){
+        } catch (\Throwable $e) {
             DB::rollBack();
             return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
         }
 
         try {
-            /// adiciona a imagem
-            $animal->imagem = StorageHelper::salvar($request->file('imagem'), Animal::STORAGE_PATH.$animal->id );
+            // Save images and update the animal record
+            $imagePaths = [];
+            for ($i = 1; $i <= 3; $i++) {
+                $imageField = 'imagem' . $i;
+                if ($request->hasFile($imageField)) {
+                    $imagePaths[$imageField] = StorageHelper::salvar($request->file($imageField), Animal::STORAGE_PATH . $animal->id);
+                }
+            }
 
-        } catch (\Throwable $e ){
-            DB::rollBack();
-            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações da imagem.");
-        }
-
-        try {
+            // Update animal record with image paths
+            $animal->imagem1 = $imagePaths['imagem1'] ?? null;
+            $animal->imagem2 = $imagePaths['imagem2'] ?? null;
+            $animal->imagem3 = $imagePaths['imagem3'] ?? null;
             $animal->save();
 
-        } catch (\Throwable $e ){
+        } catch (\Throwable $e) {
             DB::rollBack();
-            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações da imagem.". $e->getMessage());
         }
 
         DB::commit();
 
         return Retorno::deVoltaSucesso("Animal incluído com sucesso!");
     }
+
 
     /**
      * Método que realiza a exclusão de um animal
