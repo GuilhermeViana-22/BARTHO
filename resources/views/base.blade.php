@@ -73,6 +73,21 @@
     </script>
 @endif
 
+<script>
+    $(document).ready(function() {
+        // Esconde todos os submenus inicialmente
+        $('.dropdown-menu').hide();
+
+        // Adiciona um evento de clique para alternar a visibilidade dos submenus
+        $('.dropdown-toggle').on('click', function(e) {
+            e.preventDefault(); // Impede o comportamento padrão do link
+
+            // Alterna a visibilidade do submenu correspondente
+            $(this).next('.dropdown-menu').slideToggle();
+        });
+    });
+</script>
+
 @yield('js')
 
 </body>

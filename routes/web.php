@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcoesController;
 use App\Http\Controllers\AdoteController;
+use App\Http\Controllers\AreaRestrita\AdocoesController;
 use App\Http\Controllers\DoeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
@@ -64,6 +65,16 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::post('/salvaralteracao', [AnimaisController::class, 'salvarAlteracao'])->name('.salvaralteracao');
 
         Route::get('/excluir', [AnimaisController::class, 'excluir'])->name('.excluir');
+    });
+
+    // Grupo de rotas para as adoções
+    Route::prefix('adocoes')->name('.adocoes')->group(function () {
+
+        // Rota para a lista de adoções
+        Route::get('/', [AdocoesController::class, 'index']);
+
+
+
     });
 
     // Grupo de rotas para usuários
