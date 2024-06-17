@@ -69,7 +69,9 @@
                 <td> <span class="badge badge-primary">{{$usuario->email}}</span> </td>
                 <td> <span class="badge badge-{{$usuario->ativo ? 'success' : 'danger'}}"> {{$usuario->ativo ? "SIM" : "NÃO"}} </span> </td>
                 <td>
+                    @permissao('usuarios.visualizar,usuarios.gerenciar')
                     <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.usuarios.visualizar', ['id' => $usuario->id])}}')">Visualizar</button>
+                    @endpermissao
 
                     @permissao('usuarios.gerenciar')
                     <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.usuarios.alterar', ['id' => $usuario->id])}}')">Alterar</button>

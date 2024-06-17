@@ -9,7 +9,8 @@ class UsuariosRequest extends AppRequest
 
     public $permissoes = [
         'usuarios.visualizar',
-        'usuarios.gerenciar'
+        'usuarios.gerenciar',
+        'permissoes.gerenciar'
     ];
 
     /**

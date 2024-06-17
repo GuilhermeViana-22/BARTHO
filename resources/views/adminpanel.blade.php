@@ -35,7 +35,7 @@
             <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <li>Gatos</li></a>
             @endpermissao
 
-            @permissao('usuarios.visualizar,usuarios.gerenciar')
+            @permissao('usuarios.visualizar,usuarios.gerenciar,permissoes.gerenciar')
             <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <li>Usuários</li></a>
             @endpermissao
         </ul>
