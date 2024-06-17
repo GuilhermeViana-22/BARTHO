@@ -16,7 +16,9 @@ class CreateAnimaisTable extends Migration
         Schema::create('animais', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('imagem')->nullable();
+            $table->string('imagem1')->nullable();
+            $table->string('imagem2')->nullable();
+            $table->string('imagem3')->nullable();
             $table->integer('tipo_id');
             $table->string('descricao')->nullable();
             $table->boolean('adotado')->nullable()->default(false);

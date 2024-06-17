@@ -115,41 +115,60 @@
                 <div class="container" style="padding: 30px">
                     <div class="row">
 
-                        @foreach( $cachorros as $cachorro )
-                            @if($cachorro->adotado)
-                                <div class="col-md-12 col-lg-4" data-anime="right">
-                                    <div class="card doacoes">
-                                        <div class="card-body">
-                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5></div>
-                                            <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" alt="Imagem" class="img-fluid" style="height: 400px; width: 400px; background-color: #1a202c; opacity: 0.5">
-                                                <figcaption>
-                                                    <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
+                        @foreach($cachorros as $cachorro)
+                            <div class="col-md-12 col-lg-4" data-anime="right">
+                                <div class="card doacoes">
+                                    <div class="card-body">
+                                        <div style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5></div>
+                                        <figure>
+                                            <div id="carousel-{{$cachorro->id}}" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    @php
+                                                        $images = [
+                                                            $cachorro->imagem1,
+                                                            $cachorro->imagem2,
+                                                            $cachorro->imagem3,
+                                                        ];
+                                                        $activeSet = false;
+                                                    @endphp
+                                                    @foreach($images as $image)
+                                                        @if($image)
+                                                            <div class="carousel-item {{ !$activeSet ? 'active' : '' }}">
+                                                                <img src="{{ \App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $image) }}" class="d-block w-100" style="height: 400px; width: 400px;" alt="Imagem">
+                                                            </div>
+                                                            @php $activeSet = true; @endphp
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                                @if($activeSet)
+                                                    <a class="carousel-control-prev" href="#carousel-{{$cachorro->id}}" role="button" data-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carousel-{{$cachorro->id}}" role="button" data-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                    <p class="text-center p-4">{{$cachorro->descricao}}</p>
+                                                @endif
+                                            </div>
+                                            <figcaption>
+                                                @if($cachorro->adotado)
+                                                    <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled>
+                                                        <i class="fas fa-paw"> Adotado</i>
                                                     </button>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="col-md-12 col-lg-4" data-anime="right">
-                                    <div class="card doacoes">
-                                        <div class="card-body">
-                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$cachorro->nome}}! 🐾</h5></div>
-                                            <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($cachorro->id, $cachorro->imagem)}}" style="height: 400px; width: 400px;" alt="Imagem" class="img-fluid">
-                                                <figcaption>
+                                                @else
                                                     <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
                                                         <a href="#" target="_blank" style="color: #fff !important; text-decoration: none;">
                                                             <i class="fas fa-paw"></i> Quero Adotar
                                                         </a>
                                                     </button>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
+                                                @endif
+                                            </figcaption>
+                                        </figure>
                                     </div>
                                 </div>
-                            @endif
+                            </div>
                         @endforeach
 
                     </div>
@@ -163,42 +182,62 @@
                 <div class="container" style="padding: 30px">
                     <div class="row">
 
-                        @foreach( $gatos as $gato )
-                            @if($gato->adotado)
-                                <div class="col-md-12 col-lg-4" data-anime="right">
-                                    <div class="card doacoes">
-                                        <div class="card-body">
-                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$gato->nome}}! 🐾</h5></div>
-                                            <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" alt="Imagem" class="img-fluid" style="height: 400px; width: 400px; background-color: #1a202c; opacity: 0.5">
-                                                <figcaption>
-                                                    <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled><i class="fas fa-paw"> Adotado</i>
+                        @foreach($gatos as $gato)
+                            <div class="col-md-12 col-lg-4" data-anime="right">
+                                <div class="card doacoes">
+                                    <div class="card-body">
+                                        <div style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça o(a) {{$gato->nome}}! 🐾</h5></div>
+                                        <figure>
+                                            <div id="carousel-{{$gato->id}}" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    @php
+                                                        $images = [
+                                                            $gato->imagem1,
+                                                            $gato->imagem2,
+                                                            $gato->imagem3,
+                                                        ];
+                                                        $activeSet = false;
+                                                    @endphp
+                                                    @foreach($images as $image)
+                                                        @if($image)
+                                                            <div class="carousel-item {{ !$activeSet ? 'active' : '' }}">
+                                                                <img src="{{ \App\Models\AreaRestrita\Animal::imagem_url($gato->id, $image) }}" class="d-block w-100" style="height: 400px; width: 400px;" alt="Imagem">
+                                                            </div>
+                                                            @php $activeSet = true; @endphp
+                                                        @endif
+                                                    @endforeach
+                                                </div>
+                                                @if($activeSet)
+                                                    <a class="carousel-control-prev" href="#carousel-{{$gato->id}}" role="button" data-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carousel-{{$gato->id}}" role="button" data-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                    <p class="text-center p-4">{{$gato->descricao}}</p>
+                                                @endif
+                                            </div>
+                                            <figcaption>
+                                                @if($gato->adotado)
+                                                    <button type="button" class="btn btn-secondary" style="background-color:#6C5142; margin-top: 15px;" disabled>
+                                                        <i class="fas fa-paw"> Adotado</i>
                                                     </button>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="col-md-12 col-lg-4" data-anime="right">
-                                    <div class="card doacoes">
-                                        <div class="card-body">
-                                            <div  style="min-height: 100px"><h5 class="title-adotar">🐾 Conheça (o)a {{$gato->nome}}! 🐾</h5></div>
-                                            <figure>
-                                                <img src="{{\App\Models\AreaRestrita\Animal::imagem_url($gato->id, $gato->imagem)}}" style="height: 400px; width: 400px;" alt="Imagem" class="img-fluid">
-                                                <figcaption>
+                                                @else
                                                     <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
                                                         <a href="#" target="_blank" style="color: #fff !important; text-decoration: none;">
                                                             <i class="fas fa-paw"></i> Quero Adotar
                                                         </a>
                                                     </button>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
+                                                @endif
+                                            </figcaption>
+                                        </figure>
                                     </div>
                                 </div>
-                            @endif
+                            </div>
                         @endforeach
+
                     </div>
                 </div>
 
