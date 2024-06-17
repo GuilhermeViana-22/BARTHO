@@ -83,5 +83,8 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::get('/excluir', [UsuariosController::class, 'excluir'])->name('.excluir');
         Route::get('/ativar', [UsuariosController::class, 'ativar'])->name('.ativar');
 
+        // permissões
+        Route::get('/configurarpermissoesmodal/{id}', [UsuariosController::class, 'configurarPermissoesModal'])->name('.configurarpermissoesmodal');
+        Route::post('/salvarpermissoes', [UsuariosController::class, 'salvarPermissoes'])->name('.salvarpermissoes');
     });
 });

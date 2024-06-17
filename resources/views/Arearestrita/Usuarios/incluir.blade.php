@@ -41,6 +41,7 @@
 
                 <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                     <label for="imagem" class="form-label">Foto do usuário (opcional)</label>
+                    <br>
                     <input class="form-control" type="file" name="imagem" id="imagem">
                 </div>
 
@@ -53,9 +54,17 @@
             </div>
             <div class="form-footer">
                 <div class="form-content">
+                    @permissao('usuarios.gerenciar')
                     <button type="button" class="btn btn-success" onclick="formAjax('#salvar_usuario_form')">Salvar</button>
+                    @endpermissao
                 </div>
             </div>
         </div>
     </form>
+@endsection
+
+@section('js')
+    <script>
+        $('#imagem').FileUpload();
+    </script>
 @endsection

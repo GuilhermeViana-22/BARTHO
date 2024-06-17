@@ -2,10 +2,14 @@
 
 namespace App\Http\Requests\AreaRestrita\Animais;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\AppRequest;
 
-class SalvarAlteracaoRequest extends FormRequest
+class SalvarAlteracaoRequest extends AppRequest
 {
+    public $permissoes = [
+        'animais.gerenciar'
+    ];
+
     public function prepareForValidation()
     {
         return $this->merge([

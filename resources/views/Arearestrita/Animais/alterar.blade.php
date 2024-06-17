@@ -41,15 +41,8 @@
 
                 <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                     <label for="imagem" class="form-label">Foto do animal</label>
-
-                    <div class="input-group-file">
-                        <span><i class="fa fa-eye" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control file-input " placeholder="Clique aqui para ver o arquivo" onclick="irParaOutraGuia('{{Animal::imagem_url($animal->id, $animal->imagem)}}')">
-                        <span id="fa-trash-file-input-1" class="input-change-file" onclick="changeFile(this)"><i class="fa fa-trash" aria-hidden="true"></i></span>
-                        @if(empty($animal->imagem)) <script> document.addEventListener('DOMContentLoaded', () => $('#fa-trash-file-input-1').click()); </script> @endif
-
-                        <input class="form-control change-input" type="file" name="imagem" id="imagem" disabled style="display: none">
-                    </div>
+                    <br>
+                    <input class="form-control" type="file" name="imagem" id="imagem" value="{{Animal::imagem_url($animal->id, $animal->imagem)}}">
                 </div>
 
                 <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
@@ -67,9 +60,17 @@
 
             <div class="form-footer">
                 <div class="form-content">
+                    @permissao('animais.gerenciar')
                     <button type="button" class="btn btn-success btn-ok" onclick="formAjax('#salvar_animal_form')">Salvar</button>
+                    @endpermissao
                 </div>
             </div>
         </div>
     </form>
+@endsection
+
+@section('js')
+    <script>
+        $('#imagem').FileUpload();
+    </script>
 @endsection

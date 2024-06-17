@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Requests\AreaRestrita\Animais;
+namespace App\Http\Requests\AreaRestrita\Usuarios;
 
 use App\Http\Requests\AppRequest;
 
-class AnimaisRequest extends AppRequest
+class SalvarPermissoesRequest extends AppRequest
 {
+
     public $permissoes = [
-        'animais.visualizar',
-        'animais.gerenciar'
+        'permissoes.gerenciar'
     ];
 
     /**
@@ -19,8 +19,8 @@ class AnimaisRequest extends AppRequest
     public function rules()
     {
         return [
-            'tipo_id' => 'required|integer',
-            'page' => 'nullable|int'
+            'usuario_id' => 'required|integer|exists:users,id',
+            'permissoes' => 'nullable|array'
         ];
     }
 }
