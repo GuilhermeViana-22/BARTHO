@@ -209,7 +209,7 @@ class UsuariosController extends Controller
 
         DB::beginTransaction();
 
-        $permissoes = array_keys($request->get('permissoes'));
+        $permissoes = array_keys($request->get('permissoes') ?? []);
 
         try {
             $usuario->users_permissoes()->sync($permissoes);
