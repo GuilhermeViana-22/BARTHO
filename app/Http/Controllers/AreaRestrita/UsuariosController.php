@@ -8,9 +8,11 @@ use App\Helpers\StorageHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\Usuarios\AlterarRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\AtivarRequest;
+use App\Http\Requests\AreaRestrita\Usuarios\ConfigurarPermissoesModalRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\ExcluirRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\IncluirRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\SalvarAlteracaoRequest;
+use App\Http\Requests\AreaRestrita\Usuarios\SalvarPermissoesRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\SalvarRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\UsuariosRequest;
 use App\Http\Requests\AreaRestrita\Usuarios\VisualizarRequest;
@@ -191,6 +193,33 @@ class UsuariosController extends Controller
         }
 
         DB::commit();
-        return Retorno::deVoltaSucesso("Alterações realizadas com sucesso!");
+        return Retorno::deVoltaSucesso("Alterações realizada com sucesso!");
+    }
+
+    public function configurarPermissoesModal(ConfigurarPermissoesModalRequest $request, $id )
+    {
+        $usuario = User::findOrFail($id);
+
+        return view('Arearestrita.Usuarios.configurar_permissoes_modal', compact('usuario'));
+    }
+
+    public function salvarPermissoes( SalvarPermissoesRequest $request )
+    {
+        $usuario = User::findOrFail($request->get('usuario_id'));
+
+        DB::beginTransaction();
+
+        $permissoes = array_keys($request->get('permissoes'));
+
+        try {
+            $usuario->users_permissoes()->sync($permissoes);
+
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.".$e->getMessage());
+        }
+
+        DB::commit();
+        return Retorno::deVoltaSucesso("Alterações realizada com sucesso!");
     }
 }

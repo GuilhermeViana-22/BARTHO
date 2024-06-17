@@ -60,6 +60,11 @@ class User extends Authenticatable
         );
     }
 
+    public function users_permissoes()
+    {
+        return $this->belongsToMany(Permissao::class, 'users_permissoes', 'user_id', 'permissao_id');
+    }
+
     /**
      * Método que retorna todas as permissões em lista do usuário
      *

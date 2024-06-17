@@ -82,6 +82,12 @@
                         @endif
                     @endif
                     @endpermissao
+
+                    @permissao('permissoes.gerenciar')
+                        @if($usuario->id != 1)
+                        <button type="button" class="btn btn-warning btn-gear" onclick="showModal('{{route('arearestrita.usuarios.configurarpermissoesmodal', ['id' => $usuario->id])}}', 'Alterar permissões do usuário: {{$usuario->name}}')">Alterar permissões</button>
+                       @endif
+                    @endpermissao
                 </td>
             </tr>
         @endforeach

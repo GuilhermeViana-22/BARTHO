@@ -62,13 +62,6 @@ class PermissoesTableSeeder extends Seeder
         /**
          * PERMISSÕES
          */
-
-        Permissao::create([
-            'nome' => 'Visualizar',
-            'path' => 'permissoes.visualizar',
-            'modulo_id' => 4
-        ]);
-
         Permissao::create([
             'nome' => 'Gerenciar',
             'path' => 'permissoes.gerenciar',
