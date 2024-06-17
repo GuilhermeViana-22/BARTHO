@@ -44,8 +44,8 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Adoção</span></a>
                 <ul class="dropdown-menu">
-                    <a href="{{route('arearestrita.animais', ['tipo_id' => 1])}}"> <i class="fas fa-dog" aria-hidden="true"></i> <span>Cachorros</span></a>
-                    <a href="{{route('arearestrita.animais', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <span>Gatos</span></a>
+                    <a href="{{route('arearestrita.adocoes', ['tipo_id' => 1])}}"> <i class="fas fa-dog" aria-hidden="true"></i> <span>Cachorros</span></a>
+                    <a href="{{route('arearestrita.adocoes', ['tipo_id' => 2])}}"> <i class="fas fa-cat" aria-hidden="true"></i> <span>Gatos</span></a>
                 </ul>
             </li>
             @endpermissao

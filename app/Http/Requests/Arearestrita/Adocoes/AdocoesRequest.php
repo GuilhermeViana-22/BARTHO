@@ -1,17 +1,11 @@
 <?php
 
-namespace App\Http\Requests\AreaRestrita\Animais;
+namespace App\Http\Requests\Arearestrita\Adocoes;
 
 use App\Http\Requests\AppRequest;
 
-class AnimaisRequest extends AppRequest
+class AdocoesRequest extends AppRequest
 {
-
-    public $permissoes = [
-        'animais.visualizar',
-        'animais.gerenciar'
-    ];
-
     /**
      * Get the validation rules that apply to the request.
      *
