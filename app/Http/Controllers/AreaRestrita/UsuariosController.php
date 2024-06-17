@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Session;
 class UsuariosController extends Controller
 {
 
-    CONST SESSION_INDEX = "SESSION_INDEX_ANIMAIS";
+    CONST SESSION_INDEX = "SESSION_INDEX_USUARIOS";
 
     /**
      * Método que mostra todos os usuários
