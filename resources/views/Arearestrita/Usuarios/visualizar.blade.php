@@ -30,12 +30,14 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
+                @permissao('usuarios.gerenciar')
                 <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.usuarios.alterar', ['id' => $usuario->id])}}')">Alterar</button>
                 @if(!$usuario->ativo)
                     <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Deseja reativar esse usuário?', '{{route('arearestrita.usuarios.ativar', ['id' => $usuario->id])}}')">Ativar</button>
                 @else
                     <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja inativar esse usuário?', '{{route('arearestrita.usuarios.excluir', ['id' => $usuario->id])}}')">Inativar</button>
                 @endif
+                @endpermissao
             </div>
         </div>
     </div>

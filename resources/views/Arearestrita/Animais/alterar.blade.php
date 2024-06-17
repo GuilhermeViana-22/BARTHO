@@ -60,7 +60,9 @@
 
             <div class="form-footer">
                 <div class="form-content">
+                    @permissao('animais.gerenciar')
                     <button type="button" class="btn btn-success btn-ok" onclick="formAjax('#salvar_animal_form')">Salvar</button>
+                    @endpermissao
                 </div>
             </div>
         </div>

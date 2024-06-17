@@ -6,9 +6,11 @@
     <div class="page-header">
         <p>Resultados da pesquisa de Usuários </p>
 
+        @permissao('usuarios.gerenciar')
         <button type="button" class="btn btn-success btn-new" onclick="irPara('{{route('arearestrita.usuarios.incluir')}}')">
             Incluir
         </button>
+        @endpermissao
     </div>
 
     <div class="form-panel">
@@ -68,6 +70,8 @@
                 <td> <span class="badge badge-{{$usuario->ativo ? 'success' : 'danger'}}"> {{$usuario->ativo ? "SIM" : "NÃO"}} </span> </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.usuarios.visualizar', ['id' => $usuario->id])}}')">Visualizar</button>
+
+                    @permissao('usuarios.gerenciar')
                     <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.usuarios.alterar', ['id' => $usuario->id])}}')">Alterar</button>
 
                     @if($usuario->id != 1)
@@ -77,6 +81,7 @@
                             <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja inativar esse usuário?', '{{route('arearestrita.usuarios.excluir', ['id' => $usuario->id])}}')">Inativar</button>
                         @endif
                     @endif
+                    @endpermissao
                 </td>
             </tr>
         @endforeach

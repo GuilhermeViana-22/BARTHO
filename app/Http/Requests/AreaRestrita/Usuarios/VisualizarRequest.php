@@ -2,10 +2,16 @@
 
 namespace App\Http\Requests\AreaRestrita\Usuarios;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\AppRequest;
 
-class VisualizarRequest extends FormRequest
+class VisualizarRequest extends AppRequest
 {
+
+    public $permissoes = [
+        'usuarios.visualizar',
+        'usuarios.gerenciar'
+    ];
+
     /**
      * Get the validation rules that apply to the request.
      *

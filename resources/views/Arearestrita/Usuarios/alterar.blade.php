@@ -44,7 +44,9 @@
 
             <div class="form-footer">
                 <div class="form-content">
+                    @permissao('usuarios.gerenciar')
                     <button type="button" class="btn btn-success btn-ok" onclick="formAjax('#salvar_usuario_form')">Salvar</button>
+                    @endpermissao
                 </div>
             </div>
         </div>
