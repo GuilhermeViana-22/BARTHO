@@ -28,7 +28,6 @@ class SalvarRequest extends AppRequest
             'nome' => 'required|string|max:255',
             'descricao' => 'nullable|string|max:255',
             'tipo_id' => 'required|integer',
-            'imagem' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'adotado' => 'nullable',
         ];
     }

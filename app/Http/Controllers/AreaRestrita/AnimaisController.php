@@ -98,7 +98,7 @@ class AnimaisController extends Controller
      * @param SalvarRequest $request
      * @return RedirectResponse
      */
-    public function salvar(Request $request)
+    public function salvar(SalvarRequest $request)
     {
         // Transform the 'adotado' value from 'on' to 1, and ensure it's 0 if not set
         $requestData = $request->all();
@@ -143,7 +143,6 @@ class AnimaisController extends Controller
 
         return Retorno::deVoltaSucesso("Animal incluído com sucesso!");
     }
-
 
     /**
      * Método que realiza a exclusão de um animal
