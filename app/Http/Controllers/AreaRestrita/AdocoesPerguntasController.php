@@ -57,6 +57,12 @@ class AdocoesPerguntasController extends Controller
         return view('Arearestrita.AdocoesPerguntas.index', compact('perguntas', 'tipos_perguntas', 'situacoes', 'session'));
     }
 
+    /**
+     * Método que mostra a tela de inclusão
+     *
+     * @param IncluirRequest $request
+     * @return Application|Factory|View
+     */
     public function incluir( IncluirRequest $request )
     {
         $tipos_perguntas = TipoPergunta::all();
@@ -64,6 +70,12 @@ class AdocoesPerguntasController extends Controller
         return view('Arearestrita.AdocoesPerguntas.incluir', compact('tipos_perguntas'));
     }
 
+    /**
+     * Método que realiza o salvamento das informações
+     *
+     * @param SalvarRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function salvar( SalvarRequest $request )
     {
         $pergunta = new AdocaoPergunta();
@@ -83,6 +95,13 @@ class AdocoesPerguntasController extends Controller
         return Retorno::deVoltaSucesso('Informações salvas com sucesso.');
     }
 
+    /**
+     * Método que mostra o modal de alteração
+     *
+     * @param AlterarModalRequest $request
+     * @param $id
+     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
+     */
     public function alterarModal( AlterarModalRequest $request, $id )
     {
         $tipos_perguntas = TipoPergunta::all();
@@ -96,6 +115,12 @@ class AdocoesPerguntasController extends Controller
         return view('Arearestrita.AdocoesPerguntas.alterar_modal', compact('pergunta', 'tipos_perguntas'));
     }
 
+    /**
+     * Método que realiza o salvamento das alterações
+     *
+     * @param SalvarAlteracaoRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function salvarAlteracao( SalvarAlteracaoRequest $request )
     {
         try {
