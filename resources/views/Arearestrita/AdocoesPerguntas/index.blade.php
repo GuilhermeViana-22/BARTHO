@@ -41,6 +41,7 @@
                     <select class="form-select" id="adotado" name="ativo">
                         <option @if( empty($session['ativo']) || $session['ativo'] === "on") selected @endif value="on">Sim</option>
                         <option @if( !empty($session['ativo']) && $session['ativo'] === "off") selected @endif value="off">Não</option>
+                        <option @if( !empty($session['ativo']) && $session['ativo'] === "all") selected @endif value="all">Todas</option>
                     </select>
                 </div>
             </form>

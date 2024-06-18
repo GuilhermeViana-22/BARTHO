@@ -52,7 +52,9 @@ class AdocoesPerguntasController extends Controller
         }
 
         if(!empty($session['ativo'])){
-            $perguntas->where('ativo', ($session['ativo'] === "on" ? true : false));
+            if($session['ativo'] !== "all"){
+                $perguntas->where('ativo', ($session['ativo'] === "on" ? true : false));
+            }
         } else {
             $perguntas->where('ativo', true);
         }
