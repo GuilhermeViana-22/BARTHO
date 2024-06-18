@@ -112,7 +112,9 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
             Route::post('/salvaralteracao', [AdocoesPerguntasController::class, 'salvarAlteracao'])->name('.salvaralteracao');
 
             Route::get('/gerenciaralternativas/{id}', [AdocoesPerguntasController::class, 'gerenciarAlternativas'])->name('.gerenciaralternativas');
-
+            Route::get('/incluiralternativamodal/{id}', [AdocoesPerguntasController::class, 'incluirAlternativaModal'])->name('.incluiralternativamodal');
+            Route::post('/salvaralternativa', [AdocoesPerguntasController::class, 'salvarAlternativa'])->name('.salvaralternativa');
+            Route::get('/excluiralternativa/{id}', [AdocoesPerguntasController::class, 'excluirAlternativa'])->name('.excluiralternativa');
         });
     });
 });

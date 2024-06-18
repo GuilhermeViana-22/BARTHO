@@ -11,6 +11,7 @@ use App\Http\Requests\AreaRestrita\AdocoesPerguntas\GerenciarAlternativasRequest
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\IncluirAlternativaRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\IncluirRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarAlteracaoRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarAlternativaRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarRequest;
 use App\Models\AreaRestrita\AdocaoPergunta;
 use App\Models\AreaRestrita\AdocaoSelecao;
@@ -169,18 +170,56 @@ class AdocoesPerguntasController extends Controller
         return view('Arearestrita.AdocoesPerguntas.gerenciar_alternativas', compact('pergunta', 'alternativas'));
     }
 
-    public function incluirAlternativa( IncluirAlternativaRequest $request, $id )
+    /**
+     * Método que mostra o modal de inclusão de alternativa
+     *
+     * @param IncluirAlternativaRequest $request
+     * @param $id
+     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
+     */
+    public function incluirAlternativaModal( IncluirAlternativaRequest $request, $id )
     {
-
         try {
-            $alternativa = AdocaoSelecao::findOrFail($id);
+            $pergunta = AdocaoPergunta::findOrFail($id);
         } catch ( \Exception $e ) {
-            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa alternativa.');
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa pergunta.');
         }
 
-
+        return view('Arearestrita.AdocoesPerguntas.incluir_alternativa_modal', compact('pergunta'));
     }
 
+    /**
+     * Método que realiza o salvamento da nova alternativa para a pergunta
+     *
+     * @param SalvarAlternativaRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function salvarAlternativa( SalvarAlternativaRequest $request )
+    {
+        if(empty($request->get('selecao'))){
+            return Retorno::deVoltaErro('O texto da alternativa deve ser informado!');
+        }
+
+        $alternativa = new AdocaoSelecao();
+        $alternativa->fill($request->validated());
+
+        try {
+            $alternativa->save();
+
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível salvar os dados.');
+        }
+
+        return Retorno::deVoltaSucesso('Alternativa incluída com sucesso!');
+    }
+
+    /**
+     * Método que realiza a exclusão da alternativa
+     *
+     * @param ExcluirAlternativaRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|void
+     */
     public function excluirAlternativa( ExcluirAlternativaRequest $request, $id )
     {
         try {
@@ -189,6 +228,15 @@ class AdocoesPerguntasController extends Controller
             return Retorno::deVoltaFindOrFail('Não foi possível localizar essa alternativa.');
         }
 
+        $alternativa->ativo = 0;
 
+        try {
+            $alternativa->save();
+
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível salvar os dados.');
+        }
+
+        return Retorno::deVoltaSucesso('Alternativa excluída com sucesso!');
     }
 }

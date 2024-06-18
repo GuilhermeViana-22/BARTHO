@@ -4,6 +4,12 @@
 
     <div class="page-header">
         <h4>Gerenciar alternativas da pergunta #{{$pergunta->id}}</h4>
+
+        @permissao('configuracoes.perguntas.gerenciar')
+        <button type="button" class="btn btn-success btn-new" onclick="showModal('{{route('arearestrita.configuracoes.adocoesperguntas.incluiralternativamodal', ['id' => $pergunta->id])}}', 'Incluir alternativa')">
+            Incluir
+        </button>
+        @endpermissao
     </div>
 
     <div class="form-panel">
@@ -34,7 +40,11 @@
                             <td scope="row"> {{$alternativa->id}} </td>
                             <td scope="row"> {{$alternativa->selecao}} </td>
                             <td>
-
+                                @permissao('configuracoes.perguntas.gerenciar')
+                                <button type="button" class="btn btn-danger btn-trash" onclick="irPara('{{route('arearestrita.configuracoes.adocoesperguntas.excluiralternativa', ['id' => $alternativa->id])}}')">
+                                    Excluir
+                                </button>
+                                @endpermissao
                             </td>
                         </tr>
                     @endforeach
