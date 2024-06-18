@@ -24,7 +24,7 @@
     <!-- Barra lateral -->
     <div class="sidebar">
         <div class="logo">
-            <h2>BARTHÔ</h2>
+            <h2>BARTHÔ</h2><span>®</span>
             <img src="{{asset('img/ativo2.png')}}" height="55px" alt="logo da ONG">
         </div>
         <ul>
@@ -54,8 +54,7 @@
             <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Usuários</span></a>
             @endpermissao
 
-
-            @permissao('configuracoes.visualizar,configuracoes.gerenciar')
+            @permissao('configuracoes.perguntas.visualizar,configuracoes.perguntas.gerenciar')
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle"> <i class="fa fa-cogs" aria-hidden="true"></i> <span>Configurações</span></a>
                 <ul class="dropdown-menu">
@@ -63,7 +62,6 @@
                 </ul>
             </li>
             @endpermissao
-
         </ul>
     </div>
 

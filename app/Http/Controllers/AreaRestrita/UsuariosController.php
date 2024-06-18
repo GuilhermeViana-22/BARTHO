@@ -63,10 +63,13 @@ class UsuariosController extends Controller
 
     public function visualizar( VisualizarRequest $request, int $id )
     {
-        $usuario = User::findOrFail($id);
+        try {
+            $usuario = User::findOrFail($id);
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar esse usuário.');
+        }
 
         return view('Arearestrita.Usuarios.visualizar', compact('usuario'));
-
     }
 
     public function incluir( IncluirRequest $request )
@@ -198,14 +201,22 @@ class UsuariosController extends Controller
 
     public function configurarPermissoesModal(ConfigurarPermissoesModalRequest $request, $id )
     {
-        $usuario = User::findOrFail($id);
+        try {
+            $usuario = User::findOrFail($id);
+        } catch ( \Throwable $e ) {
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
 
         return view('Arearestrita.Usuarios.configurar_permissoes_modal', compact('usuario'));
     }
 
     public function salvarPermissoes( SalvarPermissoesRequest $request )
     {
-        $usuario = User::findOrFail($request->get('usuario_id'));
+        try {
+            $usuario = User::findOrFail($request->get('usuario_id'));
+        } catch ( \Throwable $e ) {
+            return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
+        }
 
         DB::beginTransaction();
 

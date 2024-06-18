@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\AreaRestrita;
 
+use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\AdocoesPerguntasRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\AlterarModalRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarAlteracaoRequest;
 use App\Models\AreaRestrita\AdocaoPergunta;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoPergunta;
@@ -19,10 +23,10 @@ class AdocoesPerguntasController extends Controller
     /**
      * Método que mostra todas as perguntas feitas durante o processo de adoção
      *
-     * @param Request $request
+     * @param AdocoesPerguntasRequest $request
      * @return Application|Factory|View
      */
-    public function index( Request $request )
+    public function index( AdocoesPerguntasRequest $request )
     {
         /// session
         $session = Session::get(self::SESSION_INDEX);
@@ -42,5 +46,23 @@ class AdocoesPerguntasController extends Controller
         $perguntas = $perguntas->paginate();
 
         return view('Arearestrita.AdocoesPerguntas.index', compact('perguntas', 'tipos_perguntas', 'situacoes', 'session'));
+    }
+
+    public function alterarModal( AlterarModalRequest $request, $id )
+    {
+        $tipos_perguntas = TipoPergunta::all();
+
+        try {
+            $pergunta = AdocaoPergunta::findOrFail($id);
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa pergunta.');
+        }
+
+        return view('Arearestrita.AdocoesPerguntas.alterar_modal', compact('pergunta', 'tipos_perguntas'));
+    }
+
+    public function salvarAlteracao( SalvarAlteracaoRequest $request )
+    {
+
     }
 }

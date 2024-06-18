@@ -65,7 +65,7 @@
                 <td> <span class="badge badge-{{$pergunta->ativo ? 'success' : 'danger'}}"> {{$pergunta->ativo ? "ATIVO" : "INATIVA"}} </span> </td>
                 <td> <span class="badge badge-{{$pergunta->opcional ? 'success' : 'danger'}}"> {{$pergunta->opcional ? "SIM" : "NÃO"}} </span> </td>
                 <td>
-
+                    <button type="button" class="btn btn-primary btn-edit" onclick="showModal('{{route('arearestrita.configuracoes.adocoesperguntas.alterarmodal', ['id' => $pergunta->id])}}', 'Alteração de pergunta #{{$pergunta->id}}')">Alterar</button>
                 </td>
             </tr>
         @endforeach

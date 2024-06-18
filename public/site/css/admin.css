@@ -171,6 +171,10 @@ a {
 #arearestrita .logo h2{
     color: #e9cc66;
     margin-left: 10px;
+}
+
+#arearestrita .logo span{
+    color: #e9cc66;
     margin-right: 20px;
 }
 

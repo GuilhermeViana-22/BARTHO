@@ -104,6 +104,10 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         /// Grupo de rotas para as de perguntas da adoção
         Route::prefix('adocoesperguntas')->name('.adocoesperguntas')->group(function () {
             Route::get('/', [AdocoesPerguntasController::class, 'index']);
+
+            Route::get('/alterarmodal/{id}', [AdocoesPerguntasController::class, 'alterarModal'])->name('.alterarmodal');
+            Route::post('/salvaralteracao', [AdocoesPerguntasController::class, 'salvarAlteracao'])->name('.salvaralteracao');
+
         });
     });
 });
