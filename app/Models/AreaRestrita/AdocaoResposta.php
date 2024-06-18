@@ -5,7 +5,7 @@ namespace App\Models\AreaRestrita;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AdocoesRespostas extends Model
+class AdocaoResposta extends Model
 {
     use HasFactory;
 
@@ -23,13 +23,13 @@ class AdocoesRespostas extends Model
         return $this->belongsTo(Adocao::class);
     }
 
-    public function adocaoPergunta()
+    public function adocao_pergunta()
     {
-        return $this->belongsTo(AdocoesPerguntas::class, 'adocao_pergunta_id');
+        return $this->belongsTo(AdocaoPergunta::class, 'adocao_pergunta_id');
     }
 
-    public function adocaoSelecao()
+    public function adocao_selecao()
     {
-        return $this->belongsTo(AdocoesSelecoes::class, 'adocao_selecao_id');
+        return $this->belongsTo(AdocaoSelecao::class, 'adocao_selecao_id');
     }
 }

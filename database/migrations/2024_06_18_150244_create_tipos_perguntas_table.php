@@ -10,7 +10,7 @@ class CreateTiposPerguntasTable extends Migration
     {
         Schema::create('tipos_perguntas', function (Blueprint $table) {
             $table->id();
-            $table->integer('tipo');
+            $table->string('tipo');
             $table->timestamps();
         });
     }

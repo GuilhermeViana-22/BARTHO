@@ -5,7 +5,7 @@ namespace App\Models\AreaRestrita;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TiposPerguntas extends Model
+class TipoPergunta extends Model
 {
     use HasFactory;
 

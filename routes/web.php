@@ -3,6 +3,7 @@
 use App\Http\Controllers\AcoesController;
 use App\Http\Controllers\AdoteController;
 use App\Http\Controllers\AreaRestrita\AdocoesController;
+use App\Http\Controllers\AreaRestrita\AdocoesPerguntasController;
 use App\Http\Controllers\DoeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
@@ -72,9 +73,6 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
 
         // Rota para a lista de adoções
         Route::get('/', [AdocoesController::class, 'index']);
-
-
-
     });
 
     // Grupo de rotas para usuários
@@ -97,5 +95,15 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         // permissões
         Route::get('/configurarpermissoesmodal/{id}', [UsuariosController::class, 'configurarPermissoesModal'])->name('.configurarpermissoesmodal');
         Route::post('/salvarpermissoes', [UsuariosController::class, 'salvarPermissoes'])->name('.salvarpermissoes');
+    });
+
+    // Grupo de rotas para as de configurações
+    Route::prefix('configuracoes')->name('.configuracoes')->group(function () {
+
+
+        /// Grupo de rotas para as de perguntas da adoção
+        Route::prefix('adocoesperguntas')->name('.adocoesperguntas')->group(function () {
+            Route::get('/', [AdocoesPerguntasController::class, 'index']);
+        });
     });
 });

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\AreaRestrita;
 
 use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Arearestrita\Adocoes\AdocoesRequest;
+use App\Http\Requests\AreaRestrita\Adocoes\AdocoesRequest;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;

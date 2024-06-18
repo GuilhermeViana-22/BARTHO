@@ -5,7 +5,7 @@ namespace App\Models\AreaRestrita;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AdocoesSelecoes extends Model
+class AdocaoSelecao extends Model
 {
     use HasFactory;
 
@@ -18,6 +18,6 @@ class AdocoesSelecoes extends Model
 
     public function pergunta()
     {
-        return $this->belongsTo(AdocoesPerguntas::class, 'pergunta_id');
+        return $this->belongsTo(AdocaoPergunta::class, 'pergunta_id');
     }
 }

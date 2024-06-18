@@ -55,7 +55,14 @@
             @endpermissao
 
 
-
+            @permissao('configuracoes.visualizar,configuracoes.gerenciar')
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle"> <i class="fa fa-cogs" aria-hidden="true"></i> <span>Configurações</span></a>
+                <ul class="dropdown-menu">
+                    <a href="{{route('arearestrita.configuracoes.adocoesperguntas')}}"> <i class="fas fa-dog" aria-hidden="true"></i> <span>Perguntas para adoção</span></a>
+                </ul>
+            </li>
+            @endpermissao
 
         </ul>
     </div>

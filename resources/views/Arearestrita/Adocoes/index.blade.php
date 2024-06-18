@@ -20,10 +20,12 @@
 
                     <select class="form-select" id="situacao_id" name="situacao_id">
 
-                        <option @if(empty($session['situacao_id'])) selected @endif value="">Selecione uma opção</option>
+                        <option @if(empty($session['situacao_id'])) selected @endif value="">Selecione uma opção
+                        </option>
 
                         @foreach( $situacoes as $situacao )
-                            <option @if(($session['situacao_id'] ?? null) == $situacao->id) selected @endif value="{{$situacao->id}}">{{$situacao->situacao}}</option>
+                            <option @if(($session['situacao_id'] ?? null) == $situacao->id) selected
+                                    @endif value="{{$situacao->id}}">{{$situacao->situacao}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,8 +33,14 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
-                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.salvar')}}')">Buscar</button>
-                <button type="button" class="btn btn-secondary btn-trash" onclick="limparFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.limpar')}}')">Limpar</button>
+                <button type="button" class="btn btn-primary btn-lupa"
+                        onclick="buscarFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.salvar')}}')">
+                    Buscar
+                </button>
+                <button type="button" class="btn btn-secondary btn-trash"
+                        onclick="limparFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.limpar')}}')">
+                    Limpar
+                </button>
             </div>
         </div>
     </div>
@@ -53,7 +61,9 @@
             <tr>
                 <td scope="row"> {{$adocao->id}} </td>
                 <td> {{$adocao->animal->nome}} </td>
-                <td> <span class="badge" style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span> </td>
+                <td><span class="badge"
+                          style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span>
+                </td>
                 <td>
 
                 </td>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Arearestrita\Adocoes;
+namespace App\Http\Requests\AreaRestrita\Adocoes;
 
 use App\Http\Requests\AppRequest;
 
