@@ -6,10 +6,14 @@ use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\AdocoesPerguntasRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\AlterarModalRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\ExcluirAlternativaRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\GerenciarAlternativasRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\IncluirAlternativaRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\IncluirRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarAlteracaoRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarRequest;
 use App\Models\AreaRestrita\AdocaoPergunta;
+use App\Models\AreaRestrita\AdocaoSelecao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoPergunta;
 use Illuminate\Contracts\Foundation\Application;
@@ -143,5 +147,48 @@ class AdocoesPerguntasController extends Controller
 
         DB::commit();
         return Retorno::deVoltaSucesso('Informações alteradas com sucesso.');
+    }
+
+    /**
+     * Método que mostra a tela das alternativas de uma pergunta de múltipla escolha
+     *
+     * @param GerenciarAlternativasRequest $request
+     * @param $id
+     * @return Application|Factory|View|\Illuminate\Http\RedirectResponse
+     */
+    public function gerenciarAlternativas( GerenciarAlternativasRequest $request, $id)
+    {
+        try {
+            $pergunta = AdocaoPergunta::findOrFail($id);
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa pergunta.');
+        }
+
+        $alternativas = AdocaoSelecao::where('pergunta_id', $id)->where('ativo', 1)->get();
+
+        return view('Arearestrita.AdocoesPerguntas.gerenciar_alternativas', compact('pergunta', 'alternativas'));
+    }
+
+    public function incluirAlternativa( IncluirAlternativaRequest $request, $id )
+    {
+
+        try {
+            $alternativa = AdocaoSelecao::findOrFail($id);
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa alternativa.');
+        }
+
+
+    }
+
+    public function excluirAlternativa( ExcluirAlternativaRequest $request, $id )
+    {
+        try {
+            $alternativa = AdocaoSelecao::findOrFail($id);
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa alternativa.');
+        }
+
+
     }
 }

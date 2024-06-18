@@ -1,4 +1,5 @@
 @php use \App\Http\Controllers\AreaRestrita\AdocoesPerguntasController; @endphp
+@php use \App\Models\AreaRestrita\TipoPergunta; @endphp
 
 @extends('adminpanel')
 
@@ -58,7 +59,6 @@
         </div>
     </div>
 
-
     <table class="table table-dark">
         <thead>
         <tr>
@@ -82,6 +82,11 @@
                 <td>
                     @permissao('configuracoes.perguntas.gerenciar')
                     <button type="button" class="btn btn-primary btn-edit" onclick="showModal('{{route('arearestrita.configuracoes.adocoesperguntas.alterarmodal', ['id' => $pergunta->id])}}', 'Alteração de pergunta #{{$pergunta->id}}')">Alterar</button>
+
+                    @if($pergunta->tipo_pergunta_id == TipoPergunta::TIPO_SELECAO)
+                        <button type="button" class="btn btn-warning btn-gear" onclick="irPara('{{route('arearestrita.configuracoes.adocoesperguntas.gerenciaralternativas', ['id' => $pergunta->id])}}')">Alterar</button>
+                    @endif
+
                     @endpermissao
                 </td>
             </tr>

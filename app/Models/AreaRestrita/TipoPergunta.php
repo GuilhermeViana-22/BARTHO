@@ -14,4 +14,7 @@ class TipoPergunta extends Model
     protected $fillable = [
         'tipo',
     ];
+
+    const TIPO_TEXTO = 1;
+    const TIPO_SELECAO = 2;
 }

@@ -12,6 +12,8 @@ class CreateAdocoesSelecoesTable extends Migration
             $table->id();
             $table->foreignId('pergunta_id')->constrained('adocoes_perguntas');
             $table->string('selecao', 500);
+            $table->boolean('ativo')->default(1);
+
             $table->timestamps();
         });
     }

@@ -11,6 +11,8 @@ class CreateTiposPerguntasTable extends Migration
         Schema::create('tipos_perguntas', function (Blueprint $table) {
             $table->id();
             $table->string('tipo');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

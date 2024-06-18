@@ -14,6 +14,7 @@ class CreateAdocoesPerguntasTable extends Migration
             $table->string('pergunta')->nullable();
             $table->boolean('opcional')->default(0);
             $table->boolean('ativo')->default(1);
+
             $table->timestamps();
         });
     }

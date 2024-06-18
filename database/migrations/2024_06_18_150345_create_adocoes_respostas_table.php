@@ -14,6 +14,8 @@ class CreateAdocoesRespostasTable extends Migration
             $table->foreignId('adocao_pergunta_id')->constrained('adocoes_perguntas');
             $table->foreignId('adocao_selecao_id')->nullable()->constrained('adocoes_selecoes');
             $table->string('resposta', 500)->nullable();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -22,4 +22,9 @@ class AdocaoPergunta extends Model
     {
         return $this->belongsTo(TipoPergunta::class);
     }
+
+    public function alternativas()
+    {
+        return $this->hasMany(AdocaoSelecao::class, 'pergunta_id');
+    }
 }
