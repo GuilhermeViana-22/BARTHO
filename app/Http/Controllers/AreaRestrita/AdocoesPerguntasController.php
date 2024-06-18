@@ -14,6 +14,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AdocoesPerguntasController extends Controller
@@ -43,6 +44,12 @@ class AdocoesPerguntasController extends Controller
             $perguntas->where('tipo_pergunta_id', $session['tipo_pergunta_id']);
         }
 
+        if(!empty($session['ativo'])){
+            $perguntas->where('ativo', ($session['ativo'] === "on" ? true : false));
+        } else {
+            $perguntas->where('ativo', true);
+        }
+
         $perguntas = $perguntas->paginate();
 
         return view('Arearestrita.AdocoesPerguntas.index', compact('perguntas', 'tipos_perguntas', 'situacoes', 'session'));
@@ -63,6 +70,25 @@ class AdocoesPerguntasController extends Controller
 
     public function salvarAlteracao( SalvarAlteracaoRequest $request )
     {
+        try {
+            $pergunta = AdocaoPergunta::findOrFail($request->get('id'));
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa pergunta.');
+        }
 
+        $pergunta->fill($request->validated());
+
+        DB::beginTransaction();
+
+        try {
+            $pergunta->save();
+
+        } catch ( \Throwable $e ) {
+            DB::rollBack();
+            return Retorno::deVoltaErro('Não foi possível salvar as informações.');
+        }
+
+        DB::commit();
+        return Retorno::deVoltaSucesso('Informações alteradas com sucesso.');
     }
 }

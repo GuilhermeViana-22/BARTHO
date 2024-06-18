@@ -6,6 +6,17 @@ use App\Http\Requests\AppRequest;
 
 class SalvarAlteracaoRequest extends AppRequest
 {
+
+
+
+    public function prepareForValidation()
+    {
+        return $this->merge([
+            'opcional' => (bool) $this->opcional,
+            'ativo' => (bool) $this->ativo
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -14,7 +25,9 @@ class SalvarAlteracaoRequest extends AppRequest
     public function rules()
     {
         return [
-            //
+            'id' => 'required',
+            'opcional' => 'boolean|required',
+            'ativo' => 'boolean|required',
         ];
     }
 }

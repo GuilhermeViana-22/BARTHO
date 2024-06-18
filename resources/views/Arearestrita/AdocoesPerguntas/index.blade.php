@@ -16,7 +16,7 @@
                 <input type="hidden" name="session_name" value="{{AdocoesPerguntasController::SESSION_INDEX}}">
 
                 <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
-                    <label for="tipo_pergunta_id" class="form-label">Tipo de pergunta</label>
+                    <label for="tipo_pergunta_id" class="form-label">Tipo de resposta</label>
 
                     <select class="form-select" id="tipo_pergunta_id" name="tipo_pergunta_id">
                         <option @if(empty($session['tipo_pergunta_id'])) selected @endif value="">Selecione uma opção</option>
@@ -25,6 +25,15 @@
                             <option @if(($session['tipo_pergunta_id'] ?? null) == $tipo_pergunta->id) selected
                                     @endif value="{{$tipo_pergunta->id}}">{{$tipo_pergunta->tipo}}</option>
                         @endforeach
+                    </select>
+                </div>
+
+                <div class="col col-2 col-lg-2 col-md-6 col-sm-12 mb-3">
+                    <label for="ativo" class="form-label">Somente ativas?</label>
+
+                    <select class="form-select" id="adotado" name="ativo">
+                        <option @if( empty($session['ativo']) || $session['ativo'] === "on") selected @endif value="on">Sim</option>
+                        <option @if( !empty($session['ativo']) && $session['ativo'] === "off") selected @endif value="off">Não</option>
                     </select>
                 </div>
             </form>

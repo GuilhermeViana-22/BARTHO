@@ -273,6 +273,10 @@ a {
     margin-bottom: 30px;
 }
 
+.modal .form-panel {
+    margin-bottom: 0 !important;
+}
+
 .form-panel .form-content {
     position: relative;
     padding: 0 10px 0 10px;
