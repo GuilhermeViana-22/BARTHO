@@ -42,10 +42,11 @@
     }
 </style>
 
+<div class="page-header">
+    <h4>Inclusão de um animal</h4>
+</div>
+
 <div class="card  text-dark">
-    <div class="card-header">
-        <h4 class="card-title mb-0">Inclusão de um animal</h4>
-    </div>
     <div class="card-body">
         <form action="{{ route('arearestrita.animais.salvar') }}" method="POST" enctype="multipart/form-data" id="salvar_animal_form">
             @if ($errors->any())
@@ -155,7 +156,7 @@
 
         reader.readAsDataURL(event.target.files[0]);
     }
-    
+
     $('#imagem').FileUpload();
     </script>
 @endsection

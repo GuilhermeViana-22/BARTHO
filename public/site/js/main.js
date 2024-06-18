@@ -163,6 +163,25 @@ function confirmarIrPara(texto, url)
       });
 }
 
+
+function confirmarFormAjax(form, texto)
+{
+    Swal.fire({
+        title: "Você tem certeza?",
+        text: texto ?? "Essa ação é ireversivel.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Não, cancelar",
+        confirmButtonText: "Sim"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            formAjax(form);
+        }
+    });
+}
+
 function formAjax(form)
 {
     // Exibe um SweetAlert indicando que está carregando

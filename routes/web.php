@@ -105,9 +105,11 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::prefix('adocoesperguntas')->name('.adocoesperguntas')->group(function () {
             Route::get('/', [AdocoesPerguntasController::class, 'index']);
 
+            Route::get('/incluir', [AdocoesPerguntasController::class, 'incluir'])->name('.incluir');
+            Route::post('/salvar', [AdocoesPerguntasController::class, 'salvar'])->name('.salvar');
+
             Route::get('/alterarmodal/{id}', [AdocoesPerguntasController::class, 'alterarModal'])->name('.alterarmodal');
             Route::post('/salvaralteracao', [AdocoesPerguntasController::class, 'salvarAlteracao'])->name('.salvaralteracao');
-
         });
     });
 });

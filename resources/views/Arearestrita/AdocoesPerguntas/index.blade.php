@@ -6,6 +6,12 @@
 
     <div class="page-header">
         <p>Resultados da pesquisa de perguntas </p>
+
+        @permissao('configuracoes.perguntas.gerenciar')
+        <button type="button" class="btn btn-success btn-new" onclick="irPara('{{route('arearestrita.configuracoes.adocoesperguntas.incluir')}}')">
+            Incluir
+        </button>
+        @endpermissao
     </div>
 
     <div class="form-panel">
@@ -74,7 +80,9 @@
                 <td> <span class="badge badge-{{$pergunta->ativo ? 'success' : 'danger'}}"> {{$pergunta->ativo ? "ATIVO" : "INATIVA"}} </span> </td>
                 <td> <span class="badge badge-{{$pergunta->opcional ? 'success' : 'danger'}}"> {{$pergunta->opcional ? "SIM" : "NÃO"}} </span> </td>
                 <td>
+                    @permissao('configuracoes.perguntas.gerenciar')
                     <button type="button" class="btn btn-primary btn-edit" onclick="showModal('{{route('arearestrita.configuracoes.adocoesperguntas.alterarmodal', ['id' => $pergunta->id])}}', 'Alteração de pergunta #{{$pergunta->id}}')">Alterar</button>
+                    @endpermissao
                 </td>
             </tr>
         @endforeach

@@ -1,4 +1,9 @@
 <div class="form-panel">
+    <div class="form-header">
+        <div class="alert alert-warning" role="alert">
+            Atenção, não é possível realizar alterações das dos dados sensíveis das perguntas. Para um mesmo efeito, tente inativa-lá e criar uma outra com os novos dados desejados.
+        </div>
+    </div>
     <div class="form-body row">
         <form action="{{ route('arearestrita.configuracoes.adocoesperguntas.salvaralteracao') }}" method="POST" enctype="multipart/form-data" class="row" id="salvar_alteracoes_form">
 

@@ -4,9 +4,8 @@ namespace App\Http\Requests\AreaRestrita\AdocoesPerguntas;
 
 use App\Http\Requests\AppRequest;
 
-class SalvarAlteracaoRequest extends AppRequest
+class SalvarRequest extends AppRequest
 {
-
     public function prepareForValidation()
     {
         return $this->merge([
@@ -23,9 +22,18 @@ class SalvarAlteracaoRequest extends AppRequest
     public function rules()
     {
         return [
-            'id' => 'required',
+            'pergunta' => 'string|required|max:500',
+            'tipo_pergunta_id' => 'integer|required',
             'opcional' => 'boolean|required',
             'ativo' => 'boolean|required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'tipo_pergunta_id.required' => 'O tipo de resposta deve ser informado!',
+            'tipo_pergunta_id.integer' => 'O tipo de resposta deve ser informado!',
         ];
     }
 }

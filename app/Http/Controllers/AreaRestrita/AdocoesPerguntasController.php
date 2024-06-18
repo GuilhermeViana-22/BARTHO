@@ -6,7 +6,9 @@ use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\AdocoesPerguntasRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\AlterarModalRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\IncluirRequest;
 use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarAlteracaoRequest;
+use App\Http\Requests\AreaRestrita\AdocoesPerguntas\SalvarRequest;
 use App\Models\AreaRestrita\AdocaoPergunta;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoPergunta;
@@ -53,6 +55,32 @@ class AdocoesPerguntasController extends Controller
         $perguntas = $perguntas->paginate();
 
         return view('Arearestrita.AdocoesPerguntas.index', compact('perguntas', 'tipos_perguntas', 'situacoes', 'session'));
+    }
+
+    public function incluir( IncluirRequest $request )
+    {
+        $tipos_perguntas = TipoPergunta::all();
+
+        return view('Arearestrita.AdocoesPerguntas.incluir', compact('tipos_perguntas'));
+    }
+
+    public function salvar( SalvarRequest $request )
+    {
+        $pergunta = new AdocaoPergunta();
+        $pergunta->fill($request->validated());
+
+        DB::beginTransaction();
+
+        try {
+            $pergunta->save();
+
+        } catch ( \Throwable $e ) {
+            DB::rollBack();
+            return Retorno::deVoltaErro('Não foi possível salvar as informações.');
+        }
+
+        DB::commit();
+        return Retorno::deVoltaSucesso('Informações salvas com sucesso.');
     }
 
     public function alterarModal( AlterarModalRequest $request, $id )
