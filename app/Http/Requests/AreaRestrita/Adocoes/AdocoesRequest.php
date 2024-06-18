@@ -6,6 +6,12 @@ use App\Http\Requests\AppRequest;
 
 class AdocoesRequest extends AppRequest
 {
+
+    public $permissoes = [
+        'adocoes.visualizar',
+        'adocoes.gerenciar',
+    ];
+
     /**
      * Get the validation rules that apply to the request.
      *

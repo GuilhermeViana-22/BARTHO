@@ -7,6 +7,10 @@ use App\Http\Requests\AppRequest;
 class GerenciarAlternativasRequest extends AppRequest
 {
 
+    public $permissoes = [
+        'configuracoes.perguntas.gerenciar'
+    ];
+
     /**
      * Get the validation rules that apply to the request.
      *

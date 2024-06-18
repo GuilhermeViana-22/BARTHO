@@ -40,7 +40,7 @@
             </li>
             @endpermissao
 
-            @permissao('adocao.visualizar,adocao.gerenciar')
+            @permissao('adocoes.visualizar,adocoes.gerenciar')
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Adoção</span></a>
                 <ul class="dropdown-menu">

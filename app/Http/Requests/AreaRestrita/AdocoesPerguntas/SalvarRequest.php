@@ -6,6 +6,11 @@ use App\Http\Requests\AppRequest;
 
 class SalvarRequest extends AppRequest
 {
+
+    public $permissoes = [
+        'configuracoes.perguntas.gerenciar'
+    ];
+
     public function prepareForValidation()
     {
         return $this->merge([

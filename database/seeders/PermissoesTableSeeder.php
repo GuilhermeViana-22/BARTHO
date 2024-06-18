@@ -67,5 +67,40 @@ class PermissoesTableSeeder extends Seeder
             'path' => 'permissoes.gerenciar',
             'modulo_id' => 4
         ]);
+
+        /**
+         * Adoção
+         */
+
+        Permissao::create([
+            'nome' => 'Visualizar',
+            'path' => 'adocoes.visualizar',
+            'modulo_id' => 5
+        ]);
+
+        Permissao::create([
+            'nome' => 'Gerenciar',
+            'path' => 'adocoes.gerenciar',
+            'modulo_id' => 5
+        ]);
+
+        /**
+         * CONFIGURAÇÕES
+         */
+
+        /**
+         * PERGUNTAS PARA ADOÇÃO
+         */
+        Permissao::create([
+            'nome' => 'Visualizar',
+            'path' => 'configuracoes.perguntas.visualizar',
+            'modulo_id' => 6
+        ]);
+
+        Permissao::create([
+            'nome' => 'Gerenciar',
+            'path' => 'configuracoes.perguntas.gerenciar',
+            'modulo_id' => 6
+        ]);
     }
 }
