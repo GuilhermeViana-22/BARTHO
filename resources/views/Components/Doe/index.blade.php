@@ -8,10 +8,19 @@
     @include('Components.Banner.doe')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+
+        .card-text, .text-content {
+            white-space: normal; /* Faz o texto quebrar para a próxima linha se necessário */
+            word-wrap: break-word; /* Permite a quebra de linha dentro de palavras longas */
+            overflow-wrap: break-word; /* Para navegadores que suportam a propriedade mais recente */
+        }
+
+    </style>
     <section class="doe ">
         <h4 class="card-title" style="margin-bottom: 20px"> Doações Únicas</h4>
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="card card-doe animate__animated animate__fadeInDown">
@@ -116,7 +125,7 @@
         </div>
         <br>
 
-        <div class="container">
+        <div class="container-fluid" >
             @include('Components.hr')
             <img src="{{ asset('img/nova-logo.png') }}" alt="Imagem" class="img-fluid" width="100" height="100"
                  style="display: block; margin-left: auto; margin-right: auto; margin-top: 5vh">
@@ -214,9 +223,9 @@
             </div>
         </div>
         <br>
-        <div class="container">
+        <div class="container-fluid" style="padding: 300px">
             <div class="row">
-                <div class="outras_formas_de_ajudar">
+                <div class="outras_formas_de_ajudar"  >
                     <div class="col-sm-6">
                         .
                     </div>
