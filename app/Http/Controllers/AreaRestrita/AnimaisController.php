@@ -103,9 +103,6 @@ class AnimaisController extends Controller
     {
         // Transform the 'adotado' value from 'on' to 1, and ensure it's 0 if not set
         $requestData = $request->all();
-        $requestData['adotado'] = isset($requestData['adotado']) ? 1 : 0;
-        $requestData['castrado'] = isset($requestData['castrado']) ? 1 : 0;
-        $requestData['vacinado'] = isset($requestData['vacinado']) ? 1 : 0;
 
         // Create a new Animal instance and fill it with request data
         $animal = new Animal();
@@ -216,9 +213,9 @@ class AnimaisController extends Controller
         $animal->tipo_id = $validatedData['tipo_id'];
         $animal->sexo_id = $validatedData['sexo_id'];
         $animal->descricao = $validatedData['descricao'];
-        $animal->castrado = isset($validatedData['castrado']) ? 1 : 0;
-        $animal->vacinado = isset($validatedData['vacinado']) ? 1 : 0;
-        $animal->adotado = isset($validatedData['adotado']) ? 1 : 0;
+        $animal->castrado = $validatedData['castrado'];
+        $animal->vacinado = $validatedData['vacinado'];
+        $animal->adotado = $validatedData['adotado'];
 
         // Deletar imagens antigas se houver novas imagens
         $imagePaths = [];
