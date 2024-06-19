@@ -13,7 +13,10 @@ class Adocao extends Model
     protected $table = 'adocoes';
 
     protected $fillable = [
-        'situacao_id',
+        'nome',
+        'telefone',
+        'idade',
+        'cpf',
         'tipo_animal_id',
         'animal_id',
     ];

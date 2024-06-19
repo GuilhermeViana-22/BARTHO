@@ -51,6 +51,7 @@
 <script src="{{asset('site/js/fileinput.js')}}"></script>
 <script src="{{asset('site/js/fileupload.js')}}"></script>
 {{--<script src="{{asset('site/js/Toast.js')}}"></script>--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
 
 @if (Session::has('message_success'))

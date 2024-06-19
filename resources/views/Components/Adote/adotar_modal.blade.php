@@ -23,6 +23,35 @@
         Atenção, responda todas as perguntas obrigatórias (<span style="color: red">*</span>) para realizar o pedido de adoção do animal.
     </div>
 
+    <div class="form-panel">
+        <div class="form-header" style="background-color: #e9cc66">
+            <p style="margin-left: 15px; color: ghostwhite"> Dados cadastrais </p>
+        </div>
+        <div class="form-body row">
+            <div class="col col-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                <label for="nome" class="form-label">Nome completo <span style="color: red">*</span></label>
+                <input type="text" class="form-control obrigatorio" id="nome" name="nome" placeholder="Informe seu nome completo">
+            </div>
+
+            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+                <label for="telefone" class="form-label">Telefone <span style="color: red">*</span></label>
+                <input type="text" class="form-control obrigatorio" id="telefone" name="telefone" placeholder="Informe seu telefone">
+            </div>
+
+            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+                <label for="idade" class="form-label">Idade <span style="color: red">*</span></label>
+                <input type="number" min="1" max="99" class="form-control obrigatorio" id="idade" name="idade" placeholder="Informe sua idade">
+            </div>
+
+            <div class="col col-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+                <label for="cpf" class="form-label">CPF <span style="color: red">*</span></label>
+                <input type="text" class="form-control obrigatorio" id="cpf" name="cpf" placeholder="Informe seu CPF">
+            </div>
+        </div>
+    </div>
+
+    <hr style="margin-top: 20px;">
+
     @php $contador = 0; @endphp
     @foreach($perguntas as $pergunta)
         @php $contador++; @endphp
@@ -60,9 +89,42 @@
     @endforeach
 
     <button style="width: 100px" type="button" class="btn btn-success btn-ok" onclick="verificarFormulario()">Salvar</button>
+    <button style="width: 100px; margin-left: 5px" type="button" class="btn btn-secondary btn-trash" onclick="resetarForm()">Limpar</button>
 </form>
 
 <script>
+    /// aplica as mascáras
+    $('#cpf').mask('000.000.000-00');
+
+    let behavior = function(val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+    };
+
+    let options = {
+        onKeyPress: function(val, e, field, options) {
+            field.mask(behavior.apply({}, arguments), options);
+        }
+    };
+
+    $('#telefone').mask(behavior, options);
+
+    /// resetar o formulário
+    function resetarForm() {
+        Swal.fire({
+            title: 'Limpar formulário?',
+            text: "Ao limpar o formulário todos os dados preenchidos serão perdidos, deseja continuar?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#222',
+            //cancelButtonColor: '#d33',
+            confirmButtonText: 'Limpar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#salvar_form').trigger("reset");
+            }
+        });
+    }
 
     /// faz a verificação se todos os inputs obrigatórios foram preenchidos
     function verificarFormulario(){
@@ -103,5 +165,4 @@
             alert('Por favor, preencha todas as perguntas obrigatórias.');
         }
     }
-
 </script>
