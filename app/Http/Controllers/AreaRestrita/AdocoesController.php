@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AreaRestrita;
 use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\Adocoes\AdocoesRequest;
+use App\Http\Requests\AreaRestrita\Adocoes\VisualizarRequest;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;
@@ -46,5 +47,16 @@ class AdocoesController extends Controller
         $adocoes = $adocoes->paginate();
 
         return view('Arearestrita.Adocoes.index', compact('adocoes', 'tipo', 'tipos_animais', 'situacoes', 'session'));
+    }
+
+    public function visualizar(VisualizarRequest $request, $id){
+
+        try {
+            $adocao = Adocao::findOrFail($id);
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa adoção.');
+        }
+
+        return view('Arearestrita.Adocoes.visualizar', compact('adocao'));
     }
 }

@@ -45,7 +45,6 @@
         </div>
     </div>
 
-
     <table class="table table-dark">
         <thead>
         <tr>
@@ -65,7 +64,7 @@
                           style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span>
                 </td>
                 <td>
-
+                    <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">Visualizar</button>
                 </td>
             </tr>
         @endforeach

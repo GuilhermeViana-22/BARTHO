@@ -35,4 +35,14 @@ class Adocao extends Model
     {
         return $this->belongsTo(Situacao::class, 'situacao_id');
     }
+
+    public function perguntas(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+        return $this->hasManyThrough(AdocaoPergunta::class, AdocaoResposta::class);
+    }
+
+    public function respostas(): HasMany
+    {
+        return $this->hasMany(AdocaoResposta::class);
+    }
 }
