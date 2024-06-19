@@ -13,7 +13,9 @@ class SalvarRequest extends AppRequest
     public function prepareForValidation()
     {
         return $this->merge([
-            'adotado' => (bool) $this->adotado
+            'adotado' => (bool) $this->adotado,
+            'castrado' => (bool) $this->castrado,
+            'vacinado' => (bool) $this->vacinado
         ]);
     }
 
@@ -28,8 +30,12 @@ class SalvarRequest extends AppRequest
             'nome' => 'required|string|max:255',
             'descricao' => 'nullable|string|max:255',
             'tipo_id' => 'required|integer',
-            'imagem' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagem1' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagem2' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagem3' => 'required|file|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'adotado' => 'nullable',
+            'castrado' => 'nullable',
+            'vacinado' => 'nullable',
         ];
     }
 
