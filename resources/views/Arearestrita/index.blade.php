@@ -8,7 +8,7 @@
         <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
             <div class="card text-white bg-success mb-3">
                 <div class="card-header">
-                    <h4><span class="fa fa-check"></span> <b>Animais adotados</b></h4>
+                    <h4><span class="fa fa-check"></span> <b>Adoções</b></h4>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Adotados: {{ $animaisAdotados }}</p>
@@ -24,7 +24,7 @@
         <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
             <div class="card text-white bg-info mb-3">
                 <div class="card-header">
-                    <h4><span class="fa fa-shield"></span> <b>Animais vacinados</b></h4>
+                    <h4><span class="fa fa-shield"></span> <b>Vacinas</b></h4>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Vacinados: {{ $animaisVacinados }}</p>
@@ -40,7 +40,7 @@
         <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
             <div class="card text-white bg-danger mb-3">
                 <div class="card-header">
-                    <h4><span class="fa fa-shield"></span> <b>Animais castrados</b></h4>
+                    <h4><span class="fa fa-shield"></span> <b>Castrações</b></h4>
                 </div>
                 <div class="card-body">
                     <p class="card-text">Castrados: {{ $animaisCastrados }}</p>
@@ -58,7 +58,7 @@
                 <div class="card-header">
                     <h4>
                         <span class="fa fa-list"></span>
-                        <b>Animais cadastrados</b>
+                        <b>Cadastrados</b>
                     </h4>
                 </div>
                 <div class="card-body">

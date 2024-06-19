@@ -126,9 +126,9 @@
                                         <div >
                                             <h5 class="title-adotar">🐾
                                                 @if($cachorro->sexo_id == 1)
-                                                    Conheça o {{$cachorro->nome}} (Macho)
+                                                    Conheça o {{$cachorro->nome}}
                                                 @elseif($cachorro->sexo_id == 2)
-                                                    Conheça a {{$cachorro->nome}} (Fêmea)
+                                                    Conheça a {{$cachorro->nome}}
                                                 @else
                                                     {{$cachorro->nome}} (Não especificado)
                                                 @endif
@@ -212,9 +212,9 @@
                                             <div >
                                                 <h5 class="title-adotar">🐾
                                                     @if($gato->sexo_id == 1)
-                                                        Conheça o {{$gato->nome}} (Macho)
+                                                        Conheça o {{$gato->nome}}
                                                     @elseif($gato->sexo_id == 2)
-                                                        Conheça a {{$gato->nome}} (Fêmea)
+                                                        Conheça a {{$gato->nome}}
                                                     @else
                                                         {{$gato->nome}} (Não especificado)
                                                     @endif

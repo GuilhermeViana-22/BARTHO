@@ -185,7 +185,7 @@
                     <div class="col col-12 col-lg-6 col-md-6 col-sm-12">
 
                         <label for="descricao" class="form-label">Descrição</label>
-                        <textarea class="form-control" id="descricao" name="descricao" rows="4">{{ old('descricao') }}</textarea>
+                        <textarea class="form-control" id="descricao" name="descricao" rows="4"> {{$animal->descricao}}</textarea>
                     </div>
                 </div>
             </div>
