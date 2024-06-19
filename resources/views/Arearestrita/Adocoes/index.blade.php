@@ -20,10 +20,12 @@
 
                     <select class="form-select" id="situacao_id" name="situacao_id">
 
-                        <option @if(empty($session['situacao_id'])) selected @endif value="">Selecione uma opção</option>
+                        <option @if(empty($session['situacao_id'])) selected @endif value="">Selecione uma opção
+                        </option>
 
                         @foreach( $situacoes as $situacao )
-                            <option @if(($session['situacao_id'] ?? null) == $situacao->id) selected @endif value="{{$situacao->id}}">{{$situacao->situacao}}</option>
+                            <option @if(($session['situacao_id'] ?? null) == $situacao->id) selected
+                                    @endif value="{{$situacao->id}}">{{$situacao->situacao}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,12 +33,17 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
-                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.salvar')}}')">Buscar</button>
-                <button type="button" class="btn btn-secondary btn-trash" onclick="limparFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.limpar')}}')">Limpar</button>
+                <button type="button" class="btn btn-primary btn-lupa"
+                        onclick="buscarFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.salvar')}}')">
+                    Buscar
+                </button>
+                <button type="button" class="btn btn-secondary btn-trash"
+                        onclick="limparFiltro('#form_filtro_adocoes_index', '{{route('arearestrita.session.limpar')}}')">
+                    Limpar
+                </button>
             </div>
         </div>
     </div>
-
 
     <table class="table table-dark">
         <thead>
@@ -53,8 +60,21 @@
             <tr>
                 <td scope="row"> {{$adocao->id}} </td>
                 <td> {{$adocao->animal->nome}} </td>
-                <td> <span class="badge" style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span> </td>
+                <td><span class="badge"
+                          style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span>
+                </td>
                 <td>
+                    <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">Visualizar</button>
+
+                    @permissao('adocoes.gerenciar')
+
+                    @if($adocao->situacao_id == \App\Models\AreaRestrita\Situacao::SITUACAO_AGUARDANDO_APROVACAO)
+                        <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Você tem certeza que deseja aprovar esse pedido de adoção?','{{route('arearestrita.adocoes.aprovar', ['id' => $adocao->id])}}')">Aprovar</button>
+
+                        <button type="button" class="btn btn-danger btn-times" onclick="confirmarIrPara('Você tem certeza que deseja reprovar esse pedido de adoção?', '{{route('arearestrita.adocoes.reprovar', ['id' => $adocao->id])}}')">Reprovar</button>
+                    @endif
+
+                    @endpermissao
 
                 </td>
             </tr>

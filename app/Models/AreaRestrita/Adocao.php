@@ -13,31 +13,13 @@ class Adocao extends Model
     protected $table = 'adocoes';
 
     protected $fillable = [
-        'situacao_id',
-        'tipo_animal_id',
-        'animal_id',
-        'cidade_id',
-        'cidade_outro',
+        'nome',
+        'email',
         'telefone',
         'idade',
         'cpf',
-        'social',
-        'bairro',
-        'endereco',
-        'is_presente',
-        'tipo_casa',
-        'restricoes_apartamento',
-        'quantidade_adultos',
-        'quantidade_animais',
-        'janela_is_telada',
-        'acesso_rua',
-        'acesso_livre',
-        'horas_sozinho',
-        'responsavel_viagem',
-        'gravidez_situacao',
-        'medidas_alergia',
-        'medidas_mudanca_casa',
-        'circunstancias_abandono'
+        'tipo_animal_id',
+        'animal_id',
     ];
 
     public function animal(): \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -53,5 +35,15 @@ class Adocao extends Model
     public function situacao(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Situacao::class, 'situacao_id');
+    }
+
+    public function perguntas(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+        return $this->hasManyThrough(AdocaoPergunta::class, AdocaoResposta::class);
+    }
+
+    public function respostas(): HasMany
+    {
+        return $this->hasMany(AdocaoResposta::class);
     }
 }

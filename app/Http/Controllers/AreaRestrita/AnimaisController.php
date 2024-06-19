@@ -147,7 +147,6 @@ class AnimaisController extends Controller
         return Retorno::deVoltaSucesso("Animal incluído com sucesso!");
     }
 
-
     /**
      * Método que realiza a exclusão de um animal
      *

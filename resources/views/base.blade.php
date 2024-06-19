@@ -54,6 +54,7 @@
 <script src="{{ asset('site/js/chart.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {{--<script src="{{asset('site/js/Toast.js')}}"></script>--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
 
 @if (Session::has('message_success'))

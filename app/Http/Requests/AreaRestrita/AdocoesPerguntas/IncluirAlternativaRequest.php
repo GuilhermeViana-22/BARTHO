@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Requests\Arearestrita\Adocoes;
+namespace App\Http\Requests\AreaRestrita\AdocoesPerguntas;
 
 use App\Http\Requests\AppRequest;
 
-class AdocoesRequest extends AppRequest
+class IncluirAlternativaRequest extends AppRequest
 {
+
+    public $permissoes = [
+        'configuracoes.perguntas.gerenciar'
+    ];
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -14,8 +19,7 @@ class AdocoesRequest extends AppRequest
     public function rules()
     {
         return [
-            'tipo_id' => 'required|integer',
-            'page' => 'nullable|int'
+            //
         ];
     }
 }

@@ -31,5 +31,13 @@ class ModulosTableSeeder extends Seeder
         Modulo::create([
             'nome' => 'Permissoes',
         ]);
+
+        Modulo::create([
+            'nome' => 'Adoções',
+        ]);
+
+        Modulo::create([
+            'nome' => 'Perguntas para adoção',
+        ]);
     }
 }

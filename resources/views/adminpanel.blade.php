@@ -24,7 +24,7 @@
     <!-- Barra lateral -->
     <div class="sidebar">
         <div class="logo">
-            <h2>BARTHÔ</h2>
+            <h2>BARTHÔ</h2><span>®</span>
             <img src="{{asset('img/ativo2.png')}}" height="55px" alt="logo da ONG">
         </div>
         <ul>
@@ -40,7 +40,7 @@
             </li>
             @endpermissao
 
-            @permissao('adocao.visualizar,adocao.gerenciar')
+            @permissao('adocoes.visualizar,adocoes.gerenciar')
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Adoção</span></a>
                 <ul class="dropdown-menu">
@@ -54,9 +54,14 @@
             <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Usuários</span></a>
             @endpermissao
 
-
-
-
+            @permissao('configuracoes.perguntas.visualizar,configuracoes.perguntas.gerenciar')
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle"> <i class="fa fa-cogs" aria-hidden="true"></i> <span>Configurações</span></a>
+                <ul class="dropdown-menu">
+                    <a href="{{route('arearestrita.configuracoes.adocoesperguntas')}}"> <i class="fas fa-dog" aria-hidden="true"></i> <span>Perguntas para adoção</span></a>
+                </ul>
+            </li>
+            @endpermissao
         </ul>
     </div>
 

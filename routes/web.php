@@ -3,6 +3,7 @@
 use App\Http\Controllers\AcoesController;
 use App\Http\Controllers\AdoteController;
 use App\Http\Controllers\AreaRestrita\AdocoesController;
+use App\Http\Controllers\AreaRestrita\AdocoesPerguntasController;
 use App\Http\Controllers\DoeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
@@ -17,11 +18,16 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/acoes', [AcoesController::class, 'index'])->name('acoes.index');
-Route::get('/adote', [AdoteController::class, 'index'])->name('adote.index');
 Route::get('/contato', [ContatoController::class, 'index'])->name('contato.index');
 Route::get('/sobreNos', [SobreController::class, 'index'])->name('sobrenos.index');
 Route::get('/ajudar', [AjudarController::class, 'index'])->name('ajudar.index');
 Route::get('/doe', [DoeController::class, 'index'])->name('doe.index');
+
+Route::prefix('adote')->name('adote')->group(function () {
+    Route::get('/', [AdoteController::class, 'index'])->name('.index');
+    Route::get('/adotarmodal/{id}', [AdoteController::class, 'adotarModal'])->name('.adotarmodal');
+    Route::post('/salvar', [AdoteController::class, 'salvar'])->name('.salvar');
+});
 
 //// rota para deslogar
 Route::get('/deslogar', [AreaRestritaController::class, 'deslogar'])->name('deslogar');
@@ -72,9 +78,9 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
 
         // Rota para a lista de adoções
         Route::get('/', [AdocoesController::class, 'index']);
-
-
-
+        Route::get('/visualizar/{id}', [AdocoesController::class, 'visualizar'])->name('.visualizar');
+        Route::get('/aprovar/{id}', [AdocoesController::class, 'aprovar'])->name('.aprovar');
+        Route::get('/reprovar/{id}', [AdocoesController::class, 'reprovar'])->name('.reprovar');
     });
 
     // Grupo de rotas para usuários
@@ -97,5 +103,26 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         // permissões
         Route::get('/configurarpermissoesmodal/{id}', [UsuariosController::class, 'configurarPermissoesModal'])->name('.configurarpermissoesmodal');
         Route::post('/salvarpermissoes', [UsuariosController::class, 'salvarPermissoes'])->name('.salvarpermissoes');
+    });
+
+    // Grupo de rotas para as de configurações
+    Route::prefix('configuracoes')->name('.configuracoes')->group(function () {
+
+
+        /// Grupo de rotas para as de perguntas da adoção
+        Route::prefix('adocoesperguntas')->name('.adocoesperguntas')->group(function () {
+            Route::get('/', [AdocoesPerguntasController::class, 'index']);
+
+            Route::get('/incluir', [AdocoesPerguntasController::class, 'incluir'])->name('.incluir');
+            Route::post('/salvar', [AdocoesPerguntasController::class, 'salvar'])->name('.salvar');
+
+            Route::get('/alterarmodal/{id}', [AdocoesPerguntasController::class, 'alterarModal'])->name('.alterarmodal');
+            Route::post('/salvaralteracao', [AdocoesPerguntasController::class, 'salvarAlteracao'])->name('.salvaralteracao');
+
+            Route::get('/gerenciaralternativas/{id}', [AdocoesPerguntasController::class, 'gerenciarAlternativas'])->name('.gerenciaralternativas');
+            Route::get('/incluiralternativamodal/{id}', [AdocoesPerguntasController::class, 'incluirAlternativaModal'])->name('.incluiralternativamodal');
+            Route::post('/salvaralternativa', [AdocoesPerguntasController::class, 'salvarAlternativa'])->name('.salvaralternativa');
+            Route::get('/excluiralternativa/{id}', [AdocoesPerguntasController::class, 'excluirAlternativa'])->name('.excluiralternativa');
+        });
     });
 });

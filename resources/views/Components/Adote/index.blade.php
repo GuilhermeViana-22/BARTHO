@@ -178,10 +178,9 @@
                                                         <i class="fas fa-paw"> Adotado</i>
                                                     </button>
                                                 @else
-                                                    <button type="button" class="btn btn-secondary"
-                                                            style="background-color: #6C5142; margin-top: 15px;">
-                                                        <a href="#" target="_blank"
-                                                           style="color: #fff !important; text-decoration: none;">
+                                                    <button type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                        <a onclick="showModal('{{route('adote.adotarmodal', ['id' => $cachorro->id])}}', 'Solicitar pedido de adoção do cachorro: {{$cachorro->nome}}')" style="color: #fff !important; text-decoration: none;">
+
                                                             <i class="fas fa-paw"></i> Quero Adotar
                                                         </a>
                                                     </button>
@@ -265,10 +264,8 @@
                                                         <i class="fas fa-paw"> Adotado</i>
                                                     </button>
                                                 @else
-                                                    <button type="button" class="btn btn-secondary"
-                                                            style="background-color: #6C5142; margin-top: 15px;">
-                                                        <a href="#" target="_blank"
-                                                           style="color: #fff !important; text-decoration: none;">
+                                                    <button onclick="showModal('{{route('adote.adotarmodal', ['id' => $gato->id])}}', 'Solicitar pedido de adoção do gato: {{$gato->nome}}', 'modal-lg')" type="button" class="btn btn-secondary" style="background-color: #6C5142; margin-top: 15px;">
+                                                        <a style="color: #fff !important; text-decoration: none;">
                                                             <i class="fas fa-paw"></i> Quero Adotar
                                                         </a>
                                                     </button>
@@ -290,13 +287,6 @@
         </div>
     </div>
 </section>
-<!-- se remover esse script aqui o tab nao fucniona mais , o boostrap depende deste script entao por favor manter-->
-<script type="text/javascript" src="{{asset('site/js/main.js')}}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!-- footer-->
 @include('Components.Footer.index')
 @endsection

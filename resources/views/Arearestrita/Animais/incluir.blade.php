@@ -60,11 +60,13 @@
 
 </style>
 
-    <div class="page-header">
-        <h4>Inclusão de um animal</h4>
-    </div>
-    <div class="form-panel">
-        <div class="form-body row">
+<div class="page-header">
+    <h4>Inclusão de um animal</h4>
+</div>
+
+<div class="card text-dark">
+    <div class="card-body">
+
         <form action="{{ route('arearestrita.animais.salvar') }}" method="POST" enctype="multipart/form-data" id="salvar_animal_form">
             @if ($errors->any())
                 <div class="alert alert-danger" role="alert">
