@@ -35,9 +35,14 @@
             <p style="margin-left: 15px; color: ghostwhite"> Dados cadastrais </p>
         </div>
         <div class="form-body row">
-            <div class="col col-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="nome" class="form-label">Nome completo <span style="color: red">*</span></label>
                 <input type="text" class="form-control obrigatorio" value="{{$adocao->nome}}" disabled id="nome" name="nome" placeholder="Informe seu nome completo">
+            </div>
+
+            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+                <label for="email" class="form-label">E-mail <span style="color: red">*</span></label>
+                <input type="email" class="form-control obrigatorio" disabled id="email" name="email" value="{{$adocao->email}}" placeholder="Informe seu e-mail">
             </div>
 
             <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">

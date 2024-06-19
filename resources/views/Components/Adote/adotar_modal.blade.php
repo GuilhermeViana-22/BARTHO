@@ -77,7 +77,7 @@
                         <br>
                         <br>
 
-                        @foreach($pergunta->alternativas as $alternativa)
+                        @foreach($pergunta->alternativas->where('ativo', 1) as $alternativa)
                             <div class="form-check">
                                 <input class="form-check-input @if(!$pergunta->opcional) obrigatorio-radio @endif" type="radio" name="perguntas[{{$pergunta->id}}]" id="alternativas-{{$alternativa->id}}" value="{{$alternativa->id}}">
                                 <label class="form-check-label" for="cor1">
