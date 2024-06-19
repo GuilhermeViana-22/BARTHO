@@ -79,12 +79,12 @@
             @csrf
 
             <div class="row mb-3">
-                <div class="col col-12 col-lg-6 col-md-6 col-sm-12">
+                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3" >
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do animal" value="{{ old('nome') }}">
                 </div>
 
-                <div class="col col-12 col-lg-6 col-md-6 col-sm-12">
+                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-2 ">
                     <label for="tipo_id" class="form-label">Espécie do animal</label>
                     <select class="form-select" id="tipo_id" name="tipo_id" aria-label="Selecione uma espécie">
                         <option selected>Selecione uma espécie</option>
@@ -97,7 +97,7 @@
 
 {{--                //INPUTS SELECT--}}
                 <div class="row mb-3">
-                    <div class="col col-6 col-lg-6 col-md-6 col-sm-6">
+                    <div class="col col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-3">
                         <label for="sexo_id" class="form-label">Sexo</label>
                         <select class="form-select" id="sexo_id" name="sexo_id" aria-label="Selecione um sexo">
                             <option selected>Selecione um sexo</option>
@@ -107,7 +107,7 @@
                         </select>
                     </div>
 {{--                    castrado--}}
-                    <div class="col col-2 col-lg-2 col-md-2 col-sm-2 mb-2 p-4">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input" type="checkbox" id="castrado" name="castrado" @if(old('castrado')) checked @endif>
                             <label class="form-check-label" for="castrado">castrado?</label>
@@ -115,14 +115,14 @@
                     </div>
 
 {{--                    vacinado--}}
-                    <div class="col col-2 col-lg-2 col-md-2 col-sm-2 mb-2  p-4">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch mb-3 ">
                             <input class="form-check-input" type="checkbox" id="vacinado" name="vacinado" @if(old('vacinado')) checked @endif>
                             <label class="form-check-label" for="vacinado">vacinado?</label>
                         </div>
                     </div>
 {{--                    Adotado--}}
-                    <div class="col col-2 col-lg-2 col-md-2 col-sm-2 mb-2  p-4">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                     <div class="form-check form-switch mb-3">
                         <input class="form-check-input" type="checkbox" id="adotado" name="adotado" @if(old('adotado')) checked @endif>
                         <label class="form-check-label" for="adotado">Adotado?</label>

@@ -46,6 +46,10 @@
             width: 200px; /* largura desejada */
             height: 200px; /* altura desejada */
             object-fit: cover; /* para manter a proporção e cortar a imagem, se necessário */
+            border-style: dotted;
+            border-color: #e9cc66; /* Cor de fundo amarela */
+            margin-left: auto;
+            margin-right: auto;
         }
         /* Estilo para o form-switch personalizado */
         .form-switch .form-check-input {
@@ -99,7 +103,7 @@
                 <div class="row">
 
                     <!-- Sexo -->
-                    <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <div class="col col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-3">
                         <label for="sexo_id" class="form-label">Sexo</label>
                         <select class="form-select" id="sexo_id" name="sexo_id">
                             @foreach($sexos_animais as $sexo_animal)
@@ -110,7 +114,7 @@
                     </div>
 
                     <!-- Castrado -->
-                    <div class="col col-2 col-lg-2 col-md-2 col-sm-2 mb-2">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch">
                             <input class="form-check-input"  @if($animal->castrado) checked @endif type="checkbox"
                                    id="castrado" name="castrado">
@@ -119,7 +123,7 @@
                     </div>
 
                     <!-- Vacinado -->
-                    <div class="col col-2 col-lg-2 col-md-2 col-sm-2 mb-2">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch">
                             <input class="form-check-input"  @if($animal->vacinado) checked @endif type="checkbox"
                                    id="vacinado" name="vacinado">
@@ -128,7 +132,7 @@
                     </div>
 
                     <!-- Adotado -->
-                    <div class="col col-2 col-lg-2 col-md-2 col-sm-2 mb-2">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch">
                             <input class="form-check-input"  @if($animal->adotado) checked @endif type="checkbox"
                                    id="adotado" name="adotado">
@@ -186,12 +190,13 @@
                 </div>
             </div>
             <!-- Imagens -->
-            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="container-fluid">
                 <div class="row p-4">
-                    <label for="imagens" class="form-label">Fotos atualmente </label>
+                    <label for="imagens" class="form-label">Fotos do animal atualmente refletidas no site</label>
+
                     @if($animal->imagem1)
-                        <div class="col-4 mb-3">
-                            <div class="card">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-3">
+                            <div class="card-img-custom">
                                 <img src="{{ Animal::imagem_url($animal->id, $animal->imagem1) }}"
                                      class="card-img-top img-fluid card-img-custom" alt="Imagem 1">
                             </div>
@@ -199,8 +204,8 @@
                     @endif
 
                     @if($animal->imagem2)
-                        <div class="col-4 mb-3">
-                            <div class="card">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-3">
+                            <div class="card-img-custom">
                                 <img src="{{ Animal::imagem_url($animal->id, $animal->imagem2) }}"
                                      class="card-img-top img-fluid card-img-custom" alt="Imagem 2">
                             </div>
@@ -208,8 +213,8 @@
                     @endif
 
                     @if($animal->imagem3)
-                        <div class="col-4 mb-3">
-                            <div class="card">
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-3">
+                            <div class="card-img-custom">
                                 <img src="{{ Animal::imagem_url($animal->id, $animal->imagem3) }}"
                                      class="card-img-top img-fluid card-img-custom" alt="Imagem 3">
                             </div>
@@ -217,6 +222,7 @@
                     @endif
                 </div>
             </div>
+
             <div class="form-footer">
                 <div class="form-content">
                     @permissao('animais.gerenciar')
