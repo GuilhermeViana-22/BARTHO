@@ -18,11 +18,16 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/acoes', [AcoesController::class, 'index'])->name('acoes.index');
-Route::get('/adote', [AdoteController::class, 'index'])->name('adote.index');
 Route::get('/contato', [ContatoController::class, 'index'])->name('contato.index');
 Route::get('/sobreNos', [SobreController::class, 'index'])->name('sobrenos.index');
 Route::get('/ajudar', [AjudarController::class, 'index'])->name('ajudar.index');
 Route::get('/doe', [DoeController::class, 'index'])->name('doe.index');
+
+Route::prefix('adote')->name('adote')->group(function () {
+    Route::get('/', [AdoteController::class, 'index'])->name('.index');
+    Route::get('/adotarmodal/{id}', [AdoteController::class, 'adotarModal'])->name('.adotarmodal');
+    Route::post('/salvar', [AdoteController::class, 'salvar'])->name('.salvar');
+});
 
 //// rota para deslogar
 Route::get('/deslogar', [AreaRestritaController::class, 'deslogar'])->name('deslogar');

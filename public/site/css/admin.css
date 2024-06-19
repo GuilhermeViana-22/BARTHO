@@ -275,6 +275,7 @@ a {
 
 .modal .form-panel {
     margin-bottom: 0 !important;
+    width: 100%;
 }
 
 .form-panel .form-content {
