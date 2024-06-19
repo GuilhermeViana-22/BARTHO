@@ -15,6 +15,9 @@ class Animal extends Model
         'nome',
         'tipo_id',
         'adotado',
+        'castrado',
+        'vacinado',
+        'sexo_id',
         'descricao'
     ];
 

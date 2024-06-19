@@ -2,6 +2,8 @@
 
 Namespace App\Helpers;
 
+use Illuminate\Support\Facades\Storage;
+
 Class StorageHelper
 {
 
@@ -26,5 +28,24 @@ Class StorageHelper
 
         return $img_;
     }
+    /**
+     * Deleta o arquivo especificado do armazenamento.
+     *
+     * @param string|null $filePath
+     * @return bool
+     */
+    public static function deletar($filePath)
+    {
+        if (!$filePath) {
+            return false;
+        }
 
+        // Verifica se o arquivo existe antes de tentar deletá-lo
+        if (Storage::exists($filePath)) {
+            Storage::delete($filePath);
+            return true;
+        }
+
+        return false;
+    }
 }
