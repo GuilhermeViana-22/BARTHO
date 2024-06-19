@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/fileinput.min.cs') }}">
     <link rel="stylesheet" href="{{ asset('site/css/fileinput-rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('site/css/login.css') }}">
 
     <!-- Styles -->
     @hasSection('css')
@@ -50,6 +51,8 @@
 <script src="{{asset('site/js/sweetalert2.all.js')}}"></script>
 <script src="{{asset('site/js/fileinput.js')}}"></script>
 <script src="{{asset('site/js/fileupload.js')}}"></script>
+<script src="{{ asset('site/js/chart.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {{--<script src="{{asset('site/js/Toast.js')}}"></script>--}}
 
 
