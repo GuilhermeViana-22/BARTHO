@@ -5,6 +5,8 @@ namespace App\Http\Controllers\AreaRestrita;
 use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\Adocoes\AdocoesRequest;
+use App\Http\Requests\AreaRestrita\Adocoes\AprovarRequest;
+use App\Http\Requests\AreaRestrita\Adocoes\ReprovarRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\VisualizarRequest;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\Situacao;
@@ -12,6 +14,7 @@ use App\Models\AreaRestrita\TipoAnimal;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AdocoesController extends Controller
@@ -58,5 +61,55 @@ class AdocoesController extends Controller
         }
 
         return view('Arearestrita.Adocoes.visualizar', compact('adocao'));
+    }
+
+    public function aprovar( AprovarRequest $request, $id ): \Illuminate\Http\RedirectResponse
+    {
+        try {
+            $adocao = Adocao::findOrFail($id);
+
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa adoção.');
+        }
+
+        $adocao->situacao_id = Situacao::SITUACAO_CONCLUIDO;
+
+        DB::beginTransaction();
+
+        try {
+            $adocao->save();
+
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
+        }
+
+        DB::commit();
+        return Retorno::deVoltaSucesso("Adoção aprovada com sucesso!");
+    }
+
+    public function reprovar( ReprovarRequest $request, $id ): \Illuminate\Http\RedirectResponse
+    {
+        try {
+            $adocao = Adocao::findOrFail($id);
+
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa adoção.');
+        }
+
+        $adocao->situacao_id = Situacao::SITUACAO_REPROVADO;
+
+        DB::beginTransaction();
+
+        try {
+            $adocao->save();
+
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
+        }
+
+        DB::commit();
+        return Retorno::deVoltaSucesso("Adoção reprovada com sucesso!");
     }
 }

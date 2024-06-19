@@ -79,6 +79,8 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         // Rota para a lista de adoções
         Route::get('/', [AdocoesController::class, 'index']);
         Route::get('/visualizar/{id}', [AdocoesController::class, 'visualizar'])->name('.visualizar');
+        Route::get('/aprovar/{id}', [AdocoesController::class, 'aprovar'])->name('.aprovar');
+        Route::get('/reprovar/{id}', [AdocoesController::class, 'reprovar'])->name('.reprovar');
     });
 
     // Grupo de rotas para usuários

@@ -65,6 +65,17 @@
                 </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">Visualizar</button>
+
+                    @permissao('adocoes.gerenciar')
+
+                    @if($adocao->situacao_id == \App\Models\AreaRestrita\Situacao::SITUACAO_AGUARDANDO_APROVACAO)
+                        <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Você tem certeza que deseja aprovar esse pedido de adoção?','{{route('arearestrita.adocoes.aprovar', ['id' => $adocao->id])}}')">Aprovar</button>
+
+                        <button type="button" class="btn btn-danger btn-times" onclick="confirmarIrPara('Você tem certeza que deseja reprovar esse pedido de adoção?', '{{route('arearestrita.adocoes.reprovar', ['id' => $adocao->id])}}')">Reprovar</button>
+                    @endif
+
+                    @endpermissao
+
                 </td>
             </tr>
         @endforeach
