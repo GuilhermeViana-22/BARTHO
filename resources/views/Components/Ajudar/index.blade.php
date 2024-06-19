@@ -2,7 +2,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('site/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/custom.css') }}">
-    @include('Components.Banner.index')
+{{--    @include('Components.Banner.index')--}}
     <!------ Include the above in your HEAD tag ---------->
     <div class="container mt-4">
         <h2 class="card-title text-warning-title  mt-4 mb-3">Formas de ajudar</h2>
