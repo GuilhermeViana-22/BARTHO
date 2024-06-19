@@ -43,7 +43,12 @@
                 <input type="number" min="1" max="99" class="form-control obrigatorio" id="idade" name="idade" placeholder="Informe sua idade">
             </div>
 
-            <div class="col col-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+                <label for="email" class="form-label">E-mail <span style="color: red">*</span></label>
+                <input type="email" class="form-control obrigatorio" id="email" name="email" placeholder="Informe seu e-mail">
+            </div>
+
+            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="cpf" class="form-label">CPF <span style="color: red">*</span></label>
                 <input type="text" class="form-control obrigatorio" id="cpf" name="cpf" placeholder="Informe seu CPF">
             </div>
@@ -88,7 +93,55 @@
         <hr style="margin-top: 20px;">
     @endforeach
 
-    <button style="width: 100px" type="button" class="btn btn-success btn-ok" onclick="verificarFormulario()">Salvar</button>
+    <div class="row">
+
+        <div style="width: 100%">
+            <div class="form-check form-switch">
+                <input class="form-check-input declaracoes obrigatorio-checkbox" type="checkbox" role="switch">
+                <label class="form-check-label" for="adotado">Você declara ter consciência que cães e gatos podem viver mais de 15 anos e que a adoção é um ato de grande responsabilidade.</label>
+            </div>
+        </div>
+
+        <hr style="margin-top: 20px;">
+
+        <div style="width: 100%">
+            <div class="form-check form-switch">
+                <input class="form-check-input declaracoes obrigatorio-checkbox" type="checkbox" role="switch">
+                <label class="form-check-label" for="adotado">Você declara que não poderá doar o animal sem o consentimento do(a) protetor(a) responsável.</label>
+            </div>
+        </div>
+
+        <hr style="margin-top: 20px;">
+
+        <div style="width: 100%">
+            <div class="form-check form-switch">
+                <input class="form-check-input declaracoes obrigatorio-checkbox" type="checkbox" role="switch">
+                <label class="form-check-label" for="adotado">Você declara que todas as suas respostas são verdadeiras e que assume total responsabilidade pelo aqui respondido.</label>
+            </div>
+        </div>
+
+        <hr style="margin-top: 20px;">
+
+        <div style="width: 100%">
+            <div class="form-check form-switch">
+                <input class="form-check-input declaracoes obrigatorio-checkbox" type="checkbox" role="switch">
+                <label class="form-check-label" for="adotado">Você declara estar ciente e concorda que o Barthô Proteção Animal guardará seus dados pelo tempo necessário, caso a adoção seja efetuada.</label>
+            </div>
+        </div>
+
+        <hr style="margin-top: 20px;">
+
+        <div style="width: 100%">
+            <div class="form-check form-switch">
+                <input class="form-check-input declaracoes obrigatorio-checkbox" type="checkbox" role="switch">
+                <label class="form-check-label" for="adotado">Você concorda em avisar o(a) protetor(a) responsável pela doação do animal caso alguma eventualidade aconteça (como acidentes, fugas, doenças, problemas com a adaptação...)</label>
+            </div>
+        </div>
+
+        <hr style="margin-top: 20px;">
+    </div>
+
+    <button style="width: 100px" type="button" class="btn btn-success btn-ok" id="btn_salvar" onclick="verificarFormulario()">Salvar</button>
     <button style="width: 100px; margin-left: 5px" type="button" class="btn btn-secondary btn-trash" onclick="resetarForm()">Limpar</button>
 </form>
 
@@ -96,17 +149,13 @@
     /// aplica as mascáras
     $('#cpf').mask('000.000.000-00');
 
-    let behavior = function(val) {
+    $('#telefone').mask(function(val) {
         return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-    };
-
-    let options = {
+    }, {
         onKeyPress: function(val, e, field, options) {
             field.mask(behavior.apply({}, arguments), options);
         }
-    };
-
-    $('#telefone').mask(behavior, options);
+    });
 
     /// resetar o formulário
     function resetarForm() {
@@ -126,10 +175,17 @@
         });
     }
 
+    function habilitarBtn()
+    {
+        $('#btn_salvar').prop('disabled', false);
+    }
+
     /// faz a verificação se todos os inputs obrigatórios foram preenchidos
     function verificarFormulario(){
         let obrigatorios = document.querySelectorAll('.obrigatorio');
         let obrigatoriosRadio = document.querySelectorAll('.obrigatorio-radio');
+        let obrigatoriosCheckbox = document.querySelectorAll('.obrigatorio-checkbox');
+
         let preenchido = true;
 
         /// verifica os textareas
@@ -159,10 +215,19 @@
             }
         });
 
+        obrigatoriosCheckbox.forEach(function(element) {
+            if (!element.checked) {
+                preenchido = false;
+                element.classList.add('is-invalid');
+            } else {
+                element.classList.remove('is-invalid');
+            }
+        });
+
         if (preenchido) {
             confirmarFormAjax('#salvar_form', 'Você tem certeza que todos os dados estão corretos?');
         } else {
-            alert('Por favor, preencha todas as perguntas obrigatórias.');
+            alert('Por favor, preencha todas os campos obrigatórios e marque todas as declarações como verdadeiras.');
         }
     }
 </script>

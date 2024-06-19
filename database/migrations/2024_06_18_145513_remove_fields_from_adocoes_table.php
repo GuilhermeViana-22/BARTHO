@@ -16,6 +16,7 @@ class RemoveFieldsFromAdocoesTable extends Migration
         Schema::table('adocoes', function (Blueprint $table) {
             /// cria a coluna nome
             $table->string('nome', 500);
+            $table->string('email', 500);
 
             /// e apaga as demais colunas
             $table->dropColumn('cidade_id');
@@ -70,6 +71,7 @@ class RemoveFieldsFromAdocoesTable extends Migration
             $table->string('circunstancias_abandono', 500);
 
             $table->dropColumn('nome');
+            $table->dropColumn('email');
         });
     }
 }

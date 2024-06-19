@@ -14,6 +14,7 @@ class Adocao extends Model
 
     protected $fillable = [
         'nome',
+        'email',
         'telefone',
         'idade',
         'cpf',
