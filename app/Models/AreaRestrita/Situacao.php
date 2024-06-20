@@ -17,7 +17,7 @@ class Situacao extends Model
         'cor'
     ];
 
-    const SITUACAO_AGUARDANDO_APROVACAO = 1;
+    const SITUACAO_EM_ANALISE = 1;
     const SITUACAO_REPROVADO = 2;
     const SITUACAO_APROVADO = 3;
     const SITUACAO_CONCLUIDO = 4;

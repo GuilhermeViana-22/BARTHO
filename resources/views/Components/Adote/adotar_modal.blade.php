@@ -19,10 +19,6 @@
 
     <input type="hidden" name="animal_id" value="{{$animal->id}}">
 
-    <div class="alert alert-info" role="alert">
-        Atenção, responda todas as perguntas obrigatórias (<span style="color: red">*</span>) para realizar o pedido de adoção do animal.
-    </div>
-
     <div class="form-panel">
         <div class="form-header" style="background-color: #e9cc66">
             <p style="margin-left: 15px; color: ghostwhite"> Dados cadastrais </p>
@@ -63,7 +59,7 @@
 
         <div class="form-panel">
             <div class="form-header" style="background-color: #e9cc66">
-                <p style="margin-left: 15px; color: ghostwhite"> Pergunta nº{{$contador}} @if($pergunta->opcional) (opcional) @else <span style="color: red">*</span>@endif </p>
+                <p style="margin-left: 15px; color: ghostwhite"> Pergunta nº{{$contador}} @if(!$pergunta->opcional) <span style="color: red">*</span> @endif </p>
             </div>
             <div class="form-body row">
                 @if($pergunta->tipo_pergunta_id == \App\Models\AreaRestrita\TipoPergunta::TIPO_TEXTO)
@@ -141,8 +137,8 @@
         <hr style="margin-top: 20px;">
     </div>
 
-    <button style="width: 100px" type="button" class="btn btn-success btn-ok" id="btn_salvar" onclick="verificarFormulario()">Salvar</button>
-    <button style="width: 100px; margin-left: 5px" type="button" class="btn btn-secondary btn-trash" onclick="resetarForm()">Limpar</button>
+    <button style="width: 100px" type="button" class="btn btn-success btn-ok" id="btn_salvar" onclick="verificarFormulario(() => confirmarFormAjax('#salvar_form', 'Você tem certeza que todos os dados estão corretos?'))">Salvar</button>
+    <button style="width: 100px; margin-left: 5px" type="button" class="btn btn-secondary btn-trash" onclick="resetarForm('#salvar_form')">Limpar</button>
 </form>
 
 <script>
@@ -157,77 +153,8 @@
         }
     });
 
-    /// resetar o formulário
-    function resetarForm() {
-        Swal.fire({
-            title: 'Limpar formulário?',
-            text: "Ao limpar o formulário todos os dados preenchidos serão perdidos, deseja continuar?",
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#222',
-            //cancelButtonColor: '#d33',
-            confirmButtonText: 'Limpar',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $('#salvar_form').trigger("reset");
-            }
-        });
-    }
-
     function habilitarBtn()
     {
         $('#btn_salvar').prop('disabled', false);
-    }
-
-    /// faz a verificação se todos os inputs obrigatórios foram preenchidos
-    function verificarFormulario(){
-        let obrigatorios = document.querySelectorAll('.obrigatorio');
-        let obrigatoriosRadio = document.querySelectorAll('.obrigatorio-radio');
-        let obrigatoriosCheckbox = document.querySelectorAll('.obrigatorio-checkbox');
-
-        let preenchido = true;
-
-        /// verifica os textareas
-        obrigatorios.forEach(function(element) {
-            if (element.value.trim() === '') {
-                preenchido = false;
-                element.classList.add('is-invalid');
-            } else {
-                element.classList.remove('is-invalid');
-            }
-        });
-
-        /// verifica os inputs-radios
-        obrigatoriosRadio.forEach(function(element) {
-            let name = element.name;
-            if (document.querySelector('input[name="'+name+'"]:checked') === null) {
-                preenchido = false;
-                let radios = document.querySelectorAll('input[name="'+name+'"]');
-                radios.forEach(function(radio) {
-                    radio.classList.add('is-invalid');
-                });
-            } else {
-                let radios = document.querySelectorAll('input[name="'+name+'"]');
-                radios.forEach(function(radio) {
-                    radio.classList.remove('is-invalid');
-                });
-            }
-        });
-
-        obrigatoriosCheckbox.forEach(function(element) {
-            if (!element.checked) {
-                preenchido = false;
-                element.classList.add('is-invalid');
-            } else {
-                element.classList.remove('is-invalid');
-            }
-        });
-
-        if (preenchido) {
-            confirmarFormAjax('#salvar_form', 'Você tem certeza que todos os dados estão corretos?');
-        } else {
-            alert('Por favor, preencha todas os campos obrigatórios e marque todas as declarações como verdadeiras.');
-        }
     }
 </script>

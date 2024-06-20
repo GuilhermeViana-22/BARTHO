@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\AreaRestrita;
 
 use App\Helpers\Retorno;
+use App\Helpers\StorageHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AreaRestrita\Adocoes\AdocoesRequest;
+use App\Http\Requests\AreaRestrita\Adocoes\AprovarModalRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\AprovarRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\ReprovarRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\VisualizarRequest;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -63,21 +66,69 @@ class AdocoesController extends Controller
         return view('Arearestrita.Adocoes.visualizar', compact('adocao'));
     }
 
-    public function aprovar( AprovarRequest $request, $id ): \Illuminate\Http\RedirectResponse
+    public function aprovarModal( AprovarModalRequest $request, $id )
     {
         try {
             $adocao = Adocao::findOrFail($id);
+        } catch ( \Exception $e ) {
+            return Retorno::deVoltaFindOrFail('Não foi possível localizar essa adoção.');
+        }
+
+        return view('Arearestrita.Adocoes.aprovar_modal', compact('adocao'));
+    }
+
+    public function aprovar( AprovarRequest $request ): \Illuminate\Http\RedirectResponse
+    {
+        try {
+            $adocao = Adocao::findOrFail($request->get('id'));
 
         } catch ( \Exception $e ) {
             return Retorno::deVoltaFindOrFail('Não foi possível localizar essa adoção.');
         }
 
+        /// muda a situação da adoção
         $adocao->situacao_id = Situacao::SITUACAO_CONCLUIDO;
 
         DB::beginTransaction();
 
+        /// salvar os anexos de aprovação
+        if($request->exists('anexo_1') && !empty($request->file('anexo_1'))) {
+            try {
+                /// adiciona o anexo
+                $adocao->anexo_1 = StorageHelper::salvar($request->file('anexo_1'), Adocao::STORAGE_PATH . $adocao->id);
+
+            } catch (\Throwable $e) {
+                DB::rollBack();
+                return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações do anexo.");
+            }
+        }
+
+        if($request->exists('anexo_2') && !empty($request->file('anexo_2'))) {
+            try {
+                /// adiciona o anexo
+                $adocao->anexo_2 = StorageHelper::salvar($request->file('anexo_2'), Adocao::STORAGE_PATH . $adocao->id);
+
+            } catch (\Throwable $e) {
+                DB::rollBack();
+                return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações do anexo.");
+            }
+        }
+
+        /// salva as informações do anexo
         try {
             $adocao->save();
+
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações.");
+        }
+
+        /// recupera o animal escolhido da adoção
+        $animal = $adocao->animal;
+        $animal->adotado = 1;
+
+        try {
+            $animal->save();
 
         } catch (\Throwable $e) {
             DB::rollBack();

@@ -64,14 +64,23 @@
                           style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">Visualizar</button>
+                    <button type="button" class="btn btn-primary btn-eye"
+                            onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">
+                        Visualizar
+                    </button>
 
                     @permissao('adocoes.gerenciar')
 
-                    @if($adocao->situacao_id == \App\Models\AreaRestrita\Situacao::SITUACAO_AGUARDANDO_APROVACAO)
-                        <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Você tem certeza que deseja aprovar esse pedido de adoção?','{{route('arearestrita.adocoes.aprovar', ['id' => $adocao->id])}}')">Aprovar</button>
+                    @if($adocao->situacao_id == \App\Models\AreaRestrita\Situacao::SITUACAO_EM_ANALISE)
+                        <button type="button" class="btn btn-success btn-ok"
+                                onclick="showModal('{{route('arearestrita.adocoes.aprovarmodal', ['id' => $adocao->id])}}', 'Aprovar pedido de adoção #{{$adocao->id}}')">
+                            Aprovar
+                        </button>
 
-                        <button type="button" class="btn btn-danger btn-times" onclick="confirmarIrPara('Você tem certeza que deseja reprovar esse pedido de adoção?', '{{route('arearestrita.adocoes.reprovar', ['id' => $adocao->id])}}')">Reprovar</button>
+                        <button type="button" class="btn btn-danger btn-times"
+                                onclick="confirmarIrPara('Você tem certeza que deseja reprovar esse pedido de adoção?', '{{route('arearestrita.adocoes.reprovar', ['id' => $adocao->id])}}')">
+                            Reprovar
+                        </button>
                     @endif
 
                     @endpermissao
@@ -85,7 +94,8 @@
 
     <div class="table-footer">
         <p class="resultados">Total de resultados: {{ $adocoes->total() }} </p>
-        <div style="margin-right: 30px;">{{ $adocoes->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}</div>
+        <div
+            style="margin-right: 30px;">{{ $adocoes->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}</div>
     </div>
 
 @endsection

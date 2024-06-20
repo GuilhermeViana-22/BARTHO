@@ -12,6 +12,8 @@ class Adocao extends Model
 
     protected $table = 'adocoes';
 
+    public const STORAGE_PATH = "arearestrita/adocoes/";
+
     protected $fillable = [
         'nome',
         'email',
@@ -21,6 +23,15 @@ class Adocao extends Model
         'tipo_animal_id',
         'animal_id',
     ];
+
+    public static function anexo_url( $id, $file )
+    {
+        if(empty($file)){
+            return null;
+        }
+
+        return asset('storage/'. self::STORAGE_PATH . $id . "/" . $file );
+    }
 
     public function animal(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

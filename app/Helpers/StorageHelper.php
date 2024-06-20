@@ -17,7 +17,7 @@ Class StorageHelper
      */
     public static function salvar( $file, $local )
     {
-        $img_ = uniqid('img_').'.'.$file->getClientOriginalExtension();;
+        $img_ = uniqid('anexo_').'.'.$file->getClientOriginalExtension();
 
         // Salvar a imagem na pasta específica
         $deu_certo = $file->storeAs('public/'.$local, $img_);

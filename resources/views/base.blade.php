@@ -61,7 +61,7 @@
     <script>
         Swal.fire({
             title: "Sucesso!",
-            text: "{{Session::get('message_success')}}",
+            html: "{!! Session::get('message_success') !!}",
             icon: "success"
         });
     </script>
@@ -71,7 +71,7 @@
     <script>
         Swal.fire({
             title: "Erro!",
-            text: "{{Session::get('message_error')}}",
+            html: "{!! Session::get('message_error') !!}",
             icon: "error"
         });
     </script>
