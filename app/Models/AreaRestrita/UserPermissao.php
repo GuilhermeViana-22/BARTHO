@@ -18,13 +18,13 @@ class UserPermissao extends Model
         'permissao_id',
     ];
 
-    public function permissao() : BelongsTo
+    public function user()
     {
-        return $this->belongsTo(Permissao::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function user() : BelongsTo
+    public function permissao()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Permissao::class, 'permissao_id');
     }
 }

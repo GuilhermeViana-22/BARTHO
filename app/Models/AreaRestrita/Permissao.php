@@ -13,6 +13,8 @@ class Permissao extends Model
 
     protected $table = 'permissoes';
 
+    const ADOCOES_GERENCIAR = 8;
+
     protected $fillable = [
         'nome',
         'modulo_id',
@@ -23,13 +25,15 @@ class Permissao extends Model
         return $this->belongsTo(Modulo::class);
     }
 
-    public function usuarios()
+    public function users()
     {
         return $this->hasManyThrough(
             User::class,
             UserPermissao::class,
-            'id',
-            'id',
+            'permissao_id', // Chave estrangeira de Permissao em UserPermissao
+            'id',           // Chave primária de User
+            'id',           // Chave primária de Permissao
+            'user_id'       // Chave estrangeira de User em UserPermissao
         );
     }
 }

@@ -13,7 +13,7 @@ use App\Http\Requests\AreaRestrita\Animais\IncluirRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarAlteracaoRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarRequest;
 use App\Http\Requests\AreaRestrita\Animais\VisualizarRequest;
-use App\Mail\MyTestEmail;
+use App\Mail\SendMail;
 use App\Models\AreaRestrita\Animal;
 use App\Models\AreaRestrita\Permissao;
 use App\Models\AreaRestrita\SexoAnimal;

@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Retorno;
-use App\Mail\MyTestEmail;
+use App\Mail\SendMail;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\AdocaoPergunta;
 use App\Models\AreaRestrita\AdocaoResposta;
 use App\Models\AreaRestrita\Animal;
+use App\Models\AreaRestrita\Permissao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;
 use App\Models\AreaRestrita\TipoPergunta;
+use App\Models\AreaRestrita\UserPermissao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -104,24 +106,39 @@ class AdoteController extends Controller
             }
         }
 
-        //para pessoa
-        //pedido em analise
-        //para o sistema -> pedido foi incluido necessita de aprovação
-        $this->
+        $this->aprovarAdocoesEmail(Permissao::ADOCOES_GERENCIAR, $request->get('email'), $adocao->id);
 
         DB::commit();
         return Retorno::deVoltaSucesso('O pedido de adoção foi realizado com sucesso, e no momento encontra-se na situação AGUARDANDO APROVAÇÃO, em instantes você receberá mais informações via e-mail.');
     }
 
-    public function sendTestEmail()
+
+
+    public function aprovarAdocoesEmail($permissaoId, $destinatario, $adocaoId)
     {
-        $data = [
-            'title' => 'Bem-vindo ao Barthô - Proteção Animal',
-            'body' => 'Este é um e-mail de teste para verificar a funcionalidade de envio de e-mails no nosso sistema. Se você recebeu este e-mail, significa que tudo está funcionando corretamente.'
-        ];
+        //notifica o destinatario que preencheu o formulario
+        if(!empty($destinatario)){
+            $notificacao_destinatario = [
+                'body' => 'Olá, Agradecemos imensamente pelo seu interesse em adotar um de nossos animais. O seu pedido de adoção foi recebido com sucesso e está agora em fase de análise pela equipe da Barthô - Proteção Animal.Este é um passo importante no processo de adoção, e estamos dedicados a garantir que cada animal encontre o lar amoroso que merece. Nossa equipe especializada está revisando cuidadosamente todas as informações fornecidas.Em breve, você receberá mais informações detalhadas via e-mail. Enquanto isso, se tiver alguma dúvida ou precisar de mais informações, não hesite em entrar em contato conosco.Agradecemos novamente por escolher adotar e por fazer parte da nossa missão de proteger e cuidar dos animais.',
+            ];
+            Mail::to($destinatario)->send(SendMail::notificaAdocoesAnaliseEmail($notificacao_destinatario));
+        }
 
-        Mail::to('desenvolvimento@bartho.org.br')->send(new MyTestEmail($data));
+        $permissao = Permissao::find($permissaoId);
 
-        return 'Email enviado com sucesso!';
+        if ($permissao) {
+            $usuarios = $permissao->users()->get(['users.name', 'users.email']);
+            $data = [
+                'body' => 'Nova solicitação de adoção recebida. Verificação urgente pela equipe em andamento.',
+                'adocaoId' => $adocaoId
+            ];
+
+
+            foreach ($usuarios as $usuario) {
+            Mail::to($usuario->email)->send(SendMail::analiseAdocoesEmail($data));
+            }
+        }
+
+
     }
 }
