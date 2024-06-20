@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Retorno;
+use App\Mail\MyTestEmail;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\AdocaoPergunta;
 use App\Models\AreaRestrita\AdocaoResposta;
@@ -12,6 +13,7 @@ use App\Models\AreaRestrita\TipoAnimal;
 use App\Models\AreaRestrita\TipoPergunta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AdoteController extends Controller
 {
@@ -102,7 +104,24 @@ class AdoteController extends Controller
             }
         }
 
+        //para pessoa
+        //pedido em analise
+        //para o sistema -> pedido foi incluido necessita de aprovação
+        $this->
+
         DB::commit();
         return Retorno::deVoltaSucesso('O pedido de adoção foi realizado com sucesso, e no momento encontra-se na situação AGUARDANDO APROVAÇÃO, em instantes você receberá mais informações via e-mail.');
+    }
+
+    public function sendTestEmail()
+    {
+        $data = [
+            'title' => 'Bem-vindo ao Barthô - Proteção Animal',
+            'body' => 'Este é um e-mail de teste para verificar a funcionalidade de envio de e-mails no nosso sistema. Se você recebeu este e-mail, significa que tudo está funcionando corretamente.'
+        ];
+
+        Mail::to('desenvolvimento@bartho.org.br')->send(new MyTestEmail($data));
+
+        return 'Email enviado com sucesso!';
     }
 }

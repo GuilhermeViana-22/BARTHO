@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AreaRestrita;
 
+
 use App\Helpers\Retorno;
 use App\Helpers\StorageHelper;
 use App\Http\Controllers\Controller;
@@ -12,16 +13,22 @@ use App\Http\Requests\AreaRestrita\Animais\IncluirRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarAlteracaoRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarRequest;
 use App\Http\Requests\AreaRestrita\Animais\VisualizarRequest;
+use App\Mail\MyTestEmail;
 use App\Models\AreaRestrita\Animal;
+use App\Models\AreaRestrita\Permissao;
 use App\Models\AreaRestrita\SexoAnimal;
 use App\Models\AreaRestrita\TipoAnimal;
+
+use App\Notifications\AdocoesNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use function Psy\debug;
 
 class AnimaisController extends Controller
 {
@@ -140,7 +147,6 @@ class AnimaisController extends Controller
         }
 
         DB::commit();
-
         return Retorno::deVoltaSucesso("Animal incluído com sucesso!");
     }
 

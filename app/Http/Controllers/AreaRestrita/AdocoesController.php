@@ -8,6 +8,7 @@ use App\Http\Requests\AreaRestrita\Adocoes\AdocoesRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\AprovarRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\ReprovarRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\VisualizarRequest;
+use App\Mail\MyTestEmail;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;
@@ -15,6 +16,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class AdocoesController extends Controller
@@ -111,5 +113,17 @@ class AdocoesController extends Controller
 
         DB::commit();
         return Retorno::deVoltaSucesso("Adoção reprovada com sucesso!");
+    }
+
+    public function aprovarAdocoesEmail()
+    {
+        $data = [
+            'title' => 'Bem-vindo ao Barthô - Proteção Animal',
+            'body' => 'Este é um e-mail de teste para verificar a funcionalidade de envio de e-mails no nosso sistema. Se você recebeu este e-mail, significa que tudo está funcionando corretamente.'
+        ];
+
+        Mail::to(['desenvolvimento@bartho.org.br'])->send(new MyTestEmail($data));
+
+        return 'Email enviado com sucesso!';
     }
 }
