@@ -24,6 +24,7 @@
                         <input type="password" class="form-control" name="password" placeholder="Senha" required>
                     </div>
                     <div class="form-group mt-3 text-center">
+                        <!-- Container para o reCAPTCHA -->
                         <div id="recaptcha-container"></div>
                     </div>
                     <div class="form-group mt-3 text-center">
@@ -34,13 +35,23 @@
         </div>
     </div>
 
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lfg8f4pAAAAALBzaUjcBx03oSd8pEFOgS_KKIA0"></script>
     <script>
+        // Função para criar um campo de entrada escondido
+        function createHiddenInput(name, value) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = name;
+            input.value = value;
+            return input;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Renderiza o reCAPTCHA
             grecaptcha.enterprise.ready(function() {
                 grecaptcha.enterprise.render('recaptcha-container', {
                     'sitekey': '6Lfg8f4pAAAAALBzaUjcBx03oSd8pEFOgS_KKIA0',
                     'callback': function(token) {
+                        // Adiciona o token reCAPTCHA ao formulário
                         document.getElementById('login-form').appendChild(createHiddenInput('recaptcha_token', token));
                     }
                 });
@@ -55,13 +66,5 @@
                 document.getElementById('login-form').submit();
             });
         });
-
-        function createHiddenInput(name, value) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = name;
-            input.value = value;
-            return input;
-        }
     </script>
 @endsection
