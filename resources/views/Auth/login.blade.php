@@ -36,34 +36,11 @@
     </div>
 
     <script>
-        // Função para criar um campo de entrada escondido
-        function createHiddenInput(name, value) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = name;
-            input.value = value;
-            return input;
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            // Renderiza o reCAPTCHA
             grecaptcha.enterprise.ready(function() {
                 grecaptcha.enterprise.render('recaptcha-container', {
                     'sitekey': '6Lfg8f4pAAAAALBzaUjcBx03oSd8pEFOgS_KKIA0',
-                    'callback': function(token) {
-                        // Adiciona o token reCAPTCHA ao formulário
-                        document.getElementById('login-form').appendChild(createHiddenInput('recaptcha_token', token));
-                    }
                 });
-            });
-        });
-
-        document.getElementById('login-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            grecaptcha.enterprise.ready(async () => {
-                const token = await grecaptcha.enterprise.execute('6Lfg8f4pAAAAALBzaUjcBx03oSd8pEFOgS_KKIA0', {action: 'LOGIN'});
-                document.getElementById('login-form').appendChild(createHiddenInput('recaptcha_token', token));
-                document.getElementById('login-form').submit();
             });
         });
     </script>
