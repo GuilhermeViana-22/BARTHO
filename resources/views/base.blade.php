@@ -56,6 +56,7 @@
 {{--<script src="{{asset('site/js/Toast.js')}}"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lfg8f4pAAAAALBzaUjcBx03oSd8pEFOgS_KKIA0"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @if (Session::has('message_success'))
     <script>
         Swal.fire({

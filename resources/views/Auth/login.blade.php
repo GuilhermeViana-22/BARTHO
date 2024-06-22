@@ -23,11 +23,11 @@
                     <div class="form-group mt-3">
                         <input type="password" class="form-control" name="password" placeholder="Senha" required>
                     </div>
-                    <div class="form-group mt-3 text-center">
-                        <!-- Container para o reCAPTCHA -->
-                        <div id="recaptcha-container"></div>
-                    </div>
-                    <div class="form-group mt-3 text-center">
+                        <div class="row d-flex justify-content-center">
+                            <div class="g-recaptcha" data-sitekey="6Lfg8f4pAAAAALBzaUjcBx03oSd8pEFOgS_KKIA0"></div>
+                        </div>
+
+                        <div class="form-group mt-3 text-center">
                         <button type="submit" class="btn btn-brown btn-lg btn-block" id="login-button">Logar</button>
                     </div>
                 </form>
@@ -36,12 +36,27 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            grecaptcha.enterprise.ready(function() {
-                grecaptcha.enterprise.render('recaptcha-container', {
-                    'sitekey': '6Lfg8f4pAAAAALBzaUjcBx03oSd8pEFOgS_KKIA0',
-                });
+        $(function() {
+            function rescaleCaptcha() {
+                var width = $('.g-recaptcha').parent().width();
+                var scale;
+                if (width < 302) {
+                    scale = width / 302;
+                } else {
+                    scale = 1.0;
+                }
+
+                $('.g-recaptcha').css('transform', 'scale(' + scale + ')');
+                $('.g-recaptcha').css('-webkit-transform', 'scale(' + scale + ')');
+                $('.g-recaptcha').css('transform-origin', '0 0');
+                $('.g-recaptcha').css('-webkit-transform-origin', '0 0');
+            }
+
+            rescaleCaptcha();
+            $(window).resize(function() {
+                rescaleCaptcha();
             });
+
         });
     </script>
 @endsection
