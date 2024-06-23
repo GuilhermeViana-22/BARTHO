@@ -130,6 +130,7 @@ class AnimaisController extends Controller
             $animal->save();
         } catch (\Throwable $e) {
             DB::rollBack();
+            //verifica erro
             return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações." . $e->getMessage());
         }
 
