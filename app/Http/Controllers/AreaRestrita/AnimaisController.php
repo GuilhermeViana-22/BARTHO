@@ -44,20 +44,23 @@ class AnimaisController extends Controller
     {
         $tipo = TipoAnimal::findOrFail($request->get('tipo_id'));
 
-        /// tipos animais
+        // Tipos de animais
         $tipos_animais = TipoAnimal::all();
         $session = Session::get(self::SESSION_INDEX);
 
-        /// faz a busca
+        // Faz a busca
         $animais = Animal::query();
         $animais->where('tipo_id', $request->get('tipo_id'));
 
-        /// faz o filtro
+        // Filtro padrão para animais não adotados
+        $animais->where('adotado', 0);
+
+        // Faz o filtro por nome se existir na sessão
         if (!empty($session['nome'])) {
             $animais->where('nome', 'LIKE', '%' . $session['nome'] . '%');
         }
 
-        /// faz o filtro
+        // Faz o filtro por adoção se existir na sessão
         if (!empty($session['adotado'])) {
             $animais->where('adotado', ($session['adotado'] === "on" ? true : false));
         }
@@ -66,6 +69,7 @@ class AnimaisController extends Controller
 
         return view('Arearestrita.Animais.index', compact('animais', 'tipo', 'tipos_animais', 'session'));
     }
+
 
     /**
      * Método para visualização de um animal

@@ -99,7 +99,7 @@
                     <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input" type="checkbox" id="castrado" name="castrado" @if(old('castrado')) checked @endif>
-                            <label class="form-check-label" for="castrado">Castrado?</label>
+                            <label class="form-check-label form-check-label-custom" for="castrado">Castrado?</label>
                         </div>
                     </div>
 
@@ -107,14 +107,14 @@
                     <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch mb-3 ">
                             <input class="form-check-input" type="checkbox" id="vacinado" name="vacinado" @if(old('vacinado')) checked @endif>
-                            <label class="form-check-label" for="vacinado">Vacinado?</label>
+                            <label class="form-check-label form-check-label-custom" for="vacinado"> Vacinado?</label>
                         </div>
                     </div>
                     {{--                    Adotado--}}
                     <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input" type="checkbox" id="adotado" name="adotado" @if(old('adotado')) checked @endif>
-                            <label class="form-check-label" for="adotado">Adotado?</label>
+                            <label class="form-check-label form-check-label-custom" for="adotado"> Adotado?</label>
                         </div>
                     </div>
                 </div>

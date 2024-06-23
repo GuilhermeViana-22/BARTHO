@@ -51,17 +51,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* Estilo para o form-switch personalizado */
-        .form-switch .form-check-input {
-            width: 2rem; /* Largura do switch */
-            height: 1rem; /* Altura do switch */
-            border-radius: 1rem; /* Borda arredondada para criar um formato quadrado */
-            background-color: #e9cc66; /* Cor de fundo amarela */
-        }
-
-        .form-switch .form-check-input:checked {
-            background-color: #ffc107; /* Cor de fundo amarelo mais claro quando o switch está ativado */
-        }
 
     </style>
     <div class="page-header">
@@ -118,7 +107,7 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input"  @if($animal->castrado) checked @endif type="checkbox"
                                    id="castrado" name="castrado">
-                            <label class="form-check-label" for="castrado">Castrado?</label>
+                            <label class="form-check-label form-check-label-custom" for="castrado">Castrado?</label>
                         </div>
                     </div>
 
@@ -127,7 +116,7 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input"  @if($animal->vacinado) checked @endif type="checkbox"
                                    id="vacinado" name="vacinado">
-                            <label class="form-check-label" for="vacinado">Vacinado?</label>
+                            <label class="form-check-label form-check-label-custom" for="vacinado">Vacinado?</label>
                         </div>
                     </div>
 
@@ -136,7 +125,7 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input"  @if($animal->adotado) checked @endif type="checkbox"
                                    id="adotado" name="adotado">
-                            <label class="form-check-label" for="adotado">Adotado?</label>
+                            <label class="form-check-label form-check-label-custom" for="adotado">Adotado?</label>
                         </div>
                     </div>
                 </div>

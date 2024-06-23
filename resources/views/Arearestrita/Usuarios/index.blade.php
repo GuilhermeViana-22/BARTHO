@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
-                    <label for="ativo" class="form-label">Ativo?</label>
+                    <label for="ativo" class="form-label form-check-label-custom">Ativo?</label>
 
                     <select class="form-select" id="ativo" name="ativo">
                         <option @if(empty($session['ativo'])) selected @endif value="">Selecione uma opção</option>

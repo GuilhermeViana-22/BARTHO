@@ -41,14 +41,14 @@
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="opcional" name="opcional">
-                    <label class="form-check-label" for="adotado">Opcional?</label>
+                    <label class="form-check-label  form-check-label-custom" for="adotado">Opcional?</label>
                 </div>
             </div>
 
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="ativo" name="ativo">
-                    <label class="form-check-label" for="ativo">Ativa?</label>
+                    <label class="form-check-label  form-check-label-custom" for="ativo">Ativa?</label>
                 </div>
             </div>
         </form>
