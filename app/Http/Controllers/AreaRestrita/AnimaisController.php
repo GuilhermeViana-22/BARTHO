@@ -19,6 +19,7 @@ use App\Models\AreaRestrita\Permissao;
 use App\Models\AreaRestrita\SexoAnimal;
 use App\Models\AreaRestrita\TipoAnimal;
 
+use App\Models\AreaRestrita\TipoPorte;
 use App\Notifications\AdocoesNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -82,13 +83,15 @@ class AnimaisController extends Controller
     {
         $tipos_animais = TipoAnimal::all();
         $sexos_animais = SexoAnimal::all();
+        $tipos_portes = TipoPorte::all();
+
         try {
             $animal = Animal::findOrFail($id);
         } catch (\Throwable $e) {
             return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
         }
 
-        return view('Arearestrita.Animais.visualizar', compact('tipos_animais', 'animal', 'sexos_animais'));
+        return view('Arearestrita.Animais.visualizar', compact('tipos_animais', 'animal', 'sexos_animais', 'tipos_portes'));
     }
 
     /**
@@ -101,7 +104,8 @@ class AnimaisController extends Controller
     {
         $tipos_animais = TipoAnimal::all();
         $sexos_animais = SexoAnimal::all();
-        return view('Arearestrita.Animais.incluir', compact('tipos_animais', 'sexos_animais'));
+        $tipos_portes = TipoPorte::all();
+        return view('Arearestrita.Animais.incluir', compact('tipos_animais', 'sexos_animais', 'tipos_portes'));
     }
 
     /**
@@ -195,7 +199,8 @@ class AnimaisController extends Controller
 
         $tipos_animais = TipoAnimal::all();
         $sexos_animais = SexoAnimal::all();
-        return view('Arearestrita.Animais.alterar', compact('tipos_animais', 'animal', 'sexos_animais'));
+        $tipos_portes = TipoPorte::all();
+        return view('Arearestrita.Animais.alterar', compact('tipos_animais', 'animal', 'sexos_animais', 'tipos_portes'));
     }
 
     /**

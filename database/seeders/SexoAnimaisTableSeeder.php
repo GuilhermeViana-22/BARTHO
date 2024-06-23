@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\AreaRestrita\SexoAnimal;
-use App\Models\AreaRestrita\TipoAnimal;
 use Illuminate\Database\Seeder;
 
 class SexoAnimaisTableSeeder extends Seeder

@@ -21,13 +21,13 @@
     <div class="form-panel">
         <div class="form-body row">
             <!-- Nome -->
-            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" class="form-control" disabled id="nome" name="nome" value="{{ $animal->nome }}">
             </div>
 
             <!-- Espécie -->
-            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
                 <label for="tipo_id" class="form-label">Espécie do animal</label>
                 <select class="form-select" id="tipo_id" disabled name="tipo_id">
                     @foreach($tipos_animais as $tipo_animal)
@@ -36,10 +36,18 @@
                     @endforeach
                 </select>
             </div>
+            <!-- porte -->
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
+                <label for="tipo_porte_id" class="form-label">Porte</label>
+                <select class="form-select" id="tipo_porte_id" disabled name="tipo_porte_id">
+                    @foreach($tipos_portes as $tipo_porte)
+                        <option @if($tipo_porte->tipo_porte_id == $tipo_porte->id) selected
+                                @endif value="{{ $tipo_porte->id }}">{{ $tipo_porte->porte }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="row">
-
-                <!-- Sexo -->
-                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-3">
+                <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
                     <label for="sexo_id" class="form-label">Sexo</label>
                     <select class="form-select" id="sexo_id" disabled name="sexo_id">
                         @foreach($sexos_animais as $sexo_animal)
@@ -50,7 +58,16 @@
                 </div>
 
                 <!-- Castrado -->
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" disabled @if($animal->especial) checked @endif type="checkbox"
+                               id="especial" name="especial">
+                        <label class="form-check-label form-check-label-custom" for="especial">Especial?</label>
+                    </div>
+                </div>
+
+                <!-- Castrado -->
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
                     <div class="form-check form-switch">
                         <input class="form-check-input" disabled @if($animal->castrado) checked @endif type="checkbox"
                                id="castrado" name="castrado">
@@ -59,7 +76,7 @@
                 </div>
 
                 <!-- Vacinado -->
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
                     <div class="form-check form-switch">
                         <input class="form-check-input" disabled @if($animal->vacinado) checked @endif type="checkbox"
                                id="vacinado" name="vacinado">
@@ -68,7 +85,7 @@
                 </div>
 
                 <!-- Adotado -->
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
+                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
                     <div class="form-check form-switch">
                         <input class="form-check-input" disabled @if($animal->adotado) checked @endif type="checkbox"
                                id="adotado" name="adotado">

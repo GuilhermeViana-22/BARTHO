@@ -68,12 +68,12 @@
                 @csrf
 
                 <div class="row mb-3">
-                    <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3" >
+                    <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
                         <label for="nome" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do animal" value="{{ old('nome') }}">
                     </div>
 
-                    <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-2 ">
+                    <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
                         <label for="tipo_id" class="form-label">Espécie do animal</label>
                         <select class="form-select" id="tipo_id" name="tipo_id" aria-label="Selecione uma espécie">
                             <option selected>Selecione uma espécie</option>
@@ -82,11 +82,21 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
+                        <label for="tipo_porte_id" class="form-label">Porte</label>
+                        <select class="form-select" id="tipo_porte_id" name="tipo_porte_id" aria-label="Selecione um porte">
+                            <option selected>Selecione um porte</option>
+                            @foreach($tipos_portes as $tipo_porte)
+                                <option @if((old('tipo_porte_id') ?? request()->get('tipo_porte_id')) == $tipo_porte->id) selected @endif value="{{ $tipo_porte->id }}">{{ $tipo_porte->porte }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 {{--                //INPUTS SELECT--}}
                 <div class="row mb-3">
-                    <div class="col col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-3">
+                    <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
                         <label for="sexo_id" class="form-label">Sexo</label>
                         <select class="form-select" id="sexo_id" name="sexo_id" aria-label="Selecione um sexo">
                             <option selected>Selecione um sexo</option>
@@ -95,8 +105,16 @@
                             @endforeach
                         </select>
                     </div>
+
+                    {{--                    especial--}}
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="especial" name="especial" @if(old('especial')) checked @endif>
+                            <label class="form-check-label form-check-label-custom" for="especial">Especial?</label>
+                        </div>
+                    </div>
                     {{--                    castrado--}}
-                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input" type="checkbox" id="castrado" name="castrado" @if(old('castrado')) checked @endif>
                             <label class="form-check-label form-check-label-custom" for="castrado">Castrado?</label>
@@ -104,14 +122,14 @@
                     </div>
 
                     {{--                    vacinado--}}
-                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2">
                         <div class="form-check form-switch mb-3 ">
                             <input class="form-check-input" type="checkbox" id="vacinado" name="vacinado" @if(old('vacinado')) checked @endif>
                             <label class="form-check-label form-check-label-custom" for="vacinado"> Vacinado?</label>
                         </div>
                     </div>
                     {{--                    Adotado--}}
-                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 p-4">
+                    <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2">
                         <div class="form-check form-switch mb-3">
                             <input class="form-check-input" type="checkbox" id="adotado" name="adotado" @if(old('adotado')) checked @endif>
                             <label class="form-check-label form-check-label-custom" for="adotado"> Adotado?</label>

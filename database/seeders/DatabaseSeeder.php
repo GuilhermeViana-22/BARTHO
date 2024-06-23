@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SituacoesTableSeeder::class);
         $this->call(SexoAnimaisTableSeeder::class);
         $this->call(TiposPerguntasTableSeeder::class);
+        $this->call(TipoPorteTableSeeder::class);
     }
 }

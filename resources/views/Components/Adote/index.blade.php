@@ -204,7 +204,6 @@
                     <div class="row">
 
                         @foreach($gatos as $gato)
-
                             <div class="col-md-4 col-lg-4" data-anime="right">
                                 <div class="card doacoes">
                                     <div class="card-body">

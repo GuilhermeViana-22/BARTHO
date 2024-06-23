@@ -26,8 +26,15 @@ class AdoteController extends Controller
      */
     public function index()
     {
-        $cachorros  = Animal::where('tipo_id', TipoAnimal::TIPO_CACHORRO)->orderBy('adotado')->paginate(6, ['*'], 'pag_cachorro');
-        $gatos      = Animal::where('tipo_id', TipoAnimal::TIPO_GATO)->orderBy('adotado')->paginate(6, ['*'], 'pag_gato');
+        $cachorros = Animal::where('tipo_id', TipoAnimal::TIPO_CACHORRO)
+            ->with('porte')
+            ->orderBy('adotado')
+            ->paginate(6, ['*'], 'pag_cachorro');
+
+        $gatos = Animal::where('tipo_id', TipoAnimal::TIPO_GATO)
+            ->with('porte')
+            ->orderBy('adotado')
+            ->paginate(6, ['*'], 'pag_gato');
 
         return view('Components.Adote.index', compact('cachorros', 'gatos'));
     }
