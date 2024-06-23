@@ -64,6 +64,9 @@
             <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Usuários</span></a>
             @endpermissao
 
+{{--            lista negra -> verificar como vai ser feita a permissão--}}
+            <a href="{{route('arearestrita.listanegra')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Lista Negra</span></a>
+
             @permissao('configuracoes.perguntas.visualizar,configuracoes.perguntas.gerenciar')
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle"> <i class="fa fa-cogs" aria-hidden="true"></i> <span>Configurações</span></a>
