@@ -50,6 +50,10 @@ class AdocoesController extends Controller
             $adocoes->where('situacao_id', $session['situacao_id']);
         }
 
+        if(!empty($session['responsavel_aprovacao'])){
+            $adocoes->where('responsavel_aprovacao', 'LIKE', '%'.$session['responsavel_aprovacao'].'%');
+        }
+
         $adocoes = $adocoes->paginate();
 
         return view('Arearestrita.Adocoes.index', compact('adocoes', 'tipo', 'tipos_animais', 'situacoes', 'session'));
@@ -86,16 +90,18 @@ class AdocoesController extends Controller
             return Retorno::deVoltaFindOrFail('Não foi possível localizar essa adoção.');
         }
 
-        /// muda a situação da adoção
+        /// muda a situação da adoção e adiciona a observação
         $adocao->situacao_id = Situacao::SITUACAO_CONCLUIDO;
+        $adocao->observacao = $request->get('observacao');
+        $adocao->responsavel_aprovacao = $request->get('responsavel_aprovacao');
 
         DB::beginTransaction();
 
         /// salvar os anexos de aprovação
-        if($request->exists('anexo_1') && !empty($request->file('anexo_1'))) {
+        if($request->exists('termo_adocao') && !empty($request->file('termo_adocao'))) {
             try {
                 /// adiciona o anexo
-                $adocao->anexo_1 = StorageHelper::salvar($request->file('anexo_1'), Adocao::STORAGE_PATH . $adocao->id);
+                $adocao->termo_adocao = StorageHelper::salvar($request->file('termo_adocao'), Adocao::STORAGE_PATH . $adocao->id);
 
             } catch (\Throwable $e) {
                 DB::rollBack();
@@ -103,10 +109,32 @@ class AdocoesController extends Controller
             }
         }
 
-        if($request->exists('anexo_2') && !empty($request->file('anexo_2'))) {
+        if($request->exists('documento_identidade') && !empty($request->file('documento_identidade'))) {
             try {
                 /// adiciona o anexo
-                $adocao->anexo_2 = StorageHelper::salvar($request->file('anexo_2'), Adocao::STORAGE_PATH . $adocao->id);
+                $adocao->documento_identidade = StorageHelper::salvar($request->file('documento_identidade'), Adocao::STORAGE_PATH . $adocao->id);
+
+            } catch (\Throwable $e) {
+                DB::rollBack();
+                return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações do anexo.");
+            }
+        }
+
+        if($request->exists('comprovante_endereco') && !empty($request->file('comprovante_endereco'))) {
+            try {
+                /// adiciona o anexo
+                $adocao->comprovante_endereco = StorageHelper::salvar($request->file('comprovante_endereco'), Adocao::STORAGE_PATH . $adocao->id);
+
+            } catch (\Throwable $e) {
+                DB::rollBack();
+                return Retorno::deVoltaErro("Houve um erro ao tentar salvar as informações do anexo.");
+            }
+        }
+
+        if($request->exists('foto_adocao') && !empty($request->file('foto_adocao'))) {
+            try {
+                /// adiciona o anexo
+                $adocao->foto_adocao = StorageHelper::salvar($request->file('foto_adocao'), Adocao::STORAGE_PATH . $adocao->id);
 
             } catch (\Throwable $e) {
                 DB::rollBack();

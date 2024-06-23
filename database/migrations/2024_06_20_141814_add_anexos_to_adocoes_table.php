@@ -14,8 +14,11 @@ class AddAnexosToAdocoesTable extends Migration
     public function up()
     {
         Schema::table('adocoes', function (Blueprint $table) {
-            $table->string('anexo_1')->nullable();
-            $table->string('anexo_2')->nullable();
+            $table->string('termo_adocao')->nullable();
+            $table->string('documento_identidade')->nullable();
+            $table->string('comprovante_endereco')->nullable();
+            $table->string('foto_adocao')->nullable();
+            $table->string('observacao', 500)->nullable();
         });
     }
 
@@ -27,8 +30,11 @@ class AddAnexosToAdocoesTable extends Migration
     public function down()
     {
         Schema::table('adocoes', function (Blueprint $table) {
-            $table->dropColumn('anexo_1');
-            $table->dropColumn('anexo_2');
+            $table->dropColumn('termo_adocao');
+            $table->dropColumn('documento_identidade');
+            $table->dropColumn('comprovante_endereco');
+            $table->dropColumn('foto_adocao');
+            $table->dropColumn('observacao');
         });
     }
 }

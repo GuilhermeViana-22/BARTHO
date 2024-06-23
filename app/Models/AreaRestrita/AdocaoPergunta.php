@@ -14,7 +14,7 @@ class AdocaoPergunta extends Model
     protected $fillable = [
         'tipo_pergunta_id',
         'pergunta',
-        'opcional',
+        'obrigatorio',
         'ativo',
     ];
 

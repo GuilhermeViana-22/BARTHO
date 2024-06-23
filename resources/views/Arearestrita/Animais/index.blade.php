@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="page-header">
-        <p>Resultados da pesquisa / {{$tipo->tipo}} </p>
+        <h4>Consultar Cadastros de Animais / {{$tipo->tipo}} </h4>
 
         @permissao('animais.gerenciar')
         <button type="button" class="btn btn-success btn-new" onclick="irPara('{{route('arearestrita.animais.incluir', ['tipo_id' => request()->get('tipo_id')])}}')">

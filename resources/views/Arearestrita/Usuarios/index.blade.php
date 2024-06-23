@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="page-header">
-        <p>Resultados da pesquisa de Usuários </p>
+        <h4>Consultar Usuários Cadastrados </h4>
 
         @permissao('usuarios.gerenciar')
         <button type="button" class="btn btn-success btn-new" onclick="irPara('{{route('arearestrita.usuarios.incluir')}}')">

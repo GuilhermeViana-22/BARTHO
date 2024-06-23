@@ -108,6 +108,6 @@ class AdoteController extends Controller
         $situacao = Situacao::find(Situacao::SITUACAO_EM_ANALISE);
 
         $badge = sprintf("<span class='badge' style='background-color: %s'>%s</span>", $situacao->cor, $situacao->situacao);
-        return Retorno::deVoltaSucesso(sprintf("O pedido de adoção foi realizado com sucesso, e no momento encontra-se na situação %s, em instantes você receberá mais informações via e-mail.", $badge));
+        return Retorno::deVoltaSucesso(sprintf("Muito obrigado! A sua candidatura de adoção foi registrada com sucesso e, neste momento, encontra-se na situação %s. Nosso time de Adoções já foi comunicado e, o mais breve possível, um dos voluntários entrará em contato com você!", $badge));
     }
 }

@@ -20,8 +20,12 @@ class AprovarRequest extends AppRequest
     {
         return [
             'id' => 'required|integer',
-            'anexo_1' => 'required',
-            'anexo_2' => 'required',
+            'termo_adocao' => 'required',
+            'documento_identidade' => 'required',
+            'comprovante_endereco' => 'required',
+            'responsavel_aprovacao' => 'required|string',
+            'foto_adocao' => 'nullable',
+            'observacao' => 'nullable|string|max:500',
         ];
     }
 }

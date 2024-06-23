@@ -12,7 +12,7 @@ class CreateAdocoesPerguntasTable extends Migration
             $table->id();
             $table->foreignId('tipo_pergunta_id')->constrained('tipos_perguntas');
             $table->string('pergunta')->nullable();
-            $table->boolean('opcional')->default(0);
+            $table->boolean('obrigatorio')->default(0);
             $table->boolean('ativo')->default(1);
 
             $table->timestamps();

@@ -323,7 +323,7 @@ function ajaxErro(data, callback = function(){}) {
     } else if (data.status === 419) {
         Swal.fire('Página expirada', 'Essa página está expirada, atualize e tente novamente.', 'error').then((r) => r.value ? callback() : null)
     } else if (data.status === 422) {
-        erroValidacao(JSON.parse(data.responseText), callback);
+        erroValidacao();
     } else if (data.status === 500) {
         Swal.fire('Erro interno', 'Ocorreu um erro interno ao processar sua solicitação, tente novamente mais tarde.', 'error').then((r) => r.value ? callback() : null)
     } else {
@@ -333,19 +333,20 @@ function ajaxErro(data, callback = function(){}) {
 
 /**
  * Função para exibição de erros de formulário
- * @param erros
+ * @param texto
  * @param callback
  */
-function erroValidacao(erros, callback = function(){}) {
-    Swal.fire('Alguns campos estão inválidos', 'Corrija os erros e tente novamente.', 'error').then((r) => r.value ? callback() : null)
+function erroValidacao(texto = 'Corrija os erros e tente novamente.', callback = function(){}) {
+    Swal.fire('Alguns campos estão inválidos', texto, 'error').then((r) => r.value ? callback() : null)
 }
 
 /**
  * Faz a verificação se todos os inputs obrigatórios foram preenchidos
  *
  * @param callback
+ * @param texto
  */
-function verificarFormulario(callback = function(){}){
+function verificarFormulario(callback = function(){}, texto = null){
     let obrigatorios = document.querySelectorAll('.obrigatorio');
     let obrigatoriosRadio = document.querySelectorAll('.obrigatorio-radio');
     let obrigatoriosCheckbox = document.querySelectorAll('.obrigatorio-checkbox');
@@ -401,7 +402,7 @@ function verificarFormulario(callback = function(){}){
     if (preenchido) {
         callback();
     } else {
-        alert('Por favor, preencha todas os campos obrigatórios e marque todas as declarações como verdadeiras.');
+        erroValidacao(texto);
     }
 }
 

@@ -32,21 +32,54 @@
                        value="{{ $adocao->animal->tipo->tipo }}" placeholder="Informe seu CPF">
             </div>
 
-            @if(!empty($adocao->anexo_1))
+            @if($adocao->responsavel_aprovacao)
+            <div class="col col-12 col-lg-12 col-md-12 col-sm-12 mb-3" >
+                <label for="responsavel_aprovacao" class="form-label">Adoção Aprovada por</label>
+                <input type="text" class="form-control obrigatorio" id="responsavel_aprovacao" name="responsavel_aprovacao" disabled placeholder="Adoção aprovada por" value="{{ $adocao->responsavel_aprovacao }}">
+            </div>
+            @endif
+
+            @if(!empty($adocao->observacao))
+            <div class="col col-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+
+                <label for="observacao" class="form-label">Observação</label>
+                <textarea class="form-control" id="observacao" name="observacao" disabled rows="4">{{ $adocao->observacao ?? '' }}</textarea>
+            </div>
+            @endif
+
+            @if(!empty($adocao->termo_adocao))
                 <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
-                    <label for="imagem" class="form-label">Anexo 1</label>
+                    <label for="termo_adocao" class="form-label">Termo de Adoção</label>
                     <br>
-                    <input class="form-control" disabled type="file" name="anexo_1" id="anexo_1"
-                           value="{{\App\Models\AreaRestrita\Adocao::anexo_url($adocao->id, $adocao->anexo_1)}}">
+                    <input class="form-control" disabled type="file" name="termo_adocao" id="termo_adocao"
+                           value="{{\App\Models\AreaRestrita\Adocao::anexo_url($adocao->id, $adocao->termo_adocao)}}">
                 </div>
             @endif
 
-            @if(!empty($adocao->anexo_2))
+            @if(!empty($adocao->documento_identidade))
                 <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
-                    <label for="imagem" class="form-label">Anexo 2</label>
+                    <label for="documento_identidade" class="form-label">Documento de Identidade (com Foto) </label>
                     <br>
-                    <input class="form-control" disabled type="file" name="anexo_2" id="anexo_2"
-                           value="{{\App\Models\AreaRestrita\Adocao::anexo_url($adocao->id, $adocao->anexo_2)}}">
+                    <input class="form-control" disabled type="file" name="documento_identidade" id="documento_identidade"
+                           value="{{\App\Models\AreaRestrita\Adocao::anexo_url($adocao->id, $adocao->documento_identidade)}}">
+                </div>
+            @endif
+
+            @if(!empty($adocao->comprovante_endereco))
+                <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+                    <label for="comprovante_endereco" class="form-label">Comprovante de Endereço</label>
+                    <br>
+                    <input class="form-control" disabled type="file" name="comprovante_endereco" id="comprovante_endereco"
+                           value="{{\App\Models\AreaRestrita\Adocao::anexo_url($adocao->id, $adocao->comprovante_endereco)}}">
+                </div>
+            @endif
+
+            @if(!empty($adocao->foto_adocao))
+                <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+                    <label for="foto_adocao" class="form-label">Foto da Adoção</label>
+                    <br>
+                    <input class="form-control" disabled type="file" name="foto_adocao" id="foto_adocao"
+                           value="{{\App\Models\AreaRestrita\Adocao::anexo_url($adocao->id, $adocao->foto_adocao)}}">
                 </div>
             @endif
 
@@ -99,7 +132,7 @@
         <div class="form-panel">
             <div class="form-header" style="background-color: #e9cc66">
                 <p style="margin-left: 15px; color: ghostwhite"> Pergunta
-                    nº{{$contador}} @if($resposta->adocao_pergunta->opcional)
+                    nº{{$contador}} @if(!$resposta->adocao_pergunta->obrigatorio)
                         (opcional)
                     @else
                         <span style="color: red">*</span>
@@ -110,7 +143,7 @@
                     <div class="col col-12 col-lg-12 col-md-12 col-sm-12">
                         <label for="selecao" class="form-label">{{$resposta->adocao_pergunta->pergunta}}</label>
                         <textarea rows="4"
-                                  class="form-control @if(!$resposta->adocao_pergunta->opcional) obrigatorio @endif"
+                                  class="form-control @if($resposta->adocao_pergunta->obrigatorio) obrigatorio @endif"
                                   disabled id="perguntas-{{$resposta->adocao_pergunta->id}}"
                                   name="perguntas[{{$resposta->adocao_pergunta->id}}]"
                                   placeholder="Sua resposta aqui">{{ $resposta->resposta }}</textarea>
@@ -159,8 +192,10 @@
 
     @section('js')
         <script>
-            $('#anexo_1').FileUpload();
-            $('#anexo_2').FileUpload();
+            $('#termo_adocao').FileUpload();
+            $('#documento_identidade').FileUpload();
+            $('#comprovante_endereco').FileUpload();
+            $('#foto_adocao').FileUpload();
         </script>
     @endsection
 @endsection

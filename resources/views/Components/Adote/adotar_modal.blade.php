@@ -59,13 +59,13 @@
 
         <div class="form-panel">
             <div class="form-header" style="background-color: #e9cc66">
-                <p style="margin-left: 15px; color: ghostwhite"> Pergunta nº{{$contador}} @if(!$pergunta->opcional) <span style="color: red">*</span> @endif </p>
+                <p style="margin-left: 15px; color: ghostwhite"> Pergunta nº{{$contador}} @if($pergunta->obrigatorio) <span style="color: red">*</span> @endif </p>
             </div>
             <div class="form-body row">
                 @if($pergunta->tipo_pergunta_id == \App\Models\AreaRestrita\TipoPergunta::TIPO_TEXTO)
                     <div class="col col-12 col-lg-12 col-md-12 col-sm-12">
                         <label for="selecao" class="form-label">{{$pergunta->pergunta}}</label>
-                        <textarea rows="4" class="form-control @if(!$pergunta->opcional) obrigatorio @endif" id="perguntas-{{$pergunta->id}}" name="perguntas[{{$pergunta->id}}]" placeholder="Sua resposta aqui">{{ old("perguntas[$pergunta->id]") }}</textarea>
+                        <textarea rows="4" class="form-control @if($pergunta->obrigatorio) obrigatorio @endif" id="perguntas-{{$pergunta->id}}" name="perguntas[{{$pergunta->id}}]" placeholder="Sua resposta aqui">{{ old("perguntas[$pergunta->id]") }}</textarea>
                     </div>
                 @elseif($pergunta->tipo_pergunta_id == \App\Models\AreaRestrita\TipoPergunta::TIPO_SELECAO)
                     <div class="form-group">
@@ -75,7 +75,7 @@
 
                         @foreach($pergunta->alternativas->where('ativo', 1) as $alternativa)
                             <div class="form-check">
-                                <input class="form-check-input @if(!$pergunta->opcional) obrigatorio-radio @endif" type="radio" name="perguntas[{{$pergunta->id}}]" id="alternativas-{{$alternativa->id}}" value="{{$alternativa->id}}">
+                                <input class="form-check-input @if($pergunta->obrigatorio) obrigatorio-radio @endif" type="radio" name="perguntas[{{$pergunta->id}}]" id="alternativas-{{$alternativa->id}}" value="{{$alternativa->id}}">
                                 <label class="form-check-label" for="cor1">
                                     {{$alternativa->selecao}}
                                 </label>
@@ -137,7 +137,7 @@
         <hr style="margin-top: 20px;">
     </div>
 
-    <button style="width: 100px" type="button" class="btn btn-success btn-ok" id="btn_salvar" onclick="verificarFormulario(() => confirmarFormAjax('#salvar_form', 'Você tem certeza que todos os dados estão corretos?'))">Salvar</button>
+    <button style="width: 100px" type="button" class="btn btn-success btn-ok" id="btn_salvar" onclick="verificarFormulario(() => confirmarFormAjax('#salvar_form', 'Você tem certeza que todos os dados estão corretos?'), 'Por favor, preencha todos os campos obrigatórios e confirme o aceite de todas as declarações para prosseguir.')">Salvar</button>
     <button style="width: 100px; margin-left: 5px" type="button" class="btn btn-secondary btn-trash" onclick="resetarForm('#salvar_form')">Limpar</button>
 </form>
 

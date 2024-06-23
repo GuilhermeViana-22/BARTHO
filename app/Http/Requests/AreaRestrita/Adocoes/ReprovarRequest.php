@@ -19,7 +19,7 @@ class ReprovarRequest extends AppRequest
     public function rules()
     {
         return [
-            //
+            'observacao' => 'required|string|max:500',
         ];
     }
 }
