@@ -76,7 +76,7 @@ class AdoteController extends Controller
         $adocao->fill($request->all());
 
         $adocao->tipo_animal_id = $animal->tipo_id;
-        $adocao->situacao_id = Situacao::SITUACAO_AGUARDANDO_APROVACAO;
+        $adocao->situacao_id = Situacao::SITUACAO_EM_ANALISE;
 
         /// inicia a transaction
         DB::beginTransaction();
@@ -116,7 +116,12 @@ class AdoteController extends Controller
         $this->aprovarAdocoesEmail(Permissao::ADOCOES_GERENCIAR, $request->get('email'), $adocao->id);
 
         DB::commit();
-        return Retorno::deVoltaSucesso('O pedido de adoção foi realizado com sucesso, e no momento encontra-se na situação AGUARDANDO APROVAÇÃO, em instantes você receberá mais informações via e-mail.');
+
+        /// recupera a situação
+        $situacao = Situacao::find(Situacao::SITUACAO_EM_ANALISE);
+
+        $badge = sprintf("<span class='badge' style='background-color: %s'>%s</span>", $situacao->cor, $situacao->situacao);
+        return Retorno::deVoltaSucesso(sprintf("Muito obrigado! A sua candidatura de adoção foi registrada com sucesso e, neste momento, encontra-se na situação %s. Nosso time de Adoções já foi comunicado e, o mais breve possível, um dos voluntários entrará em contato com você!", $badge));
     }
 
 

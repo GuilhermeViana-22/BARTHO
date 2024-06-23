@@ -19,7 +19,13 @@ class AprovarRequest extends AppRequest
     public function rules()
     {
         return [
-            //
+            'id' => 'required|integer',
+            'termo_adocao' => 'required',
+            'documento_identidade' => 'required',
+            'comprovante_endereco' => 'required',
+            'responsavel_aprovacao' => 'required|string',
+            'foto_adocao' => 'nullable',
+            'observacao' => 'nullable|string|max:500',
         ];
     }
 }

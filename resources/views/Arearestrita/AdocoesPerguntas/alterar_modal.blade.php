@@ -29,8 +29,8 @@
 
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <div class="form-check form-switch">
-                    <input class="form-check-input" @if($pergunta->opcional) checked @endif type="checkbox" role="switch" id="opcional" name="opcional">
-                    <label class="form-check-label" for="adotado">Opcional?</label>
+                    <input class="form-check-input" @if($pergunta->obrigatorio) checked @endif type="checkbox" role="switch" id="obrigatorio" name="obrigatorio">
+                    <label class="form-check-label" for="adotado">Obrigatório?</label>
                 </div>
             </div>
 

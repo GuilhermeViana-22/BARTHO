@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="page-header">
-        <p>Resultados da pesquisa de adoções / {{$tipo->tipo}} </p>
+        <h4>Consultar Candidaturas de Adoções / {{$tipo->tipo}} </h4>
     </div>
 
     <div class="form-panel">
@@ -29,6 +29,11 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3" >
+                    <label for="responsavel_aprovacao" class="form-label">Adoção Aprovada por</label>
+                    <input type="text" class="form-control" id="responsavel_aprovacao" name="responsavel_aprovacao" placeholder="Adoção aprovada por" @if(!empty($session['responsavel_aprovacao'])) value="{{$session['responsavel_aprovacao']}}" @endif>
+                </div>
             </form>
         </div>
         <div class="form-footer">
@@ -51,6 +56,7 @@
             <th scope="col">#</th>
             <th scope="col">Animal</th>
             <th scope="col">Situação</th>
+            <th scope="col">Adoção Aprovada por</th>
             <th scope="col">Opções</th>
         </tr>
         </thead>
@@ -63,15 +69,25 @@
                 <td><span class="badge"
                           style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span>
                 </td>
+                <td> {{$adocao->responsavel_aprovacao}} </td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-eye" onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">Visualizar</button>
+                    <button type="button" class="btn btn-primary btn-eye"
+                            onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">
+                        Visualizar
+                    </button>
 
                     @permissao('adocoes.gerenciar')
 
-                    @if($adocao->situacao_id == \App\Models\AreaRestrita\Situacao::SITUACAO_AGUARDANDO_APROVACAO)
-                        <button type="button" class="btn btn-success btn-ok" onclick="confirmarIrPara('Você tem certeza que deseja aprovar esse pedido de adoção?','{{route('arearestrita.adocoes.aprovar', ['id' => $adocao->id])}}')">Aprovar</button>
+                    @if($adocao->situacao_id == \App\Models\AreaRestrita\Situacao::SITUACAO_EM_ANALISE)
+                        <button type="button" class="btn btn-success btn-ok"
+                                onclick="showModal('{{route('arearestrita.adocoes.aprovarmodal', ['id' => $adocao->id])}}', 'Aprovar pedido de adoção #{{$adocao->id}}')">
+                            Aprovar
+                        </button>
 
-                        <button type="button" class="btn btn-danger btn-times" onclick="confirmarIrPara('Você tem certeza que deseja reprovar esse pedido de adoção?', '{{route('arearestrita.adocoes.reprovar', ['id' => $adocao->id])}}')">Reprovar</button>
+                        <button type="button" class="btn btn-danger btn-times"
+                                onclick="confirmarIrPara('Você tem certeza que deseja reprovar esse pedido de adoção?', '{{route('arearestrita.adocoes.reprovar', ['id' => $adocao->id])}}')">
+                            Reprovar
+                        </button>
                     @endif
 
                     @endpermissao
@@ -85,7 +101,8 @@
 
     <div class="table-footer">
         <p class="resultados">Total de resultados: {{ $adocoes->total() }} </p>
-        <div style="margin-right: 30px;">{{ $adocoes->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}</div>
+        <div
+            style="margin-right: 30px;">{{ $adocoes->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}</div>
     </div>
 
 @endsection

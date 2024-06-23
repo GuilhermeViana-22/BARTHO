@@ -67,7 +67,7 @@
             <th scope="col">Pergunta</th>
             <th scope="col">Tipo de pergunta</th>
             <th scope="col">Situação</th>
-            <th scope="col">Opcional?</th>
+            <th scope="col">Obrigatório?</th>
             <th scope="col">Opções</th>
         </tr>
         </thead>
@@ -79,7 +79,7 @@
                 <td> {{$pergunta->pergunta}} </td>
                 <td> {{$pergunta->tipo_pergunta->tipo}} </td>
                 <td> <span class="badge badge-{{$pergunta->ativo ? 'success' : 'danger'}}"> {{$pergunta->ativo ? "ATIVO" : "INATIVA"}} </span> </td>
-                <td> <span class="badge badge-{{$pergunta->opcional ? 'success' : 'danger'}}"> {{$pergunta->opcional ? "SIM" : "NÃO"}} </span> </td>
+                <td> <span class="badge badge-{{$pergunta->obrigatorio ? 'success' : 'danger'}}"> {{$pergunta->obrigatorio ? "SIM" : "NÃO"}} </span> </td>
                 <td>
                     @permissao('configuracoes.perguntas.gerenciar')
                     <button type="button" class="btn btn-primary btn-edit" onclick="showModal('{{route('arearestrita.configuracoes.adocoesperguntas.alterarmodal', ['id' => $pergunta->id])}}', 'Alteração de pergunta #{{$pergunta->id}}')">Alterar</button>

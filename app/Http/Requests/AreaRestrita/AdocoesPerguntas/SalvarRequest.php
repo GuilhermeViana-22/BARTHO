@@ -14,7 +14,7 @@ class SalvarRequest extends AppRequest
     public function prepareForValidation()
     {
         return $this->merge([
-            'opcional' => (bool) $this->opcional,
+            'obrigatorio' => (bool) $this->obrigatorio,
             'ativo' => (bool) $this->ativo
         ]);
     }
@@ -29,7 +29,7 @@ class SalvarRequest extends AppRequest
         return [
             'pergunta' => 'string|required|max:500',
             'tipo_pergunta_id' => 'integer|required',
-            'opcional' => 'boolean|required',
+            'obrigatorio' => 'boolean|required',
             'ativo' => 'boolean|required',
         ];
     }

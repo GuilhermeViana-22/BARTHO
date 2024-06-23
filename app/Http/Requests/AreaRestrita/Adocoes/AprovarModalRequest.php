@@ -4,7 +4,7 @@ namespace App\Http\Requests\AreaRestrita\Adocoes;
 
 use App\Http\Requests\AppRequest;
 
-class ReprovarRequest extends AppRequest
+class AprovarModalRequest extends AppRequest
 {
 
     public $permissoes = [
@@ -19,7 +19,7 @@ class ReprovarRequest extends AppRequest
     public function rules()
     {
         return [
-            'observacao' => 'required|string|max:500',
+
         ];
     }
 }

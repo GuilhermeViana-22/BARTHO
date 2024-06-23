@@ -14,7 +14,7 @@ class SalvarAlteracaoRequest extends AppRequest
     public function prepareForValidation()
     {
         return $this->merge([
-            'opcional' => (bool) $this->opcional,
+            'obrigatorio' => (bool) $this->obrigatorio,
             'ativo' => (bool) $this->ativo
         ]);
     }
@@ -28,7 +28,7 @@ class SalvarAlteracaoRequest extends AppRequest
     {
         return [
             'id' => 'required',
-            'opcional' => 'boolean|required',
+            'obrigatorio' => 'boolean|required',
             'ativo' => 'boolean|required',
         ];
     }

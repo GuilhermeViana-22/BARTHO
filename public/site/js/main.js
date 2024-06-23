@@ -323,7 +323,7 @@ function ajaxErro(data, callback = function(){}) {
     } else if (data.status === 419) {
         Swal.fire('Página expirada', 'Essa página está expirada, atualize e tente novamente.', 'error').then((r) => r.value ? callback() : null)
     } else if (data.status === 422) {
-        erroValidacao(JSON.parse(data.responseText), callback);
+        erroValidacao();
     } else if (data.status === 500) {
         Swal.fire('Erro interno', 'Ocorreu um erro interno ao processar sua solicitação, tente novamente mais tarde.', 'error').then((r) => r.value ? callback() : null)
     } else {
@@ -333,9 +333,97 @@ function ajaxErro(data, callback = function(){}) {
 
 /**
  * Função para exibição de erros de formulário
- * @param erros
+ * @param texto
  * @param callback
  */
-function erroValidacao(erros, callback = function(){}) {
-    Swal.fire('Alguns campos estão inválidos', 'Corrija os erros e tente novamente.', 'error').then((r) => r.value ? callback() : null)
+function erroValidacao(texto = 'Corrija os erros e tente novamente.', callback = function(){}) {
+    Swal.fire('Alguns campos estão inválidos', texto, 'error').then((r) => r.value ? callback() : null)
+}
+
+/**
+ * Faz a verificação se todos os inputs obrigatórios foram preenchidos
+ *
+ * @param callback
+ * @param texto
+ */
+function verificarFormulario(callback = function(){}, texto = null){
+    let obrigatorios = document.querySelectorAll('.obrigatorio');
+    let obrigatoriosRadio = document.querySelectorAll('.obrigatorio-radio');
+    let obrigatoriosCheckbox = document.querySelectorAll('.obrigatorio-checkbox');
+    let obrigatoriosFile = document.querySelectorAll('.obrigatorio-file');
+
+    let preenchido = true;
+
+    /// verifica os textareas
+    obrigatorios.forEach(function(element) {
+        if (element.value.trim() === '') {
+            preenchido = false;
+            element.classList.add('is-invalid');
+        } else {
+            element.classList.remove('is-invalid');
+        }
+    });
+
+    /// verifica os inputs-radios
+    obrigatoriosRadio.forEach(function(element) {
+        let name = element.name;
+        if (document.querySelector('input[name="'+name+'"]:checked') === null) {
+            preenchido = false;
+            let radios = document.querySelectorAll('input[name="'+name+'"]');
+            radios.forEach(function(radio) {
+                radio.classList.add('is-invalid');
+            });
+        } else {
+            let radios = document.querySelectorAll('input[name="'+name+'"]');
+            radios.forEach(function(radio) {
+                radio.classList.remove('is-invalid');
+            });
+        }
+    });
+
+    obrigatoriosCheckbox.forEach(function(element) {
+        if (!element.checked) {
+            preenchido = false;
+            element.classList.add('is-invalid');
+        } else {
+            element.classList.remove('is-invalid');
+        }
+    });
+
+    obrigatoriosFile.forEach(function(element) {
+        if (element.files.length === 0) {
+            preenchido = false;
+            element.classList.add('is-invalid');
+        } else {
+            element.classList.remove('is-invalid');
+        }
+    });
+
+    if (preenchido) {
+        callback();
+    } else {
+        erroValidacao(texto);
+    }
+}
+
+/**
+ * Método para resetar o formulário
+ *
+ * @param form
+ */
+function resetarForm(form) {
+    Swal.fire({
+        title: 'Limpar formulário?',
+        text: "Ao limpar o formulário todos os dados preenchidos serão perdidos, deseja continuar?",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#222',
+        //cancelButtonColor: '#d33',
+        confirmButtonText: 'Limpar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $(form).trigger("reset");
+        }
+    });
 }

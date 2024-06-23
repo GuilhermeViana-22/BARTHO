@@ -15,7 +15,7 @@ class SituacoesTableSeeder extends Seeder
     public function run()
     {
         Situacao::create([
-            'situacao' => 'Aguardando aprovação',
+            'situacao' => 'Em Análise',
             'cor' => '#F4A460'
         ]);
 
@@ -37,6 +37,11 @@ class SituacoesTableSeeder extends Seeder
         Situacao::create([
             'situacao' => 'Cancelado(a)',
             'cor' => '#BB2A2A'
+        ]);
+
+        Situacao::create([
+            'situacao' => 'Em Processo de Adoção',
+            'cor' => '#F4A460'
         ]);
     }
 }
