@@ -15,9 +15,19 @@
 <section id="arearestrita">
     <!-- Barra de navegação -->
     <div class="navbar">
-        <ul>
-            <li><a href="{{route('home.index')}}">Site</a></li>
-            <li><a class="nav-link btn btn-warning-doe btn-doe-principal btn-exit" onclick="irPara('{{ route('deslogar') }}')" style="color: #fff !important; padding: 5px;"><strong> DESLOGAR </strong></a></li>
+        <ul style="display: flex; align-items: center;">
+            @if(Auth::check())
+                <li style="list-style-type: none; display: flex; align-items: center; margin-right: 10px;">
+                    <div style="width: 10px; height: 10px; background-color: green; border-radius: 50%; margin-right: 5px;"></div>
+                    <span style="color: black; font-weight: bold;">{{ Auth::user()->name }}</span>
+                </li>
+            @endif
+            <li style="margin-right: 20px; margin-left: 20px;"><a href="{{ route('home.index') }}">Site</a></li>
+            <li>
+                <a class="nav-link btn btn-warning-doe btn-doe-principal btn-exit" onclick="irPara('{{ route('deslogar') }}')" style="color: #fff !important; padding: 5px;">
+                    <strong> DESLOGAR </strong>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -53,6 +63,9 @@
             @permissao('usuarios.visualizar,usuarios.gerenciar,permissoes.gerenciar')
             <a href="{{route('arearestrita.usuarios')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Usuários</span></a>
             @endpermissao
+
+{{--            lista negra -> verificar como vai ser feita a permissão--}}
+            <a href="{{route('arearestrita.listanegra')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Lista Negra</span></a>
 
             @permissao('configuracoes.perguntas.visualizar,configuracoes.perguntas.gerenciar')
             <li class="dropdown">

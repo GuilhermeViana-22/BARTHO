@@ -4,6 +4,7 @@ use App\Http\Controllers\AcoesController;
 use App\Http\Controllers\AdoteController;
 use App\Http\Controllers\AreaRestrita\AdocoesController;
 use App\Http\Controllers\AreaRestrita\AdocoesPerguntasController;
+use App\Http\Controllers\AreaRestrita\ListaNegraController;
 use App\Http\Controllers\DoeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
@@ -105,6 +106,12 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         // permissões
         Route::get('/configurarpermissoesmodal/{id}', [UsuariosController::class, 'configurarPermissoesModal'])->name('.configurarpermissoesmodal');
         Route::post('/salvarpermissoes', [UsuariosController::class, 'salvarPermissoes'])->name('.salvarpermissoes');
+    });
+
+
+    Route::prefix('listanegra')->name('.listanegra')->group(function () {
+        // Rota para a lista de usuários
+        Route::get('/', [ListaNegraController::class, 'index']);
     });
 
     // Grupo de rotas para as de configurações

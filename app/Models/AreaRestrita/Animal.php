@@ -14,6 +14,8 @@ class Animal extends Model
     protected $fillable = [
         'nome',
         'tipo_id',
+        'tipo_porte_id',
+        'especial',
         'adotado',
         'castrado',
         'vacinado',
@@ -35,5 +37,10 @@ class Animal extends Model
     public function tipo()
     {
         return $this->belongsTo(TipoAnimal::class);
+    }
+
+    public function porte()
+    {
+        return $this->belongsTo(TipoPorte::class, 'tipo_porte_id');
     }
 }

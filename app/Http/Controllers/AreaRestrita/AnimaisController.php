@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AreaRestrita;
 
+
 use App\Helpers\Retorno;
 use App\Helpers\StorageHelper;
 use App\Http\Controllers\Controller;
@@ -12,16 +13,23 @@ use App\Http\Requests\AreaRestrita\Animais\IncluirRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarAlteracaoRequest;
 use App\Http\Requests\AreaRestrita\Animais\SalvarRequest;
 use App\Http\Requests\AreaRestrita\Animais\VisualizarRequest;
+use App\Mail\SendMail;
 use App\Models\AreaRestrita\Animal;
+use App\Models\AreaRestrita\Permissao;
 use App\Models\AreaRestrita\SexoAnimal;
 use App\Models\AreaRestrita\TipoAnimal;
+
+use App\Models\AreaRestrita\TipoPorte;
+use App\Notifications\AdocoesNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use function Psy\debug;
 
 class AnimaisController extends Controller
 {
@@ -37,20 +45,23 @@ class AnimaisController extends Controller
     {
         $tipo = TipoAnimal::findOrFail($request->get('tipo_id'));
 
-        /// tipos animais
+        // Tipos de animais
         $tipos_animais = TipoAnimal::all();
         $session = Session::get(self::SESSION_INDEX);
 
-        /// faz a busca
+        // Faz a busca
         $animais = Animal::query();
         $animais->where('tipo_id', $request->get('tipo_id'));
 
-        /// faz o filtro
+        // Filtro padrão para animais não adotados
+        $animais->where('adotado', 0);
+
+        // Faz o filtro por nome se existir na sessão
         if (!empty($session['nome'])) {
             $animais->where('nome', 'LIKE', '%' . $session['nome'] . '%');
         }
 
-        /// faz o filtro
+        // Faz o filtro por adoção se existir na sessão
         if (!empty($session['adotado'])) {
             $animais->where('adotado', ($session['adotado'] === "on" ? true : false));
         }
@@ -59,6 +70,7 @@ class AnimaisController extends Controller
 
         return view('Arearestrita.Animais.index', compact('animais', 'tipo', 'tipos_animais', 'session'));
     }
+
 
     /**
      * Método para visualização de um animal
@@ -71,13 +83,15 @@ class AnimaisController extends Controller
     {
         $tipos_animais = TipoAnimal::all();
         $sexos_animais = SexoAnimal::all();
+        $tipos_portes = TipoPorte::all();
+
         try {
             $animal = Animal::findOrFail($id);
         } catch (\Throwable $e) {
             return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
         }
 
-        return view('Arearestrita.Animais.visualizar', compact('tipos_animais', 'animal', 'sexos_animais'));
+        return view('Arearestrita.Animais.visualizar', compact('tipos_animais', 'animal', 'sexos_animais', 'tipos_portes'));
     }
 
     /**
@@ -90,7 +104,8 @@ class AnimaisController extends Controller
     {
         $tipos_animais = TipoAnimal::all();
         $sexos_animais = SexoAnimal::all();
-        return view('Arearestrita.Animais.incluir', compact('tipos_animais', 'sexos_animais'));
+        $tipos_portes = TipoPorte::all();
+        return view('Arearestrita.Animais.incluir', compact('tipos_animais', 'sexos_animais', 'tipos_portes'));
     }
 
     /**
@@ -140,7 +155,6 @@ class AnimaisController extends Controller
         }
 
         DB::commit();
-
         return Retorno::deVoltaSucesso("Animal incluído com sucesso!");
     }
 
@@ -185,7 +199,8 @@ class AnimaisController extends Controller
 
         $tipos_animais = TipoAnimal::all();
         $sexos_animais = SexoAnimal::all();
-        return view('Arearestrita.Animais.alterar', compact('tipos_animais', 'animal', 'sexos_animais'));
+        $tipos_portes = TipoPorte::all();
+        return view('Arearestrita.Animais.alterar', compact('tipos_animais', 'animal', 'sexos_animais', 'tipos_portes'));
     }
 
     /**

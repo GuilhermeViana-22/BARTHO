@@ -173,20 +173,56 @@ a {
     margin-left: 10px;
 }
 
-#arearestrita .logo span{
+#arearestrita .logo span {
     color: #e9cc66;
     margin-right: 20px;
 }
+
 #arearestrita .form-switch .form-check-input {
-    width: 2rem; /* Largura do switch */
-    height: 1rem; /* Altura do switch */
-    border-radius: 1rem; /* Borda arredondada para criar um formato quadrado */
-    background-color: #e9cc66; /* Cor de fundo amarela */
+    width: 3rem; /* Aumentando a largura do switch */
+    height: 1.5rem; /* Aumentando a altura do switch */
+    border-radius: 1.5rem; /* Mantendo a borda arredondada */
+    background-color: red; /* Cor de fundo vermelha quando desativado */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave da cor de fundo */
+    position: relative; /* Necessário para posicionar o círculo dentro do switch */
+}
+
+#arearestrita .form-switch .form-check-input::before {
+    content: '';
+    position: absolute;
+    top: 0.25rem; /* Ajustando a posição do círculo */
+    left: 0.25rem; /* Ajustando a posição do círculo */
+    width: 1rem; /* Largura do círculo */
+    height: 1rem; /* Altura do círculo */
+    background-color: white; /* Cor do círculo */
+    border-radius: 50%; /* Tornando o círculo arredondado */
+    transition: transform 0.3s ease; /* Transição suave para o movimento do círculo */
 }
 
 #arearestrita .form-switch .form-check-input:checked {
-    background-color: #ffc107; /* Cor de fundo amarelo mais claro quando o switch está ativado */
+    background-color: green; /* Cor de fundo verde quando o switch está ativado */
 }
+
+#arearestrita .form-switch .form-check-input:checked::before {
+    transform: translateX(1.5rem); /* Movendo o círculo para a direita quando ativado */
+}
+
+/* Classes de margem personalizadas diretamente no label */
+.form-check-label-custom {
+    margin-top: 0.25rem; /* Aproximadamente igual a 1 vez a unidade padrão de margem de Bootstrap */
+    margin-left: 1.5rem; /* Aproximadamente igual a 4 vezes a unidade padrão de margem de Bootstrap */
+    margin-right: 1.5rem; /* Aproximadamente igual a 4 vezes a unidade padrão de margem de Bootstrap */
+}
+
+#arearestrita .form-switch .form-check-input:checked {
+    background-color: green; /* Cor de fundo verde quando o switch está ativado */
+}
+
+#arearestrita .form-switch .form-check-input:checked::before {
+    transform: translateX(1.5rem); /* Movendo o círculo para a direita quando ativado */
+}
+
+
 
 /* Estilos para tornar o layout responsivo */
 @media screen and (max-width: 768px) {

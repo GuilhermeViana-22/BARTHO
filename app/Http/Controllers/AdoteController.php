@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Retorno;
+use App\Mail\SendMail;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\AdocaoPergunta;
 use App\Models\AreaRestrita\AdocaoResposta;
 use App\Models\AreaRestrita\Animal;
+use App\Models\AreaRestrita\Permissao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;
 use App\Models\AreaRestrita\TipoPergunta;
+use App\Models\AreaRestrita\UserPermissao;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class AdoteController extends Controller
 {
@@ -22,8 +26,15 @@ class AdoteController extends Controller
      */
     public function index()
     {
-        $cachorros  = Animal::where('tipo_id', TipoAnimal::TIPO_CACHORRO)->orderBy('adotado')->paginate(6, ['*'], 'pag_cachorro');
-        $gatos      = Animal::where('tipo_id', TipoAnimal::TIPO_GATO)->orderBy('adotado')->paginate(6, ['*'], 'pag_gato');
+        $cachorros = Animal::where('tipo_id', TipoAnimal::TIPO_CACHORRO)
+            ->with('porte')
+            ->orderBy('adotado')
+            ->paginate(6, ['*'], 'pag_cachorro');
+
+        $gatos = Animal::where('tipo_id', TipoAnimal::TIPO_GATO)
+            ->with('porte')
+            ->orderBy('adotado')
+            ->paginate(6, ['*'], 'pag_gato');
 
         return view('Components.Adote.index', compact('cachorros', 'gatos'));
     }
@@ -102,6 +113,8 @@ class AdoteController extends Controller
             }
         }
 
+        $this->aprovarAdocoesEmail(Permissao::ADOCOES_GERENCIAR, $request->get('email'), $adocao->id);
+
         DB::commit();
 
         /// recupera a situação
@@ -109,5 +122,35 @@ class AdoteController extends Controller
 
         $badge = sprintf("<span class='badge' style='background-color: %s'>%s</span>", $situacao->cor, $situacao->situacao);
         return Retorno::deVoltaSucesso(sprintf("Muito obrigado! A sua candidatura de adoção foi registrada com sucesso e, neste momento, encontra-se na situação %s. Nosso time de Adoções já foi comunicado e, o mais breve possível, um dos voluntários entrará em contato com você!", $badge));
+    }
+
+
+
+    public function aprovarAdocoesEmail($permissaoId, $destinatario, $adocaoId)
+    {
+        //notifica o destinatario que preencheu o formulario
+        if(!empty($destinatario)){
+            $notificacao_destinatario = [
+                'body' => 'Olá, Agradecemos imensamente pelo seu interesse em adotar um de nossos animais. O seu pedido de adoção foi recebido com sucesso e está agora em fase de análise pela equipe da Barthô - Proteção Animal.Este é um passo importante no processo de adoção, e estamos dedicados a garantir que cada animal encontre o lar amoroso que merece. Nossa equipe especializada está revisando cuidadosamente todas as informações fornecidas.Em breve, você receberá mais informações detalhadas via e-mail. Enquanto isso, se tiver alguma dúvida ou precisar de mais informações, não hesite em entrar em contato conosco.Agradecemos novamente por escolher adotar e por fazer parte da nossa missão de proteger e cuidar dos animais.',
+            ];
+            Mail::to($destinatario)->send(SendMail::notificaAdocoesAnaliseEmail($notificacao_destinatario));
+        }
+
+        $permissao = Permissao::find($permissaoId);
+
+        if ($permissao) {
+            $usuarios = $permissao->users()->get(['users.name', 'users.email']);
+            $data = [
+                'body' => 'Nova solicitação de adoção recebida. Verificação urgente pela equipe em andamento.',
+                'adocaoId' => $adocaoId
+            ];
+
+
+            foreach ($usuarios as $usuario) {
+            Mail::to($usuario->email)->send(SendMail::analiseAdocoesEmail($data));
+            }
+        }
+
+
     }
 }

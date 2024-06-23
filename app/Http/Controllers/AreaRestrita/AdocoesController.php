@@ -10,6 +10,7 @@ use App\Http\Requests\AreaRestrita\Adocoes\AprovarModalRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\AprovarRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\ReprovarRequest;
 use App\Http\Requests\AreaRestrita\Adocoes\VisualizarRequest;
+use App\Mail\SendMail;
 use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;
@@ -18,6 +19,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class AdocoesController extends Controller
@@ -191,4 +193,6 @@ class AdocoesController extends Controller
         DB::commit();
         return Retorno::deVoltaSucesso("Adoção reprovada com sucesso!");
     }
+
+
 }

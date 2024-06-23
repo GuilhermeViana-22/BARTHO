@@ -18,9 +18,10 @@ class CreateAnimaisTable extends Migration
             $table->string('nome');
             $table->string('imagem');
             $table->integer('tipo_id');
+            $table->integer('tipo_porte_id');
+            $table->boolean('especial')->default(false);
             $table->string('descricao')->nullable();
             $table->boolean('adotado')->nullable()->default(false);
-
             $table->timestamps();
             $table->softDeletes();
         });
