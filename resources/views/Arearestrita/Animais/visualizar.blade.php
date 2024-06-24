@@ -46,51 +46,50 @@
                     @endforeach
                 </select>
             </div>
-            <div class="row">
-                <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
-                    <label for="sexo_id" class="form-label">Sexo</label>
-                    <select class="form-select" id="sexo_id" disabled name="sexo_id">
-                        @foreach($sexos_animais as $sexo_animal)
-                            <option @if($animal->sexo_id == $sexo_animal->id) selected
-                                    @endif value="{{ $sexo_animal->id }}">{{ $sexo_animal->sexo }}</option>
-                        @endforeach
-                    </select>
-                </div>
 
-                <!-- Castrado -->
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" disabled @if($animal->especial) checked @endif type="checkbox"
-                               id="especial" name="especial">
-                        <label class="form-check-label form-check-label-custom" for="especial">Especial?</label>
-                    </div>
-                </div>
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3" >
+                <label for="sexo_id" class="form-label">Sexo</label>
+                <select class="form-select" id="sexo_id" disabled name="sexo_id">
+                    @foreach($sexos_animais as $sexo_animal)
+                        <option @if($animal->sexo_id == $sexo_animal->id) selected
+                                @endif value="{{ $sexo_animal->id }}">{{ $sexo_animal->sexo }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-                <!-- Castrado -->
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" disabled @if($animal->castrado) checked @endif type="checkbox"
-                               id="castrado" name="castrado">
-                        <label class="form-check-label form-check-label-custom" for="castrado">Castrado?</label>
-                    </div>
+            <!-- Castrado -->
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" disabled @if($animal->especial) checked @endif type="checkbox"
+                           id="especial" name="especial">
+                    <label class="form-check-label form-check-label-custom" for="especial">Especial?</label>
                 </div>
+            </div>
 
-                <!-- Vacinado -->
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" disabled @if($animal->vacinado) checked @endif type="checkbox"
-                               id="vacinado" name="vacinado">
-                        <label class="form-check-label form-check-label-custom" for="vacinado">Vacinado?</label>
-                    </div>
+            <!-- Castrado -->
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" disabled @if($animal->castrado) checked @endif type="checkbox"
+                           id="castrado" name="castrado">
+                    <label class="form-check-label form-check-label-custom" for="castrado">Castrado?</label>
                 </div>
+            </div>
 
-                <!-- Adotado -->
-                <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" disabled @if($animal->adotado) checked @endif type="checkbox"
-                               id="adotado" name="adotado">
-                        <label class="form-check-label form-check-label-custom" for="adotado">Adotado?</label>
-                    </div>
+            <!-- Vacinado -->
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-2 ">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" disabled @if($animal->vacinado) checked @endif type="checkbox"
+                           id="vacinado" name="vacinado">
+                    <label class="form-check-label form-check-label-custom" for="vacinado">Vacinado?</label>
+                </div>
+            </div>
+
+            <!-- Adotado -->
+            <div class="col-12 col-sm-12 col-md-2 col-lg-2 mb-3 ">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" disabled @if($animal->adotado) checked @endif type="checkbox"
+                           id="adotado" name="adotado">
+                    <label class="form-check-label form-check-label-custom" for="adotado">Adotado?</label>
                 </div>
             </div>
 

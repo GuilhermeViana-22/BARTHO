@@ -11,12 +11,12 @@
 
             <input type="hidden" name="id" value="{{$pergunta->id}}">
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="nome" class="form-label">Pergunta</label>
                 <input type="text" class="form-control" id="pergunta" name="pergunta" disabled placeholder="Pergunta que será realizada" value="{{$pergunta->pergunta}}">
             </div>
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="tipo_pergunta_id" class="form-label">Tipo de resposta</label>
 
                 <select class="form-select" id="tipo_pergunta_id" name="tipo_pergunta_id" disabled aria-label="Default select example">

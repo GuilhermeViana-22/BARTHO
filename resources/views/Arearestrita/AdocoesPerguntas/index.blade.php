@@ -35,7 +35,7 @@
                     </select>
                 </div>
 
-                <div class="col col-2 col-lg-2 col-md-6 col-sm-12 mb-3">
+                <div class="col col-12 col-lg-2 col-md-6 col-sm-12 mb-3">
                     <label for="ativo" class="form-label">Somente ativas?</label>
 
                     <select class="form-select" id="adotado" name="ativo">

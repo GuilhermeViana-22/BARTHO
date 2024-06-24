@@ -13,20 +13,20 @@
             <p style="margin-left: 15px; color: ghostwhite"> Dados da adoção </p>
         </div>
         <div class="form-body row">
-            <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                 <label for="cpf" class="form-label">Data de cadastro</label>
                 <input type="text" class="form-control obrigatorio" id="cpf" name="cpf" disabled
                        value="{{ \Carbon\Carbon::parse($adocao->created_at)->format('d/m/Y')}}"
                        placeholder="Informe seu CPF">
             </div>
 
-            <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                 <label for="cpf" class="form-label">Animal</label>
                 <input type="text" class="form-control obrigatorio" id="cpf" name="cpf" disabled
                        value="{{ $adocao->animal->nome }}" placeholder="Informe seu CPF">
             </div>
 
-            <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                 <label for="cpf" class="form-label">Espécie do animal</label>
                 <input type="text" class="form-control obrigatorio" id="cpf" name="cpf" disabled
                        value="{{ $adocao->animal->tipo->tipo }}" placeholder="Informe seu CPF">
@@ -48,7 +48,7 @@
             @endif
 
             @if(!empty($adocao->termo_adocao))
-                <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+                <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                     <label for="termo_adocao" class="form-label">Termo de Adoção</label>
                     <br>
                     <input class="form-control" disabled type="file" name="termo_adocao" id="termo_adocao"
@@ -57,7 +57,7 @@
             @endif
 
             @if(!empty($adocao->documento_identidade))
-                <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+                <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                     <label for="documento_identidade" class="form-label">Documento de Identidade (com Foto) </label>
                     <br>
                     <input class="form-control" disabled type="file" name="documento_identidade" id="documento_identidade"
@@ -66,7 +66,7 @@
             @endif
 
             @if(!empty($adocao->comprovante_endereco))
-                <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+                <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                     <label for="comprovante_endereco" class="form-label">Comprovante de Endereço</label>
                     <br>
                     <input class="form-control" disabled type="file" name="comprovante_endereco" id="comprovante_endereco"
@@ -75,7 +75,7 @@
             @endif
 
             @if(!empty($adocao->foto_adocao))
-                <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+                <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                     <label for="foto_adocao" class="form-label">Foto da Adoção</label>
                     <br>
                     <input class="form-control" disabled type="file" name="foto_adocao" id="foto_adocao"
@@ -91,31 +91,31 @@
             <p style="margin-left: 15px; color: ghostwhite"> Dados cadastrais </p>
         </div>
         <div class="form-body row">
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="nome" class="form-label">Nome completo <span style="color: red">*</span></label>
                 <input type="text" class="form-control obrigatorio" value="{{$adocao->nome}}" disabled id="nome"
                        name="nome" placeholder="Informe seu nome completo">
             </div>
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="email" class="form-label">E-mail <span style="color: red">*</span></label>
                 <input type="email" class="form-control obrigatorio" disabled id="email" name="email"
                        value="{{$adocao->email}}" placeholder="Informe seu e-mail">
             </div>
 
-            <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                 <label for="cpf" class="form-label">CPF <span style="color: red">*</span></label>
                 <input type="text" class="form-control obrigatorio" id="cpf" name="cpf" disabled
                        value="{{$adocao->cpf}}" placeholder="Informe seu CPF">
             </div>
 
-            <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                 <label for="telefone" class="form-label">Telefone <span style="color: red">*</span></label>
                 <input type="text" class="form-control obrigatorio" value="{{$adocao->telefone}}" disabled id="telefone"
                        name="telefone" placeholder="Informe seu telefone">
             </div>
 
-            <div class="col col-4 col-lg-4 col-md-4 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-4 col-md-4 col-sm-12 mb-3">
                 <label for="idade" class="form-label">Idade <span style="color: red">*</span></label>
                 <input type="number" min="1" max="99" class="form-control obrigatorio" disabled
                        value="{{$adocao->idade}}" id="idade" name="idade" placeholder="Informe sua idade">

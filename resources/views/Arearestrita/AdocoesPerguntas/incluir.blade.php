@@ -22,12 +22,12 @@
 
             @csrf
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="nome" class="form-label">Pergunta</label>
                 <input type="text" class="form-control" id="pergunta" name="pergunta" placeholder="Pergunta que será realizada">
             </div>
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="tipo_pergunta_id" class="form-label">Tipo de resposta</label>
 
                 <select class="form-select" id="tipo_pergunta_id" name="tipo_pergunta_id" aria-label="Default select example">
@@ -41,14 +41,14 @@
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="obrigatorio" name="obrigatorio">
-                    <label class="form-check-label" for="obrigatorio">Obrigatório?</label>
+                    <label class="form-check-label form-check-label-custom" for="obrigatorio">Obrigatório?</label>
                 </div>
             </div>
 
             <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="ativo" checked name="ativo">
-                    <label class="form-check-label  form-check-label-custom" for="ativo">Ativa?</label>
+                    <label class="form-check-label form-check-label-custom" for="ativo">Ativa?</label>
                 </div>
             </div>
         </form>

@@ -75,7 +75,7 @@
                     @endpermissao
 
                     @permissao('configuracoes.listanegra.visualizar,configuracoes.listanegra.gerenciar')
-                    <a href="{{route('arearestrita.listanegra')}}"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Lista Negra</span></a>
+                    <a href="{{route('arearestrita.configuracoes.listanegra')}}"> <i class="fa fa-address-book-o" aria-hidden="true"></i> <span>Lista Negra</span></a>
                     @endpermissao
                 </ul>
             </li>

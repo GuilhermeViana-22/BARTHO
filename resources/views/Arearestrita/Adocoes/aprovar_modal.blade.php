@@ -14,25 +14,25 @@
 
             <input type="hidden" name="id" value="{{$adocao->id}}">
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="termo_adocao" class="form-label">Termo de Adoção</label>
                 <br>
                 <input class="form-control obrigatorio-file" type="file" accept="image/*" name="termo_adocao" id="termo_adocao">
             </div>
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="documento_identidade" class="form-label">Documento de Identidade (com Foto) </label>
                 <br>
                 <input class="form-control obrigatorio-file" type="file" accept="image/*" name="documento_identidade" id="documento_identidade">
             </div>
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="comprovante_endereco" class="form-label">Comprovante de Endereço</label>
                 <br>
                 <input class="form-control obrigatorio-file" accept="image/*" type="file" name="comprovante_endereco" id="comprovante_endereco">
             </div>
 
-            <div class="col col-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+            <div class="col col-12 col-lg-6 col-md-6 col-sm-12 mb-3">
                 <label for="foto_adocao" class="form-label">Foto da Adoção</label>
                 <br>
                 <input class="form-control" accept="image/*" type="file" name="foto_adocao" id="foto_adocao">

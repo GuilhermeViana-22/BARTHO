@@ -101,6 +101,7 @@ a {
 #arearestrita .sidebar ul {
     list-style-type: none;
     padding: 0;
+    margin-bottom: 0;
 }
 
 #arearestrita .sidebar ul a{
@@ -236,12 +237,25 @@ a {
         margin-left: 0; /* Reseta a margem para que o conteúdo principal ocupe toda a largura */
     }
 
+    #arearestrita .navbar {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-bottom: 0;
+    }
+
     #arearestrita .navbar ul {
+        display: flex;
+        flex-direction: column;
         list-style-type: none;
         margin: 0;
         padding: 0;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #arearestrita .navbar ul li {
+        padding-bottom: 10px;
+        margin-right: 0;
     }
 
     #arearestrita .logo {

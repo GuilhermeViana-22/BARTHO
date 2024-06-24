@@ -108,12 +108,6 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::post('/salvarpermissoes', [UsuariosController::class, 'salvarPermissoes'])->name('.salvarpermissoes');
     });
 
-
-    Route::prefix('listanegra')->name('.listanegra')->group(function () {
-        // Rota para a lista de usuários
-        Route::get('/', [ListaNegraController::class, 'index']);
-    });
-
     // Grupo de rotas para as de configurações
     Route::prefix('configuracoes')->name('.configuracoes')->group(function () {
 
@@ -132,6 +126,12 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
             Route::get('/incluiralternativamodal/{id}', [AdocoesPerguntasController::class, 'incluirAlternativaModal'])->name('.incluiralternativamodal');
             Route::post('/salvaralternativa', [AdocoesPerguntasController::class, 'salvarAlternativa'])->name('.salvaralternativa');
             Route::get('/excluiralternativa/{id}', [AdocoesPerguntasController::class, 'excluirAlternativa'])->name('.excluiralternativa');
+        });
+
+        /// Grupo de rotas para a lista negra
+        Route::prefix('listanegra')->name('.listanegra')->group(function () {
+            // Rota para a lista de usuários
+            Route::get('/', [ListaNegraController::class, 'index']);
         });
     });
 });
