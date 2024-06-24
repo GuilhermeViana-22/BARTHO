@@ -60,7 +60,7 @@
                 <div class="card-header">
                     <h4>
                         <span class="fa fa-list"></span>
-                        <b>Cadastrados</b>
+                        <b>Animais</b>
                     </h4>
                 </div>
                 <div class="card-body">

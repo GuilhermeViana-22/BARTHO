@@ -6,7 +6,7 @@
 @section('content')
 
     <div class="page-header">
-        <p>Resultados da pesquisa de perguntas </p>
+        <h4>Consultar Perguntas para Adoção </h4>
 
         @permissao('configuracoes.perguntas.gerenciar')
         <button type="button" class="btn btn-success btn-new" onclick="irPara('{{route('arearestrita.configuracoes.adocoesperguntas.incluir')}}')">
