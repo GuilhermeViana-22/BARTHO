@@ -82,9 +82,14 @@
     <div class="header">
         <h1>Barthô - Proteção Animal</h1>
     </div>
-    <div class="image-container">
-        <img style="margin-right: auto; margin-left: auto; display: block" src="{{ asset('img/ativo2.png') }}" alt="Logo">
-    </div>
+    <table>
+        <tr>
+            <td class="image-container" align="center" style="padding: 20px 0;">
+                <img style="margin-right: auto; margin-left: auto; display: block" src="{{ asset('img/ativo2.png') }}" alt="Logo">
+            </td>
+        </tr>
+    </table>
+
     <div class="content">
         @yield('conteudo')
      </div>
