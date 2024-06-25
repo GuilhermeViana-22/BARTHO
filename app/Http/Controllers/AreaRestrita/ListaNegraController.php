@@ -9,16 +9,33 @@ use App\Http\Requests\ListaNegraAlterarRequest;
 use App\Http\Requests\ListaNegraExcluirRequest;
 use App\Models\AreaRestrita\ListaNegra;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class ListaNegraController extends Controller
 {
+    const SESSION_INDEX = "SESSION_INDEX_LISTA_NEGRA";
     /***
      * método para lista cpf inclusos na lista negra
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $listas = ListaNegra::all();
+
+        $session = Session::get(self::SESSION_INDEX);
+
+        // Faz a busca
+        $listas = ListaNegra::query();
+
+        // Faz o filtro por nome se existir na sessão
+        if (!empty($session['nome'])) {
+            $listas->where('nome', 'LIKE', '%' . $session['nome'] . '%');
+        }
+
+        if (!empty($session['cpf'])) {
+            $listas->where('cpf', 'LIKE', '%' . $session['cpf'] . '%');
+        }
+
+        $listas = $listas->paginate();
 
         return view('Arearestrita.ListaNegra.index', compact('listas'));
     }

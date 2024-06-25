@@ -12,6 +12,7 @@
     <div class="form-panel">
         <div class="form-body row">
             <form class="row" id="form_filtro_lista_index">
+                <input type="hidden" name="session_name" value="{{\App\Http\Controllers\AreaRestrita\ListaNegraController::SESSION_INDEX}}">
                 @csrf
                 <div class="col col-12 col-lg-4 col-md-6 col-sm-12 mb-3">
                     <label for="nome" class="form-label">Nome</label>
@@ -25,7 +26,7 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
-                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_lista_index', '{{route('arearestrita.session.limpar')}}')">Buscar</button>
+                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_lista_index', '{{route('arearestrita.session.salvar')}}')">Buscar</button>
                 <button type="button" class="btn btn-secondary btn-trash" onclick="limparFiltro('#form_filtro_lista_index', '{{route('arearestrita.session.limpar')}}')">Limpar</button>
             </div>
         </div>
