@@ -132,6 +132,7 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::prefix('listanegra')->name('.listanegra')->group(function () {
             // Rota para a lista de usuários
             Route::get('/', [ListaNegraController::class, 'index']);
+            Route::post('/incluir', [ListaNegraController::class, 'incluir'])->name('.incluir');
         });
     });
 });
