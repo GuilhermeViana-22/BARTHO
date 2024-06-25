@@ -132,7 +132,10 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
         Route::prefix('listanegra')->name('.listanegra')->group(function () {
             // Rota para a lista de usuários
             Route::get('/', [ListaNegraController::class, 'index']);
-            Route::post('/incluir', [ListaNegraController::class, 'incluir'])->name('.incluir');
+            Route::get('/incluir', [ListaNegraController::class, 'incluir'])->name('.incluir');
+            Route::post('/salvar', [ListaNegraController::class, 'salvar'])->name('.salvar');
+            Route::post('/alterar', [ListaNegraController::class, 'alterar'])->name('.alterar');
+            Route::post('/excluir', [ListaNegraController::class, 'excluir'])->name('.excluir');
         });
     });
 });

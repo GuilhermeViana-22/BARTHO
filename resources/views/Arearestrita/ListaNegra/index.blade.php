@@ -11,7 +11,7 @@
 
     <div class="form-panel">
         <div class="form-body row">
-            <form class="row" id="form_filtro_animais_index">
+            <form class="row" id="form_filtro_lista_index">
                 @csrf
                 <div class="col col-12 col-lg-4 col-md-6 col-sm-12 mb-3">
                         <label for="nome" class="form-label">CPF</label>
@@ -21,14 +21,14 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
-                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_animais_index', '{{route('arearestrita.session.salvar')}}')">Buscar</button>
-                <button type="button" class="btn btn-secondary btn-trash" onclick="limparFiltro('#form_filtro_animais_index', '{{route('arearestrita.session.limpar')}}')">Limpar</button>
+                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_lista_index', '{{route('arearestrita.configuracoes.listanegra.index')}}')">Buscar</button>
+                <button type="button" class="btn btn-secondary btn-trash" onclick="limparFiltro('#form_filtro_lista_index', '{{route('arearestrita.session.limpar')}}')">Limpar</button>
             </div>
         </div>
     </div>
 
 
-    <table class="table table-striped">
+    <table class="table table-dark">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -39,10 +39,15 @@
         </thead>
         <tbody>
 
-        @forelse ($listas as $lsita)
+        @forelse ($listas as $lista)
             <tr>
-                <td scope="row"> {{$lsita->id}} </td>
-                <td> {{$lsita->cpf}} </td>
+                <td scope="row"> {{$lista->id}} </td>
+                <td scope="row"> {{$lista->nome}} </td>
+                <td> {{$lista->cpf}} </td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.configuracoes.listanegra.alterar', ['id' => $lista->id])}}')">Alterar</button>
+                    <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.configuracoes.listanegra.excluir', ['id' => $lista->id])}}')">Excluir</button>
+                </td>
             </tr>
         @empty
             <tr>

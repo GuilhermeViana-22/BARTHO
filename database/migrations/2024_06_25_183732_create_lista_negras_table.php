@@ -18,6 +18,7 @@ class CreateListaNegrasTable extends Migration
             $table->string('nome');
             $table->string('cpf');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

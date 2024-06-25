@@ -10,4 +10,9 @@ class ListaNegra extends Model
     use HasFactory;
 
     protected $table = 'lista_negras';
+
+    protected $fillable = [
+        'nome',
+        'cpf',
+    ];
 }
