@@ -14,6 +14,10 @@
             <form class="row" id="form_filtro_lista_index">
                 @csrf
                 <div class="col col-12 col-lg-4 col-md-6 col-sm-12 mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="{{$session['nome'] ?? null}}">
+                </div>
+                <div class="col col-12 col-lg-4 col-md-6 col-sm-12 mb-3">
                         <label for="nome" class="form-label">CPF</label>
                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" value="{{$session['nome'] ?? null}}">
                 </div>
@@ -21,7 +25,7 @@
         </div>
         <div class="form-footer">
             <div class="form-content">
-                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_lista_index', '{{route('arearestrita.configuracoes.listanegra.index')}}')">Buscar</button>
+                <button type="button" class="btn btn-primary btn-lupa" onclick="buscarFiltro('#form_filtro_lista_index', '{{route('arearestrita.session.limpar')}}')">Buscar</button>
                 <button type="button" class="btn btn-secondary btn-trash" onclick="limparFiltro('#form_filtro_lista_index', '{{route('arearestrita.session.limpar')}}')">Limpar</button>
             </div>
         </div>
@@ -45,7 +49,7 @@
                 <td scope="row"> {{$lista->nome}} </td>
                 <td> {{$lista->cpf}} </td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.configuracoes.listanegra.alterar', ['id' => $lista->id])}}')">Alterar</button>
+{{--                    <button type="button" class="btn btn-primary btn-edit" onclick="irPara('{{route('arearestrita.configuracoes.listanegra.alterar', ['id' => $lista->id])}}')">Alterar</button>--}}
                     <button type="button" class="btn btn-danger btn-trash" onclick="confirmarIrPara('Deseja deletar esse registro?', '{{route('arearestrita.configuracoes.listanegra.excluir', ['id' => $lista->id])}}')">Excluir</button>
                 </td>
             </tr>

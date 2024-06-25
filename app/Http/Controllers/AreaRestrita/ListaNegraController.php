@@ -8,9 +8,7 @@ use App\Http\Requests\AreaRestrita\ListaNegraSalvarRequest;
 use App\Http\Requests\ListaNegraAlterarRequest;
 use App\Http\Requests\ListaNegraExcluirRequest;
 use App\Models\AreaRestrita\ListaNegra;
-use http\Env\Request;
 use Illuminate\Support\Facades\DB;
-use function Psy\debug;
 
 class ListaNegraController extends Controller
 {
@@ -18,7 +16,7 @@ class ListaNegraController extends Controller
      * método para lista cpf inclusos na lista negra
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
         $listas = ListaNegra::all();
 

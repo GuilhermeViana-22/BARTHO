@@ -134,8 +134,7 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
             Route::get('/', [ListaNegraController::class, 'index']);
             Route::get('/incluir', [ListaNegraController::class, 'incluir'])->name('.incluir');
             Route::post('/salvar', [ListaNegraController::class, 'salvar'])->name('.salvar');
-            Route::post('/alterar', [ListaNegraController::class, 'alterar'])->name('.alterar');
-            Route::post('/excluir', [ListaNegraController::class, 'excluir'])->name('.excluir');
+            Route::get('/excluir', [ListaNegraController::class, 'excluir'])->name('.excluir');
         });
     });
 });
