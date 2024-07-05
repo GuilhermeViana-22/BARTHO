@@ -8,6 +8,7 @@ use App\Models\AreaRestrita\Adocao;
 use App\Models\AreaRestrita\AdocaoPergunta;
 use App\Models\AreaRestrita\AdocaoResposta;
 use App\Models\AreaRestrita\Animal;
+use App\Models\AreaRestrita\ListaNegra;
 use App\Models\AreaRestrita\Permissao;
 use App\Models\AreaRestrita\Situacao;
 use App\Models\AreaRestrita\TipoAnimal;
@@ -65,6 +66,7 @@ class AdoteController extends Controller
      */
     public function salvar( Request $request )
     {
+
         try {
             $animal = Animal::findOrFail($request->get('animal_id'));
         } catch ( \Exception $e ) {
@@ -113,7 +115,7 @@ class AdoteController extends Controller
             }
         }
 
-        $this->aprovarAdocoesEmail(Permissao::ADOCOES_GERENCIAR, $request->get('email'), $adocao->id);
+        $this->aprovarAdocoesEmail(Permissao::ADOCOES_GERENCIAR, $request->get('email'), $request->get('cpf'), $adocao->id, $animal->id );
 
         DB::commit();
 
@@ -126,31 +128,60 @@ class AdoteController extends Controller
 
 
 
-    public function aprovarAdocoesEmail($permissaoId, $destinatario, $adocaoId)
+    public function aprovarAdocoesEmail($permissaoId, $destinatario, $cpf, $adocaoId, $animalId)
     {
-        //notifica o destinatario que preencheu o formulario
-        if(!empty($destinatario)){
-            $notificacao_destinatario = [
-                'body' => 'Olá, Agradecemos imensamente pelo seu interesse em adotar um de nossos animais. O seu pedido de adoção foi recebido com sucesso e está agora em fase de análise pela equipe da Barthô - Proteção Animal.Este é um passo importante no processo de adoção, e estamos dedicados a garantir que cada animal encontre o lar amoroso que merece. Nossa equipe especializada está revisando cuidadosamente todas as informações fornecidas.Em breve, você receberá mais informações detalhadas via e-mail. Enquanto isso, se tiver alguma dúvida ou precisar de mais informações, não hesite em entrar em contato conosco.Agradecemos novamente por escolher adotar e por fazer parte da nossa missão de proteger e cuidar dos animais.',
-            ];
-            Mail::to($destinatario)->send(SendMail::notificaAdocoesAnaliseEmail($notificacao_destinatario));
-        }
+
+//        if (!empty($destinatario)) {
+//            $mensagem = "Olá,\nAgradecemos imensamente pelo seu interesse em adotar um de nossos animais.\nO seu pedido de adoção foi recebido com sucesso e está agora em fase de análise pela equipe da Barthô - Proteção Animal.\nEste é um passo importante no processo de adoção, e estamos dedicados a garantir que cada animal encontre o lar amoroso que merece. Nossa equipe especializada está revisando cuidadosamente todas as informações fornecidas.\nEm breve, você receberá mais informações detalhadas via e-mail. Enquanto isso, se tiver alguma dúvida ou precisar de mais informações, não hesite em entrar em contato conosco.";
+//
+//            $mensagem = nl2br($mensagem);
+//
+//            $notificacao_destinatario = [
+//                'body' => $mensagem
+//            ];
+//
+//            Mail::to($destinatario)->send(SendMail::notificaAdocoesAnaliseEmail($notificacao_destinatario));
+//        }
 
         $permissao = Permissao::find($permissaoId);
 
         if ($permissao) {
             $usuarios = $permissao->users()->get(['users.name', 'users.email']);
+
+            $animal = Animal::findOrFail($animalId);
+            $animalName = $animal->nome; // Nome do animal
+            $applicationId =  $adocaoId; // ID da candidatura
+
+            // Verifica se o CPF está na lista negra
+            $listaNegra = ListaNegra::where('cpf', $cpf)->first();
+
+            $cpf_na_lista_negra = false;
+            if ($listaNegra) {
+                $cpf_na_lista_negra = true;
+            }
+
+            // Constrói a mensagem
+            $mensagem = "Olá!\n\n" .
+                "Foi registrada uma nova Candidatura de Adoção para o animal <strong>$animalName</strong>.\n\n" .
+                "Clique no link abaixo para analisar o Formulário e dar sequência no processo de adoção.\n\n" .
+                "<strong>LEMBRE-SE:</strong> caso designe a responsabilidade deste processo para você, não se esqueça de alterar a situação da Candidatura para <strong>Em Processo de Adoção</strong>.\n\n" .
+                "Avise também o Time de Adoções para que todos possam acompanhar os processos em andamento!";
+
+            // Adiciona o índice 'cpf_na_lista_negra' ao array $data, se necessário
             $data = [
-                'body' => 'Nova solicitação de adoção recebida. Verificação urgente pela equipe em andamento.',
+                'subject' => "ATENÇÃO! Nova Candidatura de Adoção Registrada ($applicationId - Animal: $animalName)",
+                'body' => $mensagem,
                 'adocaoId' => $adocaoId
             ];
 
+            if ($cpf_na_lista_negra) {
+                $data['cpf_na_lista_negra'] = $cpf;
+            }
 
             foreach ($usuarios as $usuario) {
-            Mail::to($usuario->email)->send(SendMail::analiseAdocoesEmail($data));
+                Mail::to($usuario->email)->send(SendMail::analiseAdocoesEmail($data));
             }
         }
-
-
     }
+
 }

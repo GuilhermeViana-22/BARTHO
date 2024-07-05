@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use function Psy\debug;
 
 class SendMail extends Mailable
 {
@@ -45,12 +46,21 @@ class SendMail extends Mailable
      */
     public static function analiseAdocoesEmail($data)
     {
-        return new static([
-            'subject' => 'Assunto do E-mail para Aprovação de Adoções',
+        $viewData = [
+            'subject' => $data['subject'],
             'view' => 'emails.analise_adocao',
-            'data' => $data,
-        ]);
+            'body' => $data['body'], // Passa diretamente a mensagem como 'body'
+            'adocaoId' => $data['adocaoId'], // Se necessário, passe outros dados separadamente
+        ];
+
+
+        if (isset($data['cpf_na_lista_negra'])) {
+            $viewData['cpf_na_lista_negra'] = $data['cpf_na_lista_negra'];
+        }
+
+        return new static($viewData);
     }
+
 
     /**
      * Método estático para enviar e-mail específico para notificar que a solicitação de adoções vai ser vista pela equipe do Bartho.

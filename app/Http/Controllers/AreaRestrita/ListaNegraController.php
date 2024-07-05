@@ -4,9 +4,9 @@ namespace App\Http\Controllers\AreaRestrita;
 
 use App\Helpers\Retorno;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AreaRestrita\ListaNegraSalvarRequest;
-use App\Http\Requests\ListaNegraAlterarRequest;
+
 use App\Http\Requests\ListaNegraExcluirRequest;
+use App\Http\Requests\ListaNegraSalvarRequest;
 use App\Models\AreaRestrita\ListaNegra;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -70,13 +70,6 @@ class ListaNegraController extends Controller
         return Retorno::deVoltaSucesso("CPF incluído na lista negra!");
     }
 
-    /***
-     * Método para realizar alteração do cpf do indiviuio cadastrado na lista negra
-     */
-    public function alterar(ListaNegraAlterarRequest $request)
-    {
-
-    }
 
     /***
      * método para realizar a aexclusão do pcf da lista negra
