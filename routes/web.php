@@ -128,10 +128,11 @@ Route::middleware(['auth'])->prefix('arearestrita')->name('arearestrita')->group
             Route::get('/excluiralternativa/{id}', [AdocoesPerguntasController::class, 'excluirAlternativa'])->name('.excluiralternativa');
         });
 
-        /// Grupo de rotas para a lista negra
         Route::prefix('listanegra')->name('.listanegra')->group(function () {
-            // Rota para a lista de usuários
             Route::get('/', [ListaNegraController::class, 'index']);
+            Route::get('/incluir', [ListaNegraController::class, 'incluir'])->name('.incluir');
+            Route::post('/salvar', [ListaNegraController::class, 'salvar'])->name('.salvar');
+            Route::get('/excluir', [ListaNegraController::class, 'excluir'])->name('.excluir');
         });
     });
 });
