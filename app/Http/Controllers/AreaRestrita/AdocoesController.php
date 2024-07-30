@@ -49,7 +49,8 @@ class AdocoesController extends Controller
         // Faz a busca com carregamento antecipado dos relacionamentos
         $adocoes = Adocao::query()
             ->with(['animal', 'situacao']) // Carrega os relacionamentos necessários
-            ->where('tipo_animal_id', $request->get('tipo_id'));
+            ->where('tipo_animal_id', $request->get('tipo_id'))
+            ->whereNull('deleted_at'); // Adiciona a condição para verificar soft deletes
 
         // Aplica os filtros conforme as condições da sessão
         if (!empty($session['situacao_id'])) {

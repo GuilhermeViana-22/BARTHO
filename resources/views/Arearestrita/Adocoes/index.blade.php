@@ -96,9 +96,9 @@
                 </td>
             </tr>
         @empty
-            <tr>
-                <td colspan="5">Nenhum resultado encontrado.</td>
-            </tr>
+{{--            <tr>--}}
+{{--                <td colspan="5">Nenhum resultado encontrado.</td>--}}
+{{--            </tr>--}}
         @endforelse
         </tbody>
     </table>
