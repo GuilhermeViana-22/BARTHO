@@ -60,15 +60,12 @@
             <th scope="col">Opções</th>
         </tr>
         </thead>
-        <tbody>
-
-        @foreach ($adocoes as $adocao)
+        <tbody id="adocoesTableBody">
+        @forelse ($adocoes as $adocao)
             <tr>
                 <td scope="row"> {{$adocao->id}} </td>
                 <td> {{$adocao->animal->nome}} </td>
-                <td><span class="badge"
-                          style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span>
-                </td>
+                <td><span class="badge" style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span></td>
                 <td> {{$adocao->responsavel_aprovacao}} </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-eye"
@@ -94,15 +91,19 @@
 
                 </td>
             </tr>
-        @endforeach
-
+        @empty
+{{--        SEM RESULTADOS--}}
+        @endforelse
         </tbody>
     </table>
 
     <div class="table-footer">
-        <p class="resultados">Total de resultados: {{ $adocoes->total() }} </p>
-        <div
-            style="margin-right: 30px;">{{ $adocoes->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}</div>
+        <p id="totalResultados" class="resultados">
+            Total de resultados: {{ $adocoes->total() }}
+        </p>
+        <div style="margin-right: 30px;">
+            {{ $adocoes->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}
+        </div>
     </div>
 
 @endsection
