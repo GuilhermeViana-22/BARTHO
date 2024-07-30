@@ -32,34 +32,41 @@ class AdocoesController extends Controller
      * @param AdocoesRequest $request
      * @return Application|Factory|View
      */
-    public function index( AdocoesRequest $request )
+    public function index(AdocoesRequest $request)
     {
-        $tipo = TipoAnimal::findOrFail( $request->get('tipo_id') );
+        // Busca o tipo de animal selecionado
+        $tipo = TipoAnimal::findOrFail($request->get('tipo_id'));
 
-        /// tipos animais
+        // Obtém todos os tipos de animais
         $tipos_animais = TipoAnimal::all();
+
+        // Obtém a sessão atual
         $session = Session::get(self::SESSION_INDEX);
 
-        /// situações
+        // Obtém todas as situações
         $situacoes = Situacao::all();
 
-        /// faz a busca
-        $adocoes = Adocao::query();
-        $adocoes->where('tipo_animal_id', $request->get('tipo_id'));
+        // Faz a busca com carregamento antecipado dos relacionamentos
+        $adocoes = Adocao::query()
+            ->with(['animal', 'situacao']) // Carrega os relacionamentos necessários
+            ->where('tipo_animal_id', $request->get('tipo_id'));
 
-        /// faz o filtro
-        if(!empty($session['situacao_id'])){
+        // Aplica os filtros conforme as condições da sessão
+        if (!empty($session['situacao_id'])) {
             $adocoes->where('situacao_id', $session['situacao_id']);
         }
 
-        if(!empty($session['responsavel_aprovacao'])){
+        if (!empty($session['responsavel_aprovacao'])) {
             $adocoes->where('responsavel_aprovacao', 'LIKE', '%'.$session['responsavel_aprovacao'].'%');
         }
 
+        // Pagina os resultados
         $adocoes = $adocoes->paginate();
 
+        // Retorna a view com os dados
         return view('Arearestrita.Adocoes.index', compact('adocoes', 'tipo', 'tipos_animais', 'situacoes', 'session'));
     }
+
 
     public function visualizar(VisualizarRequest $request, $id){
 
