@@ -167,18 +167,26 @@ class AnimaisController extends Controller
     public function excluir(ExcluirRequest $request)
     {
         try {
+            // Encontre o animal pelo ID
             $animal = Animal::findOrFail($request->get('id'));
         } catch (\Throwable $e) {
             return Retorno::deVoltaFindOrFail("Houve um erro ao tentar recuperar as informações.");
         }
 
         try {
-            $animal->deleteOrFail();
+            // Verifique se o animal tem uma doação associada
+            if ($animal->doacao) {
+                // Exclua a doação associada
+                $animal->doacao->delete();
+            }
+
+            // Exclua o animal (soft delete)
+            $animal->delete();
         } catch (\Throwable $e) {
             return Retorno::deVoltaErro("Houve um erro ao tentar excluir as informações.");
         }
 
-        return Retorno::deVoltaSucesso("Animal excluído com sucesso!");
+        return Retorno::deVoltaSucesso("Animal e doação excluídos com sucesso!");
     }
 
     /**
