@@ -64,9 +64,13 @@
         @forelse ($adocoes as $adocao)
             <tr>
                 <td scope="row"> {{$adocao->id}} </td>
-                <td> {{$adocao->animal->nome}} </td>
-                <td><span class="badge" style="background-color: {{$adocao->situacao->cor}}"> {{$adocao->situacao->situacao}} </span></td>
-                <td> {{$adocao->responsavel_aprovacao}} </td>
+                <td> {{ $adocao->animal->nome ?? 'Desconhecido' }} </td>
+                <td>
+                <span class="badge" style="background-color: {{ $adocao->situacao->cor ?? '#000' }}">
+                    {{ $adocao->situacao->situacao ?? 'Indefinido' }}
+                </span>
+                </td>
+                <td> {{ $adocao->responsavel_aprovacao ?? 'Não definido' }} </td>
                 <td>
                     <button type="button" class="btn btn-primary btn-eye"
                             onclick="irPara('{{route('arearestrita.adocoes.visualizar', ['id' => $adocao->id])}}')">
@@ -92,7 +96,9 @@
                 </td>
             </tr>
         @empty
-{{--        SEM RESULTADOS--}}
+            <tr>
+                <td colspan="5">Nenhum resultado encontrado.</td>
+            </tr>
         @endforelse
         </tbody>
     </table>
@@ -105,5 +111,6 @@
             {{ $adocoes->appends(['tipo_id' => request()->get('tipo_id')])->links('vendor.pagination.custom') }}
         </div>
     </div>
+
 
 @endsection
